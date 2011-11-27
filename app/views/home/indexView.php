@@ -5,7 +5,7 @@
     <div class="main">
         <div class="navigation">
             <ul class="mainNav">
-                <li><a class="home" href="#">h</a></li>
+                <li><a class="home" href="#"></a></li>
                 <li><a href="#">magazin</a></li>
                 <li><a href="#">aktuelno</a>
                     <ul>
@@ -37,7 +37,7 @@
             <div class="sideContent">
                 <div class="sideBox">
                     <div class="context">
-                        asdasd
+                        <input type="text" name="" value="pretraga" />
                     </div>
                 </div>
                 <div class="sideBox">

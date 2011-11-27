@@ -44,7 +44,8 @@ p {padding:0;}
 ul.mainNav {height:50px; padding:0 10px; background:transparent url(../images/stripes.png) scroll repeat-x 0 0;}
 ul.mainNav > li {float:left; position:relative;}
 ul.mainNav > li > a {display:block; font-size:15px; line-height:50px; padding:0 20px; font-family: 'Francois One', sans-serif; color:#FFF; text-transform:uppercase;}
-ul.mainNav > li:hover {background-color:#41a8f0;}
+ul.mainNav > li > a.home {width:10px; height:50px; background-image:url(../images/home.png); background-repeat:no-repeat; background-position:50% 50%;}
+ul.mainNav > li:hover {background-color:#41a8f0; }
 ul.mainNav ul {display:none; position:absolute; width:200px; background-color:#41a8f0;}
 ul.mainNav ul li a {display:block; line-height:20px; padding:10px 20px; color:#FFF;}
 ul.mainNav ul li a:hover {background-color:#2a92da;}
@@ -54,7 +55,7 @@ ul.lang {overflow:hidden; position:absolute; top:10px; right:10px;}
 ul.lang li {float:left;}
 ul.lang li a {display:block; color:#bfdbee; width:30px; line-height:30px; text-align:center;}
 ul.lang li a:hover {color:#FFF;}
-ul.lang li a.active {background-color:#FFF; color:#288fd7;}
+ul.lang li a.active {background-color:#f5f5f5; color:#288fd7;}
 
 .content {overflow:hidden;}
 .sideContent {width:270px; float:left;}
