@@ -21,6 +21,7 @@
 
         <!-- Load all custom css -->
         <?= $html->css('default', CSS_PATH); ?>
+        <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
             
