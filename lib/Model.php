@@ -9,6 +9,10 @@ class Model
         
         protected $dbh;
         
+        private $tableTranslation = 'translation';
+        private $tableLanguage = 'language';
+        private $tableLanguageTranslation = 'language_translation';
+        
         /**
          * Contructor
          * @return boolean
@@ -40,7 +44,40 @@ class Model
         
         public function loadDictionary()
         {
+            $output = array();
             
-            return array('kljuc2'=>'vredonst2');
+            try{
+                
+                $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
+                $stmt = $this->dbh->prepare($query);
+                
+                $stmt->execute();
+                $response = $stmt->fetchAll();
+                
+                if(empty($response)) throw new \Exception('No language specified in DB');
+                
+                foreach($response as $r){
+                    
+                    $query = sprintf("SELECT `t`.`name`, `lt`.`text` FROM %s AS `t`
+                                        INNER JOIN %s AS `lt` ON `lt`.`translation_id`=`t`.`id`
+                                        WHERE `lt`.`language_id`=:languageId", 
+                                        $this->tableTranslation, $this->tableLanguageTranslation);
+                    $stmt = $this->dbh->prepare($query);
+                    
+                    $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                     $tmp = $stmt->fetchAll();
+                     
+                     foreach($tmp as $t){
+                        $output[$r['iso_code']][$t['name']] = $t['text'];
+                     }
+                }
+                
+                return $output;
+            }catch(Exception $e){
+
+                return false;
+            }
         }
 }

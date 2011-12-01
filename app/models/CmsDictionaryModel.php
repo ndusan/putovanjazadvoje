@@ -38,10 +38,10 @@ class CmsDictionaryModel extends Model
             $language = array();
             $query = sprintf("SELECT `l`.`iso_code`, `lt`.* FROM %s AS `l` 
                                 INNER JOIN %s AS `lt` ON `l`.`id`=`lt`.`language_id` 
-                                WHERE `lt`.`translate_id`=:translateId", $this->tableLanguage, $this->tableLanguageTranslation);
+                                WHERE `lt`.`translation_id`=:translationId", $this->tableLanguage, $this->tableLanguageTranslation);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':translateId', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':translationId', $id, PDO::PARAM_INT);
             $stmt->execute();
             
             $collection = $stmt->fetchAll();
@@ -84,12 +84,12 @@ class CmsDictionaryModel extends Model
                     $stmt->execute();
                     $response = $stmt->fetch();
                     
-                    $query = sprintf("UPDATE %s SET `text`=:text WHERE `language_id`=:languageId AND `translate_id`=:translateId", $this->tableLanguageTranslation);
+                    $query = sprintf("UPDATE %s SET `text`=:text WHERE `language_id`=:languageId AND `translation_id`=:translationId", $this->tableLanguageTranslation);
                     $stmt = $this->dbh->prepare($query);
                     
                     $stmt->bindParam(':text', $v['text'], PDO::PARAM_STR);
                     $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
-                    $stmt->bindParam(':translateId', $params['id'], PDO::PARAM_INT);
+                    $stmt->bindParam(':translationId', $params['id'], PDO::PARAM_INT);
                     $stmt->execute();
                 }
             }
@@ -124,7 +124,7 @@ class CmsDictionaryModel extends Model
             $stmt->bindParam(':description', $params['description'], PDO::PARAM_STR);
             $stmt->execute();
             
-            $translateId = $this->dbh->lastInsertId();
+            $translationId = $this->dbh->lastInsertId();
             
             if(!empty($params['lang'])){
                 foreach($params['lang'] as $k=>$v){
@@ -135,11 +135,11 @@ class CmsDictionaryModel extends Model
                     $stmt->execute();
                     $response = $stmt->fetch();
                     
-                    $query = sprintf("INSERT INTO %s SET `language_id`=:languageId, `translate_id`=:translateId, `text`=:text", $this->tableLanguageTranslation);
+                    $query = sprintf("INSERT INTO %s SET `language_id`=:languageId, `translation_id`=:translationId, `text`=:text", $this->tableLanguageTranslation);
                     $stmt = $this->dbh->prepare($query);
                     
                     $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
-                    $stmt->bindParam(':translateId', $translateId, PDO::PARAM_INT);
+                    $stmt->bindParam(':translationId', $translationId, PDO::PARAM_INT);
                     $stmt->bindParam(':text', $v['text'], PDO::PARAM_STR);
                     $stmt->execute();
                 }
@@ -164,10 +164,10 @@ class CmsDictionaryModel extends Model
             $stmt->execute();
             
             
-            $query = sprintf("DELETE FROM %s WHERE `translate_id`=:translateId", $this->tableLanguageTranslation);
+            $query = sprintf("DELETE FROM %s WHERE `translation_id`=:translationId", $this->tableLanguageTranslation);
             $stmt = $this->dbh->prepare($query);
 
-            $stmt->bindParam(':translateId', $params['id'], PDO::PARAM_INT);
+            $stmt->bindParam(':translationId', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
