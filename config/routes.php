@@ -43,6 +43,28 @@ $routes = array(
             'layout'     => 'cms'
     ),
     
+    //CMS dictionary page
+    array(  'url'        => '/^cms\/dictionary\/?$/', 
+            'controller' => 'cmsDictionary', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/dictionary\/add\/?$/', 
+            'controller' => 'cmsDictionary', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/dictionary\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDictionary', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/dictionary\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDictionary', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
     //CMS user page
     array(  'url'        => '/^cms\/users\/?$/', 
             'controller' => 'cmsUser', 

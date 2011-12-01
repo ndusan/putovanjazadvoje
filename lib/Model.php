@@ -38,63 +38,9 @@ class Model
         }
         
         
-        public function postition($params, $tableName)
+        public function loadDictionary()
         {
-
-            $query = sprintf("SELECT `position` FROM %s WHERE `id`=:id", $tableName);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            $old = $stmt->fetch();
-            if(empty($old)) return false;
             
-            switch($params['position']){
-                
-                case 'up':
-                    
-                    
-                    $query = sprintf("SELECT `id`, `position` FROM %s WHERE `position`>:position", $tableName);
-                    $stmt = $this->dbh->prepare($query);
-                    
-                    $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
-                    $stmt->execute();
-                    
-                    $row = $stmt->fetch();
-                    if(empty($row)) return false;
-                    
-                    break;
-                case 'down':
-                    $query = sprintf("SELECT `id`, `position` FROM %s WHERE `position`<:position", $tableName);
-                    $stmt = $this->dbh->prepare($query);
-                    
-                    $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
-                    $stmt->execute();
-                    
-                    $row = $stmt->fetch();echo $row;
-                    if(empty($row)) return false;
-                    
-                    break;
-                default: return false; //error
-            }
-            
-            //Switch
-            $query = sprintf("UPDATE %s SET `position`=:position WHERE `id`=:id", $tableName, $tableName);
-            $stmt = $this->dbh->prepare($query);
-            
-            $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
-            $stmt->bindParam(':id', $row['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            $query = sprintf("UPDATE %s SET `position`=:position WHERE `id`=:id", $tableName);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':position', $row['position'], PDO::PARAM_INT);
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
-            $stmt->execute();
-            
-            return true;
+            return array('kljuc2'=>'vredonst2');
         }
-
 }
