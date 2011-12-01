@@ -9,6 +9,10 @@ class Model
         
         protected $dbh;
         
+        private $tableTranslation = 'translation';
+        private $tableLanguage = 'language';
+        private $tableLanguageTranslation = 'language_translation';
+        
         /**
          * Contructor
          * @return boolean
@@ -38,63 +42,42 @@ class Model
         }
         
         
-        public function postition($params, $tableName)
+        public function loadDictionary()
         {
-
-            $query = sprintf("SELECT `position` FROM %s WHERE `id`=:id", $tableName);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            $old = $stmt->fetch();
-            if(empty($old)) return false;
+            $output = array();
             
-            switch($params['position']){
+            try{
                 
-                case 'up':
+                $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
+                $stmt = $this->dbh->prepare($query);
+                
+                $stmt->execute();
+                $response = $stmt->fetchAll();
+                
+                if(empty($response)) throw new \Exception('No language specified in DB');
+                
+                foreach($response as $r){
                     
-                    
-                    $query = sprintf("SELECT `id`, `position` FROM %s WHERE `position`>:position", $tableName);
+                    $query = sprintf("SELECT `t`.`name`, `lt`.`text` FROM %s AS `t`
+                                        INNER JOIN %s AS `lt` ON `lt`.`translation_id`=`t`.`id`
+                                        WHERE `lt`.`language_id`=:languageId", 
+                                        $this->tableTranslation, $this->tableLanguageTranslation);
                     $stmt = $this->dbh->prepare($query);
                     
-                    $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
+                    $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
                     $stmt->execute();
-                    
-                    $row = $stmt->fetch();
-                    if(empty($row)) return false;
-                    
-                    break;
-                case 'down':
-                    $query = sprintf("SELECT `id`, `position` FROM %s WHERE `position`<:position", $tableName);
-                    $stmt = $this->dbh->prepare($query);
-                    
-                    $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
-                    $stmt->execute();
-                    
-                    $row = $stmt->fetch();echo $row;
-                    if(empty($row)) return false;
-                    
-                    break;
-                default: return false; //error
+
+                     $tmp = $stmt->fetchAll();
+                     
+                     foreach($tmp as $t){
+                        $output[$r['iso_code']][$t['name']] = $t['text'];
+                     }
+                }
+                
+                return $output;
+            }catch(Exception $e){
+
+                return false;
             }
-            
-            //Switch
-            $query = sprintf("UPDATE %s SET `position`=:position WHERE `id`=:id", $tableName, $tableName);
-            $stmt = $this->dbh->prepare($query);
-            
-            $stmt->bindParam(':position', $old['position'], PDO::PARAM_INT);
-            $stmt->bindParam(':id', $row['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            $query = sprintf("UPDATE %s SET `position`=:position WHERE `id`=:id", $tableName);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':position', $row['position'], PDO::PARAM_INT);
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
-            $stmt->execute();
-            
-            return true;
         }
-
 }

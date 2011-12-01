@@ -41,6 +41,7 @@
             <div class="sidebar">
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
+                    <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
                 </ul>
             </div>
             <div class="content">

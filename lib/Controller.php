@@ -141,6 +141,27 @@ class Controller {
 
     public function beforeAction($params) {
 
+        $dic = array();
+        
+        //Load dictionary
+        if(Cache::checkIfDictionaryExists()){
+            
+            $dic = Cache::loadFromDictionary();
+        }else{
+            
+            $dic = $this->db->loadDictionary();
+            Cache::importDictionary($dic);
+        }
+        
+        //Show keys if param set by GET
+        if(isset($_GET['show_me']) && $_GET['show_me'] == 'keys'){
+            //Overwrite values with keys
+            foreach($dic as $k=>$v){
+                $dic[$k] = $k;
+            }
+        }
+        
+        $this->set('_t', $dic);
     }
 
     public function afterAction($params) {
