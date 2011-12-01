@@ -205,4 +205,4 @@
         </ul>
     </div>
 </div>
-<? print_r($_t);?>
+<?=$_t['main.aboutus.link'];?>
