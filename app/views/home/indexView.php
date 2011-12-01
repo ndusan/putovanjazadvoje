@@ -6,25 +6,36 @@
         <div class="navigation">
             <ul class="mainNav">
                 <li><a class="home" href="#"></a></li>
-                <li><a href="#">magazin</a></li>
-                <li><a href="#">aktuelno</a>
+                <li><a href="#">magazin</a>
                     <ul>
-                        <li><a href="#">Magazin</a></li>
-                        <li><a href="#">Aktuelno</a></li>
-                        <li><a href="#">Nagradne igre</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">O nama</a></li>
+                        <li><a href="#">Broj u prodaji</a></li>
+                        <li><a href="#">Pretplati se na magazin</a></li>
+                        <li><a href="#">Naruči ranije brojeve</a></li>
+                        <li><a href="#">Pokloni pretplatu</a></li>
+                        <li><a href="#">Arhiva izdanja</a></li>
                     </ul>
                 </li>
+                <li><a href="#">aktuelno</a></li>
                 <li><a href="#">nagradne igre</a>
                     <ul>
-                        <li><a href="#">Magazin</a></li>
-                        <li><a href="#">Aktuelno</a></li>
-                        <li><a href="#">Nagradne igre</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Dobitnici nagradnih igara</a></li>
+                        <li><a href="#">Foto naticanje</a></li>
+                        <li><a href="#">Gde smo?</a></li>
                     </ul>
                 </li>
-                <li><a href="#">press</a></li>
-                <li><a href="#">oglasavanje</a></li>
+                <li><a href="#">press</a>
+                    <ul>
+                        <li><a href="#">O magazinu</a></li>
+                        <li><a href="#">Download</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">oglasavanje</a>
+                    <ul>
+                        <li><a href="#">Opšti uslovi i informacije</a></li>
+                        <li><a href="#">Cenovnik i formati</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">download</a></li>
                 <li><a href="#">kontakt</a></li>
             </ul>
@@ -105,6 +116,15 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="breadcrumb">
+                            <a href="#">Pocetna</a> / Magazin / O nama
+                        </div>
+                        <div class="wys">
+                            <h1>O nama</h1>
+                            <p>
+                                Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
+                            </p>
+                        </div>
                         <ul class="news">
                             <li>
                                 <div class="gTitle">
