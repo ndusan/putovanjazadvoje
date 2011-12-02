@@ -3,47 +3,7 @@
         <h2>MAGAZIN</h2>
     </div>
     <div class="main">
-        <div class="navigation">
-            <ul class="mainNav">
-                <li><a class="home" href="#"></a></li>
-                <li><a href="#">magazin</a>
-                    <ul>
-                        <li><a href="#">O nama</a></li>
-                        <li><a href="#">Broj u prodaji</a></li>
-                        <li><a href="#">Pretplati se na magazin</a></li>
-                        <li><a href="#">Naruči ranije brojeve</a></li>
-                        <li><a href="#">Pokloni pretplatu</a></li>
-                        <li><a href="#">Arhiva izdanja</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">aktuelno</a></li>
-                <li><a href="#">nagradne igre</a>
-                    <ul>
-                        <li><a href="#">Dobitnici nagradnih igara</a></li>
-                        <li><a href="#">Foto naticanje</a></li>
-                        <li><a href="#">Gde smo?</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">press</a>
-                    <ul>
-                        <li><a href="#">O magazinu</a></li>
-                        <li><a href="#">Download</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">oglasavanje</a>
-                    <ul>
-                        <li><a href="#">Opšti uslovi i informacije</a></li>
-                        <li><a href="#">Cenovnik i formati</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">download</a></li>
-                <li><a href="#">kontakt</a></li>
-            </ul>
-            <ul class="lang">
-                <li><a class="active" href="#">SR</a></li>
-                <li><a href="#">EN</a></li>
-            </ul>
-        </div>
+        <? include_once VIEW_PATH.'home'.DS.'_mainNavigation.php'; ?>
         <div class="content">
             <div class="sideContent">
                 <div class="sideBox">
@@ -225,4 +185,3 @@
         </ul>
     </div>
 </div>
-<?=$_t['main.aboutus.link'];?>

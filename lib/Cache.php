@@ -160,14 +160,23 @@ class Cache {
          * @param array $params
          * @return array
          */
-        public static function deleteDictionary($params){
+        public static function deleteDictionary(){
                 
             $fileName = CACHE_PATH.'cacheDictionary.php';
-
-            if(!$fileName) return false;
-
-            unlink($fileName);
-            return true;
+            
+            if(self::checkIfDictionaryExists()){
+                
+                if(unlink($fileName)){
+                    
+                    return true;
+                }else{
+                    
+                    return false;
+                }
+            }else{
+                
+                return true;
+            }
         }
         
         

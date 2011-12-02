@@ -27,6 +27,13 @@ class CmsHomeController extends Controller
 //        }
     }
     
-   
+    public function settingsAction($params)
+    {
+
+        if(!empty($params['cache']) && $params['cache'] == 'clean'){
+            //Clean cache
+            Cache::deleteDictionary();
+        }
+    }
     
 }

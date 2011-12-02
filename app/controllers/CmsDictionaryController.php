@@ -15,6 +15,7 @@ class CmsDictionaryController extends Controller
             //Data submited
             
             if($this->db->create($params['dictionary'])){
+                $this->deleteCacheDictionary();
                 parent::redirect ('cms'.DS.'dictionary', 'success');
             }else{
                 parent::redirect ('cms'.DS.'dictionary'.DS.'add', 'error');
@@ -48,5 +49,6 @@ class CmsDictionaryController extends Controller
             parent::redirect ('cms'.DS.'dictionary', 'error');
         }
     }
+    
     
 }
