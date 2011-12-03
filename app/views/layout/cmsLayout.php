@@ -43,7 +43,7 @@
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
                     <li class="leaf">
-                        <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#">Static content</a>
+                        <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#" id="leaf-link">Static content</a>
                         <ul class="leaf-child" <?= $this->_controller=='cmsStatic'?'style="display:block;"':''; ?>>
                             <li><a <?= $this->_action=='aboutUs'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'about-us'; ?>">About us</a></li>
                             <li><a <?= $this->_action=='giveAway'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'give-away'; ?>">Give away</a></li>

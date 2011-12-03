@@ -14,7 +14,7 @@ var App = App || {};
             });
             
             //spefific
-            $('.leaf a').click(function(){
+            $('#leaf-link').click(function(){
                 $('.leaf-child').slideToggle();
             });
             
