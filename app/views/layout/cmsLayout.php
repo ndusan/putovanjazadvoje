@@ -42,12 +42,14 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
-                    <li class="leaf"><a href="#">Static content</a>
-                        <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Subscribe</a></li>
-                            <li><a href="#">Order previous</a></li>
-                            <li><a href="#">Giveaway</a></li>
+                    <li class="leaf">
+                        <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#">Static content</a>
+                        <ul class="leaf-child" <?= $this->_controller=='cmsStatic'?'style="display:block;"':''; ?>>
+                            <li><a <?= $this->_action=='aboutUs'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'about-us'; ?>">About us</a></li>
+                            <li><a <?= $this->_action=='giveAway'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'give-away'; ?>">Give away</a></li>
+                            <li><a <?= $this->_action=='orderPrevious'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'order-previous'; ?>">Order Previous</a></li>
+                            <li><a <?= $this->_action=='signUpForMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'sign-up-for-magazine'; ?>">Sign Up For Magazine</a></li>
+                            <li><a <?= $this->_action=='archive'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'archive'; ?>">Archive</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -106,6 +106,32 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    //CMS static content
+    array(  'url'        => '/^cms\/about-us\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'aboutUs', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/sign-up-for-magazine\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'signUpForMagazine', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/order-previous\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'orderPrevious', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/give-away\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'giveAway', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/archive\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'archive', 
+            'layout'     => 'cms'
+    ),
     
     
 );
