@@ -13,6 +13,11 @@ var App = App || {};
                 if (!answer) return false;
             });
             
+            //spefific
+            $('.leaf a').click(function(){
+                $('.leaf-child').slideToggle();
+            });
+            
             
             //Set check on required fields
             $('body').delegate('form', 'submit', function(){
