@@ -12,10 +12,30 @@ $routes = array(
             'action'     => 'noPageFound', 
             'layout'     => '404'
     ),
-    //Static pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(about-us|our-clients|archive|gallery|ads|contact))\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'staticPages', 
+    //Static content
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/o-nama\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'aboutUs', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pretplati-se-na-magazin\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'signUpForMagazine', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/naruci-ranije-brojeve\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'orderPrevious', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pokloni-pretplatu\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'giveAway', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/arhiva-izdanja\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'archive', 
             'layout'     => 'default'
     ),
     //Login page

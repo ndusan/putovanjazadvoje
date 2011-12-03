@@ -3,15 +3,15 @@
         <li><a class="home" href="#"></a></li>
         <li><a href="#"><?=$_t['main.magazine.link'];?></a>
             <ul>
-                <li><a href="#"><?=$_t['main.aboutus.link'];?></a></li>
-                <li><a href="#"><?=$_t['main.numberinsale.link'];?></a></li>
-                <li><a href="#">Pretplati se na magazin</a></li>
-                <li><a href="#">Naruči ranije brojeve</a></li>
-                <li><a href="#">Pokloni pretplatu</a></li>
-                <li><a href="#">Arhiva izdanja</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'o-nama';?>"><?=$_t['main.aboutus.link'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'broj-u-pretplati';?>"><?=$_t['main.numberinsale.link'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'pretplati-se-na-magazin';?>">Pretplati se na magazin</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'poruci-ranije-brojeve';?>">Naruči ranije brojeve</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'pokloni-pretplatu';?>">Pokloni pretplatu</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'arhiva-izdanja';?>">Arhiva izdanja</a></li>
             </ul>
         </li>
-        <li><a href="#">aktuelno</a></li>
+        <li><a href="<?=DS.$params['lang'].DS.'aktuelno';?>">aktuelno</a></li>
         <li><a href="#">nagradne igre</a>
             <ul>
                 <li><a href="#">Dobitnici nagradnih igara</a></li>
