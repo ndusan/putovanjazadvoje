@@ -77,10 +77,17 @@ input[type=submit]:hover {cursor:pointer; background-image:-moz-linear-gradient(
 .footer {margin:0 0 0 200px;  min-width:780px; text-align:center; padding:20px 0 0;}
 
 ul.mainNav {overflow:hidden; border-top:solid 1px #bad4e3;}
-ul.mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
-ul.mainNav li a {display:block; color:#555; font-size:14px; padding:10px 20px 10px 10px;}
-ul.mainNav li a:hover {color:#333; background-color:#eef4f5;}
-ul.mainNav li .active {color:#333; background:#eef4f5 url(../images/navActive.png) scroll no-repeat 100% 50%;}
+ul.mainNav > li {border-bottom:solid 1px #bad4e3; text-align:right;}
+ul.mainNav > li > a {display:block; color:#555; font-size:14px; padding:10px 30px 10px 10px;}
+ul.mainNav > li > a:hover {color:#333; background-color:#eef4f5;}
+ul.mainNav > li > a.active {color:#333; background:#eef4f5 url(../images/navActive.png) scroll no-repeat 100% 50%;}
+ul.mainNav ul {background-color:#FFF; border-top:solid 1px #bad4e3;}
+ul.mainNav ul li a {display:block; padding:5px 30px 5px 10px; line-height:20px;}
+ul.mainNav ul li a:hover {color:#333; background-color:#fafafa;}
+ul.mainNav ul li a.hover {color:#333; background-color:#eef4f5;}
+
+
+
 
 ul.headerNav {overflow:hidden; float:right;}
 ul.headerNav li {float:left; font-size:14px; color:#FFF; padding:20px 0;}

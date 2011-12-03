@@ -42,6 +42,14 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
+                    <li class="leaf"><a href="#">Static content</a>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Subscribe</a></li>
+                            <li><a href="#">Order previous</a></li>
+                            <li><a href="#">Giveaway</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="content">
