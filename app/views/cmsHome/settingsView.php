@@ -10,16 +10,22 @@
     </ul>
     <form method="post" action="/cms/settings" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">
-            <h2>After you set new dictionary keys you need to clean cache!</h2>
-            <br/>
-            <p>
-                <a href="<?=DS.'cms'.DS.'settings?cache=clean';?>">Click to clean cache!</a>
-            </p>
-            
-            <? if (!empty($_GET['cache']) && $_GET['cache'] == 'clean'):?>
-            <h3>Cache cleaned.</h3>
-            <? endif;?>
-            
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        After you set new dictionary keys you need to clean cache!
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Click to clean cache" name="submit" />
+                        <a href="<?= DS . 'cms' . DS . 'settings?cache=clean'; ?>">Click to clean cache!</a>
+                    </td>
+                </tr>
+            </table>
+            <? if (!empty($_GET['cache']) && $_GET['cache'] == 'clean'): ?>
+                <h3>Cache cleaned.</h3>
+            <? endif; ?>
         </div>
         <div id="fragment-2" class="addContent">
             <table cellpadding="0" cellspacing="0">
@@ -69,9 +75,9 @@
         </div>
         <div id="fragment-3" class="addContent">
             <p>Welcome to Smartfish CMS<br /><br /></p>
-            
+
             <ul>
-                
+
                 <li>CMS and website created by:<br /><br /></li>
                 <li>Dušan Novaković</li>
                 <li>Emil Ajduk</li>
@@ -80,11 +86,11 @@
             <ul>
                 <li>Net Svet, Belgrade</li>
                 <li>info@net-svet.com<br /><br /></li>
-                            
+
             </ul>
-            <p><a href="<?=DS.'public'.DS.'cms-smartfish-manual.pdf';?>" target="_blank">CMS user manual download</a></p>
-            
-            
+            <p><a href="<?= DS . 'public' . DS . 'cms-smartfish-manual.pdf'; ?>" target="_blank">CMS user manual download</a></p>
+
+
         </div>
     </form>
 </div>
