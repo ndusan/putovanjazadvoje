@@ -1,0 +1,1 @@
+#prijavi se za magazin
