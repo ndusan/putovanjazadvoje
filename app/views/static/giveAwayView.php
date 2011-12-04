@@ -1,1 +1,1 @@
-#pokloni pretplatu
+<?=$collection['text']; ?>

@@ -11,5 +11,46 @@ class StaticController extends Controller
     public function aboutUsAction($params)
     {
 
+        parent::set('collection', $this->db->find($params, 'aboutus'));
+    }
+    
+    /**
+     * Archive
+     * @param type $params 
+     */
+    public function archiveAction($params)
+    {
+
+        parent::set('collection', $this->db->find($params, 'archive'));
+    }
+    
+    /**
+     * Give away
+     * @param type $params 
+     */
+    public function giveAwayAction($params)
+    {
+        
+        parent::set('collection', $this->db->find($params, 'giveaway'));
+    }
+    
+    /**
+     * Order Previous
+     * @param type $params 
+     */
+    public function orderPreviousAction($params)
+    {
+
+        parent::set('collection', $this->db->find($params, 'orderprevious'));
+    }
+    
+    /**
+     * Sign up for magazine
+     * @param type $params 
+     */
+    public function signUpForMagazineAction($params)
+    {
+        
+        parent::set('collection', $this->db->find($params, 'signupformagazine'));
     }
 }

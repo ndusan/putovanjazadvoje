@@ -1,1 +1,1 @@
-#poruci prethodni broj
+<?=$collection['text']; ?>

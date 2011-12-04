@@ -1,1 +1,1 @@
-#arhiva
+<?=$collection['text']; ?>

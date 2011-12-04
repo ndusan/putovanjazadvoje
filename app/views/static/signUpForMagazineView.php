@@ -1,1 +1,1 @@
-#prijavi se za magazin
+<?=$collection['text']; ?>
