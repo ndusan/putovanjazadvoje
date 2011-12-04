@@ -6,7 +6,7 @@
                 <li><a href="<?=DS.$params['lang'].DS.'o-nama';?>"><?=$_t['main.aboutus.link'];?></a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'broj-u-pretplati';?>"><?=$_t['main.numberinsale.link'];?></a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'pretplati-se-na-magazin';?>">Pretplati se na magazin</a></li>
-                <li><a href="<?=DS.$params['lang'].DS.'poruci-ranije-brojeve';?>">Naruči ranije brojeve</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'naruci-ranije-brojeve';?>">Naruči ranije brojeve</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'pokloni-pretplatu';?>">Pokloni pretplatu</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'arhiva-izdanja';?>">Arhiva izdanja</a></li>
             </ul>

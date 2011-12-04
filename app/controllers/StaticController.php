@@ -30,6 +30,8 @@ class StaticController extends Controller
      */
     public function giveAwayAction($params)
     {
+        $array = array();
+        $this->sendFormIfSubmited($params, $array);
         
         parent::set('collection', $this->db->find($params, 'giveaway'));
     }
@@ -40,6 +42,8 @@ class StaticController extends Controller
      */
     public function orderPreviousAction($params)
     {
+        $array = array();
+        $this->sendFormIfSubmited($params, $array);
 
         parent::set('collection', $this->db->find($params, 'orderprevious'));
     }
@@ -50,7 +54,22 @@ class StaticController extends Controller
      */
     public function signUpForMagazineAction($params)
     {
+        $array = array();
+        $this->sendFormIfSubmited($params, $array);
         
         parent::set('collection', $this->db->find($params, 'signupformagazine'));
+    }
+    
+    
+    private function sendFormIfSubmited($params, array $array=array())
+    {
+        
+        if(!isset($params['submit'])) return false;
+        
+        $subject = '';
+        if(parent::sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array)){
+            
+            parent::set('sent', true);
+        }
     }
 }
