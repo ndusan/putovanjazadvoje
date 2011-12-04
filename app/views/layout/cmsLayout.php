@@ -45,11 +45,11 @@
                     <li class="leaf">
                         <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#" id="leaf-link">Static content</a>
                         <ul class="leaf-child" <?= $this->_controller=='cmsStatic'?'style="display:block;"':''; ?>>
-                            <li><a <?= $this->_action=='aboutUs'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'about-us'; ?>">About us</a></li>
-                            <li><a <?= $this->_action=='giveAway'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'give-away'; ?>">Give away</a></li>
-                            <li><a <?= $this->_action=='orderPrevious'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'order-previous'; ?>">Order Previous</a></li>
-                            <li><a <?= $this->_action=='signUpForMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'sign-up-for-magazine'; ?>">Sign Up For Magazine</a></li>
-                            <li><a <?= $this->_action=='archive'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'archive'; ?>">Archive</a></li>
+                            <li><a <?= $this->_action=='aboutUs'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'about-us'; ?>">About us</a></li>
+                            <li><a <?= $this->_action=='giveAway'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'give-away'; ?>">Give away</a></li>
+                            <li><a <?= $this->_action=='orderPrevious'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'order-previous'; ?>">Order Previous</a></li>
+                            <li><a <?= $this->_action=='signUpForMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'sign-up-for-magazine'; ?>">Sign Up For Magazine</a></li>
+                            <li><a <?= $this->_action=='archive'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'archive'; ?>">Archive</a></li>
                         </ul>
                     </li>
                 </ul>
