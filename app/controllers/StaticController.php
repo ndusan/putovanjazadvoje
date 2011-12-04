@@ -3,6 +3,7 @@
 class StaticController extends Controller
 {
     
+    private $formValidation = array();
     
     /**
      * About Us
@@ -31,6 +32,9 @@ class StaticController extends Controller
     public function giveAwayAction($params)
     {
         $array = array();
+        
+        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
+        
         $this->sendFormIfSubmited($params, $array);
         
         parent::set('collection', $this->db->find($params, 'giveaway'));
@@ -43,6 +47,9 @@ class StaticController extends Controller
     public function orderPreviousAction($params)
     {
         $array = array();
+        
+        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
+        
         $this->sendFormIfSubmited($params, $array);
 
         parent::set('collection', $this->db->find($params, 'orderprevious'));
@@ -55,6 +62,9 @@ class StaticController extends Controller
     public function signUpForMagazineAction($params)
     {
         $array = array();
+        
+        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
+        
         $this->sendFormIfSubmited($params, $array);
         
         parent::set('collection', $this->db->find($params, 'signupformagazine'));
@@ -66,7 +76,11 @@ class StaticController extends Controller
         
         if(!isset($params['submit'])) return false;
         
+        //Check if required fields are valid
+        if(!parent::validate($this->formValidation, $params['collection'])) return false;
+        
         $subject = '';
+        
         if(parent::sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array)){
             
             parent::set('sent', true);
