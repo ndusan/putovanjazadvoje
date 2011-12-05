@@ -1,1 +1,1 @@
-#o nama
+<?=$collection['text']; ?>

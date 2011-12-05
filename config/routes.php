@@ -107,27 +107,27 @@ $routes = array(
             'layout'     => 'empty'
     ),
     //CMS static content
-    array(  'url'        => '/^cms\/about-us\/?$/', 
+    array(  'url'        => '/^cms\/static\/about-us\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'aboutUs', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/sign-up-for-magazine\/?$/', 
+    array(  'url'        => '/^cms\/static\/sign-up-for-magazine\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'signUpForMagazine', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/order-previous\/?$/', 
+    array(  'url'        => '/^cms\/static\/order-previous\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'orderPrevious', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/give-away\/?$/', 
+    array(  'url'        => '/^cms\/static\/give-away\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'giveAway', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/archive\/?$/', 
+    array(  'url'        => '/^cms\/static\/archive\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'archive', 
             'layout'     => 'cms'

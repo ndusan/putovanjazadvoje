@@ -251,7 +251,7 @@ class Controller {
         
     }
 
-    public function sendEmail($to, $subject, $message, $from, $files=null) {
+    public function sendEmail($to, $subject, $message, $from, array $array=array(), array $files=array()) {
         
         //Header
         $headers = 'From:' . $from;
@@ -272,29 +272,22 @@ class Controller {
                                     </head>
                                     <body>
                                       <table>';
-            $tArray = array('company'=>'Naziv firme', 
-                            'occupation'=>'Delatnost', 
-                            'contact'=>'Kontakt osoba', 
-                            'email'=>'Email', 
-                            'phone'=>'Telefon', 
-                            'message'=>'Poruka',
-                            'pages'=>'Želim da se reklamiram u',
-                            'title'=>'Naslov poruke',
-                            'name'=>'Ime i prezime');
             
-            foreach ($message as $key => $val) {
-                $messageHtml.= '<tr>';
-                $messageHtml.= '<th>' . $tArray[$key] . '</th>';
-                    if('pages' == $key){
-                        $messageHtml.= '<td>';
-                        foreach ($val as $p){
-                            $messageHtml.= $p . '<br/>';
+            if(!empty($array)){
+                foreach ($message as $key => $val) {
+                    $messageHtml.= '<tr>';
+                    $messageHtml.= '<th>' . $array[$key] . '</th>';
+                        if(!empty($key) && is_array($key)){
+                            $messageHtml.= '<td>';
+                            foreach ($val as $p){
+                                $messageHtml.= $p . '<br/>';
+                            }
+                            $messageHtml.= '</td>';
+                        }else{
+                            $messageHtml.= '<td>' . $val . '</td>';
                         }
-                        $messageHtml.= '</td>';
-                    }else{
-                        $messageHtml.= '<td>' . $val . '</td>';
-                    }
-                $messageHtml.= '</tr>';
+                    $messageHtml.= '</tr>';
+                }
             }
             $messageHtml.= '</body>
                                     </html>';
@@ -337,5 +330,32 @@ class Controller {
             return false;
         }
     }
+    
+    
+    /*
+     * Check validation
+     * @param array $validations
+     * @param array $params
+     * @return bool or array
+     */
+     function validate($validations, $params) {
+            $errors = array ('total_errors' => 0);
+            
+            foreach ($validations as $field => $validation){
+                    if(!preg_match($validation, $params[$field])){
+                            $errors['total_errors']++;
+                            $errors[$field] = true;
+                    }
+            }
+
+            if($errors['total_errors'] > 0){
+                
+                    return $errors;
+            }else{
+                
+                    return false;
+            }
+    }
+
 
 }
