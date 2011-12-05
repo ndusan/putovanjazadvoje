@@ -24,10 +24,88 @@
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-            
-    <!-- This is a content that will be included on page inside of this layout -->
-    <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
-    
+        <div class="wrapper">
+            <div class="header">
+                <h2>MAGAZIN</h2>
+            </div>
+            <div class="main">
+                <? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
+                <div class="content">
+                    <div class="sideContent">
+                        <div class="sideBox">
+                            <div class="context">
+                                <input type="text" name="" value="pretraga" />
+                            </div>
+                        </div>
+                        <div class="sideBox">
+                            <div class="title">
+                                ONLINE NAGRADNE IGRE
+                            </div>
+                            <div class="context custom">
+                                asdasd
+                            </div>
+                        </div>
+                        <div class="sideBox">
+                            <div class="title">
+                                NAGRADNE IGRE
+                            </div>
+                            <div class="context custom">
+                                asdasd
+                            </div>
+                        </div>
+                        <ul class="banners">
+                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
+                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
+                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
+                        </ul>
+                    </div>
+
+                    <!-- This is a content that will be included on page inside of this layout -->
+                    <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+                        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footerW">
+            <div class="footer">
+                <div class="copy">
+                    Copyright © putovanjazadvoje.rs 2011.
+                </div>
+                <ul class="footerLinks">
+                    <li class="first"><a href="#">POCETNA STRANA</a>
+                        <ul>
+                            <li><a href="#">Magazin</a></li>
+                            <li><a href="#">Aktuelno</a></li>
+                            <li><a href="#">Nagradne igre</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Oglasavanje</a></li>
+                            <li><a href="#">Download</a></li>
+                            <li><a href="#">Kontakt</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">NOVO IZDANJE</a>
+                        <ul>
+                            <li><a href="#">Magazin</a></li>
+                            <li><a href="#">Aktuelno</a></li>
+                            <li><a href="#">Nagradne igre</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </li>
+                    <li class="last"><a href="#">KONTAKT</a>
+                        <ul>
+                            <li>Email:</li>
+                            <li>Tel:</li>
+                            <li>Skype:</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>

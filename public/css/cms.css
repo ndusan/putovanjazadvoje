@@ -28,7 +28,7 @@ p {padding:0;}
 #jerror {background-color:#cd3c3c; color:#FFF;}
 #jsuccess {background-color:#8dc73f; color:#FFF;}
 .noResults {background-color:#eef4f5; font-size:14px; padding:20px; border-bottom:solid 1px #BAD4E3; text-align:center;}
-
+a[href$='.pdf'] {line-height:20px; padding:10px 0 10px 30px; background:transparent url(../images/pdfIcon.png) no-repeat 0 50%;}
 
 h1 {font-size:16px; font-weight:normal; color:#eee; line-height:55px; }
 h1 span {text-transform:uppercase; font-weight:bold; color:#BAD4E3; padding:0 20px 0 0; margin:0 20px 0 0 ; border-right:solid 1px #555; font-size:14px;}
@@ -78,14 +78,14 @@ input[type=submit]:hover {cursor:pointer; background-image:-moz-linear-gradient(
 
 ul.mainNav {overflow:hidden; border-top:solid 1px #bad4e3;}
 ul.mainNav > li {border-bottom:solid 1px #bad4e3; text-align:right;}
-ul.mainNav > li > a {display:block; color:#555; font-size:14px; line-height:20px; padding:10px 30px 10px 10px;}
+ul.mainNav > li > a {display:block; color:#555; font-size:14px; line-height:25px; padding:10px 30px 10px 10px;}
 ul.mainNav > li > a:hover {color:#333; background-color:#eef4f5;}
 ul.mainNav > li > a.active {color:#333; background:#eef4f5 url(../images/navActive.png) scroll no-repeat 100% 50%;}
 ul.mainNav > li.leaf > a.active {color:#333; background-color:#eef4f5; background-image:none;}
-ul.mainNav ul {border-top:solid 1px #bad4e3; background:#FFF url(../images/subNavActive.png) scroll no-repeat 135px 0; padding:10px 0 0;}
+ul.mainNav ul {border-top:solid 1px #bad4e3; background:#FFF url(../images/subNavActive.png) scroll no-repeat 135px 0; padding:10px 0;}
 ul.mainNav ul li a {display:block; padding:5px 30px 5px 10px; line-height:20px;}
 ul.mainNav ul li a:hover {color:#333; background-color:#fafafa;}
-ul.mainNav ul li a.active {color:#333; background-color:#eef4f5;}
+ul.mainNav ul li a.active {color:#333; background-color:#fafafa;}
 
 ul.headerNav {overflow:hidden; float:right;}
 ul.headerNav li {float:left; font-size:14px; color:#FFF; padding:20px 0;}

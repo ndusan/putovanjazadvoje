@@ -28,6 +28,7 @@ p {padding:0;}
 .fl {float:left;}
 .fr {float:right;}
 
+.warning {border-color:#b85252 !important;}
 
 /*SPRITE*/
 
@@ -81,7 +82,7 @@ ul.banners li {margin:10px 0 0 20px;}
 .pagination li.current a {background-position:0 -22px;}
 
 .contentBox {padding:10px 0; background:transparent url(../images/shadowBig.png) scroll no-repeat 0 100%;}
-.contentBox .context {background-color:#FFF; padding:0 20px; position:relative;}
+.contentBox .context {background-color:#FFF; padding:0 20px 20px; position:relative;}
 
 .gTitle {text-transform:uppercase; position:absolute; top:0; line-height:60px; padding:0 15px 10px; font-family: 'Francois One', sans-serif; font-size:15px; color:#FFF; left:0; background:transparent url(../images/bGreen1.png) scroll no-repeat 0 0;}
 .bTitle {text-transform:uppercase; position:absolute; top:-10px; line-height:40px; padding:0 30px 0 40px; font-family: 'Francois One', sans-serif; font-size:15px; color:#FFF;}
@@ -111,9 +112,17 @@ ul.footerLinks > li.last {border-right:none;}
 ul.footerLinks li ul {padding:20px 0 0;}
 
 .wys {padding:20px 0;}
+.wys p {padding:5px 0;}
 .breadcrumb {color:#999; line-height:30px; font-size:12px; border-bottom:solid 1px #EEE;}
 
-
-
+.forms {overflow:hidden; padding:10px 10px 0; border:solid 1px #EEE;}
+.forms tbody td {padding:5px; border-bottom:solid 1px #EEE;}
+.forms tfoot td {padding:10px 5px;}
+.forms label {font-family:'Arial',sans-serif; display:block; font-size:14px; color:#333;}
+.forms label span {color:#b85252;}
+.forms input[type=text] {font-family:'Arial',sans-serif; width:200px; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms input[type=text]:focus {background-color:#FFF;}
+.forms input[type=submit] {font-family:'Arial',sans-serif; padding:10px 20px 10px 35px; border-radius:2px; font-size:14px; color:#FFF; font-weight:bold; border:none; background:transparent url(../images/butOk_bg.png) scroll no-repeat 0 -5px;}
+.forms input[type=submit]:hover {background-position:0 -55px; cursor:pointer;}
 
 
