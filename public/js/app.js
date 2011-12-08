@@ -23,6 +23,10 @@ var App = App || {};
             $('body').delegate('form', 'submit', function(){
                 var allOk = true;
                 
+                if($(this).attr('name') == 'search_form'){
+                    return true;
+                }
+                
                 $('.jr').each(function(){
                     if($(this).val().length <= 0){
                         
