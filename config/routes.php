@@ -154,6 +154,21 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/background\/add\/?$/', 
+            'controller' => 'cmsBackground', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/background\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBackground', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/background\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBackground', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
     array(  'url'        => '/^cms\/magazine\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'index', 
