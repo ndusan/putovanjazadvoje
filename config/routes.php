@@ -38,6 +38,12 @@ $routes = array(
             'action'     => 'archive', 
             'layout'     => 'default'
     ),
+    //SEARCH
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/search\/?$/', 
+            'controller' => 'static', 
+            'action'     => 'search', 
+            'layout'     => 'default'
+    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 

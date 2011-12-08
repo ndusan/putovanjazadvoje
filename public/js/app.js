@@ -37,6 +37,9 @@ var App = App || {};
                 
                 if(!allOk) return false;
             });
+            
+            App.Common.search();
+            
         },
         mce: function() {
             tinyMCE.init({
@@ -71,6 +74,29 @@ var App = App || {};
         },
         jtooltip: function(){
             $( ".jtooltip" ).tooltip();
+        },
+        search: function(){
+            
+            //SEARCH FORM
+            $('#search_form').submit(function(){
+                var allOk = true;
+                
+                //It has to have at least 3 letters
+                if($('#search_field').val().length < 3 || $('#search_field').val() == $('#search_field').attr('title')){
+                    allOk = false;
+                }
+                
+                if(!allOk){
+                    $('#search_field').addClass('warning');
+                    return false;
+                } 
+            });
+            $('#search_field').focus(function(){
+                if ($(this).attr('title') == $(this).val()) $(this).val('');
+            });
+            $('#search_field').blur(function(){
+                if ($(this).val().length <= 0) $(this).val($(this).attr('title'));
+            });
         }
     };
 })(this.jQuery);

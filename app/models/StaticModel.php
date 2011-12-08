@@ -58,4 +58,11 @@ class StaticModel extends Model
         }
     }
     
+    
+    public function searchFor($key)
+    {
+        
+        return array();
+    }
+    
 }

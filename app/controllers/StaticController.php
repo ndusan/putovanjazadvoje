@@ -71,6 +71,19 @@ class StaticController extends Controller
     }
     
     
+    public function searchAction($params)
+    {
+        $resultCollection = array();
+        
+        if(!empty($params['q'])){
+            $resultCollection = $this->db->searchFor($params['q']);
+        }
+        
+        parent::set('resultCollection', $resultCollection);
+        
+    }
+    
+    
     private function sendFormIfSubmited($params, array $array=array())
     {
         

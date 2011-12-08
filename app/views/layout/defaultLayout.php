@@ -34,7 +34,10 @@
                     <div class="sideContent">
                         <div class="sideBox">
                             <div class="context">
-                                <input type="text" name="" value="pretraga" />
+                                <form id="search_form" name="search_form" action="<?=DS.$params['lang'].DS.'search';?>" method="get">
+                                    <input id="search_field" type="text" name="q" value="pretraga" title="pretraga" />
+                                    <input type="submit" value="find" />
+                                </form>
                             </div>
                         </div>
                         <div class="sideBox">
