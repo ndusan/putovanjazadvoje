@@ -23,7 +23,7 @@
         <?= $html->css('default', CSS_PATH); ?>
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
-    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
+    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="background:#333 url(<?= IMAGE_PATH . 'bg.jpg'; ?>) scroll no-repeat 50% 50%;">
         <div class="wrapper">
             <div class="header">
                 <h2>MAGAZIN</h2>
