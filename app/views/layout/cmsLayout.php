@@ -52,6 +52,8 @@
                             <li><a <?= $this->_action=='archive'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'static' .DS.'archive'; ?>">Archive</a></li>
                         </ul>
                     </li>
+                    <li><a <?= $this->_controller=='cmsBackground'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'background'; ?>">Background</a></li>
+                    <li><a <?= $this->_controller=='cmsMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'magazine'; ?>">Magazine</a></li>
                 </ul>
             </div>
             <div class="content">

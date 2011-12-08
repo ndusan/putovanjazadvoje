@@ -44,6 +44,17 @@ $routes = array(
             'action'     => 'search', 
             'layout'     => 'default'
     ),
+    //Magazine
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-pretplati\/?$/', 
+            'controller' => 'magazine', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-pretplati\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
+            'controller' => 'magazine', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 
@@ -136,6 +147,16 @@ $routes = array(
     array(  'url'        => '/^cms\/static\/archive\/?$/', 
             'controller' => 'cmsStatic', 
             'action'     => 'archive', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/background\/?$/', 
+            'controller' => 'cmsBackground', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/magazine\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'index', 
             'layout'     => 'cms'
     ),
     
