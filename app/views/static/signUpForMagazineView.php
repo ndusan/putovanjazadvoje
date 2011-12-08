@@ -55,7 +55,7 @@
                                     <label>Ime i prezime:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[name]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
@@ -63,7 +63,7 @@
                                     <label>Firma:</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" value="<?= @$collection['name']; ?>" />
+                                    <input type="text" name="collection[company]" value="" />
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +71,7 @@
                                     <label>PIB:</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" value="<?= @$collection['name']; ?>" />
+                                    <input type="text" name="collection[pin]" value="" />
                                 </td>
                             </tr>
                             <tr>
@@ -79,7 +79,7 @@
                                     <label>Adresa:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[address]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
@@ -87,7 +87,7 @@
                                     <label>Poštanski broj/PAK:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[pak]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
@@ -95,7 +95,7 @@
                                     <label>Grad:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[city]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
@@ -103,7 +103,7 @@
                                     <label>Telefon:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[telephone]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
@@ -111,7 +111,7 @@
                                     <label>E-mail:<span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="<?= @$collection['name']; ?>" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[email]" class="jr" value="" /><span class="req">polje obavezno</span>
                                 </td>
                             </tr>
                             <tr>
