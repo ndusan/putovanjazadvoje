@@ -45,12 +45,12 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Magazine
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-pretplati\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-prodaji\/?$/', 
             'controller' => 'magazine', 
             'action'     => 'index', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-pretplati\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-prodaji\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
             'controller' => 'magazine', 
             'action'     => 'index', 
             'layout'     => 'default'
