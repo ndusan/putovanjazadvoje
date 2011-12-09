@@ -90,8 +90,12 @@
                 $(document).ready(function(){
                     $('.jnotif').delay(3000).fadeOut(1000);
                 });
-                                    
+                    
+                var currentUrl = '<?=$_SERVER['REQUEST_URI'];?>';
             </script>
         <? endif; ?>
+            <script type="text/javascript">
+                var currentUrl = '<?=$_SERVER['REQUEST_URI'];?>';
+            </script>
     </body>
 </html>

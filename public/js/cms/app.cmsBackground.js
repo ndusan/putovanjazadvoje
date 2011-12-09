@@ -1,9 +1,21 @@
 var App = App || {};
 (function($) {
-    App.CmsHome = {
+    App.CmsBackground = {
         init: function() {
-            App.Common.tabs();
-            App.Common.thead();
+        
+        },
+        index: function() {
+            
+            $('.bgActivate').click(function(){
+               
+               //Send get request
+               $.ajax({
+                  type: "GET",
+                  url: currentUrl,
+                  data: 'id='+$(this).val()
+              });
+              
+            });
         }
     };
 })(this.jQuery);

@@ -7,18 +7,22 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
-                <th>File name</th> 
+                <th>File name</th>
+                <th>Link</th>
                 <th>Created</th> 
                 <th>Active</th> 
                 <th width="100px">Action</th> 
             </tr> 
         </thead> 
         <tbody> 
-            <? foreach ($backgroundCollection as $dic): ?>
+            <? foreach ($backgroundCollection as $b): ?>
                 <tr> 
-                    <td><?= $dic['name']; ?></td> 
-                    <td><?= $html->convertDate($dic['created'], true); ?></td> 
-                    <td><?= $dic['description']; ?></td> 
+                    <td><?= $b['name']; ?></td> 
+                    <td><?= $b['link']; ?></td> 
+                    <td><?= $html->convertDate($b['created'], true); ?></td> 
+                    <td>
+                        <input type="radio" name="active[<?=$b['id'];?>" class="bgActivate" value="<?=$b['id'];?>" <?=($b['active']?'checked="checked"':'');?> />
+                    </td> 
                     <td align="center">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/background/edit/<?= $dic['id']; ?>"></a>
@@ -30,6 +34,7 @@
         <tfoot> 
             <tr> 
                 <th>File name</th> 
+                <th>Link</th>
                 <th>Created</th> 
                 <th>Active</th> 
                 <th width="100px">Action</th> 

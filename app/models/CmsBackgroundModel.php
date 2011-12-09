@@ -151,4 +151,11 @@ class CmsBackgroundModel extends Model
             return false;
         } 
     }
+    
+    
+    public function setActive($id)
+    {
+        
+        return true;
+    }
 }

@@ -6,6 +6,10 @@ class CmsBackgroundController extends Controller
     public function indexAction($params)
     {
         
+        if(!empty($params['id'])){
+            $this->db->setActive($params['id']);
+        }
+        
         parent::set('backgroundCollection', $this->db->findAll());
     }
     
