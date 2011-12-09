@@ -25,7 +25,4 @@ class MagazineController extends Controller
         
         parent::set('subpage', $subpageView);
     }
-    
-    
-    
 }

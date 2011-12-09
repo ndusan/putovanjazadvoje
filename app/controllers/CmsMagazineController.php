@@ -10,4 +10,8 @@ class CmsMagazineController extends Controller
     }
     
     
+    public function wizardAction($params)
+    {
+
+    }
 }
