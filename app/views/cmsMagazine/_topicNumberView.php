@@ -1,4 +1,4 @@
-<div id="fragment-4" class="addContent">
+<div id="fragment-4" class="addConten2t">
     <form name="wizard_topicnumber" action="/cms/magazine/wizard" method="post" enctype="multipart/form-data">
     <div class="addContent">
         <table cellpadding="0" cellspacing="0">

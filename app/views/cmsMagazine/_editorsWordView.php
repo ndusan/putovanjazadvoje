@@ -1,4 +1,4 @@
-<div id="fragment-5" class="addContent">
+<div id="fragment-5" class="addContent2">
     <div class="tabs">
         <ul>
             <li><a href="#fragment-5-1">Srpski</a></li>

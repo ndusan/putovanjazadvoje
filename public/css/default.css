@@ -42,15 +42,22 @@ p {padding:0;}
 
 .header {position:relative; height:170px; background:transparent url(../images/header_bg.png) scroll no-repeat 50% 100%;}
 .navigation {padding:0 0 40px; position:relative; z-index:2; background:transparent url(../images/nav_bg.png) scroll no-repeat 50% 100%;}
+.subNavigation {background:transparent url(../images/sub_bg.png) scroll no-repeat 50% 100%;}
 ul.mainNav {height:50px; padding:0 10px; background:transparent url(../images/stripes.png) scroll repeat-x 0 0;}
 ul.mainNav > li {float:left; position:relative;}
 ul.mainNav > li > a {display:block; font-size:15px; line-height:50px; padding:0 20px; font-family: 'Francois One', sans-serif; color:#FFF; text-transform:uppercase;}
 ul.mainNav > li > a.home {width:10px; height:50px; background-image:url(../images/home.png); background-repeat:no-repeat; background-position:50% 50%;}
-ul.mainNav > li:hover {background-color:#41a8f0; }
+ul.mainNav > li:hover, ul.mainNav > li.active {background-color:#41a8f0; }
 ul.mainNav ul {display:none; position:absolute; width:200px; background-color:#41a8f0;}
 ul.mainNav ul li a {display:block; line-height:20px; padding:10px 20px; color:#FFF;}
 ul.mainNav ul li a:hover {background-color:#2a92da;}
 ul.mainNav li:hover ul {display:block;}
+
+ul.subNav {height:50px; padding:0 10px; margin:0 10px; background:transparent url(../images/stripes1.png) scroll repeat-x 0 0;}
+ul.subNav > li {float:left; position:relative;}
+ul.subNav > li > a {display:block; font-size:15px; line-height:50px; padding:0 20px; font-family: 'Francois One', sans-serif; color:#FFF; text-transform:uppercase;}
+ul.subNav > li:hover, ul.subNav > li.active {background-color:#9ece4a;}
+
 
 ul.lang {overflow:hidden; position:absolute; top:10px; right:10px;}
 ul.lang li {float:left;}
