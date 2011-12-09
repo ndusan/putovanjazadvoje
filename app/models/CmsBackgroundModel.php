@@ -132,7 +132,7 @@ class CmsBackgroundModel extends Model
     } 
     
     
-    public function setActive($id)
+    public function setActive($id, $active)
     {
         
         try{
@@ -140,14 +140,13 @@ class CmsBackgroundModel extends Model
             $query = sprintf("UPDATE %s SET `active`=:active", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
-            $active = 0;
-            $stmt->bindParam(':active', $active, PDO::PARAM_INT);
+            $all = 0;
+            $stmt->bindParam(':active', $all, PDO::PARAM_INT);
             $stmt->execute();
             
             $query = sprintf("UPDATE %s SET `active`=:active WHERE `id`=:id", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
-            $active = 1;
             $stmt->bindParam(':active', $active, PDO::PARAM_INT);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();

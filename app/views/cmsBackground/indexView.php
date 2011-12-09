@@ -21,7 +21,7 @@
                     <td><?= $b['link']; ?></td> 
                     <td><?= $html->convertDate($b['created'], true); ?></td> 
                     <td>
-                        <input type="radio" name="active[<?=$b['id'];?>" class="bgActivate" value="<?=$b['id'];?>" <?=($b['active']?'checked="checked"':'');?> />
+                        <input type="checkbox" name="active[<?=$b['id'];?>]" id="bg-<?=$b['id'];?>" class="bgActivate"  active="<?=($b['active']?'0':'1')?>" value="<?=$b['id'];?>" <?=($b['active']?'checked="checked"':'');?> />
                     </td> 
                     <td align="center">
                         <!--Edit-->

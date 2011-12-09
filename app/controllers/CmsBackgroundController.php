@@ -7,7 +7,11 @@ class CmsBackgroundController extends Controller
     {
         
         if(!empty($params['id'])){
-            $this->db->setActive($params['id']);
+            parent::setRenderHTML(0);
+            
+            $this->db->setActive($params['id'], $params['active']);
+            
+            return true;
         }
         
         parent::set('backgroundCollection', $this->db->findAll());
