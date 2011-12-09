@@ -16,6 +16,10 @@ var App = App || {};
               });
               
             });
+            
+            //Set datatable
+            $('#dataTable').dataTable();
+            App.Common.thead();
         }
     };
 })(this.jQuery);

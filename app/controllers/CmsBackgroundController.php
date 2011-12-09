@@ -23,11 +23,10 @@ class CmsBackgroundController extends Controller
                 if(0 == $params['image']['error'] && !empty($id)){
                     
                     $newImageName = $id.'-'.$params['image']['name'];
+                    
                     $this->db->setImageName($id, $newImageName);
                     $info = $this->uploadImage($newImageName, $params['image'], 'background');
                     
-                    //Create thumb
-                    $this->createThumbImage($newImageName, 'background', 170, 120);
                 }
                 parent::redirect ('cms'.DS.'background', 'success');
             }else{
@@ -44,7 +43,6 @@ class CmsBackgroundController extends Controller
 
             if($this->db->update($params['background'])){
                 //If image uploaded add it
-                
                 if(0 == $params['image']['error']){
                     
                     $data = $this->db->getImageName($params['background']['id']);
@@ -53,15 +51,7 @@ class CmsBackgroundController extends Controller
                     $newImageName = $params['background']['id'].'-'.$params['image']['name'];
                     $this->db->setImageName($params['background']['id'], $newImageName);
                     
-                    //Delete thumb
-                    $oldThumbImageName = 'thumb-'.$oldImageName;
-                    
-                    $this->deleteImage($oldThumbImageName, 'background');
                     $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'background');
-                    
-                    //Create thumb
-                    $this->createThumbImage($newImageName, 'background', 170, 120);
-                    
                 }
                 parent::redirect ('cms'.DS.'background', 'success');
             }else{
@@ -83,10 +73,6 @@ class CmsBackgroundController extends Controller
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'background');
                 
-                //Delete thumb
-                $oldThumbImageName = 'thumb-'.$oldImageName;
-
-                $this->deleteImage($oldThumbImageName, 'background');
             }
             parent::redirect ('cms'.DS.'background', 'success');
         }else{

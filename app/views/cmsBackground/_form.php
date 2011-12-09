@@ -1,6 +1,13 @@
 <div class="addContent">
+    <form action="/cms/background/<?= $action; ?>" method="post" enctype="multipart/form-data">
     <table cellpadding="0" cellspacing="0">
         <tbody>
+            <tr>
+                <td>Link:</td>
+                <td>
+                    <input type="text" name="background[link]" value="<?=@$background['link']; ?>" />
+                </td>
+            </tr>
             <tr>
                 <td>Image:</td>
                 <td>
@@ -16,9 +23,10 @@
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Submit" name="submit" />
-                    <input type="hidden" name="dictionary[id]" value="<?= @$background['id']; ?>" />
+                    <input type="hidden" name="background[id]" value="<?= @$background['id']; ?>" />
                 </td>
             </tr>
         </tbody>
     </table>
+    </form>
 </div>

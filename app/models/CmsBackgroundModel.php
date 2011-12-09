@@ -43,10 +43,10 @@ class CmsBackgroundModel extends Model
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title`=:title WHERE `id`=:id", $this->tableBackground);
+            $query = sprintf("UPDATE %s SET `link`=:link WHERE `id`=:id", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -82,10 +82,10 @@ class CmsBackgroundModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `title`=:title", $this->tableBackground);
+            $query = sprintf("INSERT INTO %s SET `link`=:link", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
             $stmt->execute();
             
             return $this->dbh->lastInsertId();
@@ -132,16 +132,23 @@ class CmsBackgroundModel extends Model
     } 
     
     
-    public function updateImageInfo($id, $array)
+    public function setActive($id)
     {
         
-       try{
-            $query = sprintf("UPDATE %s SET `ratio`=:ratio, `size`=:size WHERE `id`=:id", $this->tableBackground);
+        try{
+            //Set all to not active
+            $query = sprintf("UPDATE %s SET `active`=:active", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
-            $ratio = $array['width'].'x'.$array['height'];
-            $stmt->bindParam(':ratio', $ratio, PDO::PARAM_STR);
-            $stmt->bindParam(':size', $array['size'], PDO::PARAM_STR);
+            $active = 0;
+            $stmt->bindParam(':active', $active, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $query = sprintf("UPDATE %s SET `active`=:active WHERE `id`=:id", $this->tableBackground);
+            $stmt = $this->dbh->prepare($query);
+            
+            $active = 1;
+            $stmt->bindParam(':active', $active, PDO::PARAM_INT);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             
@@ -149,13 +156,6 @@ class CmsBackgroundModel extends Model
         }catch(Exception $e){
             
             return false;
-        } 
-    }
-    
-    
-    public function setActive($id)
-    {
-        
-        return true;
+        }
     }
 }

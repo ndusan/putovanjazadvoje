@@ -17,7 +17,7 @@
         <tbody> 
             <? foreach ($backgroundCollection as $b): ?>
                 <tr> 
-                    <td><?= $b['name']; ?></td> 
+                    <td><?= $b['image_name']; ?></td> 
                     <td><?= $b['link']; ?></td> 
                     <td><?= $html->convertDate($b['created'], true); ?></td> 
                     <td>
@@ -25,9 +25,9 @@
                     </td> 
                     <td align="center">
                         <!--Edit-->
-                        <a class="cmsEdit" title="Edit" href="/cms/background/edit/<?= $dic['id']; ?>"></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/background/edit/<?= $b['id']; ?>"></a>
                         <!--Delete-->
-                        <a class="jw cmsDelete" title="Delete" href="/cms/background/delete/<?= $dic['id']; ?>" ></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/background/delete/<?= $b['id']; ?>" ></a>
                     </td> 
                 </tr> 
             <? endforeach; ?>
