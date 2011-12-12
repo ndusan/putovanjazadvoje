@@ -55,6 +55,60 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'default'
     ),
+    //News 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/aktuelno\/?$/', 
+            'controller' => 'news', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    //Competition
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/?$/', 
+            'controller' => 'competition', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici-nagradnih-igara|foto-naticanje|gde-smo))\/?$/', 
+            'controller' => 'competition', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    
+    //Press
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/?$/', 
+            'controller' => 'press', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/(?P<page>(o-magazinu|download))\/?$/', 
+            'controller' => 'press', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    
+    //Ads
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/oglasavanje\/?$/', 
+            'controller' => 'ads', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/oglasavanje\/(?P<page>(opsti-uslovi-i-informacije|cenovnik-i-formati))\/?$/', 
+            'controller' => 'ads', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    //Download
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/download\/?$/', 
+            'controller' => 'download', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    //Contact
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/kontakt\/?$/', 
+            'controller' => 'contact', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+        
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 
@@ -149,6 +203,8 @@ $routes = array(
             'action'     => 'archive', 
             'layout'     => 'cms'
     ),
+    
+    //CMS background page
     array(  'url'        => '/^cms\/background\/?$/', 
             'controller' => 'cmsBackground', 
             'action'     => 'index', 
@@ -169,6 +225,8 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    
+    //CMS magazine page
     array(  'url'        => '/^cms\/magazine\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'index', 
@@ -178,6 +236,55 @@ $routes = array(
             'controller' => 'cmsMagazine', 
             'action'     => 'wizard', 
             'layout'     => 'cms'
-    ),    
+    ), 
+    
+    //CMS carousel page
+    array(  'url'        => '/^cms\/carousel\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/add\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/carousel\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsCarousel', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS news page
+    array(  'url'        => '/^cms\/news\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/add\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/news\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/news\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNews', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
     
 );

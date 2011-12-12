@@ -11,6 +11,14 @@ class HomeController extends Controller
     public function indexAction($params)
     {
 
+        $this->getCarouselCollection($params);
+    }
+    
+    
+    private function getCarouselCollection($params)
+    {
+        
+        parent::set('carouselCollection', $this->db->getCarouselCollection($params));
     }
     
     
