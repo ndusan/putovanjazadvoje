@@ -20,7 +20,7 @@ h3 {font-size:14px;}
 
 /*MAIN*/
 body {font-size:13px; color:#555; font-family:arial,sans-serif;}
-a {color:#555; outline:none; text-decoration:none;}
+a {color:#39C; outline:none; text-decoration:none;}
 a:hover {color:#333;}
 img {border: none; vertical-align:top;}
 p {padding:0;}
@@ -123,11 +123,11 @@ ul.footerLinks > li.first {border-left:none;}
 ul.footerLinks > li.last {border-right:none;}
 ul.footerLinks li ul {padding:20px 0 0;}
 
-.wys {padding:10px 0 20px;}
+.wys {padding:10px 0;}
 .wys p {padding:5px 0;}
 .breadcrumb {color:#999; line-height:30px; font-size:12px; border-bottom:solid 1px #EEE;}
 
-.forms {overflow:hidden; padding:10px 10px 0; border:solid 1px #f5f5f5;}
+.forms {overflow:hidden; padding:10px 10px 0; border:solid 1px #f5f5f5; margin:10px 0;}
 .forms thead th {padding:5px; text-align:left;}
 .forms tbody td {padding:5px; border-bottom:solid 1px #f5f5f5;}
 .forms tfoot td {padding:10px 5px;}
@@ -137,6 +137,8 @@ ul.footerLinks li ul {padding:20px 0 0;}
 .forms input[type=text]:focus {background-color:#FFF; }
 .forms input[type=submit] {font-family:'Arial',sans-serif; padding:10px 20px 10px 35px; border-radius:2px; font-size:14px; color:#FFF; font-weight:bold; border:none; background:transparent url(../images/butOk_bg.png) scroll no-repeat 0 -5px;}
 .forms input[type=submit]:hover {background-position:0 -55px; cursor:pointer;}
+.forms textarea {font-family:'Arial',sans-serif; width:200px; vertical-align:middle; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms textarea:focus {background-color:#FFF; }
 .forms .req {padding:0 10px; color:#b85252;}
 .forms .small {color:#999;}
 
@@ -147,9 +149,14 @@ ul.orderSelect input[type=checkbox] {vertical-align:sub;}
 
 ul.magazines {overflow:hidden;}
 ul.magazines li {float:left; padding:10px 2px;}
-ul.magazines li img {width:128px; padding:0 0 2px;}
+ul.magazines li img {width:128px; padding:0 0 5px;}
+ul.magazines li a {display:block; padding:0 0 5px; text-align:center; font-size:12px; line-height:15px;}
 
 ul.searchResults {overflow:hidden;}
 ul.searchResults li {padding:10px 0; border-bottom:solid 1px #f5f5f5;}
+
+ul.downloads {overflow:hidden; margin:10px 0; border:solid 1px #f5f5f5; border-bottom:none;}
+ul.downloads li {padding:10px; border-bottom:solid 1px #f5f5f5;}
+
 
 

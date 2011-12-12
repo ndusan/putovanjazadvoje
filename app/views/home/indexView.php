@@ -41,15 +41,6 @@
                     </div>
                 </li>
             </ul>
-            <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
-            </div>
-            <div class="wys">
-                <h1>O nama</h1>
-                <p>
-                    Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                </p>
-            </div>
             <ul class="news">
                 <li>
                     <div class="gTitle">
