@@ -11,14 +11,14 @@ class CompetitionController extends Controller
     public function indexAction($params)
     {
 
-        $subpageView = '_index';
+        $subpageView = '_winners';
         
         if(!empty($params['page'])){
             switch($params['page']){
                 case 'dobitnici-nagradnih-igara': $subpageView = '_winners'; break;
                 case 'foto-naticanje': $subpageView = '_fotoCompetition'; break;
                 case 'gde-smo': $subpageView = '_whereAreWe'; break;
-                default: $subpageView = '_index';
+                default: $subpageView = '_winners';
             }
         }
         

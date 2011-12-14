@@ -62,11 +62,6 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Competition
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/?$/', 
-            'controller' => 'competition', 
-            'action'     => 'index', 
-            'layout'     => 'default'
-    ),
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici-nagradnih-igara|foto-naticanje|gde-smo))\/?$/', 
             'controller' => 'competition', 
             'action'     => 'index', 
@@ -74,11 +69,6 @@ $routes = array(
     ),
     
     //Press
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/?$/', 
-            'controller' => 'press', 
-            'action'     => 'index', 
-            'layout'     => 'default'
-    ),
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/(?P<page>(o-magazinu|download))\/?$/', 
             'controller' => 'press', 
             'action'     => 'index', 
@@ -86,11 +76,6 @@ $routes = array(
     ),
     
     //Ads
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/oglasavanje\/?$/', 
-            'controller' => 'ads', 
-            'action'     => 'index', 
-            'layout'     => 'default'
-    ),
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/oglasavanje\/(?P<page>(opsti-uslovi-i-informacije|cenovnik-i-formati))\/?$/', 
             'controller' => 'ads', 
             'action'     => 'index', 

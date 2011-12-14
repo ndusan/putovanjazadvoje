@@ -12,20 +12,20 @@
             </ul>
         </li>
         <li><a href="<?=DS.$params['lang'].DS.'aktuelno';?>">aktuelno</a></li>
-        <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre';?>">nagradne igre</a>
+        <li><a href="#">nagradne igre</a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici-nagradnih-igara';?>">Dobitnici nagradnih igara</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'foto-naticanje';?>">Foto naticanje</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'gde-smo';?>">Gde smo?</a></li>
             </ul>
         </li>
-        <li><a href="<?=DS.$params['lang'].DS.'press';?>">press</a>
+        <li><a href="#">press</a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'o-magazinu';?>">O magazinu</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'download';?>">Download</a></li>
             </ul>
         </li>
-        <li><a href="<?=DS.$params['lang'].DS.'oglasavanje';?>">oglasavanje</a>
+        <li><a href="#">oglasavanje</a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'oglasavanje'.DS.'opsti-uslovi-i-informacije';?>">Opšti uslovi i informacije</a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'oglasavanje'.DS.'cenovnik-i-formati';?>">Cenovnik i formati</a></li>

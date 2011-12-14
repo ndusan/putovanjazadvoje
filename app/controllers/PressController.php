@@ -11,13 +11,13 @@ class PressController extends Controller
     public function indexAction($params)
     {
 
-        $subpageView = '_index';
+        $subpageView = '_aboutMagazine';
         
         if(!empty($params['page'])){
             switch($params['page']){
                 case 'o-magazinu': $subpageView = '_aboutMagazine'; break;
                 case 'download': $subpageView = '_download'; break;
-                default: $subpageView = '_index';
+                default: $subpageView = '_aboutMagazine';
             }
         }
         

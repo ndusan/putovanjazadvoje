@@ -10,13 +10,13 @@ class AdsController extends Controller
     public function indexAction($params)
     {
 
-        $subpageView = '_index';
+        $subpageView = '_termsAndConditions';
         
         if(!empty($params['page'])){
             switch($params['page']){
                 case 'opsti-uslovi-i-informacije': $subpageView = '_termsAndConditions'; break;
                 case 'cenovnik-i-formati': $subpageView = '_priceList'; break;
-                default: $subpageView = '_index';
+                default: $subpageView = '_termsAndConditions';
             }
         }
         
