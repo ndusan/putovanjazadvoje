@@ -14,10 +14,8 @@
             <div class="breadcrumb">
                 <a href="#">Pocetna</a> / Magazin / O nama
             </div>
-            <div class="wys">
-                <!-- Load subview -->
-                <? include_once $subpage . 'View.php'; ?>
-            </div>
+            <!-- Load subview -->
+            <? include_once $subpage . 'View.php'; ?>
         </div>
     </div>
 </div>

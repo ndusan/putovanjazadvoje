@@ -158,5 +158,16 @@ ul.searchResults li {padding:10px 0; border-bottom:solid 1px #f5f5f5;}
 ul.downloads {overflow:hidden; margin:10px 0; border:solid 1px #f5f5f5; border-bottom:none;}
 ul.downloads li {padding:10px; border-bottom:solid 1px #f5f5f5;}
 
+.contextMain {float:left; width:420px;}
+.contextSidebar {float:right; width:200px; padding:0 10px; text-align:center;}
+
+ul.sidebarLinks {overflow:hidden; padding:20px 0;}
+ul.sidebarLinks li a {line-height:50px; font-family: 'Francois One', sans-serif; text-align:center; display:block; width:200px; color:#FFF; background-image:url(../images/links_bg.png);}
+ul.sidebarLinks li.green a {background-position:0 -50px;}
+ul.sidebarLinks li.green a:hover {background-position:100% -50px;}
+ul.sidebarLinks li.blue a {background-position:0 0px;}
+ul.sidebarLinks li.blue a:hover {background-position:100% 0px;}
+
+
 
 
