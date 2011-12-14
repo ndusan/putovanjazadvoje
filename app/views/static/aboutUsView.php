@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="<?=DS.$params['lang'];?>">Pocetna</a> / Magazin / O nama
             </div>
             <div class="wys">
                 <h1>O nama</h1>

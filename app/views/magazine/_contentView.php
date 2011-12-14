@@ -1,3 +1,7 @@
+<div class="breadcrumb">
+    <a href="<?=DS.$params['lang'];?>">Pocetna</a> / Magazin / Sadrzaj
+</div>
+
 <div class="contextMain">
     <div class="wys">
         <h1>Sadrzaj</h1>    

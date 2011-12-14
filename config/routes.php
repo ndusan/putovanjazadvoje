@@ -13,27 +13,27 @@ $routes = array(
             'layout'     => '404'
     ),
     //Static content
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/o-nama\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/o-nama\/?$/', 
             'controller' => 'static', 
             'action'     => 'aboutUs', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pretplati-se-na-magazin\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/pretplati-se-na-magazin\/?$/', 
             'controller' => 'static', 
             'action'     => 'signUpForMagazine', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/naruci-ranije-brojeve\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/naruci-ranije-brojeve\/?$/', 
             'controller' => 'static', 
             'action'     => 'orderPrevious', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/pokloni-pretplatu\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/pokloni-pretplatu\/?$/', 
             'controller' => 'static', 
             'action'     => 'giveAway', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/arhiva-izdanja\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/arhiva-izdanja\/?$/', 
             'controller' => 'static', 
             'action'     => 'archive', 
             'layout'     => 'default'
@@ -45,12 +45,12 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Magazine
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-prodaji\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/broj-u-prodaji\/?$/', 
             'controller' => 'magazine', 
             'action'     => 'index', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/broj-u-prodaji\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/broj-u-prodaji\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
             'controller' => 'magazine', 
             'action'     => 'index', 
             'layout'     => 'default'
