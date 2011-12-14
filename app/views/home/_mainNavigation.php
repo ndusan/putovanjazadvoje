@@ -35,7 +35,7 @@
         <li><a href="<?=DS.$params['lang'].DS.'kontakt';?>">kontakt</a></li>
     </ul>
     <ul class="lang">
-        <li><a class="active" href="#">SR</a></li>
-        <li><a href="#">EN</a></li>
+        <li><a <?=(isset($params['lang']) && $params['lang'] == 'sr' ? 'class="active"':'');?> href="<?=DS.'sr'.DS.implode('/', $params['breadcrumb']);?>">SR</a></li>
+        <li><a <?=(isset($params['lang']) && $params['lang'] == 'en' ? 'class="active"':'');?> href="<?=DS.'en'.DS.implode('/', $params['breadcrumb']);?>">EN</a></li>
     </ul>
 </div>

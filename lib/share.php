@@ -78,6 +78,12 @@ function performAction($controller, $action, $queryString = null, $render = 0) {
 	return call_user_func_array(array($dispatch,$action),$queryString);
 }
 
+function getBreadcrumb($url)
+{
+    
+    return explode('/', substr($url, 3));
+}
+
 /**
  * Go through all routes and look for next step
  * @param $routes
@@ -117,6 +123,9 @@ function routing($routes){
                 header("Location: ".BASE_PATH.'404');
                 exit;
         }
+        
+        //Add breadcrumb
+        $params['breadcrumb'] = getBreadcrumb($url);
         
         return array('route' => $route, 'params' => $params);
 }
