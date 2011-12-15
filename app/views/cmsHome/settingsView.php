@@ -13,18 +13,17 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td>
-                        After you set new dictionary keys you need to clean cache!
+                        After you set new dictionary keys you need to clear cache!
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" value="Click to clean cache" name="submit" />
-                        <a href="<?= DS . 'cms' . DS . 'settings?cache=clean'; ?>">Click to clean cache!</a>
+                        <a class="butLink" href="<?= DS . 'cms' . DS . 'settings?cache=clean'; ?>">Click to clean cache!</a>
                     </td>
                 </tr>
             </table>
             <? if (!empty($_GET['cache']) && $_GET['cache'] == 'clean'): ?>
-                <h3>Cache cleaned.</h3>
+            <div class="jnotif" id="jsuccess">Cache cleared</div>
             <? endif; ?>
         </div>
         <div id="fragment-2" class="addContent">

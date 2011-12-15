@@ -59,8 +59,10 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {background-c
 select {padding:4px 5px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; width: 200px; box-shadow: 0 0 2px rgba(200, 200, 200, 0.3) inset;}
 select:focus {background-color:#FFF; }
 
-input[type=submit] {-moz-transition:all .1s ease-in; color:#FFF; border:solid 1px #FB7502; padding:10px 25px; border-radius:3px; background-color:#FB9F11; background-image:-moz-linear-gradient(center top , #FB9F11, #FB7502); font-family: Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0); box-shadow:0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.4) inset;}
-input[type=submit]:hover {cursor:pointer; background-image:-moz-linear-gradient(center top , #FBA92A, #FB7502);}
+input[type=submit], .butLink {-moz-transition:all .1s ease-in; color:#FFF; border:solid 1px #FB7502; padding:10px 25px; border-radius:3px; background-color:#FB9F11; background-image:-moz-linear-gradient(center top , #FB9F11, #FB7502); font-family: Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0); box-shadow:0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.4) inset;}
+input[type=submit]:hover, .butLink:hover {color:#FFF; cursor:pointer; background-image:-moz-linear-gradient(center top , #FBA92A, #FB7502);}
+
+.butLink {display:inline-block;}
 
 .warning {border-color:#cd090f !important;}
 .warningTr {background-color:#fee7e0; color:#cd090f;}
@@ -154,4 +156,4 @@ ul.listing li {float:left; padding:0 10px 10px; margin:0 20px 0 0; border:solid 
 
 .dataTableSortable tr {background-image: url(../images/move.png); background-repeat:no-repeat; background-position:50% 50%;}
 
-.leaf-child{ display:none;}
+.leaf-child{display:none;}
