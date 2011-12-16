@@ -10,7 +10,7 @@
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="carousel[content][sr]" class="jr"><?= @$carousel['content']['sr']; ?></textarea>
+                            <textarea name="carousel[content][sr]" class="jr"><?= @$carousel['lang']['sr']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -22,7 +22,7 @@
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="carousel[content][en]"><?= @$carousel['content']['en']; ?></textarea>
+                            <textarea name="carousel[content][en]"><?= @$carousel['lang']['en']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>

@@ -7,7 +7,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
-                <th>Content</th>
+                <th>Image name</th>
                 <th>Link</th>
                 <th>Created</th> 
                 <th width="100px">Action</th>
@@ -16,7 +16,7 @@
         <tbody> 
             <? foreach ($carouselCollection as $carousel): ?>
                 <tr> 
-                    <td><?=$carousel['content_sr'];?></td>
+                    <td><?=$carousel['image_name'];?></td>
                     <td><?=$carousel['link'];?></td>
                     <td><?=$html->convertDate($carousel['created'], true);?></td>
                     <td align="center" valign="top">

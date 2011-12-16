@@ -7,7 +7,11 @@
                         <div class="slide">
                             <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
                             <div class="desc">
-                                <p><?= $cc['content_' . $params['lang']]; ?></p>
+                                <? if(!empty($cc['link'])):?>
+                                <!-- Link -->
+                                <a href="http://<?=rtrim($cc['link'], 'http://'); ?>" target="_blank">link</a>
+                                <? endif;?>
+                                <p><?= $cc['text']; ?></p>
                             </div>
                         </div>
                     <? endforeach; ?>

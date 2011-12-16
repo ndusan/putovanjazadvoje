@@ -4,11 +4,11 @@ var App = App || {};
         init: function() {
             
             /** GENERAL **/
-            $('.jw').click(function(){
+            $('.jw').live('click', function(){
                 var answer = confirm ("Are you sure you want to delete this line?");
                 if (!answer) return false;
             });
-            $('.jl').click(function(){
+            $('.jl').live('click', function(){
                 var answer = confirm ("Are you sure you want to logout?");
                 if (!answer) return false;
             });
