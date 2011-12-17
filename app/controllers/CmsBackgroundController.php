@@ -7,14 +7,14 @@ class CmsBackgroundController extends Controller
     {
         
         if(!empty($params['id'])){
-            parent::setRenderHTML(0);
+            $this->setRenderHTML(0);
             
             $this->db->setActive($params['id'], $params['active']);
             
             return true;
         }
         
-        parent::set('backgroundCollection', $this->db->findAll());
+        $this->set('backgroundCollection', $this->db->findAll());
     }
     
     public function addAction($params)
@@ -32,9 +32,9 @@ class CmsBackgroundController extends Controller
                     $info = $this->uploadImage($newImageName, $params['image'], 'background');
                     
                 }
-                parent::redirect ('cms'.DS.'background', 'success');
+                $this->redirect ('cms'.DS.'background', 'success');
             }else{
-                parent::redirect ('cms'.DS.'background'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'background'.DS.'add', 'error');
             }
         }
     }
@@ -57,17 +57,17 @@ class CmsBackgroundController extends Controller
                     
                     $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'background');
                 }
-                parent::redirect ('cms'.DS.'background', 'success');
+                $this->redirect ('cms'.DS.'background', 'success');
             }else{
-                parent::redirect ('cms'.DS.'background'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'background'.DS.'edit'.DS.$params['id'], 'error');
             }
         }
-        parent::set('background', $this->db->find($params['id']));
+        $this->set('background', $this->db->find($params['id']));
     }
     
     public function deleteAction($params)
     {
-        parent::setRenderHTML(0);
+        $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
         if($this->db->delete($params)){
@@ -78,9 +78,9 @@ class CmsBackgroundController extends Controller
                 $this->deleteImage($oldImageName, 'background');
                 
             }
-            parent::redirect ('cms'.DS.'background', 'success');
+            $this->redirect ('cms'.DS.'background', 'success');
         }else{
-            parent::redirect ('cms'.DS.'background', 'error');
+            $this->redirect ('cms'.DS.'background', 'error');
         }
     }
     

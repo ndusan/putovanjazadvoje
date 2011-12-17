@@ -5,7 +5,7 @@ class CmsCarouselController extends Controller
     
     public function indexAction($params)
     {
-        parent::set('carouselCollection', $this->db->findAllCarousel());
+        $this->set('carouselCollection', $this->db->findAllCarousel());
     }
     
     public function addAction($params)
@@ -21,9 +21,9 @@ class CmsCarouselController extends Controller
                     $this->db->setImageName($id, $newImageName);
                     $this->uploadImage($newImageName, $params['image'], 'carousel');
                 }
-                parent::redirect ('cms'.DS.'carousel', 'success');
+                $this->redirect ('cms'.DSh.'carousel', 'success');
             }else{
-                parent::redirect ('cms'.DS.'carousel'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'carousel'.DS.'add', 'error');
             }
         }
     }
@@ -46,17 +46,17 @@ class CmsCarouselController extends Controller
                     $this->db->setImageName($params['carousel']['id'], $newImageName);
                     $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'carousel');
                 }
-                parent::redirect ('cms'.DS.'carousel', 'success');
+                $this->redirect ('cms'.DS.'carousel', 'success');
             }else{
-                parent::redirect ('cms'.DS.'carousel'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'carousel'.DS.'edit'.DS.$params['id'], 'error');
             }
         }
-        parent::set('carousel', $this->db->findCarousel($params['id']));
+        $this->set('carousel', $this->db->findCarousel($params['id']));
     }
     
     public function deleteAction($params)
     {
-        parent::setRenderHTML(0);
+        $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
         if($this->db->deleteCarousel($params)){
@@ -66,9 +66,9 @@ class CmsCarouselController extends Controller
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'carousel');
             }
-            parent::redirect ('cms'.DS.'carousel', 'success');
+            $this->redirect ('cms'.DS.'carousel', 'success');
         }else{
-            parent::redirect ('cms'.DS.'carousel', 'error');
+            $this->redirect ('cms'.DS.'carousel', 'error');
         }
     }
     

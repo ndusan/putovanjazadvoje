@@ -12,7 +12,7 @@
             <ul class="actual">
                 <li>
                     <? if(!empty($currentNews['image_name'])):?>
-                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . $currentNews['image_name']; ?>" />
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . 'thumb-'.$currentNews['image_name']; ?>" />
                     <? endif;?>
                     <div class="txt">
                         <h2>
@@ -34,7 +34,7 @@
                 <li>
                     <? if(!empty($news['image_name'])):?>
                     <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$news['id'];?>">
-                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" />
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . 'thumb-'.$news['image_name']; ?>" />
                     </a>
                     <? endif;?>
                     <div class="txt">

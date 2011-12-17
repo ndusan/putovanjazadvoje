@@ -9,6 +9,9 @@ class NewsController extends Controller
      */
     public function indexAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $newsId = null;
         
         if(!empty($params['newsId']) && is_numeric($params['newsId'])){

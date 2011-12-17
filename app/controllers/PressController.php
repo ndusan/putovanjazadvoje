@@ -10,7 +10,9 @@ class PressController extends Controller
      */
     public function indexAction($params)
     {
-
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $subpageView = '_aboutMagazine';
         
         if(!empty($params['page'])){
@@ -21,6 +23,6 @@ class PressController extends Controller
             }
         }
         
-        parent::set('subpage', $subpageView);
+        $this->set('subpage', $subpageView);
     }
 }

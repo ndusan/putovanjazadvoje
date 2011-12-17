@@ -3,14 +3,15 @@
 class HomeController extends Controller
 {
     
-    
     /**
      * HOME PAGE
      * @param type $params 
      */
     public function indexAction($params)
     {
-
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $this->getCarouselCollection($params);
     }
     
@@ -18,7 +19,7 @@ class HomeController extends Controller
     private function getCarouselCollection($params)
     {
         
-        parent::set('carouselCollection', $this->db->getCarouselCollection($params));
+        $this->set('carouselCollection', $this->db->getCarouselCollection($params));
     }
     
     

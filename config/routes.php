@@ -271,5 +271,149 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    //CMS press page
+    array(  'url'        => '/^cms\/press\/about-magazine\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/about-magazine\/add\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/about-magazine\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/about-magazine\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/press\/download\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/download\/add\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/download\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/press\/download\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    //CMS ads page
+    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/add\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/ads\/price-list\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/price-list\/add\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/price-list\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/ads\/price-list\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAds', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    //CMS download page
+    array(  'url'        => '/^cms\/download\/logo\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/logo\/add\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/logo\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/logo\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/download\/background\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/background\/add\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/background\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/download\/background\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    //CMS contact page
+    array(  'url'        => '/^cms\/contact\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contact\/add\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contact\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contact\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContact', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
     
 );

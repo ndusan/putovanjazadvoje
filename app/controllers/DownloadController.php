@@ -9,6 +9,7 @@ class DownloadController extends Controller
      */
     public function indexAction($params)
     {
-
+        //Set left menu
+        $this->setLeftMenu($params);
     }
 }

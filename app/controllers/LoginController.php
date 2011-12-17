@@ -7,7 +7,7 @@ class LoginController extends Controller
     {
 
         if(!empty($params['login'])){
-            parent::setRenderHTML(0);
+            $this->setRenderHTML(0);
             if($user = $this->db->getUser($params['login'])){
                 
                 $_SESSION['cms'] = $user;
@@ -27,7 +27,7 @@ class LoginController extends Controller
         //Delete session
         $_SESSION['cms'] = null;
         unset($_SESSION['cms']);
-        parent::redirect('login', '');
+        $this->redirect('login', '');
     }
     
     

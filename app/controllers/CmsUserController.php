@@ -5,7 +5,7 @@ class CmsUserController extends Controller
     
     public function indexAction($params)
     {
-        parent::set('userCollection', $this->db->findAllUsers());
+        $this->set('userCollection', $this->db->findAllUsers());
     }
     
     public function addAction($params)
@@ -15,13 +15,13 @@ class CmsUserController extends Controller
             //Data submited
             
             if($this->db->createUser($params['user'])){
-                parent::redirect ('cms'.DS.'users', 'success');
+                $this->redirect ('cms'.DS.'users', 'success');
             }else{
-                parent::redirect ('cms'.DS.'users'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'users'.DS.'add', 'error');
             }
         }
         
-        parent::set('params', $params);
+        $this->set('params', $params);
     }
     
     public function editAction($params)
@@ -31,23 +31,23 @@ class CmsUserController extends Controller
             //Data submited
             
             if($this->db->updateUser($params['user'])){
-                parent::redirect ('cms'.DS.'users', 'success');
+                $this->redirect ('cms'.DS.'users', 'success');
             }else{
-                parent::redirect ('cms'.DS.'users'.DS.'edit'.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'users'.DS.'edit'.$params['id'], 'error');
             }
         }
         
-        parent::set('params', $params);
-        parent::set('user', $this->db->findUser($params['id']));
+        $this->set('params', $params);
+        $this->set('user', $this->db->findUser($params['id']));
     }
     
     public function deleteAction($params)
     {
-        parent::setRenderHTML(0);
+        $this->setRenderHTML(0);
         if($this->db->deleteUser($params)){
-            parent::redirect ('cms'.DS.'users', 'success');
+            $this->redirect ('cms'.DS.'users', 'success');
         }else{
-            parent::redirect ('cms'.DS.'users', 'error');
+            $this->redirect ('cms'.DS.'users', 'error');
         }
     }
     
