@@ -14,8 +14,9 @@ var App = App || {};
             });
             
             //spefific
-            $('#leaf-link').click(function(){
-                $('.leaf-child').slideToggle();
+            $('a[name="leaf-link"]').click(function(){
+                var childClass = $(this).attr('child-class');
+                $('.'+childClass).slideToggle();
             });
             
             

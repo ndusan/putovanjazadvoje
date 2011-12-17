@@ -10,6 +10,8 @@ class MagazineController extends Controller
      */
     public function indexAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
 
         $subpageView = '_index';
         
@@ -23,6 +25,6 @@ class MagazineController extends Controller
             }
         }
         
-        parent::set('subpage', $subpageView);
+        $this->set('subpage', $subpageView);
     }
 }

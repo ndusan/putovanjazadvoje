@@ -5,14 +5,17 @@ class StaticController extends Controller
     
     private $formValidation = array();
     
+    
     /**
      * About Us
      * @param type $params 
      */
     public function aboutUsAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
 
-        parent::set('collection', $this->db->find($params, 'aboutus'));
+        $this->set('collection', $this->db->find($params, 'aboutus'));
     }
     
     /**
@@ -21,8 +24,10 @@ class StaticController extends Controller
      */
     public function archiveAction($params)
     {
-
-        parent::set('collection', $this->db->find($params, 'archive'));
+        //Set left menu
+        $this->setLeftMenu($params);
+        
+        $this->set('collection', $this->db->find($params, 'archive'));
     }
     
     /**
@@ -31,13 +36,16 @@ class StaticController extends Controller
      */
     public function giveAwayAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $array = array();
         
         $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
         
         $this->sendFormIfSubmited($params, $array);
         
-        parent::set('collection', $this->db->find($params, 'giveaway'));
+        $this->set('collection', $this->db->find($params, 'giveaway'));
     }
     
     /**
@@ -46,13 +54,16 @@ class StaticController extends Controller
      */
     public function orderPreviousAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $array = array();
         
         $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
         
         $this->sendFormIfSubmited($params, $array);
 
-        parent::set('collection', $this->db->find($params, 'orderprevious'));
+        $this->set('collection', $this->db->find($params, 'orderprevious'));
     }
     
     /**
@@ -61,42 +72,50 @@ class StaticController extends Controller
      */
     public function signUpForMagazineAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $array = array();
         
         $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
         
         $this->sendFormIfSubmited($params, $array);
         
-        parent::set('collection', $this->db->find($params, 'signupformagazine'));
+        $this->set('collection', $this->db->find($params, 'signupformagazine'));
     }
     
     
     public function searchAction($params)
     {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $resultCollection = array();
         
         if(!empty($params['q'])){
             $resultCollection = $this->db->searchFor($params['q']);
         }
         
-        parent::set('resultCollection', $resultCollection);
+        $this->set('resultCollection', $resultCollection);
         
     }
     
     
     private function sendFormIfSubmited($params, array $array=array())
     {
+        //Set left menu
+        $this->setLeftMenu($params);
         
         if(!isset($params['submit'])) return false;
         
         //Check if required fields are valid
-        if(!parent::validate($this->formValidation, $params['collection'])) return false;
+        if(!$this->validate($this->formValidation, $params['collection'])) return false;
         
         $subject = '';
         
-        if(parent::sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array)){
+        if($this->sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array)){
             
-            parent::set('sent', true);
+            $this->set('sent', true);
         }
     }
 }

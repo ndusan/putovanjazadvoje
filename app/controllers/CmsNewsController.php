@@ -5,7 +5,7 @@ class CmsNewsController extends Controller
     
     public function indexAction($params)
     {
-        parent::set('newsCollection', $this->db->findAllNews());
+        $this->set('newsCollection', $this->db->findAllNews());
     }
     
     public function addAction($params)
@@ -21,9 +21,9 @@ class CmsNewsController extends Controller
                     $this->db->setImageName($id, $newImageName);
                     $this->uploadImage($newImageName, $params['image'], 'news');
                 }
-                parent::redirect ('cms'.DS.'news', 'success');
+                $this->redirect ('cms'.DS.'news', 'success');
             }else{
-                parent::redirect ('cms'.DS.'news'.DS.'add', 'error');
+                $this->redirect ('cms'.DS.'news'.DS.'add', 'error');
             }
         }
     }
@@ -46,17 +46,17 @@ class CmsNewsController extends Controller
                     $this->db->setImageName($params['news']['id'], $newImageName);
                     $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'news');
                 }
-                parent::redirect ('cms'.DS.'news', 'success');
+                $this->redirect ('cms'.DS.'news', 'success');
             }else{
-                parent::redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'error');
             }
         }
-        parent::set('news', $this->db->findNews($params['id']));
+        $this->set('news', $this->db->findNews($params['id']));
     }
     
     public function deleteAction($params)
     {
-        parent::setRenderHTML(0);
+        $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
         if($this->db->deleteNews($params)){
@@ -66,15 +66,15 @@ class CmsNewsController extends Controller
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'news');
             }
-            parent::redirect ('cms'.DS.'news', 'success');
+            $this->redirect ('cms'.DS.'news', 'success');
         }else{
-            parent::redirect ('cms'.DS.'news', 'error');
+            $this->redirect ('cms'.DS.'news', 'error');
         }
     }
     
     public function deleteImageAction($params)
     {
-        parent::setRenderHTML(0);
+        $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
 
@@ -84,7 +84,7 @@ class CmsNewsController extends Controller
             $this->db->setImageName($params['id'], '');
             $this->deleteImage($data['image_name'], 'news');
         }
-        parent::redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'success');
+        $this->redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'success');
     }
     
 }

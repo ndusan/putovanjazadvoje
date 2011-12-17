@@ -10,7 +10,9 @@ class CompetitionController extends Controller
      */
     public function indexAction($params)
     {
-
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         $subpageView = '_winners';
         
         if(!empty($params['page'])){
@@ -22,6 +24,6 @@ class CompetitionController extends Controller
             }
         }
         
-        parent::set('subpage', $subpageView);
+        $this->set('subpage', $subpageView);
     }
 }

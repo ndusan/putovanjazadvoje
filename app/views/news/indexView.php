@@ -7,28 +7,54 @@
             <div class="wys">
                 <h1>Aktuelno</h1>
             </div>
+            <? if(!empty($currentNews)):?>
+            <!--selecte news -->
             <ul class="actual">
                 <li>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                    <? if(!empty($currentNews['image_name'])):?>
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . 'thumb-'.$currentNews['image_name']; ?>" />
+                    <? endif;?>
                     <div class="txt">
-                        <h2>Plava laguna predstavlja
-                            svoj novi identitet</h2>
+                        <h2>
+                        <?=$currentNews['title'];?>
+                        </h2>
                         <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                        </p>
-                    </div>
-                </li>
-                <li>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                    <div class="txt">
-                        <h2>Plava laguna predstavlja
-                            svoj novi identitet</h2>
-                        <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
+                            <?=$currentNews['text'];?>
                         </p>
                     </div>
                 </li>
             </ul>
+            <? endif; ?>
+            
+            
+            <? if(!empty($newsCollection)):?>
+            <!-- all news -->
+            <ul class="actual">
+                <? foreach($newsCollection as $news):?>
+                <li>
+                    <? if(!empty($news['image_name'])):?>
+                    <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$news['id'];?>">
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . 'thumb-'.$news['image_name']; ?>" />
+                    </a>
+                    <? endif;?>
+                    <div class="txt">
+                        <h2>
+                        <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$news['id'];?>">
+                        <?=$news['title'];?>
+                        </a>
+                        </h2>
+                        <p>
+                            <?=$news['heading'];?>
+                        </p>
+                    </div>
+                </li>
+                <? endforeach;?>
+            </ul>
+            <? else: ?>
+            <div class="noContent">
+                No actual news.
+            </div>
+            <? endif; ?>
         </div>
     </div>
 </div>

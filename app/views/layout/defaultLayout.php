@@ -23,7 +23,7 @@
         <?= $html->css('default', CSS_PATH); ?>
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
-    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="background:#333 url(<?= IMAGE_PATH . 'bg.jpg'; ?>) scroll no-repeat 50% 50%;">
+    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="background:#333 <?=(!empty($bgd) ? 'url('.DS.'public'.DS.'uploads'.DS.'background'.DS.$bgd['image_name'].')' :''); ?> scroll no-repeat 50% 50%;">
         <div class="wrapper">
             <div class="header">
                 <h2>MAGAZIN</h2>
@@ -45,7 +45,11 @@
                                 ONLINE NAGRADNE IGRE
                             </div>
                             <div class="context custom">
-                                asdasd
+                                <? if(!empty($onlineCompetitionCollection)): ?>
+                                <? foreach($onlineCompetitionCollection as $onlineCompetition):?>
+                                <?=$onlineCompetition['text'];?>
+                                <? endforeach;?>
+                                <? endif;?>
                             </div>
                         </div>
                         <div class="sideBox">
@@ -53,14 +57,20 @@
                                 NAGRADNE IGRE
                             </div>
                             <div class="context custom">
-                                asdasd
+                                <? if(!empty($offlineCompetitionCollection)): ?>
+                                <? foreach($offlineCompetitionCollection as $offlineCompetition):?>
+                                <?=$offlineCompetition['text'];?>
+                                <? endforeach;?>
+                                <? endif;?>
                             </div>
                         </div>
+                        <? if(!empty($bannerCollection)):?>
                         <ul class="banners">
-                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
-                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
-                            <li><img src="<?= IMAGE_PATH . 'banner.jpg'; ?>" /></li>
+                            <? foreach($bannerCollection as $banner):?>
+                            <li><img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . 'thumb-'.$currentNews['image_name']; ?>" /></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </div>
 
                     <!-- This is a content that will be included on page inside of this layout -->

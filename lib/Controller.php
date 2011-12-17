@@ -338,7 +338,7 @@ class Controller {
      * @param array $params
      * @return bool or array
      */
-     function validate($validations, $params) {
+     public function validate($validations, $params) {
             $errors = array ('total_errors' => 0);
             
             foreach ($validations as $field => $validation){
@@ -355,6 +355,19 @@ class Controller {
                 
                     return false;
             }
+    }
+    
+    public function setLeftMenu($params)
+    {
+        $onlineCompetitionCollection = $this->db->getOnlineCompetitionCollection($params);
+        $offlineCompetitionCollection = $this->db->getOfflineCompetitionCollection($params);
+        
+        //Add background
+        $backgroundOptions = $this->db->getBackgroundOptions($params);
+        
+        $this->set('onlineCompetitionCollection', $onlineCompetitionCollection);
+        $this->set('offlineCompetitionCollection', $offlineCompetitionCollection);
+        $this->set('bgd', $backgroundOptions);
     }
     
 

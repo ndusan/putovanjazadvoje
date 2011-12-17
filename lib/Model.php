@@ -12,6 +12,7 @@ class Model
         private $tableTranslation = 'translation';
         private $tableLanguage = 'language';
         private $tableLanguageTranslation = 'language_translation';
+        private $tableBackground = 'background';
         
         /**
          * Contructor
@@ -77,6 +78,36 @@ class Model
                 return $output;
             }catch(Exception $e){
 
+                return false;
+            }
+        }
+        
+        
+        public function getOnlineCompetitionCollection($params)
+        {
+            
+            
+        }
+        
+        
+        public function getOfflineCompetitionCollection($params)
+        {
+            
+            
+        }
+        
+        public function getBackgroundOptions($params)
+        {
+            
+            try{
+                $query = sprintf("SELECT `link`, `image_name` FROM %s WHERE `active`=1", $this->tableBackground);
+                $stmt = $this->dbh->prepare($query);
+                    
+                $stmt->execute();
+
+                return $stmt->fetch();
+            }catch(Exception $e){
+                
                 return false;
             }
         }

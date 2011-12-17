@@ -10,19 +10,19 @@
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input type="text" name="news[title][sr]" value="<?= @$news['title']['sr']; ?>" class="jr"/>
+                            <input type="text" name="news[title][sr]" value="<?= @$news['lang']['sr']['title']; ?>" class="jr"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Heading:</td>
                         <td>
-                            <input type="text" name="news[heading][sr]" value="<?= @$news['heading']['sr']; ?>" class="jr"/>
+                            <input type="text" name="news[heading][sr]" value="<?= @$news['lang']['sr']['heading']; ?>" class="jr"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="news[content][sr]" class="jr"><?= @$news['content']['sr']; ?></textarea>
+                            <textarea name="news[content][sr]" class="jr"><?= @$news['lang']['sr']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -34,19 +34,19 @@
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input type="text" name="news[title][en]" value="<?= @$news['title']['en']; ?>"/>
+                            <input type="text" name="news[title][en]" value="<?= @$news['lang']['en']['title']; ?>"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Heading:</td>
                         <td>
-                            <input type="text" name="news[heading]" value="<?= @$news['heading']['en']; ?>" />
+                            <input type="text" name="news[heading][en]" value="<?= @$news['lang']['en']['heading']; ?>" />
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <textarea name="news[content][en]"><?= @$news['content']['en']; ?></textarea>
+                            <textarea name="news[content][en]"><?= @$news['lang']['en']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -62,7 +62,7 @@
                             <input type="file" name="image" value=""/>
                             <? if (isset($news['id']) && !empty($news['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" target="_blank"><?= $news['image_name']; ?></a>
-                                [<a href="/cms/news/delete/image/<?= $news['id']; ?>">Delete</a>]
+                                [<a href="/cms/news/delete/image/<?= $news['id']; ?>" target="_blank">Delete</a>]
                             <? endif; ?>
                         </td>
                     </tr>
