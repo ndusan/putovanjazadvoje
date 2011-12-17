@@ -274,23 +274,8 @@ $routes = array(
     //CMS press page
     array(  'url'        => '/^cms\/press\/about-magazine\/?$/', 
             'controller' => 'cmsPress', 
-            'action'     => 'index', 
+            'action'     => 'aboutMagazine', 
             'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/about-magazine\/add\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/about-magazine\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/about-magazine\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'delete', 
-            'layout'     => 'empty'
     ),
     array(  'url'        => '/^cms\/press\/download\/?$/', 
             'controller' => 'cmsPress', 
@@ -315,23 +300,8 @@ $routes = array(
     //CMS ads page
     array(  'url'        => '/^cms\/ads\/terms-and-conditions\/?$/', 
             'controller' => 'cmsAds', 
-            'action'     => 'index', 
+            'action'     => 'termsAndConditions', 
             'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/add\/?$/', 
-            'controller' => 'cmsAds', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsAds', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/ads\/terms-and-conditions\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsAds', 
-            'action'     => 'delete', 
-            'layout'     => 'empty'
     ),
     array(  'url'        => '/^cms\/ads\/price-list\/?$/', 
             'controller' => 'cmsAds', 
@@ -399,21 +369,6 @@ $routes = array(
             'controller' => 'cmsContact', 
             'action'     => 'index', 
             'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/contact\/add\/?$/', 
-            'controller' => 'cmsContact', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/contact\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsContact', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/contact\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsContact', 
-            'action'     => 'delete', 
-            'layout'     => 'empty'
     ),
     
 );
