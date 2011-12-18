@@ -2,10 +2,10 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="<?=DS.$params['lang'];?>">Pocetna</a> / Magazin / Pretplati se na magazin
+                <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?=$_t['breadcrumb.subscribe.link'];?>
             </div>
             <div class="wys">
-                <h1>Pretplati se na magazin</h1>
+                <h1><?=$_t['title.subscribe.label'];?></h1>
                 <ul class="magazines">
                     <li>
                         <a href="">
@@ -43,7 +43,7 @@
                     Sve brojeve možete kupiti u internet izdanju na www.ikiosk.hr</p>
             </div>
             <? if (!empty($sent)): ?>
-                Poslato
+                <?=$_t['orderform.sent.label'];?>
             <? endif; ?>
             <div class="forms">
                 <!-- Form -->
@@ -52,15 +52,15 @@
                         <tbody>
                             <tr>
                                 <td width="150">
-                                    <label>Ime i prezime:<span>*</span></label>
+                                    <label><?=$_t['orderform.name.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[name]" class="jr" value="" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[name]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Firma:</label>
+                                    <label><?=$_t['orderform.company.label'];?></label>
                                 </td>
                                 <td>
                                     <input type="text" name="collection[company]" value="" />
@@ -68,7 +68,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>PIB:</label>
+                                    <label><?=$_t['orderform.vatID.label'];?></label>
                                 </td>
                                 <td>
                                     <input type="text" name="collection[pin]" value="" />
@@ -76,42 +76,42 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Adresa:<span>*</span></label>
+                                    <label><?=$_t['orderform.address.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[address]" class="jr" value="" /><span class="req">polje obavezno</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Poštanski broj/PAK:<span>*</span></label>
-                                </td>
-                                <td>
-                                    <input type="text" name="collection[pak]" class="jr" value="" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[address]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Grad:<span>*</span></label>
+                                    <label><?=$_t['orderform.postalcode.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[city]" class="jr" value="" /><span class="req">polje obavezno</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Telefon:<span>*</span></label>
-                                </td>
-                                <td>
-                                    <input type="text" name="collection[telephone]" class="jr" value="" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[pak]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>E-mail:<span>*</span></label>
+                                    <label><?=$_t['orderform.city.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[email]" class="jr" value="" /><span class="req">polje obavezno</span>
+                                    <input type="text" name="collection[city]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label><?=$_t['orderform.phone.label'];?><span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[telephone]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label><?=$_t['orderform.email.label'];?><span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[email]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                             <tr>
@@ -123,7 +123,7 @@
                         <tfoot
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" value="Posalji" name="submit" />
+                                    <input type="submit" value="<?=$_t['orderform.buttonsend.label'];?>" name="submit" />
                                 </td>
                             </tr>
                         </tfoot>

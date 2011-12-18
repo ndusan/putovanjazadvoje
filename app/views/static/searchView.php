@@ -2,16 +2,16 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.searchresults.link'];?>
             </div>
             <div class="wys">
-                <h1>Rezultati pretrage</h1>
+                <h1><?=$_t['search.title.label'];?></h1>
 
                 <!--Query -->
                 <? if (!empty($params['q'])): ?>
                     <ul class="searchResults">
                         <li>
-                            <h2>Trazeni pojam: <?= $params['q']; ?></h2>
+                            <h2><?=$_t['search.query.label'];?> <?= $params['q']; ?></h2>
                         </li>
                     </ul>
                 <? endif; ?>
@@ -35,7 +35,7 @@
 
                 <? else: ?>
 
-                    <p>Sorry, no results!</p>
+                    <p><?=$_t['search.noresults.label'];?></p>
 
                 <? endif; ?>
             </div>

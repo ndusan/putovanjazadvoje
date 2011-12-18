@@ -22,10 +22,10 @@
     <div class="contentBox">
         <div class="context">
             <div class="bTitle blue">
-                rec urednika
+                <?=$_t['home.editor.label'];?>
             </div>
             <div class="bTitle green">
-                tema broja
+               <?=$_t['home.editiontopic.label'];?>
             </div>
             <ul class="intro">
                 <li>
@@ -48,7 +48,7 @@
             <ul class="news">
                 <li>
                     <div class="gTitle">
-                        novo
+                        <?=$_t['home.new.label'];?>
                     </div>
                     <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
                     <h2>Plava laguna predstavlja
@@ -59,7 +59,7 @@
                 </li>
                 <li>
                     <div class="gTitle">
-                        novo
+                        <?=$_t['home.new.label'];?>
                     </div>
                     <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
                     <h2>Plava laguna predstavlja
@@ -70,7 +70,7 @@
                 </li>
                 <li class="last">
                     <div class="gTitle">
-                        novo
+                        <?=$_t['home.new.label'];?>
                     </div>
                     <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
                     <h2>Plava laguna predstavlja

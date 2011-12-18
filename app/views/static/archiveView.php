@@ -2,10 +2,10 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?=$_t['breadcrumb.archive.link'];?>
             </div>
             <div class="wys">
-                <h1>Arhiva izdanja</h1>
+                <h1><?=$_t['title.archive.label'];?></h1>
                 <?= $collection['text']; ?>
                 <p>Stare brojeve možete kupiti u poslovnici turističke agencije 'Da da da d.o.o.'' Zagreb, Jurišićeva 2a, tel 01/ 4827-256, po cijeni od 15kn ili naručiti poštom po cijeni od 20kn s poštarinom.
                     Sve brojeve možete kupiti u internet izdanju na www.ikiosk.hr</p>
