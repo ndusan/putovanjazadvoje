@@ -34,6 +34,13 @@ class CmsHomeController extends Controller
             //Clean cache
             Cache::deleteDictionary();
         }
+        
+        if(!empty ($params['submit_language'])){
+            
+            
+        }
+        
+        parent::set('languageColleciton', $this->db->getAllLanguages());
     }
     
 }

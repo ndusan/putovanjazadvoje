@@ -172,9 +172,22 @@ class Controller {
 
         $this->set('params', $params);
     }
+    
+    public function createFolder($folderName, $permission=0775, $recursive = true)
+    {
+        if(!is_dir($folderName)){
+            if(!mkdir($folderName, $permission, $recursive))
+                return false;
+        }
+        
+        return true;
+    }
 
     public function uploadImage($imageName, $image, $folder) {
 
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $imageName)) {
             
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
@@ -193,6 +206,9 @@ class Controller {
             $this->deleteImage($oldImage, $folder);
         }
 
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $newImage)) {
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $newImage);
             $size = filesize(UPLOAD_PATH . $folder . DS . $newImage);
@@ -217,6 +233,9 @@ class Controller {
     }
     
     public function createThumbImage($imageName, $folder, $thumb_width, $thumb_height) {
+        
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
         
         if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
             
