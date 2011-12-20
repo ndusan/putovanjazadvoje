@@ -1,5 +1,8 @@
 RewriteEngine On
-RewriteBase /
+#RewriteBase /
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteRule !^(\.gif|\.png|\.jpe?g|\.css|\.js|\.php|^public/.*)$ index.php [nocase,last]
 
 php_value upload_max_filesize 10M
