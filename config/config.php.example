@@ -1,6 +1,6 @@
 <?php
 //Site
-define('SITE', 'http://putovanjazadvoje.localhost');
+define('SITE', 'http://www.putovanjazadvoje.localhost');
 
 define('IN_DEV', true);
 

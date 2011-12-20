@@ -35,7 +35,7 @@
                         <div class="sideBox">
                             <div class="context">
                                 <form id="search_form" name="search_form" action="<?=DS.$params['lang'].DS.'search';?>" method="get">
-                                    <input id="search_field" type="text" name="q" value="<?=$_t['searchbar.search.label'];?>" title="pretraga" />
+                                    <input id="search_field" type="text" name="q" value="<?=$_t['searchbar.search.label'];?>" title="<?=$_t['searchbar.search.label'];?>" />
                                     <input type="submit" value="find" />
                                 </form>
                             </div>
