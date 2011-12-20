@@ -35,14 +35,14 @@
                         <div class="sideBox">
                             <div class="context">
                                 <form id="search_form" name="search_form" action="<?=DS.$params['lang'].DS.'search';?>" method="get">
-                                    <input id="search_field" type="text" name="q" value="pretraga" title="pretraga" />
+                                    <input id="search_field" type="text" name="q" value="<?=$_t['searchbar.search.label'];?>" title="pretraga" />
                                     <input type="submit" value="find" />
                                 </form>
                             </div>
                         </div>
                         <div class="sideBox">
                             <div class="title">
-                                ONLINE NAGRADNE IGRE
+                                <?=$_t['sidebar.onlinecontest.title'];?>
                             </div>
                             <div class="context custom">
                                 <? if(!empty($onlineCompetitionCollection)): ?>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="sideBox">
                             <div class="title">
-                                NAGRADNE IGRE
+                                <?=$_t['sidebar.contest.title'];?>
                             </div>
                             <div class="context custom">
                                 <? if(!empty($offlineCompetitionCollection)): ?>
@@ -89,26 +89,26 @@
                     Copyright © putovanjazadvoje.rs 2011.
                 </div>
                 <ul class="footerLinks">
-                    <li class="first"><a href="#">POCETNA STRANA</a>
+                    <li class="first"><a href="#"><?=$_t['footer.home.link'];?></a>
                         <ul>
-                            <li><a href="#">Magazin</a></li>
-                            <li><a href="#">Aktuelno</a></li>
-                            <li><a href="#">Nagradne igre</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Oglasavanje</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">Kontakt</a></li>
+                            <li><a href="#"><?=$_t['footer.magazine.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.actual.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.contests.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.press.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.adv.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.download.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.contact.link'];?></a></li>
                         </ul>
                     </li>
-                    <li><a href="#">NOVO IZDANJE</a>
+                    <li><a href="#"><?=$_t['footer.actual.link'];?></a>
                         <ul>
-                            <li><a href="#">Magazin</a></li>
-                            <li><a href="#">Aktuelno</a></li>
-                            <li><a href="#">Nagradne igre</a></li>
-                            <li><a href="#">Press</a></li>
+                            <li><a href="#"><?=$_t['footer.magazine.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.actual.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.contests.link'];?></a></li>
+                            <li><a href="#"><?=$_t['footer.press.link'];?></a></li>
                         </ul>
                     </li>
-                    <li class="last"><a href="#">KONTAKT</a>
+                    <li class="last"><a href="#"><?=$_t['footer.contact.link'];?></a>
                         <ul>
                             <li>Email:</li>
                             <li>Tel:</li>
