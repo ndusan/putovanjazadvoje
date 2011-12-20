@@ -56,7 +56,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input id="lang_sr" type="checkbox" name="settings[lang_en]" <?= @(!empty($en) ? 'checked="checked"' : ''); ?> value="en" />
+                                            <input id="lang_sr" type="checkbox" name="settings[lang]" <?= @(!empty($en) ? 'checked="checked"' : ''); ?> value="en" />
                                         </td>
                                         <td><label for="lang_sr">Activate</label></td>
                                     </tr>

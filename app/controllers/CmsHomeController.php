@@ -40,7 +40,7 @@ class CmsHomeController extends Controller
             
         }
         
-        parent::set('languageColleciton', $this->db->getAllLanguages());
+        //parent::set('languageColleciton', $this->db->getAllLanguages());
     }
     
 }
