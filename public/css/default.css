@@ -85,7 +85,7 @@ ul.banners li {margin:10px 0 0 20px;}
 .banner {padding:10px 0; position:relative; margin:0 0 15px; background:transparent url(../images/shadowBig.png) scroll no-repeat 0 100%;}
 .slides_container {width:700px; height:260px;} 
 .slides_container p {padding:10px 0; color:#FFF;}
-.slides_container .slide {width:700px; height:2860px; display:block;}
+.slides_container .slide {width:700px; height:260px; display:block;}
 .slides_container .desc {padding:10px 20px; position:absolute; right:0; bottom:0; width:660px; background-image:url(../images/mask.png);}
 
 .pagination {position:absolute; right:0; bottom:0; height:200px; padding:40px 0; width:50px; background:transparent url(../images/bannerPag_bg.png) scroll no-repeat 0 0;}
@@ -179,6 +179,9 @@ ul.games > li a:hover {background-position:100% 0;}
 
 ul.winners {overflow:hidden; padding:20px 0 0;}
 ul.winners li {padding:10px 0; border-top:solid 1px #41a8f0;}
+
+.bgL {position:fixed; top:0; right:50%; width:50%; height:100%; margin:0 490px 0 0;}
+.bgR {position:fixed; top:0; left:50%; width:50%; height:100%; margin:0 0 0 490px;}
 
 
 
