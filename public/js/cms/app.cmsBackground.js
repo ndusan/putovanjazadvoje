@@ -21,7 +21,7 @@ var App = App || {};
                       if(data){
                           //Remove all apart from selected
                           $('.bgActivate').each(function(){
-                              console.log($(this).attr('id'));
+                             
                              if($(this).attr('id') != currId){
                                  $(this).attr('active', 1).attr('checked', false);
                              }
