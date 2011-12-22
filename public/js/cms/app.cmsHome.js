@@ -23,7 +23,12 @@ var App = App || {};
             $('body').delegate('.jRemoveBrowse', 'click', function(e){
                 e.preventDefault();
                 
+                //Ask
+                var answer = confirm ("Are you sure you want to delete this line?");
+                if (!answer) return false;
+                
                 var cUrl = $(this).attr('href');
+                var cLine = $(this).attr('browse-line');
                 
                 if('#' == cUrl){
                     //Empty browse
@@ -32,10 +37,14 @@ var App = App || {};
                     $.ajax({
                         url: cUrl,
                         type: 'get',
+                        dataType: 'json',
                         success: function(data){
-                            if(data){
-                                $(this).closest('tr').remove();
+                            if(data.response){
+                                $('#'+cLine).remove();
                             }
+                        },
+                        error: function(data){
+                            console.log('error'+data);
                         }
                     });
                 }

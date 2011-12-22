@@ -277,6 +277,11 @@ $routes = array(
             'action'     => 'aboutMagazine', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/press\/about-magazine\/delete-file\/?$/', 
+            'controller' => 'cmsPress', 
+            'action'     => 'deleteFile', 
+            'layout'     => 'empty'
+    ),
     array(  'url'        => '/^cms\/press\/download\/?$/', 
             'controller' => 'cmsPress', 
             'action'     => 'index', 

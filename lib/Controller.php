@@ -192,8 +192,24 @@ class Controller {
             
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
             $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            chmod(UPLOAD_PATH . $folder . DS . $imageName, 0664);
             
             return array('width'=>$width, 'height'=>$height, 'size'=>$size);
+        } else {
+
+            return false;
+        }
+    }
+    
+    public function uploadFile($fileName, $file, $folder) {
+
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
+        
+        if (move_uploaded_file($file['tmp_name'], UPLOAD_PATH . $folder . DS . $fileName)) {
+            chmod(UPLOAD_PATH . $folder . DS . $fileName, 0644);
+            
+            return true;
         } else {
 
             return false;
@@ -212,6 +228,7 @@ class Controller {
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $newImage)) {
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $newImage);
             $size = filesize(UPLOAD_PATH . $folder . DS . $newImage);
+            chmod(UPLOAD_PATH . $folder . DS . $newImage, 0664);
             
             return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
@@ -224,6 +241,19 @@ class Controller {
 
         if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
             unlink(UPLOAD_PATH . $folder . DS . $imageName);
+
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+    
+    
+    public function deleteFile($fileName, $folder) {
+        
+        if (file_exists(UPLOAD_PATH . $folder . DS . $fileName)) {
+            unlink(UPLOAD_PATH . $folder . DS . $fileName);
 
             return true;
         } else {

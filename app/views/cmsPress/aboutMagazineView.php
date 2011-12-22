@@ -38,9 +38,9 @@
                 <tbody>
                     <? if(!empty($fileCollection)):?>
                     <? foreach($fileCollection as $file):?>
-                    <tr>
-                        <td><a href="<?=DS.'public'.DS.'uploads'.DS.'press'.DS.$file['id'].'-'.$file['image_name'];?>" target="_blank"><?=$file['image_name'];?></a></td>
-                        <td><a href="<?=DS.'cms'.DS.'press'.DS.'about-magazine'.DS.'delete-browse'.DS.'?id='.$file['id'];?>" class="jRemoveBrowse jw">remove</a></td>
+                    <tr id="jLine-<?=$file['id'];?>">
+                        <td><a href="<?=DS.'public'.DS.'uploads'.DS.'press'.DS.$file['file_name'];?>" target="_blank"><?=$file['image_name'];?></a></td>
+                        <td><a browse-line="jLine-<?=$file['id'];?>" href="<?=DS.'cms'.DS.'press'.DS.'about-magazine'.DS.'delete-file'.DS.'?id='.$file['id'];?>" class="jRemoveBrowse">remove</a></td>
                     </tr>
                     <? endforeach;?>
                     <? endif;?>
