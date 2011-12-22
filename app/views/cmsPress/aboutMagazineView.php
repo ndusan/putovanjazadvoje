@@ -33,7 +33,20 @@
             </table>
         </div>
         <div class="addContent">
-            <table cellpadding="0" cellspacing="0">
+            <a href="#" id="jAddBrowse">Add browse</a>
+            <table cellpadding="0" cellspacing="0" id="jListBrowse">
+                <tbody>
+                    <? if(!empty($fileCollection)):?>
+                    <? foreach($fileCollection as $file):?>
+                    <tr>
+                        <td><a href="<?=DS.'public'.DS.'uploads'.DS.'press'.DS.$file['id'].'-'.$file['image_name'];?>" target="_blank"><?=$file['image_name'];?></a></td>
+                        <td><a href="<?=DS.'cms'.DS.'press'.DS.'about-magazine'.DS.'delete-browse'.DS.'?id='.$file['id'];?>" class="jRemoveBrowse jw">remove</a></td>
+                    </tr>
+                    <? endforeach;?>
+                    <? endif;?>
+                </tbody>
+            </table>
+            <table cellpadding="0" cellspacing="0" >
                 <tbody>
                     <tr>
                         <td colspan="2" align="center">
