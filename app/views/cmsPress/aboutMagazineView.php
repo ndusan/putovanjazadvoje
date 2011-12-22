@@ -14,7 +14,7 @@
                     <tr>
                         <td><span class="jtooltip" title="Set text visible on Press page">Description:</span></td>
                         <td>
-                            <textarea name="aboutmagazine[sr][text]" class="jr"><?= @$aboutmagazine['sr']['text'];?></textarea>
+                            <textarea name="aboutmagazine[sr][text]" class="jr"><?= @$aboutmagazine['sr']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -26,24 +26,29 @@
                     <tr>
                         <td><span class="jtooltip" title="Set text visible on Press page">Description:</span></td>
                         <td>
-                            <textarea name="aboutmagazine[en][text]"><?= @$aboutmagazine['en']['text'];?></textarea>
+                            <textarea name="aboutmagazine[en][text]"><?= @$aboutmagazine['en']['text']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <ul class="addTop">
+            <li>
+                <a id="jAddBrowse" href="#" class="cmsAdd">Attach file</a>
+            </li>
+        </ul>
         <div class="addContent">
-            <a href="#" id="jAddBrowse">Add browse</a>
             <table cellpadding="0" cellspacing="0" id="jListBrowse">
                 <tbody>
-                    <? if(!empty($fileCollection)):?>
-                    <? foreach($fileCollection as $file):?>
-                    <tr id="jLine-<?=$file['id'];?>">
-                        <td><a href="<?=DS.'public'.DS.'uploads'.DS.'press'.DS.$file['file_name'];?>" target="_blank"><?=$file['image_name'];?></a></td>
-                        <td><a browse-line="jLine-<?=$file['id'];?>" href="<?=DS.'cms'.DS.'press'.DS.'about-magazine'.DS.'delete-file'.DS.'?id='.$file['id'];?>" class="jRemoveBrowse">remove</a></td>
-                    </tr>
-                    <? endforeach;?>
-                    <? endif;?>
+                    <? if (!empty($fileCollection)): ?>
+                        <? foreach ($fileCollection as $file): ?>
+                            <tr id="jLine-<?= $file['id']; ?>">
+                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'press' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
+                                <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'press' . DS . 'about-magazine' . DS . 'delete-file' . DS . '?id=' . $file['id']; ?>" class="jRemoveBrowse">remove</a></td>
+                            </tr>
+                        <? endforeach; ?>
+                    <? endif; ?>
                 </tbody>
             </table>
             <table cellpadding="0" cellspacing="0" >
