@@ -43,10 +43,11 @@ class CmsBackgroundModel extends Model
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `link`=:link WHERE `id`=:id", $this->tableBackground);
+            $query = sprintf("UPDATE %s SET `link`=:link, `background_color`=:backgroundColor WHERE `id`=:id", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':backgroundColor', $params['background_color'], PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -82,10 +83,11 @@ class CmsBackgroundModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `link`=:link", $this->tableBackground);
+            $query = sprintf("INSERT INTO %s SET `link`=:link, `background_color`=:backgroundColor", $this->tableBackground);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':backgroundColor', $params['background_color'], PDO::PARAM_STR);
             $stmt->execute();
             
             return $this->dbh->lastInsertId();

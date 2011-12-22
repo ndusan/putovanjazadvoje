@@ -100,7 +100,7 @@ class Model
         {
             
             try{
-                $query = sprintf("SELECT `link`, `image_name` FROM %s WHERE `active`=1", $this->tableBackground);
+                $query = sprintf("SELECT `link`, `image_name`, `background_color` FROM %s WHERE `active`=1", $this->tableBackground);
                 $stmt = $this->dbh->prepare($query);
                     
                 $stmt->execute();

@@ -23,9 +23,11 @@
         <?= $html->css('default', CSS_PATH); ?>
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
-    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="background:#333 <?=(!empty($bgd) ? 'url('.DS.'public'.DS.'uploads'.DS.'background'.DS.$bgd['image_name'].')' :''); ?> scroll no-repeat 50% 0;">
-        <a href="#" class="bgL"></a>
-        <a href="#" class="bgR"></a>
+    <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="<?=(!empty($bgd['background_color']) ? 'background:'.$bgd['background_color']:'');?> <?=(!empty($bgd['image_name']) ? 'url('.DS.'public'.DS.'uploads'.DS.'background'.DS.$bgd['image_name'].')' :''); ?> scroll no-repeat 50% 0;">
+        <? if(!empty($bgd['link'])):?>
+        <a href="<?=$bgd['link'];?>" target="_blank" class="bgL"></a>
+        <a href="<?=$bgd['link'];?>" target="_blank" class="bgR"></a>
+        <? endif; ?>
         <div class="wrapper">
             <div class="header">
                 <h2>MAGAZIN</h2>
