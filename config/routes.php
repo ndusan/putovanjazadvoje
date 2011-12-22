@@ -284,22 +284,22 @@ $routes = array(
     ),
     array(  'url'        => '/^cms\/press\/download\/?$/', 
             'controller' => 'cmsPress', 
-            'action'     => 'index', 
+            'action'     => 'download', 
             'layout'     => 'cms'
     ),
     array(  'url'        => '/^cms\/press\/download\/add\/?$/', 
             'controller' => 'cmsPress', 
-            'action'     => 'add', 
+            'action'     => 'addDownload', 
             'layout'     => 'cms'
     ),
     array(  'url'        => '/^cms\/press\/download\/edit\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsPress', 
-            'action'     => 'edit', 
+            'action'     => 'editDownload', 
             'layout'     => 'cms'
     ),
     array(  'url'        => '/^cms\/press\/download\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsPress', 
-            'action'     => 'delete', 
+            'action'     => 'deleteDownload', 
             'layout'     => 'empty'
     ),
     //CMS ads page

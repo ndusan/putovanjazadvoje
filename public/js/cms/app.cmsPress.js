@@ -11,6 +11,11 @@ var App = App || {};
             
             App.CmsHome.addBrowse();
             App.CmsHome.removeBrowse();
+        },
+        download: function(){
+            //Set datatable
+            $('#dataTable').dataTable();
+            App.Common.thead();
         }
     };
 })(this.jQuery);

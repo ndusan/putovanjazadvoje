@@ -61,4 +61,82 @@ class CmsPressController extends Controller
         }
         
     }
+    
+    
+    
+    public function downloadAction($params)
+    {
+        
+        $this->set('downloadCollection', $this->db->findAllDownloads());
+    }
+    
+    public function addDownloadAction($params)
+    {
+    
+        if(!empty($params['submit'])){
+            //Add file in db
+            if($id = $this->db->createDownload($params['download'])){
+                
+                //If image uploaded add it
+                if(0 == $params['image']['error'] && !empty($id)){
+                    
+                    $newImageName = $id.'-'.$params['image']['name'];
+                    
+                    $this->db->setImageName($id, $newImageName);
+                    $info = $this->uploadImage($newImageName, $params['image'], 'press');
+                    
+                    $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
+                }else{
+                    
+                    $this->redirect ('cms'.DS.'press'.DS.'download', 'error');
+                }
+            }
+        }
+    }
+
+    public function editDownloadAction($params)
+    {
+        if(!empty($params['submit'])){
+            //Data submited
+
+            if($this->db->updateDownload($params['download'])){
+                //If image uploaded add it
+                if(0 == $params['image']['error']){
+                    
+                    $data = $this->db->getImageName($params['download']['id']);
+                    $oldImageName = $data['image_name'];
+                    
+                    $newImageName = $params['download']['id'].'-'.$params['image']['name'];
+                    $this->db->setImageName($params['download']['id'], $newImageName);
+                    
+                    $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'press');
+                }
+                $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
+            }else{
+                $this->redirect ('cms'.DS.'press'.DS.'download'.DS.'edit'.DS.$params['id'], 'error');
+            }
+        }
+        $this->set('download', $this->db->findDownload($params['id']));
+    }
+    
+    public function deleteDownloadAction($params)
+    {
+        
+        $this->setRenderHTML(0);
+        
+        $data = $this->db->getImageName($params['id']);
+        if($this->db->deleteDownload($params)){
+            
+            //If exist delete
+            if(!empty($data)){
+                $oldImageName = $data['image_name'];
+                $this->deleteImage($oldImageName, 'press');
+                
+            }
+            $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
+        }else{
+            $this->redirect ('cms'.DS.'press'.DS.'download', 'error');
+        }
+    }
 }
+
