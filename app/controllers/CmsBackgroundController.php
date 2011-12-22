@@ -11,7 +11,7 @@ class CmsBackgroundController extends Controller
             
             $this->db->setActive($params['id'], $params['active']);
             
-            return true;
+            echo json_encode(array(true));
         }
         
         $this->set('backgroundCollection', $this->db->findAll());

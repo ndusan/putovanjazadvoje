@@ -9,6 +9,12 @@
                 </td>
             </tr>
             <tr>
+                <td>Background color:</td>
+                <td>
+                    <input type="text" name="background[background_color]" value="<?=@$background['background_color']; ?>" />
+                </td>
+            </tr>
+            <tr>
                 <td>Image:</td>
                 <td>
 
