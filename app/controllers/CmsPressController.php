@@ -29,6 +29,7 @@ class CmsPressController extends Controller
                                        );
                         
                         $info = $this->uploadFile($newFileName, $file, 'press');
+                        $this->db->updateFileInfo($newFileName, $info);
                     }
                 }
                 
@@ -85,6 +86,9 @@ class CmsPressController extends Controller
                     $this->db->setImageName($id, $newImageName);
                     $info = $this->uploadImage($newImageName, $params['image'], 'press');
                     
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'press', 128, 133);
+                    
                     $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
                 }else{
                     
@@ -110,6 +114,13 @@ class CmsPressController extends Controller
                     $this->db->setImageName($params['download']['id'], $newImageName);
                     
                     $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'press');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'press');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'press', 128, 133);
+                    
                 }
                 $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
             }else{
@@ -132,6 +143,9 @@ class CmsPressController extends Controller
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'press');
                 
+                //Delete thumb
+                $oldThumbImageName = 'thumb-'.$oldImageName;
+                $this->deleteImage($oldThumbImageName, 'press');
             }
             $this->redirect ('cms'.DS.'press'.DS.'download', 'success');
         }else{

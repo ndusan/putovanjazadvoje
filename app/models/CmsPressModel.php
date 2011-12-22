@@ -134,80 +134,117 @@ class CmsPressModel extends Model
             
             return false;
         }
-        
     }
 
+    public function updateFileInfo($fileName, $info=array())
+    {
+        try{
+         
+            $query = sprintf("UPDATE %s SET `size`=:size, `type`=:type WHERE `file_name`=:fileName", $this->tableFiles);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':size', $info['size'], PDO::PARAM_INT);
+            $stmt->bindParam(':type', $info['type'], PDO::PARAM_STR);
+            $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
     public function addFiles($fileName, $type)
     {
-        
-        //Find type id
-        $query = sprintf("SELECT `id` FROM %s WHERE `type`=:type", $this->tableStatic);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        $result = $stmt->fetch();
-        
-        //Insert into files table
-        $query = sprintf("INSERT INTO %s SET `file_name`=:fileName, `static_id`=:staticId", $this->tableFiles);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
-        $stmt->bindParam(':staticId', $result['id'], PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            //Find type id
+            $query = sprintf("SELECT `id` FROM %s WHERE `type`=:type", $this->tableStatic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $result = $stmt->fetch();
+
+            //Insert into files table
+            $query = sprintf("INSERT INTO %s SET `file_name`=:fileName, `static_id`=:staticId", $this->tableFiles);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
+            $stmt->bindParam(':staticId', $result['id'], PDO::PARAM_INT);
+            $stmt->execute();
+        }catch(Exception $e){
+            
+            return false;
+        }
         
     }
     
     public function getFileName($id, $type)
     {
-        $query = sprintf("SELECT `f`.* FROM %s AS `f`
-                            INNER JOIN %s AS `s` ON `s`.`id`=`f`.`static_id`
-                            WHERE `s`.`type`=:type AND `f`.`id`=:id", $this->tableFiles, $this->tableStatic);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        
-        return $stmt->fetch();
+        try{
+            $query = sprintf("SELECT `f`.* FROM %s AS `f`
+                                INNER JOIN %s AS `s` ON `s`.`id`=`f`.`static_id`
+                                WHERE `s`.`type`=:type AND `f`.`id`=:id", $this->tableFiles, $this->tableStatic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
     public function removeFile($id, $type)
     {
-        //Find type id
-        $query = sprintf("SELECT `id` FROM %s WHERE `type`=:type", $this->tableStatic);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        $result = $stmt->fetch();
-        
-        //Remove
-        $query = sprintf("DELETE FROM %s WHERE `id`=:id AND `static_id`=:staticId", $this->tableFiles);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->bindParam(':staticId', $result['id'], PDO::PARAM_INT);
-        $stmt->execute();
-        
-        return true;
+        try{
+            //Find type id
+            $query = sprintf("SELECT `id` FROM %s WHERE `type`=:type", $this->tableStatic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $result = $stmt->fetch();
+
+            //Remove
+            $query = sprintf("DELETE FROM %s WHERE `id`=:id AND `static_id`=:staticId", $this->tableFiles);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':staticId', $result['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
     
     public function findFiles($type)
     {
         
-        $query = sprintf("SELECT `f`.* FROM %s AS `f`
-                            INNER JOIN %s AS `s` ON `s`.`id`=`f`.`static_id`
-                            WHERE `s`.`type`=:type", $this->tableFiles, $this->tableStatic);
-        $stmt = $this->dbh->prepare($query);
-        
-        $stmt->bindParam(':type', $type, PDO::PARAM_STR);
-        $stmt->execute();
-        
-        return $stmt->fetchAll();
+        try{
+            $query = sprintf("SELECT `f`.* FROM %s AS `f`
+                                INNER JOIN %s AS `s` ON `s`.`id`=`f`.`static_id`
+                                WHERE `s`.`type`=:type", $this->tableFiles, $this->tableStatic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
     
