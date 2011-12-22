@@ -30,6 +30,8 @@ p {padding:0;}
 
 .warning {border-color:#b85252 !important;}
 
+a[href$='.pdf'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/pdfIcon.png) no-repeat 0 50%;}
+a[href$='.doc'], a[href$='.docx'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/wordIcon.png) no-repeat 0 50%;}
 /*SPRITE*/
 
 /*BUILD*/

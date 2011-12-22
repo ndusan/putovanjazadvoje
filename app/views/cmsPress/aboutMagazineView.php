@@ -32,25 +32,31 @@
                 </tbody>
             </table>
         </div>
-
-        <ul class="addTop">
-            <li>
-                <a id="jAddBrowse" href="#" class="cmsAdd">Attach file</a>
-            </li>
-        </ul>
         <div class="addContent">
             <table cellpadding="0" cellspacing="0" id="jListBrowse">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Attach files (Pdf, Doc)
+                        </th>
+                    </tr>
+                </thead>
                 <tbody>
                     <? if (!empty($fileCollection)): ?>
                         <? foreach ($fileCollection as $file): ?>
                             <tr id="jLine-<?= $file['id']; ?>">
                                 <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'press' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
-                                <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'press' . DS . 'about-magazine' . DS . 'delete-file' . DS . '?id=' . $file['id']; ?>" class="jRemoveBrowse">remove</a></td>
+                                <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'press' . DS . 'about-magazine' . DS . 'delete-file' . DS . '?id=' . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>
                     <? endif; ?>
                 </tbody>
             </table>
+            <ul class="addTop">
+                <li>
+                    <a id="jAddBrowse" href="#" class="cmsAdd">Add file</a>
+                </li>
+            </ul>
             <table cellpadding="0" cellspacing="0" >
                 <tbody>
                     <tr>

@@ -10,8 +10,8 @@
             </div>
             <h2>Preuzmi</h2>
             <ul class="downloads">
-                <li><a href="#">Profil preduzeca (Download Pdf, 1.3 MB)</a></li>
-                <li><a href="#">ID profil (Download Zip, 5.3 MB)</a></li>
+                <li><a href="astuff.pdf">Profil preduzeca (Download Pdf, 1.3 MB)</a></li>
+                <li><a href="asdasdd.doc">ID profil (Download Zip, 5.3 MB)</a></li>
             </ul>
 
         </div>
