@@ -290,22 +290,12 @@ $routes = array(
     ),
     array(  'url'        => '/^cms\/ads\/price-list\/?$/', 
             'controller' => 'cmsAds', 
-            'action'     => 'index', 
+            'action'     => 'priceList', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/ads\/price-list\/add\/?$/', 
+    array(  'url'        => '/^cms\/ads\/price-list\/delete-file\/?$/', 
             'controller' => 'cmsAds', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/ads\/price-list\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsAds', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/ads\/price-list\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsAds', 
-            'action'     => 'delete', 
+            'action'     => 'deleteFile', 
             'layout'     => 'empty'
     ),
     //CMS download page

@@ -23,78 +23,61 @@ class CmsAdsController extends Controller
     public function priceListAction($params)
     {
         
-        $this->set('priceListCollection', $this->db->findAllPriceLists());
-    }
-    
-    public function addPriceListAction($params)
-    {
-    
         if(!empty($params['submit'])){
-            //Add file in db
-            if($id = $this->db->createPriceList($params['priceList'])){
-                
-                //If image uploaded add it
-                if(0 == $params['image']['error'] && !empty($id)){
-                    
-                    $newImageName = $id.'-'.$params['image']['name'];
-                    
-                    $this->db->setFileName($id, $newImageName);
-                    $info = $this->uploadFile($newImageName, $params['image'], 'ads');
-                    
-                    $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');
-                }else{
-                    
-                    $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'error');
-                }
-            }
-        }
-    }
-
-    public function editPriceListAction($params)
-    {
-        if(!empty($params['submit'])){
+            
             //Data submited
-
-            if($this->db->updatePriceList($params['priceList'])){
-                //If image uploaded add it
-                if(0 == $params['image']['error']){
-                    
-                    $data = $this->db->getFileName($params['priceList']['id']);
-                    $oldImageName = $data['image_name'];
-                    
-                    $newImageName = $params['priceList']['id'].'-'.$params['image']['name'];
-                    $this->db->setFileName($params['priceList']['id'], $newImageName);
-                    
-                    $info = $this->reUploadFile($oldImageName, $newImageName, $params['image'], 'ads');
+            if($this->db->submitPriceList($params['pricelist'], 'pricelist')){
+                //Data submited
+                
+                if(!empty($params['file'])){
+                    foreach($params['file']['error'] as $k=>$v){
+                        //Skip if not ok
+                        if(0 != $v) continue;
+                        
+                        $newFileName = time().'-'.$params['file']['name'][$k];
+                        $this->db->addFiles($newFileName, 'pricelist');
+                        
+                        $file = array('name'=>$params['file']['name'][$k],
+                                       'type'=>$params['file']['type'][$k],
+                                       'tmp_name'=>$params['file']['tmp_name'][$k],
+                                       'error'=>$params['file']['error'][$k],
+                                       'size'=>$params['file']['size'][$k],
+                                       );
+                        
+                        $info = $this->uploadFile($newFileName, $file, 'ads');
+                        $this->db->updateFileInfo($newFileName, $info);
+                    }
                 }
+                
                 $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');
             }else{
-                $this->redirect ('cms'.DS.'ads'.DS.'price-list'.DS.'edit'.DS.$params['id'], 'error');
+                $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'error');
             }
         }
-        $this->set('priceList', $this->db->findPriceList($params['id']));
+        
+        $this->set('fileCollection', $this->db->findFiles('pricelist'));
+        $this->set('pricelist', $this->db->findPriceList());
     }
     
     
-    
-    public function deletePriceListAction($params)
+    public function deleteFileAction($params)
     {
+        if(empty($params['id'])) $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'error');
         
-        $this->setRenderHTML(0);
+        //FileName 
+        $fileName = $this->db->getFileName($params['id'], 'pricelist');
         
-        $data = $this->db->getFileName($params['id']);
-        if($this->db->deletePriceList($params)){
+        if($this->db->removeFile($params['id'], 'pricelist')){
+            //Delete file
+            $this->deleteFile($fileName['file_name'], 'ads');
             
-            //If exist delete
-            if(!empty($data)){
-                $oldImageName = $data['image_name'];
-                $this->deleteFile($oldImageName, 'ads');
-                
-            }
-            $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');
+            echo json_encode(array('response'=>true));
         }else{
-            $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'error');
+            
+            echo json_encode(array('response'=>false));
         }
+        
     }
+    
     
 }
