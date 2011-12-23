@@ -7,8 +7,6 @@
             <div class="wys">
                 <h1><?=$_t['title.archive.label'];?></h1>
                 <?= $collection['text']; ?>
-                <p>Stare brojeve možete kupiti u poslovnici turističke agencije 'Da da da d.o.o.'' Zagreb, Jurišićeva 2a, tel 01/ 4827-256, po cijeni od 15kn ili naručiti poštom po cijeni od 20kn s poštarinom.
-                    Sve brojeve možete kupiti u internet izdanju na www.ikiosk.hr</p>
                 <ul class="magazines">
                     <li>
                         <a href="">
