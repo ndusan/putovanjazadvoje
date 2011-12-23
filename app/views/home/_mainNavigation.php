@@ -22,7 +22,6 @@
         <li><a href="#"><?=$_t['navigation.press.link'];?></a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'o-magazinu';?>"><?=$_t['navigation.aboutmagazine.link'];?></a></li>
-                <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'download';?>"><?=$_t['navigation.download.link'];?></a></li>
             </ul>
         </li>
         <li><a href="#"><?=$_t['navigation.adv.link'];?></a>

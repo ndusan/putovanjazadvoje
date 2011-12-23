@@ -69,7 +69,7 @@ $routes = array(
     ),
     
     //Press
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/(?P<page>(o-magazinu|download))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/press\/(?P<page>(o-magazinu))\/?$/', 
             'controller' => 'press', 
             'action'     => 'index', 
             'layout'     => 'default'
@@ -280,26 +280,6 @@ $routes = array(
     array(  'url'        => '/^cms\/press\/about-magazine\/delete-file\/?$/', 
             'controller' => 'cmsPress', 
             'action'     => 'deleteFile', 
-            'layout'     => 'empty'
-    ),
-    array(  'url'        => '/^cms\/press\/download\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'download', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/download\/add\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'addDownload', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/download\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'editDownload', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/press\/download\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPress', 
-            'action'     => 'deleteDownload', 
             'layout'     => 'empty'
     ),
     //CMS ads page

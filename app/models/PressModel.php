@@ -47,18 +47,4 @@ class PressModel extends Model
         }
     }
     
-    public function getDownload($params)
-    {
-        
-        try{
-            $query = sprintf("SELECT * FROM %s", $this->tablePress);
-            $stmt = $this->dbh->prepare($query);
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
 }

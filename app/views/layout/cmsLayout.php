@@ -60,7 +60,6 @@
                         <a <?= $this->_controller=='cmsPress'?'class="active"':''; ?> href="#" name="leaf-link" child-class="leaf-child-press">Press</a>
                         <ul class="leaf-child leaf-child-press" <?= $this->_controller=='cmsPress'?'style="display:block;"':''; ?>>
                             <li><a <?= $this->_action=='aboutMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'press' .DS.'about-magazine'; ?>">About magazine</a></li>
-                            <li><a <?= $this->_action=='donwload'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'press' .DS.'download'; ?>">Download</a></li>
                         </ul>
                     </li>
                     <li class="leaf">
