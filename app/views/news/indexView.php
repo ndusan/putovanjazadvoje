@@ -4,9 +4,6 @@
             <div class="breadcrumb">
                 <a href="#">Pocetna</a> / Magazin / O nama
             </div>
-            <div class="wys">
-                <h1>Aktuelno</h1>
-            </div>
             <? if(!empty($currentNews)):?>
             <!--select news -->
             <div class="wys">
@@ -19,14 +16,19 @@
                 <? if (!empty($currentNews['image_name'])): ?>
                     <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . $currentNews['image_name']; ?>" />
                 <? endif; ?>
-                <p>
-                    <?= $currentNews['text']; ?>
-                </p>
+                <?= $currentNews['text']; ?>
             </div>
             <h2>Ostale novosti</h2>
             <? endif; ?>
             
             <? if(!empty($newsCollection)):?>
+            
+            <? if(empty($currentNews)):?>
+            <div class="wys">
+                <h1>Aktuelno</h1>
+            </div>
+            <? endif;?>
+            
             <!-- all news -->
             <ul class="actual">
                 <? foreach($newsCollection as $news):?>
