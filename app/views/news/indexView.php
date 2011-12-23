@@ -11,7 +11,7 @@
                     <?= $currentNews['title']; ?>
                 </h1>
                 <p>
-                    <?= $news['heading']; ?>
+                    <?= $currentNews['heading']; ?>
                 </p>
                 <? if (!empty($currentNews['image_name'])): ?>
                     <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . $currentNews['image_name']; ?>" />

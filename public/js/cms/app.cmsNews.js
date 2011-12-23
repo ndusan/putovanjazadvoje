@@ -13,10 +13,12 @@ var App = App || {};
        add: function() {
            App.Common.tabs();
            App.Common.jtooltip();
+           App.Common.mce();
        },
        edit: function() {
            App.Common.tabs();
            App.Common.jtooltip();
+           App.Common.mce();
        }
     };
 })(this.jQuery);
