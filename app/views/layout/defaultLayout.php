@@ -49,6 +49,7 @@
                                 <?=$_t['sidebar.onlinecontest.title'];?>
                             </div>
                             <div class="context custom">
+                                <img src="<?= IMAGE_PATH . 'baner1.jpg'; ?>" />
                                 <? if(!empty($onlineCompetitionCollection)): ?>
                                 <? foreach($onlineCompetitionCollection as $onlineCompetition):?>
                                 <?=$onlineCompetition['text'];?>
@@ -61,6 +62,7 @@
                                 <?=$_t['sidebar.contest.title'];?>
                             </div>
                             <div class="context custom">
+                                <img src="<?= IMAGE_PATH . 'baner1.jpg'; ?>" />
                                 <? if(!empty($offlineCompetitionCollection)): ?>
                                 <? foreach($offlineCompetitionCollection as $offlineCompetition):?>
                                 <?=$offlineCompetition['text'];?>
