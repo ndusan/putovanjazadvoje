@@ -9,21 +9,21 @@
             </div>
             <? if(!empty($currentNews)):?>
             <!--select news -->
-            <ul class="actual">
-                <li>
-                    <? if(!empty($currentNews['image_name'])):?>
-                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS .$currentNews['image_name']; ?>" />
-                    <? endif;?>
-                    <div class="txt">
-                        <h2>
-                        <?=$currentNews['title'];?>
-                        </h2>
-                        <p>
-                            <?=$currentNews['text'];?>
-                        </p>
-                    </div>
-                </li>
-            </ul>
+            <div class="wys">
+                <h1>
+                    <?= $currentNews['title']; ?>
+                </h1>
+                <p>
+                    <?= $news['heading']; ?>
+                </p>
+                <? if (!empty($currentNews['image_name'])): ?>
+                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . 'thumb-' . $currentNews['image_name']; ?>" />
+                <? endif; ?>
+                <p>
+                    <?= $currentNews['text']; ?>
+                </p>
+            </div>
+            <h2>Ostale novosti</h2>
             <? endif; ?>
             
             <? if(!empty($newsCollection)):?>
@@ -50,9 +50,9 @@
                 <? endforeach;?>
             </ul>
             <? else: ?>
-            <div class="noContent">
-                No actual news.
-            </div>
+                <div class="noContent">
+                    No actual news.
+                </div>
             <? endif; ?>
         </div>
     </div>
