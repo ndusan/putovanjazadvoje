@@ -6,10 +6,18 @@
             </div>
             <div class="wys">
                 <h2>Cenovnik i formati</h2>
+                <? if(!empty($dataCollection)):?>
                 <ul class="downloads">
-                    <li><a href="#">Logo CMYK (Download Pdf, 2.3 MB)</a></li>
-                    <li><a href="#">Logo RGB (Download Pdf, 2.3 MB)</a></li>
+                    <? foreach($dataCollection as $data):?>
+                    <li>
+                        <a href="<?=PUBLIC_UPLOAD_PATH.'ads'.DS.$data['file_name'];?>" target="_blank">
+                            <img src="<?=PUBLIC_UPLOAD_PATH.'ads'.DS.$data['file_name'];?>" />
+                        </a>
+                        <h4><?=$data['text'];?></h4>
+                    </li>
+                    <? endforeach; ?>
                 </ul>
+                <? endif;?>
             </div>
         </div>
     </div>

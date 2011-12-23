@@ -32,11 +32,12 @@ var App = App || {};
                     if($(this).val().length <= 0){
                         
                         $(this).addClass('warning');
-                        $(this).closest('tr').addClass('warningTr');
+                        $(this).closest('tr').find('span.req').show();
 
                         allOk = false;
                     }else{
                         $(this).removeClass('warning');
+                        $(this).closest('tr').find('span.req').hide();
                     }
                 });
                 

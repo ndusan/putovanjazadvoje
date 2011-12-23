@@ -132,4 +132,8 @@ class CmsAdsModel extends Model
             return false;
         }
     }
+    
+    
+    
+    
 }

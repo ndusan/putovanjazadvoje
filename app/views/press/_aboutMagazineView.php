@@ -5,15 +5,17 @@
                 <a href="#">Pocetna</a> / Magazin / O nama
             </div>
             <div class="wys">
-                <h1>O magazinu</h1>
-                <p>asdasd</p>
+                <!-- text about magazine -->
+                <?=$dataCollection['text'];?>
             </div>
+            <? if(!empty($dataCollection['files'])):?>
             <h2>Preuzmi</h2>
             <ul class="downloads">
-                <li><a href="astuff.pdf">Profil preduzeca (Download Pdf, 1.3 MB)</a></li>
-                <li><a href="asdasdd.doc">ID profil (Download Zip, 5.3 MB)</a></li>
+                <? foreach($dataCollection['files'] as $file):?>
+                <li><a href="<?=PUBLIC_UPLOAD_PATH.'press'.DS.$file['file_name'];?>" target="_blank"><?=$file['file_name'];?> (Download <?=$file['type'];?>, <?=$file['size']/1024;?> kB)</a></li>
+                <? endforeach;?>
             </ul>
-
+            <? endif;?>
         </div>
     </div>
 </div>

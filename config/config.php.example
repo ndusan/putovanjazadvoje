@@ -35,6 +35,7 @@ define('ASSETS_JS_PATH', 'public'.DS.'assets'.DS.'js'.DS);
 
 //Uploads 
 define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].DS.'public'.DS.'uploads'.DS);
+define('PUBLIC_UPLOAD_PATH', DS.'public'.DS.'uploads'.DS);
 
 //Cache properties
 define('TIME_TO_LIVE_CACHE', 60);

@@ -17,12 +17,21 @@ class PressController extends Controller
         
         if(!empty($params['page'])){
             switch($params['page']){
-                case 'o-magazinu': $subpageView = '_aboutMagazine'; break;
-                case 'download': $subpageView = '_download'; break;
-                default: $subpageView = '_aboutMagazine';
+                case 'o-magazinu': 
+                    $subpageView = '_aboutMagazine'; 
+                    $dataCollection = $this->db->getAboutMagaine($params);
+                    break;
+                case 'download': 
+                    $subpageView = '_download'; 
+                    $dataCollection = $this->db->getDownload($params);
+                    break;
+                default: 
+                    $subpageView = '_aboutMagazine';
+                    $dataCollection = $this->db->getAboutMagaine($params);
             }
         }
-        
+
+        $this->set('dataCollection', $dataCollection);
         $this->set('subpage', $subpageView);
     }
 }

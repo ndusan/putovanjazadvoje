@@ -12,6 +12,8 @@ class ContactController extends Controller
 
         //Set left menu
         $this->setLeftMenu($params);
-        
+
+        $dataCollection = $this->db->getContact($params);
+        $this->set('dataCollection', $dataCollection);
     }
 }

@@ -141,7 +141,7 @@ ul.footerLinks li ul {padding:20px 0 0;}
 .forms input[type=submit]:hover {background-position:0 -55px; cursor:pointer;}
 .forms textarea {font-family:'Arial',sans-serif; width:200px; vertical-align:middle; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .forms textarea:focus {background-color:#FFF; }
-.forms .req {padding:0 10px; color:#b85252;}
+.forms .req {padding:0 10px; color:#b85252; display: none;}
 .forms .small {color:#999;}
 
 ul.orderSelect {overflow:hidden;}

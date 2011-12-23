@@ -16,12 +16,21 @@ class AdsController extends Controller
         
         if(!empty($params['page'])){
             switch($params['page']){
-                case 'opsti-uslovi-i-informacije': $subpageView = '_termsAndConditions'; break;
-                case 'cenovnik-i-formati': $subpageView = '_priceList'; break;
-                default: $subpageView = '_termsAndConditions';
+                case 'opsti-uslovi-i-informacije': 
+                    $subpageView = '_termsAndConditions'; 
+                    $dataCollection = $this->db->getTermsAndConditions($params);
+                    break;
+                case 'cenovnik-i-formati': 
+                    $subpageView = '_priceList'; 
+                    $dataCollection = $this->db->getPriceList($params);
+                    break;
+                default: 
+                    $subpageView = '_termsAndConditions';
+                    $dataCollection = $this->db->getTermsAndConditions($params);
             }
         }
         
+        $this->set('dataCollection', $dataCollection);
         $this->set('subpage', $subpageView);
     }
 }
