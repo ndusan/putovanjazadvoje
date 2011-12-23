@@ -10,7 +10,7 @@ class NewsModel extends Model
     {
         
         try{
-            if(null == $newsId){
+                if(null == $newsId){
                 $query = sprintf("SELECT `n`.`id`, `n`.`image_name`, `n`.`created`, `nl`.`title`, `nl`.`heading`, `nl`.`text` FROM %s AS `n` 
                                     INNER JOIN %s AS `nl` ON `nl`.`news_id`=`n`.`id`
                                     INNER JOIN %s AS `l` ON `l`.`id`=`nl`.`language_id`
@@ -33,9 +33,9 @@ class NewsModel extends Model
                                     $this->tableNewsLanguage, 
                                     $this->tableLanguage);
                 $stmt = $this->dbh->prepare($query);
-
+                
                 $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
-                $stmt->bindParam(':newsId', $params['id'], PDO::PARAM_INT);
+                $stmt->bindParam(':newsId', $newsId, PDO::PARAM_INT);
                 $stmt->execute();
             }
             

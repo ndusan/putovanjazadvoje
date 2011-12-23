@@ -19,8 +19,8 @@ class NewsController extends Controller
             
             parent::set('currentNews', $this->db->getSelectedNews($params));
         }
-
-        parent::set('newsCollection', $this->db->getAllNews($params));
+        
+        parent::set('newsCollection', $this->db->getAllNews($params, $newsId));
     }
     
     
