@@ -8,11 +8,11 @@
                 <h1>Aktuelno</h1>
             </div>
             <? if(!empty($currentNews)):?>
-            <!--selecte news -->
+            <!--select news -->
             <ul class="actual">
                 <li>
                     <? if(!empty($currentNews['image_name'])):?>
-                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . 'thumb-'.$currentNews['image_name']; ?>" />
+                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS .$currentNews['image_name']; ?>" />
                     <? endif;?>
                     <div class="txt">
                         <h2>
