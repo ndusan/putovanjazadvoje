@@ -1,20 +1,14 @@
 <div class="addContent">
-    <form action="/cms/press/download/<?= $action; ?>" method="post" enctype="multipart/form-data">
+    <form action="/cms/ads/price-list/<?= $action; ?>" method="post" enctype="multipart/form-data">
     <table cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
-                <td>Text:</td>
-                <td>
-                    <input type="text" name="download[text]" value="<?=@$download['text']; ?>" class="jr" />
-                </td>
-            </tr>
-            <tr>
-                <td>Image:</td>
+                <td>File:</td>
                 <td>
 
-                    <? if (isset($download['id']) && !empty($download['image_name'])): ?>
+                    <? if (isset($priceList['id']) && !empty($priceList['file_name'])): ?>
                         <input type="file" name="image" value=""/>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'press' . DS . $download['image_name']; ?>" target="_blank"><?= $download['image_name']; ?></a>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'ads' . DS . $priceList['file_name']; ?>" target="_blank"><?= $priceList['file_name']; ?></a>
                     <? else: ?>
                         <input type="file" name="image" value="" class="jr"/>
                     <? endif; ?>
@@ -23,7 +17,7 @@
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Submit" name="submit" />
-                    <input type="hidden" name="download[id]" value="<?= @$download['id']; ?>" />
+                    <input type="hidden" name="priceList[id]" value="<?= @$priceList['id']; ?>" />
                 </td>
             </tr>
         </tbody>

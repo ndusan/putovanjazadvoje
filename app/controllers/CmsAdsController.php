@@ -19,6 +19,7 @@ class CmsAdsController extends Controller
         $this->set('termsandconditions', $this->db->findTermsAndConditions());
     }
     
+    
     public function priceListAction($params)
     {
         
@@ -37,8 +38,8 @@ class CmsAdsController extends Controller
                     
                     $newImageName = $id.'-'.$params['image']['name'];
                     
-                    $this->db->setImageName($id, $newImageName);
-                    $info = $this->uploadImage($newImageName, $params['image'], 'ads');
+                    $this->db->setFileName($id, $newImageName);
+                    $info = $this->uploadFile($newImageName, $params['image'], 'ads');
                     
                     $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');
                 }else{
@@ -58,13 +59,13 @@ class CmsAdsController extends Controller
                 //If image uploaded add it
                 if(0 == $params['image']['error']){
                     
-                    $data = $this->db->getImageName($params['priceList']['id']);
+                    $data = $this->db->getFileName($params['priceList']['id']);
                     $oldImageName = $data['image_name'];
                     
                     $newImageName = $params['priceList']['id'].'-'.$params['image']['name'];
-                    $this->db->setImageName($params['priceList']['id'], $newImageName);
+                    $this->db->setFileName($params['priceList']['id'], $newImageName);
                     
-                    $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'ads');
+                    $info = $this->reUploadFile($oldImageName, $newImageName, $params['image'], 'ads');
                 }
                 $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');
             }else{
@@ -74,18 +75,20 @@ class CmsAdsController extends Controller
         $this->set('priceList', $this->db->findPriceList($params['id']));
     }
     
+    
+    
     public function deletePriceListAction($params)
     {
         
         $this->setRenderHTML(0);
         
-        $data = $this->db->getImageName($params['id']);
+        $data = $this->db->getFileName($params['id']);
         if($this->db->deletePriceList($params)){
             
             //If exist delete
             if(!empty($data)){
                 $oldImageName = $data['image_name'];
-                $this->deleteImage($oldImageName, 'ads');
+                $this->deleteFile($oldImageName, 'ads');
                 
             }
             $this->redirect ('cms'.DS.'ads'.DS.'price-list', 'success');

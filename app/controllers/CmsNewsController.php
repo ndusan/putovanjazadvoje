@@ -20,6 +20,9 @@ class CmsNewsController extends Controller
                     $newImageName = $id.'-'.$params['image']['name'];
                     $this->db->setImageName($id, $newImageName);
                     $this->uploadImage($newImageName, $params['image'], 'news');
+                    
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'news', 200, 95);
                 }
                 $this->redirect ('cms'.DS.'news', 'success');
             }else{
@@ -45,6 +48,12 @@ class CmsNewsController extends Controller
                     $newImageName = $params['news']['id'].'-'.$params['image']['name'];
                     $this->db->setImageName($params['news']['id'], $newImageName);
                     $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'news');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'news');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'news', 200, 95);
                 }
                 $this->redirect ('cms'.DS.'news', 'success');
             }else{
@@ -83,6 +92,10 @@ class CmsNewsController extends Controller
             
             $this->db->setImageName($params['id'], '');
             $this->deleteImage($data['image_name'], 'news');
+            
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$data['image_name'];
+            $this->deleteImage($oldThumbImageName, 'news');
         }
         $this->redirect ('cms'.DS.'news'.DS.'edit'.DS.$params['id'], 'success');
     }

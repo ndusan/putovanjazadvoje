@@ -7,6 +7,7 @@ class CmsAdsModel extends Model
     private $tableLanguage = 'language';
     private $tableStatic = 'static';
     private $tableStaticLanguage = 'static_language';
+    private $tableFiles = 'files';
     
     public function findTermsAndConditions()
     {
@@ -127,6 +128,38 @@ class CmsAdsModel extends Model
             }
             
             return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function findAllPriceLists()
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s", $this->tableFiles);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function findPriceList($id)
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableFiles);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;
