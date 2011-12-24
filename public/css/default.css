@@ -115,7 +115,7 @@ ul.news li.last {margin:0;}
 
 ul.actual {padding:0 0 20px;}
 ul.actual li {padding:20px 0 20px 10px; border-bottom:solid 1px #EEE; overflow:hidden;overflow:hidden;}
-ul.actual li img {float:left;}
+ul.actual li > a {height:95px; overflow:hidden; float:left;}
 ul.actual li .txt {margin:0 0 0 210px;}
 
 .footer .copy {float:left; padding:60px 0 0;}

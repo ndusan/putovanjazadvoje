@@ -33,7 +33,7 @@
             </table>
         </div>
         <div class="addContent">
-            <table cellpadding="0" cellspacing="0" id="jListBrowse">
+            <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse">
                 <thead>
                     <tr>
                         <th colspan="2">

@@ -12,7 +12,7 @@ var App = App || {};
                 
                 var html = '<tr>\n\
                                 <td><input type="file" name="file[]" value=""/></td>\n\
-                                <td><a href="#" class="jRemoveBrowse">remove</a></td>\n\
+                                <td><a href="#" class="jRemoveBrowse cmsDelete" title="Remove file"></a></td>\n\
                             </tr>';
                 
                 $('#jListBrowse > tbody:last').append(html);
@@ -23,10 +23,6 @@ var App = App || {};
             $('body').delegate('.jRemoveBrowse', 'click', function(e){
                 e.preventDefault();
                 
-                //Ask
-                var answer = confirm ("Are you sure you want to delete this line?");
-                if (!answer) return false;
-                
                 var cUrl = $(this).attr('href');
                 var cLine = $(this).attr('browse-line');
                 
@@ -34,6 +30,11 @@ var App = App || {};
                     //Empty browse
                     $(this).closest('tr').remove();
                 }else{
+                    
+                    //Ask
+                    var answer = confirm ("Are you sure you want to delete this line?");
+                    if (!answer) return false;
+                    
                     $.ajax({
                         url: cUrl,
                         type: 'get',
