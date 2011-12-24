@@ -82,6 +82,8 @@ class CmsDownloadController extends Controller
             
             if(!$uploaded) $this->redirect ('cms'.DS.'download'.DS.'add', 'error');
             
+            //First wil be thumb
+            $isThumb = true;
             
             //Data submited
             if($id = $this->db->createWallpaper($params['wallpaper'])){
@@ -102,6 +104,12 @@ class CmsDownloadController extends Controller
                         
                         $info = $this->uploadImage($newImageName, $image, 'download');
 
+                        if($isThumb){
+                            $this->createThumbImage($newImageName, 'download', 128, 133);
+                            
+                            $this->db->setThumbImage($id, 'thumb-'.$newImageName);
+                            $isThumb = false;
+                        }
                     }
                 }
                 $this->redirect ('cms'.DS.'download'.DS.'wallpaper', 'success');
@@ -150,6 +158,8 @@ class CmsDownloadController extends Controller
         $this->setRenderHTML(0);
         
         $data = $this->db->getImageNames($params['id']);
+        $thumbData = $this->db->getThumbImageName($params['id']);
+        
         if($this->db->deleteWallpaper($params)){
             
             //If exist delete
@@ -159,6 +169,13 @@ class CmsDownloadController extends Controller
                     $this->deleteImage($oldImageName, 'download');
                 }
             }
+            
+            if(!empty($thumbData)){
+                
+                $oldImageName = $thumbData['image_name'];
+                $this->deleteImage($oldImageName, 'download');
+            }
+            
             $this->redirect ('cms'.DS.'download'.DS.'wallpaper', 'success');
         }else{
             $this->redirect ('cms'.DS.'download'.DS.'wallpaper', 'error');
@@ -172,6 +189,7 @@ class CmsDownloadController extends Controller
         $this->setRenderHTML(0);
         
         $data = $this->db->getImageName($params['image_id'], $params['group']);
+        $thumbData = $this->db->getThumbImageName($params['id']);
         
         if($this->db->deleteWallpaperImage($params)){
             
@@ -183,6 +201,12 @@ class CmsDownloadController extends Controller
             
             if(!$this->db->checkIfLastImage($params)){
                 $this->deleteWallpaperAction($params);
+            }
+            
+            if(!empty($thumbData)){
+                
+                $oldImageName = $thumbData['image_name'];
+                $this->deleteImage($oldImageName, 'download');
             }
             
             $this->redirect ('cms'.DS.'download'.DS.'wallpaper'.DS.'edit'.DS.$params['id'], 'success');

@@ -7,6 +7,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
+                <th>Global image name</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 
@@ -14,6 +15,7 @@
         <tbody> 
             <? foreach ($wallpaperCollection as $b): ?>
                 <tr> 
+                    <td><?= $b['image_name']; ?></td> 
                     <td><?= $html->convertDate($b['created'], true); ?></td> 
                     <td align="center">
                         <!--Edit-->
@@ -25,6 +27,7 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
+                <th>Global image name</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 

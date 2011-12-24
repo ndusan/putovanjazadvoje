@@ -6,6 +6,7 @@ class DownloadModel extends Model
     private $type_l = 'logo';
     
     private $tableDownload = 'download';
+    private $tableDownloadImage = 'download_image';
     private $tableStatic = 'static';
     private $tableStaticLanguage = 'static_language';
     private $tableLanguage = 'language';
@@ -52,7 +53,48 @@ class DownloadModel extends Model
     
     public function getWallpapers($params)
     {
+        try{
+            $output = array();
+            
+            $query = sprintf("SELECT * FROM %s ORDER BY `id` DESC", $this->tableDownload);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            $results = $stmt->fetchAll();
+            
+            if(!empty($results)){
+                foreach($results as $r){
+                    
+                    $output = $r;
+                    $output['images'] = $this->getWallpaperImages($r['id']);
+                }
+            }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
         
+    }
+    
+    
+    private function getWallpaperImages($id)
+    {
         
+        try{
+            $output = array();
+            
+            $query = sprintf("SELECT * FROM %s WHERE `download_id`=:downloadId", $this->tableDownloadImage);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':downloadId', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
 }

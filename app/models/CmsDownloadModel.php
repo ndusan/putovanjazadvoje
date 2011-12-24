@@ -259,7 +259,6 @@ class CmsDownloadModel extends Model
         try{
             $query = sprintf("INSERT INTO %s SET `created`=CURRENT_TIMESTAMP", $this->tableDownload);
             $stmt = $this->dbh->prepare($query);
-            
             $stmt->execute();
             
             return $this->dbh->lastInsertId();
@@ -290,7 +289,7 @@ class CmsDownloadModel extends Model
     
     public function updateWallpaper($params)
     {
-        //no action here
+       
         return true;
     }
     
@@ -336,6 +335,7 @@ class CmsDownloadModel extends Model
         $output = array();
         
         try{
+            
             $query = sprintf("SELECT * FROM %s WHERE `download_id`=:downloadId", $this->tableDownloadImage);
             $stmt = $this->dbh->prepare($query);
             
@@ -386,7 +386,7 @@ class CmsDownloadModel extends Model
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             
-            $query = sprintf("DELETE FROM %s  WHERE `downloadId`=:downloadId", $this->tableDownloadImage);
+            $query = sprintf("DELETE FROM %s  WHERE `download_id`=:downloadId", $this->tableDownloadImage);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':downloadId', $params['id'], PDO::PARAM_INT);
@@ -429,6 +429,42 @@ class CmsDownloadModel extends Model
             $stmt->execute();
 
             return $stmt->fetch() ? true : false;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setThumbImage($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableDownload);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getThumbImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableDownload);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;
