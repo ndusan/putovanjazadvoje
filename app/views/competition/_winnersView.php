@@ -2,10 +2,10 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="<?= DS . $params['lang']; ?>">Pocetna</a> / Magazin / O nama
+                <a href="<?= DS . $params['lang']; ?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.winners.link'];?>
             </div>
             <div class="wys">
-                <h1>Dobitnici nagradnih igara</h1>
+                <h1><?=$_t['page.winners.title'];?></h1>
             </div>
             <ul class="winners">
                 <li>

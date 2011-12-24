@@ -5,7 +5,7 @@
                 <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?=$_t['breadcrumb.subscribe.link'];?>
             </div>
             <div class="wys">
-                <h1><?=$_t['title.subscribe.label'];?></h1>
+                <h1><?=$_t['page.subscribe.title'];?></h1>
                 <ul class="magazines">
                     <li>
                         <a href="">
@@ -114,7 +114,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span class="small">Polja oznacena sa * su obavezna</span>
+                                    <span class="small"><?=$_t['orderform.required-info.label'];?></span>
                                 </td>
                             </tr>
                         </tbody>

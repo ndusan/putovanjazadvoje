@@ -1,5 +1,5 @@
 <div class="breadcrumb">
-    <a href="<?=DS.$params['lang'];?>">Pocetna</a> / Magazin / Sadrzaj
+    <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.actualedition.link'];?> / <?=$_t['breadcrumb.content.link'];?>
 </div>
 
 <div class="contextMain">

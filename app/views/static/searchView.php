@@ -5,7 +5,7 @@
                 <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.searchresults.link'];?>
             </div>
             <div class="wys">
-                <h1><?=$_t['search.title.label'];?></h1>
+                <h1><?=$_t['page.searchresults.title'];?></h1>
 
                 <!--Query -->
                 <? if (!empty($params['q'])): ?>

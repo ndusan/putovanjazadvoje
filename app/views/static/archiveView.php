@@ -5,7 +5,7 @@
                 <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?=$_t['breadcrumb.archive.link'];?>
             </div>
             <div class="wys">
-                <h1><?=$_t['title.archive.label'];?></h1>
+                <h1><?=$_t['page.archive.title'];?></h1>
                 <?= $collection['text']; ?>
                 <ul class="magazines">
                     <li>
