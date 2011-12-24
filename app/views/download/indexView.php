@@ -2,16 +2,16 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.download.link'];?>
             </div>
             <div class="wys">
-                <h2>Preuzmi Logo</h2>
+                <h2><?=$_t['page.download-logo.title'];?></h2>
                 <ul class="downloads">
                     <li><a href="#">Logo CMYK (Download Pdf, 2.3 MB)</a></li>
                     <li><a href="#">Logo RGB (Download Pdf, 2.3 MB)</a></li>
                 </ul>
 
-                <h2>Preuzmi pozadine</h2>
+                <h2><?=$_t['page.download-wallpapers.title'];?></h2>
                 <ul class="magazines">
                     <li>
                         <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />

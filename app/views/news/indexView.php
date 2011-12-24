@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.actual.link'];?> 
             </div>
             <? if(!empty($currentNews)):?>
             <!--select news -->
@@ -18,14 +18,14 @@
                 <? endif; ?>
                 <?= $currentNews['text']; ?>
             </div>
-            <h2>Ostale novosti</h2>
+            <h2><?=$_t['news.other-news.title'];?></h2>
             <? endif; ?>
             
             <? if(!empty($newsCollection)):?>
             
             <? if(empty($currentNews)):?>
             <div class="wys">
-                <h1>Aktuelno</h1>
+                <h1><?=$_t['news.actual.title'];?></h1>
             </div>
             <? endif;?>
             
@@ -53,7 +53,7 @@
             </ul>
             <? else: ?>
                 <div class="noContent">
-                    No actual news.
+                    <?=$_t['news.no-news.label'];?>.
                 </div>
             <? endif; ?>
         </div>

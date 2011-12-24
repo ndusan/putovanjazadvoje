@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.conditions.link'];?>
             </div>
             <div class="wys">
                 <!-- Text -->

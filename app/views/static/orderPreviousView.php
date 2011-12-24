@@ -5,7 +5,7 @@
                 <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?=$_t['breadcrumb.orderprev.link'];?>
             </div>
             <div class="wys">
-                <h1><?=$_t['title.orderprev.label'];?></h1>
+                <h1><?=$_t['page.orderprev.title'];?></h1>
             </div>
             <? if (!empty($sent)): ?>
                 <?=$_t['orderform.sent.label'];?>
@@ -103,7 +103,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span class="small">Polja oznacena sa * su obavezna</span>
+                                    <span class="small"><?=$_t['orderform.required-info.label'];?></span>
                                 </td>
                             </tr>
                         </tbody>

@@ -2,10 +2,10 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#">Pocetna</a> / Magazin / O nama
+                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.price.link'];?>
             </div>
             <div class="wys">
-                <h2>Cenovnik i formati</h2>
+                <h2><?=$_t['page.price.title'];?></h2>
                 <? if(!empty($dataCollection)):?>
                 <ul class="downloads">
                     <? foreach($dataCollection as $data):?>
