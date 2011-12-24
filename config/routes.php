@@ -82,7 +82,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Download
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/download\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/preuzimanje\/?$/', 
             'controller' => 'download', 
             'action'     => 'index', 
             'layout'     => 'default'

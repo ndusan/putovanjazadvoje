@@ -30,7 +30,7 @@
                 <li><a href="<?=DS.$params['lang'].DS.'oglasavanje'.DS.'cenovnik-i-formati';?>"><?=$_t['nav.prices.link'];?></a></li>
             </ul>
         </li>
-        <li><a href="<?=DS.$params['lang'].DS.'download';?>"><?=$_t['nav.dow.l'];?></a></li>
+        <li><a href="<?=DS.$params['lang'].DS.'preuzimanje';?>"><?=$_t['nav.dow.l'];?></a></li>
         <li><a href="<?=DS.$params['lang'].DS.'kontakt';?>"><?=$_t['nav.conct.l'];?></a></li>
     </ul>
     <ul class="lang">
