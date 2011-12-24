@@ -19,15 +19,17 @@
                 </ul>
                 <? endif;?>
 
-                <? if(!empty($wDataCollection['images'])):?>
+                <? if(!empty($wDataCollection)):?>
                 <h2><?=$_t['page.download-wallpapers.title'];?></h2>
                 <ul class="magazines">
+                    <? foreach($wDataCollection as $w):?>
                     <li>
-                        <img src="<?= PUBLIC_UPLOAD_PATH .'download'.DS. $wDataCollection['image_name']; ?>" />
-                        <? foreach($wDataCollection['images'] as $wd):?>
+                        <img src="<?= PUBLIC_UPLOAD_PATH .'download'.DS. $w['image_name']; ?>" />
+                        <? foreach($w['images'] as $wd):?>
                         <a href="<?= PUBLIC_UPLOAD_PATH .'download'.DS. $wd['image_name']; ?>" target="_blank"><?=$wd['group'];?></a>
                         <? endforeach; ?>
                     </li>
+                    <? endforeach;?>
                 </ul>
                 <? endif; ?>
             </div>

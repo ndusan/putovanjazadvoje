@@ -64,9 +64,9 @@ class DownloadModel extends Model
             
             if(!empty($results)){
                 foreach($results as $r){
-                    
-                    $output = $r;
-                    $output['images'] = $this->getWallpaperImages($r['id']);
+
+                    $r['images'] = $this->getWallpaperImages($r['id']);
+                    $output[] = $r;
                 }
             }
             
