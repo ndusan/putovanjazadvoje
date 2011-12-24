@@ -73,7 +73,7 @@
                         <a <?= $this->_controller=='cmsDownload'?'class="active"':''; ?> href="#" name="leaf-link" child-class="leaf-child-download">Download</a>
                         <ul class="leaf-child leaf-child-download" <?= $this->_controller=='cmsDownload'?'style="display:block;"':''; ?>>
                             <li><a <?= $this->_action=='logo'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'download' .DS.'logo'; ?>">Logo</a></li>
-                            <li><a <?= $this->_action=='background'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'download' .DS.'background'; ?>">Background</a></li>
+                            <li><a <?= $this->_action=='wallpaper'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'download' .DS.'wallpaper'; ?>">Wallpaper</a></li>
                         </ul>
                     </li>
                     <li class="leaf">
