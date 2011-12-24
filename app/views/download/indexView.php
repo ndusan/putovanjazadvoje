@@ -6,10 +6,16 @@
             </div>
             <div class="wys">
                 <h2>Preuzmi Logo</h2>
+                <!-- text about magazine -->
+                <?=$dataCollection['text'];?>
+
+                <? if(!empty($dataCollection['files'])):?>
                 <ul class="downloads">
-                    <li><a href="#">Logo CMYK (Download Pdf, 2.3 MB)</a></li>
-                    <li><a href="#">Logo RGB (Download Pdf, 2.3 MB)</a></li>
+                    <? foreach($dataCollection['files'] as $file):?>
+                    <li><a href="<?=PUBLIC_UPLOAD_PATH.'download'.DS.$file['file_name'];?>" target="_blank"><?=$file['file_name'];?> (Download <?=$file['type'];?>, <?=$file['size']/1024;?> kB)</a></li>
+                    <? endforeach;?>
                 </ul>
+                <? endif;?>
 
                 <h2>Preuzmi pozadine</h2>
                 <ul class="magazines">

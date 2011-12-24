@@ -301,42 +301,37 @@ $routes = array(
     //CMS download page
     array(  'url'        => '/^cms\/download\/logo\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'index', 
+            'action'     => 'logo', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/download\/logo\/add\/?$/', 
+    array(  'url'        => '/^cms\/download\/logo\/delete-file\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/download\/logo\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsDownload', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/download\/logo\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsDownload', 
-            'action'     => 'delete', 
+            'action'     => 'deleteFile', 
             'layout'     => 'empty'
     ),
-    array(  'url'        => '/^cms\/download\/background\/?$/', 
+    array(  'url'        => '/^cms\/download\/wallpaper\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'index', 
+            'action'     => 'wallpaper', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/download\/background\/add\/?$/', 
+    array(  'url'        => '/^cms\/download\/wallpaper\/add\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'add', 
+            'action'     => 'addWallpaper', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/download\/background\/edit\/(?P<id>\d*)\/?$/', 
+    array(  'url'        => '/^cms\/download\/wallpaper\/edit\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'edit', 
+            'action'     => 'editWallpaper', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/download\/background\/delete\/(?P<id>\d*)\/?$/', 
+    array(  'url'        => '/^cms\/download\/wallpaper\/delete\/(?P<id>\d*)\/image\/(?P<image_id>\d*)\/?$/', 
             'controller' => 'cmsDownload', 
-            'action'     => 'delete', 
+            'action'     => 'deleteWallpaperImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/download\/wallpaper\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDownload', 
+            'action'     => 'deleteWallpaper', 
             'layout'     => 'empty'
     ),
     //CMS contact page
