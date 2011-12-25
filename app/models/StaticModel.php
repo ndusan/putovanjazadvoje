@@ -13,6 +13,9 @@ class StaticModel extends Model
     private $tableStatic = 'static';
     private $tableStaticLanguage = 'static_language';
     
+    private $tableNews = 'news';
+    private $tableNewsLanguage = 'news_language';
+    
     private $types = array(0 => self::STATIC_ABOUTUS, 
                            1 => self::STATIC_GIVEAWAY, 
                            2 => self::STATIC_ORDERPREVIOUS, 
@@ -59,10 +62,31 @@ class StaticModel extends Model
     }
     
     
-    public function searchFor($key)
+    public function searchFor($params)
     {
+        $output = array();
         
-        return array();
+        //Search via news for selected language
+        $query = sprintf("SELECT `n`.`image_name` ,`nl`.* FROM %s AS `n`
+                            INNER JOIN %s AS `nl` ON `nl`.`news_id`=`n`.`id`
+                            INNER JOIN %s AS `l` ON `l`.`id`=`nl`.`language_id`
+                            WHERE `l`.`iso_code`=:isoCode AND (`nl`.`title` LIKE :title OR `nl`.`heading` LIKE :heading OR `nl`.`text` LIKE :text)",
+                            $this->tableNews, $this->tableNewsLanguage, $this->tableLanguage);
+        $stmt = $this->dbh->prepare($query);
+        
+        $key = '%'.$params['q'].'%';
+        
+        $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+        $stmt->bindParam(':title', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':heading', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':text', $key, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $output['news'] = $stmt->fetchAll();
+        
+        //Search via magazine for selected language
+        
+        return $output;
     }
     
 }

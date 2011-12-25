@@ -93,7 +93,7 @@ class StaticController extends Controller
         $resultCollection = array();
         
         if(!empty($params['q'])){
-            $resultCollection = $this->db->searchFor($params['q']);
+            $resultCollection = $this->db->searchFor($params);
         }
         
         $this->set('resultCollection', $resultCollection);

@@ -19,20 +19,31 @@
                 <? if (!empty($resultCollection)): ?>
                     <!-- List of results START -->
                     <ul class="searchResults">
+                        <!-- all news results -->
+                        <? if(!empty($resultCollection['news'])):?>
+                        <? foreach ($resultCollection['news'] as $r): ?>
                         <li>
-
+                            <h2><a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$r['id'];?>"><?=$r['title'];?></a></h2>
+                            <p>
+                                <?=$r['heading'];?>
+                            </p>
                         </li>
-                        <? foreach ($resultCollection as $r): ?>
-                            <li>
-                                <h2><a href="#">Plava laguna predstavlja svoj novi identitet</a></h2>
-                                <p>
-                                    Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                                </p>
-                            </li>
                         <? endforeach; ?>
+                        <? endif;?>
+                        
+                        <!-- all magazine results -->
+                        <? if(!empty($resultCollection['magazine'])):?>
+                        <? foreach ($resultCollection['magazine'] as $r): ?>
+                        <li>
+                            <h2><a href="#"><?=$r['title'];?></a></h2>
+                            <p>
+                                <?=$r['heading'];?>
+                            </p>
+                        </li>
+                        <? endforeach; ?>
+                        <? endif;?>
                     </ul>
                     <!-- List of results END -->
-
                 <? else: ?>
 
                     <p><?=$_t['search.noresults.label'];?></p>
