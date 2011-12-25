@@ -52,7 +52,9 @@
                     <div class="gTitle">
                         <?=$_t['home.new.label'];?>
                     </div>
+                    <? if(!empty($tNews['image_name'])):?>
                     <img src="<?= PUBLIC_UPLOAD_PATH . 'news' .DS.'thumb-'.$tNews['image_name']; ?>" />
+                    <? endif; ?>
                     <h2><?=$tNews['title'];?></h2>
                     <p>
                         <?=$tNews['heading'];?>
@@ -65,7 +67,9 @@
             <ul class="actual">
                 <? foreach($otherNewsCollection as $oNews):?>
                 <li>
+                    <? if(!empty($oNews['image_name'])):?>
                     <img src="<?= PUBLIC_UPLOAD_PATH . 'news' .DS.'thumb-'.$oNews['image_name']; ?>" />
+                    <? endif;?>
                     <div class="txt">
                         <h2><?=$oNews['title'];?></h2>
                         <p>

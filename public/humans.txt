@@ -1,0 +1,18 @@
+/* TEAM */
+Project leader: Katarina Djuric-Jovanovic
+Website: http://net-svet.com
+Email: info@net-svet.com
+
+Front-end developer and interface designer: Emil Ajduk
+Website: http://ajduk.com
+Email: ajdukemil@gmail.com
+
+System architect and back-end developer: Dusan Novakovic
+Website: http://novakovicdusan.com
+Email: ndusan@gmail.com
+
+                            
+/* SITE */     
+Standards: xHTML5, CSS2
+Components: jQuery, jQuery UI, datatables.org
+Software: PHP/MySQL                           

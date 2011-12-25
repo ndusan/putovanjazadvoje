@@ -7,6 +7,7 @@
         <meta name="Description" content="" />
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <link rel="author" href="<?=DS.'public'.DS.'humans.txt';?>" />
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
