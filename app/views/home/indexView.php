@@ -45,63 +45,37 @@
                     </div>
                 </li>
             </ul>
+            <? if(!empty($topNewsCollection)):?>
             <ul class="news">
+                <?foreach($topNewsCollection as $tNews):?>
                 <li>
                     <div class="gTitle">
                         <?=$_t['home.new.label'];?>
                     </div>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                    <h2>Plava laguna predstavlja
-                        svoj novi identitet</h2>
+                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' .DS.'thumb-'.$tNews['image_name']; ?>" />
+                    <h2><?=$tNews['title'];?></h2>
                     <p>
-                        Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
+                        <?=$tNews['heading'];?>
                     </p>
                 </li>
-                <li>
-                    <div class="gTitle">
-                        <?=$_t['home.new.label'];?>
-                    </div>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                    <h2>Plava laguna predstavlja
-                        svoj novi identitet</h2>
-                    <p>
-                        Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                    </p>
-                </li>
-                <li class="last">
-                    <div class="gTitle">
-                        <?=$_t['home.new.label'];?>
-                    </div>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                    <h2>Plava laguna predstavlja
-                        svoj novi identitet</h2>
-                    <p>
-                        Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                    </p>
-                </li>
+                <? endforeach;?>
             </ul>
+            <? endif;?>
+            <? if(!empty($otherNewsCollection)):?>
             <ul class="actual">
+                <? foreach($otherNewsCollection as $oNews):?>
                 <li>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
+                    <img src="<?= PUBLIC_UPLOAD_PATH . 'news' .DS.'thumb-'.$oNews['image_name']; ?>" />
                     <div class="txt">
-                        <h2>Plava laguna predstavlja
-                            svoj novi identitet</h2>
+                        <h2><?=$oNews['title'];?></h2>
                         <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
+                            <?=$oNews['heading'];?>
                         </p>
                     </div>
                 </li>
-                <li>
-                    <img src="<?= IMAGE_PATH . 'dummy2.jpg'; ?>" />
-                    <div class="txt">
-                        <h2>Plava laguna predstavlja
-                            svoj novi identitet</h2>
-                        <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                        </p>
-                    </div>
-                </li>
+                <? endforeach; ?>
             </ul>
+            <? endif;?>
         </div>
     </div>
 </div>
