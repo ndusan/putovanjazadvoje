@@ -128,9 +128,9 @@ class CmsNewsModel extends Model
                 
                 $stmt->bindParam(':newsId', $newsId, PDO::PARAM_INT);
                 $stmt->bindParam(':languageId', $response['id'], PDO::PARAM_INT);
-                $stmt->bindParam(':title', $params['title'][$k], PDO::PARAM_STR);
+                $stmt->bindParam(':title', $v, PDO::PARAM_STR);
                 $stmt->bindParam(':heading', $params['heading'][$k], PDO::PARAM_STR);
-                $stmt->bindParam(':text', $v, PDO::PARAM_STR);
+                $stmt->bindParam(':text', $params['content'][$k], PDO::PARAM_STR);
                 $stmt->execute();
             }
             
