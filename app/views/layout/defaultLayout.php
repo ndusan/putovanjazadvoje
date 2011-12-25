@@ -127,12 +127,5 @@
                 </ul>
             </div>
         </div>
-        <script type="text/javascript">
-            $(document).ready(function(){
-               $('.wrapper').click(function(){
-                  console.log('test'); 
-               });
-            });
-        </script>
     </body>
 </html>
