@@ -4,7 +4,7 @@
         <li><a href="#"><?=$_t['nav.mag.l'];?></a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'o-nama';?>"><?=$_t['nav.about.link'];?></a></li>
-                <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji';?>"><?=$_t['nav.edit-sale.link'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>"><?=$_t['nav.edit-sale.link'];?></a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>"><?=$_t['nav.sub.link'];?></a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>"><?=$_t['nav.order.link'];?></a></li>
                 <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>"><?=$_t['nav.gift.link'];?></a></li>

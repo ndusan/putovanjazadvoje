@@ -21,6 +21,18 @@
                 </td>
             </tr>
             <tr>
+                <td>Header image:</td>
+                <td>
+
+                    <? if (isset($magazine['id']) && !empty($magazine['header_image_name'])): ?>
+                        <input type="file" name="image" value=""/>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['header_image_name']; ?>" target="_blank"><?= $magazine['header_image_name']; ?></a>
+                    <? else: ?>
+                        <input type="file" name="image" value="" class="jr"/>
+                    <? endif; ?>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Submit" name="submit" />
                     <input type="hidden" name="magazine[id]" value="<?= @$magazine['id']; ?>" />

@@ -56,6 +56,7 @@
                     <li><a <?= $this->_controller=='cmsMagazine'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'magazine'; ?>">Magazine</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'carousel'; ?>">Carousel</a></li>
                     <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'news'; ?>">News</a></li>
+                    <li><a <?= $this->_controller=='cmsContest'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contest'; ?>">Contest</a></li>
                     <li class="leaf">
                         <a <?= $this->_controller=='cmsPress'?'class="active"':''; ?> href="#" name="leaf-link" child-class="leaf-child-press">Press</a>
                         <ul class="leaf-child leaf-child-press" <?= $this->_controller=='cmsPress'?'style="display:block;"':''; ?>>

@@ -45,11 +45,6 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Magazine
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/broj-u-prodaji\/?$/', 
-            'controller' => 'magazine', 
-            'action'     => 'index', 
-            'layout'     => 'default'
-    ),
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/broj-u-prodaji\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
             'controller' => 'magazine', 
             'action'     => 'index', 
@@ -340,5 +335,20 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    
+    //CMS contest content
+    array(  'url'        => '/^cms\/contest\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contest\/wizard(\/(?P<id>\d*))*\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'wizard', 
+            'layout'     => 'cms'
+    ), 
+    array(  'url'        => '/^cms\/contest\/wizard\/prize-form\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'wizardPrizeForm', 
+            'layout'     => 'ajax'
+    ), 
 );
