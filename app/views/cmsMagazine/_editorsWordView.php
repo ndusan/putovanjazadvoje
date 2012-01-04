@@ -29,6 +29,29 @@
                 </tbody>
             </table>
         </div>
+        <div class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>Image:</td>
+                        <td>
+
+                            <? if (isset($magazine['id']) && !empty($magazine['image_name'])): ?>
+                                <input type="file" name="image" value=""/>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['image_name']; ?>" target="_blank"><?= $magazine['image_name']; ?></a>
+                            <? else: ?>
+                                <input type="file" name="image" value="" class="jr"/>
+                            <? endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" name="submit" value="Submit magazine"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <input type="hidden" name="wizard-page" value="editorsword"/>
         </form>
     </div>
