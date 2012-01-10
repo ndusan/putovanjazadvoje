@@ -2,7 +2,7 @@
     <div class="tabs">
         <ul>
             <li><a href="#fragment-1-1">Srpski</a></li>
-            <li><a href="#fragment-1-2">English (optionsl)</a></li>
+            <li><a href="#fragment-1-2">English (optional)</a></li>
         </ul>
         <form name="wizard_content" action="/cms/contest/wizard" method="post" enctype="multipart/form-data">
         <div id="fragment-1-1" class="addContent">
@@ -53,7 +53,7 @@
                             <span class="jtooltip" title="Image of sponzore or random image">Image:</span>
                         </td>
                         <td>
-                            <input type="file" name="file" value="" />
+                            <input type="file" name="wizard[file]" value="" />
                         </td>
                     </tr>
                     <tr>
@@ -67,25 +67,24 @@
                             </select>
                         </td>
                     </tr>
+                    <? if(!$magazineCollection):?>
                     <tr>
                         <td>
                             <span class="jtooltip" title="Set to what magazine type is this contest related">Magazine number:</span>
                         </td>
                         <td>
                             <select name="wizard[magazine]">
-                                <option value="1">Number #1</option>
+                                <option value="0">-- Select magazine --</option>
+                                <? foreach($magazineCollection as $magazine):?>
+                                <option value="<?=$magazine['id'];?>"><?=$magazine['number'];?></option>
+                                <? endforeach;?>
                             </select>
                         </td>
                     </tr>
+                    <? endif;?>
                     <tr>
                         <td colspan="2">
-                        <? if(!empty($magazineCollection)):?>
                             <input type="submit" value="Set contest &raquo;" name="submit"/>
-                        <? else:?>
-                            <div>
-                                Create first magazine in order to continue this wizard!
-                            </div>
-                        <? endif;?>
                         </td>
                     </tr>
                 </tbody>

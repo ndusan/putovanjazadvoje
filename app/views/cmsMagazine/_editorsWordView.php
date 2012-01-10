@@ -40,7 +40,7 @@
                                 <input type="file" name="image" value=""/>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['image_name']; ?>" target="_blank"><?= $magazine['image_name']; ?></a>
                             <? else: ?>
-                                <input type="file" name="image" value="" class="jr"/>
+                                <input type="file" name="image" value=""/>
                             <? endif; ?>
                         </td>
                     </tr>

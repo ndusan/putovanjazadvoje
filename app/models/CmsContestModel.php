@@ -6,7 +6,7 @@ class CmsContestModel extends Model
     private $tableContest = 'contest';
     private $tableContestLanguage = 'contest_language';
     private $tableLanguge = 'language';
-    
+    private $tableMagazine = 'magazine';
     
     public function getContest($id)
     {
@@ -91,5 +91,22 @@ class CmsContestModel extends Model
     {
         
         
+    }
+    
+    public function getAllMagazine()
+    {
+        
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `visible`='1' ORDER BY `id` DESC", 
+                                $this->tableMagazine);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
 }

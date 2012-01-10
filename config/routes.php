@@ -212,7 +212,7 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/magazine\/wizard(\/(?P<id>\d*))*\/?$/', 
+    array(  'url'        => '/^cms\/magazine\/wizard(\/(?P<id>\d*)){0,1}\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'wizard', 
             'layout'     => 'cms'

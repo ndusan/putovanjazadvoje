@@ -41,7 +41,10 @@ var App = App || {};
                     }
                 });
                 
-                if(!allOk) return false;
+                if(!allOk){
+                    console.log('test');
+                    return false;
+                }
             });
             
             App.Common.search();

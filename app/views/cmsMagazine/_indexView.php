@@ -5,16 +5,16 @@
             <tr>
                 <td>Actual number:</td>
                 <td>
-                    <input type="text" class="jr" name="magazine[number]" value="<?= @$magazine['number']; ?>" />
+                    <input type="text" class="jr" name="magazine[number]" value="<?= @$magazine['index']['number']; ?>" />
                 </td>
             </tr>
             <tr>
                 <td>Image:</td>
                 <td>
 
-                    <? if (isset($magazine['id']) && !empty($magazine['image_name'])): ?>
+                    <? if (isset($magazine['id']) && !empty($magazine['index']['image_name'])): ?>
                         <input type="file" name="image" value=""/>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['image_name']; ?>" target="_blank"><?= $magazine['image_name']; ?></a>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['image_name']; ?>" target="_blank"><?= $magazine['index']['image_name']; ?></a>
                     <? else: ?>
                         <input type="file" name="image" value="" class="jr"/>
                     <? endif; ?>
@@ -24,22 +24,21 @@
                 <td>Header image:</td>
                 <td>
 
-                    <? if (isset($magazine['id']) && !empty($magazine['header_image_name'])): ?>
+                    <? if (isset($magazine['id']) && !empty($magazine['index']['header_image_name'])): ?>
                         <input type="file" name="image" value=""/>
-                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['header_image_name']; ?>" target="_blank"><?= $magazine['header_image_name']; ?></a>
+                        <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['header_image_name']; ?>" target="_blank"><?= $magazine['index']['header_image_name']; ?></a>
                     <? else: ?>
-                        <input type="file" name="image" value="" class="jr"/>
+                        <input type="file" name="header_image" value="" class="jr"/>
                     <? endif; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Submit" name="submit" />
-                    <input type="hidden" name="magazine[id]" value="<?= @$magazine['id']; ?>" />
                 </td>
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="wizard-page" value="index"/>
+    <input type="hidden" name="page" value="index"/>
     </form>
 </div>

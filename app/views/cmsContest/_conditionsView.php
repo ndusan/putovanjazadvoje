@@ -2,7 +2,7 @@
     <div class="tabs">
         <ul>
             <li><a href="#fragment-2-1">Srpski</a></li>
-            <li><a href="#fragment-2-2">English (optionsl)</a></li>
+            <li><a href="#fragment-2-2">English (optional)</a></li>
         </ul>
         <form name="wizard_content" action="/cms/contest/wizard" method="post" enctype="multipart/form-data">
         <div id="fragment-2-1" class="addContent">

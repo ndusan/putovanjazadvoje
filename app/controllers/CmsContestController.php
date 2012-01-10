@@ -64,6 +64,8 @@ class CmsContestController extends Controller
             $this->set('dataCollection', $this->db->getContest($params['id']));
         }
         
+        $this->set('magazineCollection', $this->db->getAllMagazine());
+        
     }
     
     public function wizardPrizeFormAction($params)
