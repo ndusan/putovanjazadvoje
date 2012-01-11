@@ -15,8 +15,8 @@
         <tbody> 
             <? foreach ($magazineCollection as $m): ?>
                 <tr> 
-                    <td><?= $m['name']; ?></td> 
-                    <td><?= $html->convertDate($dic['created'], true); ?></td> 
+                    <td><?= $m['number']; ?></td> 
+                    <td><?= $html->convertDate($m['created'], true); ?></td> 
                     <td align="center">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/magazine/wizard/<?= $m['id']; ?>"></a>

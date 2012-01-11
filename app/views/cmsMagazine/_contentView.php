@@ -11,7 +11,7 @@
                         <tr>
                             <td><span class="jtooltip" title="Content visible on site">Content:</span></td>
                             <td>
-                                <textarea name="magazine[sr][content]"><?= @$magazine['content']['sr']['content'];?></textarea>
+                                <textarea name="magazine[sr][content]"><?= @$magazine['content']['sr'];?></textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -23,7 +23,7 @@
                         <tr>
                             <td><span class="jtooltip" title="Content visible on site">Content:</span></td>
                             <td>
-                                <textarea name="magazine[en][content]"><?= @$magazine['content']['en']['content'];?></textarea>
+                                <textarea name="magazine[en][content]"><?= @$magazine['content']['en'];?></textarea>
                             </td>
                         </tr>
                     </tbody>

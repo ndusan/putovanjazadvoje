@@ -13,6 +13,34 @@ var App = App || {};
             App.Common.tabs();
             App.Common.jtooltip();
             App.Common.mce();
+            
+            $('.dataTable').dataTable();
+            
+            App.Common.thead();
+            
+            $('body').delegate('#jcallSubform', 'click', function(e){
+                e.preventDefault();
+                
+                $('#jSubform').addClass('loader');
+                var cHref = $(this).attr('href');
+                
+                $.ajax({
+                    url: cHref,
+                    type: "GET",
+                    dataType: "html",
+                    success: function(data){
+                        if(data){
+                            $('#jSubform').removeClass('loader').html(data);
+                            App.Common.jtooltip();
+                            App.Common.mce();
+                            App.Common.tabs();
+                            $('#jremoveSubform').click(function(){
+                                $('#jSubform').html('');
+                            });
+                        }
+                    }
+                });
+            });
         }
     };
 })(this.jQuery);

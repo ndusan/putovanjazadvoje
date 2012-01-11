@@ -216,7 +216,17 @@ $routes = array(
             'controller' => 'cmsMagazine', 
             'action'     => 'wizard', 
             'layout'     => 'cms'
-    ), 
+    ),
+    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'topicForm', 
+            'layout'     => 'ajax'
+    ),
+    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'topicFormDelete', 
+            'layout'     => 'empty'
+    ),
     
     //CMS carousel page
     array(  'url'        => '/^cms\/carousel\/?$/', 

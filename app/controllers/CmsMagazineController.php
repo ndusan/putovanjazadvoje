@@ -6,7 +6,7 @@ class CmsMagazineController extends Controller
     public function indexAction($params)
     {
         
-        
+        $this->set('magazineCollection', $this->db->getMagazines());
     }
     
     
@@ -31,7 +31,18 @@ class CmsMagazineController extends Controller
                     if(!empty($response)){
                         $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'success', '#fragment-3');
                     }else{
-                        $this->redirect('cms'.DS.'magazine'.DS.'wizard', 'error', '#fragment-2');
+                        $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'error', '#fragment-2');
+                    }
+                    break;
+                case 'impressum':
+                    //Get topic colleciton if exist
+                    $this->set('topicCollection', $this->db->getAllTopicForms($params));
+                    
+                    $response = $this->submitImpressumView($params);
+                    if(!empty($response)){
+                        $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'success', '#fragment-4');
+                    }else{
+                        $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'error', '#fragment-3');
                     }
                     break;
             }
@@ -42,6 +53,32 @@ class CmsMagazineController extends Controller
             $this->set('magazine', $this->db->getMagazine($params));
         }
     }
+    
+    
+    
+    public function topicFormAction($params)
+    {
+        
+        if(!empty($params['id']) && !empty($parmas['magazine_id']) && !empty($params['submit'])){
+            if($this->db->topicFormSubmit($params)){
+
+                $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['magazine_id'], 'success', '#fragment-4');
+            }
+        }else{
+            
+            $this->db->topicForm($params);
+        }
+    }
+    
+    public function topicFormDeleteAction($params)
+    {
+        
+        if($this->db->topicFormDelete($params)){
+            $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['magazine_id'], 'success', '#fragment-4');
+        }
+    }
+    
+    
     
     private function submitIndexView($params)
     {
@@ -88,6 +125,13 @@ class CmsMagazineController extends Controller
     {
         
         return $this->db->submitContent($params);
+    }
+    
+    
+    private function submitImpressumView($params)
+    {
+        
+        return $this->db->submitImpressum($params);
     }
     
     
