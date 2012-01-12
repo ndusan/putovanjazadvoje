@@ -227,6 +227,16 @@ $routes = array(
             'action'     => 'topicFormDelete', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/submit\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'topicFormSubmit', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/delete-image\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'topicFormDeleteImage', 
+            'layout'     => 'empty'
+    ),
     
     //CMS carousel page
     array(  'url'        => '/^cms\/carousel\/?$/', 

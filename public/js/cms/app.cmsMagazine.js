@@ -18,7 +18,7 @@ var App = App || {};
             
             App.Common.thead();
             
-            $('body').delegate('#jcallSubform', 'click', function(e){
+            $('body').delegate('.jcallSubform', 'click', function(e){
                 e.preventDefault();
                 
                 $('#jSubform').addClass('loader');
@@ -41,6 +41,23 @@ var App = App || {};
                     }
                 });
             });
+            
+            $('body').delegate('.jSubfomDelete', 'click', function(e){
+                e.preventDefault();
+
+                var cHref = $(this).attr('href');
+                $.ajax({
+                    url: cHref,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        if(data.response){
+                            $('.jImage').remove();
+                        }
+                    }
+                });
+            });
+            
         }
     };
 })(this.jQuery);

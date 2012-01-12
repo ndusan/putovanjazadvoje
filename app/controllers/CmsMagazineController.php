@@ -7,6 +7,7 @@ class CmsMagazineController extends Controller
     {
         
         $this->set('magazineCollection', $this->db->getMagazines());
+        
     }
     
     
@@ -35,14 +36,20 @@ class CmsMagazineController extends Controller
                     }
                     break;
                 case 'impressum':
-                    //Get topic colleciton if exist
-                    $this->set('topicCollection', $this->db->getAllTopicForms($params));
                     
                     $response = $this->submitImpressumView($params);
                     if(!empty($response)){
                         $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'success', '#fragment-4');
                     }else{
                         $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'error', '#fragment-3');
+                    }
+                    break;
+                case 'topicnumber':
+                    $response = $this->submitTopicView($params);
+                    if(!empty($response)){
+                        $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'success', '#fragment-5');
+                    }else{
+                        $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['id'], 'error', '#fragment-4');
                     }
                     break;
             }
@@ -55,19 +62,11 @@ class CmsMagazineController extends Controller
     }
     
     
-    
     public function topicFormAction($params)
     {
-        
-        if(!empty($params['id']) && !empty($parmas['magazine_id']) && !empty($params['submit'])){
-            if($this->db->topicFormSubmit($params)){
 
-                $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['magazine_id'], 'success', '#fragment-4');
-            }
-        }else{
-            
-            $this->db->topicForm($params);
-        }
+        $response = $this->db->topicForm($params);
+        $this->set('topic', $response);
     }
     
     public function topicFormDeleteAction($params)
@@ -78,6 +77,33 @@ class CmsMagazineController extends Controller
         }
     }
     
+    public function topicFormSubmitAction($params)
+    {
+        
+        if(!empty($params['submit'])){
+            if($id = $this->db->topicFormSubmit($params['topic'], $params['magazine_id'])){
+                
+                //if file set upload it
+                if(0 == $params['image']['error']){
+                    $imageName = $id.'-topic-'.$params['image']['name'];
+                    $this->db->topicFormSetImage($id, $imageName);
+
+                    $this->uploadImage($imageName, $params['image'], 'magazine');
+                }
+                
+                $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$params['magazine_id'], 'success', '#fragment-4');
+            }
+        }
+    }
+    
+    public function topicFormDeleteImageAction($params)
+    {
+        if($this->db->topicFormSetImage($params['id'], '')){
+            echo json_encode(array('response', true));
+        }else{
+            echo json_encode(array('response', false));
+        }
+    }
     
     
     private function submitIndexView($params)
@@ -134,6 +160,11 @@ class CmsMagazineController extends Controller
         return $this->db->submitImpressum($params);
     }
     
+    private function submitTopicView($params)
+    {
+        
+        return $this->db->submitTopic($params);
+    }
     
     
 }

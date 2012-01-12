@@ -11,13 +11,13 @@
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Title:</span></td>
                         <td>
-                            <input type="text" name="magazine[sr][title_totalnumber]" value="<?= @$magazine['sr']['title_topicnumber'];?>"/>
+                            <input type="text" name="magazine[sr][topic_title]" value="<?= @$magazine['topic_title']['sr'];?>"/>
                         </td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Topic content:</span></td>
                         <td>
-                            <textarea name="magazine[sr][topicnumber]"><?= @$magazine['sr']['topicnumber'];?></textarea>
+                            <textarea name="magazine[sr][topic_content]"><?= @$magazine['topic_content']['sr'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -29,21 +29,35 @@
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Title:</span></td>
                         <td>
-                            <input type="text" name="magazine[en][title_topicnumber]" value="<?= @$magazine['en']['title_topicnumber'];?>" />
+                            <input type="text" name="magazine[en][topic_title]" value="<?= @$magazine['topic_titile']['en'];?>" />
                         </td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Topic content:</span></td>
                         <td>
-                            <textarea name="magazine[en][topicnumber]"><?= @$magazine['en']['topicnumber'];?></textarea>
+                            <textarea name="magazine[en][topic_content]"><?= @$magazine['topic_content']['en'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="addContent">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Submit" name="submit" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <input type="hidden" name="page" value="topicnumber"/>
+        </form>
+        
+        <div class="addContent">
             
-            <? if (!empty($topicCollection)): ?>
+            <? if (!empty($magazine['subtopic'])): ?>
                 <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
                     <thead> 
                         <tr> 
@@ -53,15 +67,15 @@
                         </tr> 
                     </thead> 
                     <tbody> 
-                        <? foreach ($topicCollection as $t): ?>
+                        <? foreach ($magazine['subtopic'] as $t): ?>
                             <tr> 
                                 <td><?= $t['image_name']; ?></td> 
                                 <td><?= $html->convertDate($t['created'], true); ?></td> 
                                 <td align="center">
                                     <!--Edit-->
-                                    <a class="cmsEdit" title="Edit" href="/cms/magazine/wizard/topic-form/<?=@$t['magazine_id'].'?id='.$t['id']; ?>"></a>
+                                    <a class="cmsEdit jcallSubform" title="Edit" href="/cms/magazine/wizard/topic-form/<?=@$t['magazine_id'].'?id='.@$t['id']; ?>"></a>
                                     <!--Delete-->
-                                    <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/topic-form/<?= $t['magazine_id']; ?>/delete?id="<?=@$t['id'];?> ></a>
+                                    <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/topic-form/<?= $t['magazine_id']; ?>/delete?id=<?=$t['id'];?>" ></a>
                                 </td> 
                             </tr> 
                         <? endforeach; ?>
@@ -82,13 +96,12 @@
             
             <div clear="both"><!--clear--></div>
             
-            <a href="/cms/magazine/wizard/topic-form/<?=@$params['id'];?>" id="jcallSubform" class="cmsAdd">Add topic</a>
+            <a href="/cms/magazine/wizard/topic-form/<?=@$params['id'];?>" class="cmsAdd jcallSubform">Add topic</a>
             
             <div clear="both"><!--clear--></div>
             
             <div id="jSubform"><!--load form--></div>
         </div>
-        <input type="hidden" name="page" value="topicnumber"/>
-        </form>
+        
     </div>
 </div>
