@@ -8,7 +8,7 @@ class CmsContestModel extends Model
     private $tableLanguge = 'language';
     private $tableMagazine = 'magazine';
     
-    public function getContest($id)
+    public function getContests()
     {
         
         
@@ -100,7 +100,6 @@ class CmsContestModel extends Model
             $query = sprintf("SELECT * FROM %s WHERE `visible`='1' ORDER BY `id` DESC", 
                                 $this->tableMagazine);
             $stmt = $this->dbh->prepare($query);
-
             $stmt->execute();
 
             return $stmt->fetchAll();

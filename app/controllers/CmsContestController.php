@@ -3,6 +3,17 @@
 class CmsContestController extends Controller
 {
 
+    public function indexAction($params)
+    {
+        
+        if(!empty($params['id'])){
+            $this->db->setVisible($params);
+        }
+        
+        $this->set('contestCollection', $this->db->getContests());
+    }
+
+
     public function wizardAction($params)
     {
         

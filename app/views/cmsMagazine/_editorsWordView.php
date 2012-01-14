@@ -50,10 +50,7 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td align="right" width="50%">
-                                <input type="submit" name="back" value="Back"/>
-                            </td>
-                            <td align="left">
+                            <td align="center">
                                 <input type="submit" name="submit" value="Submit magazine"/>
                             </td>
                         </tr>

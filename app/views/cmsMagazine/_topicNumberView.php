@@ -41,59 +41,12 @@
                     </tbody>
                 </table>
             </div>
-
-            <div class="addContent2">
-                <ul class="addTop">
-                    <li><a href="/cms/magazine/wizard/<?= @$params['id']; ?>/topic-form" class="cmsAdd jcallSubform">Add topic</a></li>
-                </ul>
-                <? if (!empty($magazine['subtopic'])): ?>
-                    <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
-                        <thead> 
-                            <tr> 
-                                <th>Image name</th> 
-                                <th>Created</th> 
-                                <th width="100px">Action</th> 
-                            </tr> 
-                        </thead> 
-                        <tbody> 
-                            <? foreach ($magazine['subtopic'] as $t): ?>
-                                <tr> 
-                                    <td><?= $t['title']; ?></td>
-                                    <td><?= $html->convertDate($t['created'], true); ?></td> 
-                                    <td align="center">
-                                        <!--Edit-->
-                                        <a class="cmsEdit jcallSubform" title="Edit" href="/cms/magazine/wizard/<?= @$t['magazine_id'] . '/topic-form/?id=' . @$t['id']; ?>"></a>
-                                        <!--Delete-->
-                                        <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/<?= @$t['magazine_id']; ?>/topic-form/delete?id=<?= $t['id']; ?>" ></a>
-                                    </td> 
-                                </tr> 
-                            <? endforeach; ?>
-                        <tfoot> 
-                            <tr> 
-                                <th>Image name</th> 
-                                <th>Created</th> 
-                                <th width="100px">Action</th> 
-                            </tr> 
-                        </tfoot> 
-                        </tbody> 
-                    </table> 
-                <? else: ?>
-                    <div class="noResults">
-                        There are no results on this page.
-                    </div>
-                <? endif; ?>
-                <div id="jSubform"><!--load form--></div>
-            </div>
-
             <div class="addContent">
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td align="right" width="50%">
-                                <input type="submit" value="Back" name="submit" />
-                            </td>
-                            <td align="left">
-                                <input type="submit" value="Next" name="submit" />
+                            <td align="center">
+                                <input type="submit" value="Submit" name="submit" />
                             </td>
                         </tr>
                     </tbody>
@@ -101,6 +54,47 @@
             </div>
             <input type="hidden" name="page" value="topicnumber"/>
         </form>
-
+    </div>
+    <div class="addContent2">
+        <ul class="addTop">
+            <li><a href="/cms/magazine/wizard/<?= @$params['id']; ?>/topic-form" class="cmsAdd jcallSubform">Add topic</a></li>
+        </ul>
+        <? if (!empty($magazine['subtopic'])): ?>
+            <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
+                <thead> 
+                    <tr> 
+                        <th>Image name</th> 
+                        <th>Created</th> 
+                        <th width="100px">Action</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <? foreach ($magazine['subtopic'] as $t): ?>
+                        <tr> 
+                            <td><?= $t['title']; ?></td>
+                            <td><?= $html->convertDate($t['created'], true); ?></td> 
+                            <td align="center">
+                                <!--Edit-->
+                                <a class="cmsEdit jcallSubform" title="Edit" href="/cms/magazine/wizard/<?= @$t['magazine_id'] . '/topic-form/?id=' . @$t['id']; ?>"></a>
+                                <!--Delete-->
+                                <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/<?= @$t['magazine_id']; ?>/topic-form/delete?id=<?= $t['id']; ?>" ></a>
+                            </td> 
+                        </tr> 
+                    <? endforeach; ?>
+                <tfoot> 
+                    <tr> 
+                        <th>Image name</th> 
+                        <th>Created</th> 
+                        <th width="100px">Action</th> 
+                    </tr> 
+                </tfoot> 
+                </tbody> 
+            </table> 
+        <? else: ?>
+            <div class="noResults">
+                There are no results on this page.
+            </div>
+        <? endif; ?>
+        <div id="jSubform"><!--load form--></div>
     </div>
 </div>

@@ -33,11 +33,8 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td align="right" width="50%">
-                                <input type="submit" value="Back" name="submit" />
-                            </td>
-                            <td align="left">
-                                <input type="submit" value="Next" name="submit" />
+                            <td align="center">
+                                <input type="submit" value="Submit" name="submit" />
                             </td>
                         </tr>
                     </tbody>

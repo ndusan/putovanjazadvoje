@@ -38,12 +38,9 @@
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tbody>
                     <tr>
-                        <td align="right" width="50%">
-                            <input type="submit" value="Cancel" name="submit" />
-                        </td>
-                        <td align="left">
+                        <td align="center">
                             <input type="hidden" value="<?= @$params['id']; ?>" name="magazine[id]" />
-                            <input type="submit" value="Next" name="submit" />
+                            <input type="submit" value="Submit" name="submit" />
                         </td>
                     </tr>
                 </tbody>
