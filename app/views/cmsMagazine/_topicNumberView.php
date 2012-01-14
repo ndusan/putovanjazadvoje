@@ -42,7 +42,6 @@
                 </table>
             </div>
 
-
             <div class="addContent2">
                 <ul class="addTop">
                     <li><a href="/cms/magazine/wizard/<?= @$params['id']; ?>/topic-form" class="cmsAdd jcallSubform">Add topic</a></li>
