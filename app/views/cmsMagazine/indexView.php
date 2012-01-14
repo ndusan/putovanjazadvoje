@@ -8,6 +8,7 @@
         <thead> 
             <tr> 
                 <th>Name</th> 
+                <th>Visible</th>
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 
@@ -16,6 +17,9 @@
             <? foreach ($magazineCollection as $m): ?>
                 <tr> 
                     <td><?= $m['number']; ?></td> 
+                    <td>
+                        <input type="checkbox" <?=$m['visible']?'checked="checked"':'';?> onClick="window.location='<?=DS.'cms'.DS.'magazine?id='.$m['id'].'&visible='.$m['visible'];?>'; return true;"/>
+                    </td> 
                     <td><?= $html->convertDate($m['created'], true); ?></td> 
                     <td align="center">
                         <!--Edit-->
@@ -27,7 +31,8 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
-                <th>Key name</th> 
+                <th>Name</th>
+                <th>Visible</th>
                 <th>Created</th> 
                 <th width="100px">Action</th> 
             </tr> 

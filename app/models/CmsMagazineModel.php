@@ -43,10 +43,12 @@ class CmsMagazineModel extends Model
             
             //Content & impressum page
             $query = sprintf("SELECT `ml`.*, `l`.`iso_code` FROM %s AS `ml`
-                                INNER JOIN %s AS `l` ON `l`.`id`=`ml`.`language_id`", 
+                                INNER JOIN %s AS `l` ON `l`.`id`=`ml`.`language_id`
+                                WHERE `ml`.`magazine_id`=:magazineId", 
                             $this->tableMagazineLanguage, $this->tableLanguage);
             $stmt = $this->dbh->prepare($query);
 
+            $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             $response = $stmt->fetchAll();
             
@@ -56,19 +58,41 @@ class CmsMagazineModel extends Model
                     $output['impressum'][$r['iso_code']] = $r['impressum'];
                     $output['topic_title'][$r['iso_code']] = $r['topic_title'];
                     $output['topic_content'][$r['iso_code']] = $r['topic_content'];
+                    $output['editorsword'][$r['iso_code']] = $r['word'];
                 }
             }
             
             
-            $query = sprintf("SELECT * FROM %s WHERE `magazine_id`=:id ORDER BY `id` DESC", 
-                            $this->tableTopic);
+            $query = sprintf("SELECT `t`.*, `tl`.`title` FROM %s AS `t` 
+                                INNER JOIN %s AS `tl` ON `tl`.`topic_id`=`t`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`tl`.`language_id`
+                                WHERE `l`.`is_default`=1 AND 
+                                      `t`.`magazine_id`=:magazineId 
+                                ORDER BY `t`.`id` DESC", 
+                            $this->tableTopic, $this->tableTopicLanguage, $this->tableLanguage);
             $stmt = $this->dbh->prepare($query);
 
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             $output['subtopic'] = $stmt->fetchAll();
             
             return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function getMagazineImage($id)
+    {
+        try{
+            $query = sprintf("SELECT `image_name`, `header_image_name`, `word_image_name` FROM %s WHERE `id`=:id", $this->tableMagazine);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;
@@ -108,7 +132,7 @@ class CmsMagazineModel extends Model
         }
     }
     
-    public function setIndexImage($id, $imageName, $field)
+    public function setImage($id, $imageName, $field)
     {
         try{
             if($field == 'image_name'){
@@ -117,7 +141,11 @@ class CmsMagazineModel extends Model
             }elseif($field == 'header_image_name'){
                 $query = sprintf("UPDATE %s SET `header_image_name`=:imageName WHERE `id`=:id",
                                     $this->tableMagazine);
+            }elseif($field == 'word_image_name'){
+                $query = sprintf("UPDATE %s SET `word_image_name`=:imageName WHERE `id`=:id",
+                                    $this->tableMagazine);
             }
+            
             $stmt = $this->dbh->prepare($query);
                 
             $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
@@ -223,6 +251,7 @@ class CmsMagazineModel extends Model
     
     public function topicForm($params)
     {
+        if(empty($params['id']) || empty($params['magazine_id'])) return false;
         
         try{
             $output = array();
@@ -262,10 +291,10 @@ class CmsMagazineModel extends Model
         }
     }
     
-    public function topicFormSubmit($params, $magazineId)
+    public function topicFormSubmit($id, $magazineId, $params)
     {
         try{
-            if(!empty($params['id'])){
+            if(!empty($id)){
                 //UPDATE
                 $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
                 $stmt = $this->dbh->prepare($query);
@@ -273,17 +302,19 @@ class CmsMagazineModel extends Model
 
                 $response = $stmt->fetchAll();
                 foreach($response as $r){
-                    $query = sprintf("UPDATE %s SET `title`=:title, `content`=:content WHERE `id`=:id",
+                    $query = sprintf("UPDATE %s SET `title`=:title, `content`=:content 
+                                        WHERE `topic_id`=:topicId AND `language_id`=:languageId",
                                         $this->tableTopicLanguage);
                     $stmt = $this->dbh->prepare($query);
 
                     $stmt->bindParam(':title', $params[$r['iso_code']]['title'], PDO::PARAM_STR);
                     $stmt->bindParam(':content', $params[$r['iso_code']]['content'], PDO::PARAM_STR);
-                    $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+                    $stmt->bindParam(':topicId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
                     $stmt->execute();
                 }
                 
-                return $params['id'];
+                return $id;
             }else{
                 //INSERT
                 $query = sprintf("INSERT INTO %s SET `magazine_id`=:magazineId", $this->tableTopic);
@@ -389,5 +420,112 @@ class CmsMagazineModel extends Model
             return false;
         }
     }
+    
+    
+    public function submitWord($params)
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+            
+            $response = $stmt->fetchAll();
+            
+            foreach($response as $r){
+                $query = sprintf("INSERT INTO %s SET `word`=:word, `magazine_id`=:magazineId, `language_id`=:languageId 
+                                    ON DUPLICATE KEY UPDATE `word`=:word",
+                                    $this->tableMagazineLanguage);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':word', $params['magazine'][$r['iso_code']]['editorsword'], PDO::PARAM_STR);
+                $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
+                $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
+                $stmt->execute();
+            }
+            
+            return $params['id'];
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function setVisible($params)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `visible`=:visible WHERE `id`=:id", $this->tableMagazine);
+            $stmt = $this->dbh->prepare($query);
+
+            $visible = 1 - $params['visible'];
+            $stmt->bindParam(':visible', $visible, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function deleteMagazine($params)
+    {
+        try{
+            $query = sprintf("DELETE FROM %s WHERE `id`=:id", $this->tableMagazine);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            
+            $query = sprintf("DELETE FROM %s WHERE `magazine_id`=:magazineId", $this->tableMagazineLanguage);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            //Select topic if exist
+            $query = sprintf("SELECT * FROM %s WHERE `magazine_id`=:magazineId", $this->tableTopic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $response = $stmt->fetchAll();
+            
+            if(!empty($response)){
+                foreach($response as $r){
+                    $query = sprintf("DELETE FROM %s WHERE `topic_id`=:topicId", $this->tableTopicLanguage);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':topicId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+
+            $query = sprintf("DELETE FROM %s WHERE `magazine_id`=:magazineId", $this->tableTopic);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getTopicImages($id){
+        $query = sprintf("SELECT `image_name` FROM %s WHERE `magazine_id`=:magazineId", $this->tableTopic);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->bindParam(':magazineId', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    
     
 }

@@ -42,7 +42,6 @@ var App = App || {};
                 });
                 
                 if(!allOk){
-                    console.log('test');
                     return false;
                 }
             });

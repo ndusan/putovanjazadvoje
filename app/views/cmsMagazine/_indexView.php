@@ -5,7 +5,7 @@
             <tr>
                 <td>Actual number:</td>
                 <td>
-                    <input type="text" class="jr" name="magazine[number]" value="<?= @$magazine['index']['number']; ?>" />
+                    <input type="text" class="jr-wizard_index" name="magazine[number]" value="<?= @$magazine['index']['number']; ?>" />
                 </td>
             </tr>
             <tr>
@@ -16,7 +16,7 @@
                         <input type="file" name="image" value=""/>
                         <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['image_name']; ?>" target="_blank"><?= $magazine['index']['image_name']; ?></a>
                     <? else: ?>
-                        <input type="file" name="image" value="" class="jr"/>
+                        <input type="file" name="image" value="" class="jr-wizard_index"/>
                     <? endif; ?>
                 </td>
             </tr>
@@ -25,15 +25,16 @@
                 <td>
 
                     <? if (isset($magazine['id']) && !empty($magazine['index']['header_image_name'])): ?>
-                        <input type="file" name="image" value=""/>
+                        <input type="file" name="header_image" value=""/>
                         <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['header_image_name']; ?>" target="_blank"><?= $magazine['index']['header_image_name']; ?></a>
                     <? else: ?>
-                        <input type="file" name="header_image" value="" class="jr"/>
+                        <input type="file" name="header_image" value="" class="jr-wizard_index"/>
                     <? endif; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
+                    <input type="hidden" value="<?=@$params['id'];?>" name="magazine[id]" />
                     <input type="submit" value="Submit" name="submit" />
                 </td>
             </tr>

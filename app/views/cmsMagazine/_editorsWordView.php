@@ -4,14 +4,14 @@
             <li><a href="#fragment-5-1">Srpski</a></li>
             <li><a href="#fragment-5-2">English (optional)</a></li>
         </ul>
-        <form name="wizard_editorsword" action="/cms/magazine/wizard" method="post" enctype="multipart/form-data">
+        <form name="wizard_editorsword" action="/cms/magazine/wizard/<?=@$params['id'];?>" method="post" enctype="multipart/form-data">
         <div id="fragment-5-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Editors word:</span></td>
                         <td>
-                            <textarea name="magazine[sr][editorsword]"><?= @$magazine['sr']['editorsword'];?></textarea>
+                            <textarea name="magazine[sr][editorsword]"><?= @$magazine['editorsword']['sr'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -23,7 +23,7 @@
                     <tr>
                         <td><span class="jtooltip" title="Content tha will be visible on site">Editors word:</span></td>
                         <td>
-                            <textarea name="magazine[en][editorsword]"><?= @$magazine['en']['editorsword'];?></textarea>
+                            <textarea name="magazine[en][editorsword]"><?= @$magazine['editorsword']['en'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -35,10 +35,11 @@
                     <tr>
                         <td>Image:</td>
                         <td>
-
-                            <? if (isset($magazine['id']) && !empty($magazine['image_name'])): ?>
-                                <input type="file" name="image" value=""/>
-                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['image_name']; ?>" target="_blank"><?= $magazine['image_name']; ?></a>
+                            <? if (isset($magazine['id']) && !empty($magazine['index']['word_image_name'])): ?>
+                            <div class="jSubformImage">
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['word_image_name']; ?>" target="_blank"><?= $magazine['index']['word_image_name']; ?></a>
+                                <a href="<?= DS . 'cms' . DS . 'magazine' . DS . 'wizard'.DS.$params['id'].DS.'editors-word'.DS.'delete-image'; ?>" class="cmsDelete jw jSubfomDelete"></a>
+                            </div>
                             <? else: ?>
                                 <input type="file" name="image" value=""/>
                             <? endif; ?>
@@ -52,7 +53,7 @@
                 </tbody>
             </table>
         </div>
-        <input type="hidden" name="wizard-page" value="editorsword"/>
+        <input type="hidden" name="page" value="editorsword"/>
         </form>
     </div>
 </div>

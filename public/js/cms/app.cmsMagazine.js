@@ -18,6 +18,45 @@ var App = App || {};
             
             App.Common.thead();
             
+            
+            //Required fileds in this wizard
+            $('body').delegate('form[name=wizard_index]', 'submit', function(){
+                var allOk = true;
+                
+                $('.jr-wizard_index').each(function(){
+                    if($(this).val().length <= 0){
+                        
+                        $(this).addClass('warning');
+
+                        allOk = false;
+                    }else{
+                        $(this).removeClass('warning');
+                    }
+                });
+                
+                if(!allOk){
+                    return false;
+                }
+            });
+            $('body').delegate('form[name=wizard_topic]', 'submit', function(){
+                var allOk = true;
+                
+                $('.jr-wizard_topic').each(function(){
+                    if($(this).val().length <= 0){
+                        
+                        $(this).addClass('warning');
+
+                        allOk = false;
+                    }else{
+                        $(this).removeClass('warning');
+                    }
+                });
+                
+                if(!allOk){
+                    return false;
+                }
+            });
+            
             $('body').delegate('.jcallSubform', 'click', function(e){
                 e.preventDefault();
                 
@@ -52,7 +91,7 @@ var App = App || {};
                     dataType: "json",
                     success: function(data){
                         if(data.response){
-                            $('.jImage').remove();
+                            $('.jSubformImage').html('<input type="file" name="image" value=""/>');
                         }
                     }
                 });

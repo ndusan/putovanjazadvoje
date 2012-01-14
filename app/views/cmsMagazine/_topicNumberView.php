@@ -69,13 +69,13 @@
                     <tbody> 
                         <? foreach ($magazine['subtopic'] as $t): ?>
                             <tr> 
-                                <td><?= $t['image_name']; ?></td> 
+                                <td><?= $t['title']; ?></td>
                                 <td><?= $html->convertDate($t['created'], true); ?></td> 
                                 <td align="center">
                                     <!--Edit-->
-                                    <a class="cmsEdit jcallSubform" title="Edit" href="/cms/magazine/wizard/topic-form/<?=@$t['magazine_id'].'?id='.@$t['id']; ?>"></a>
+                                    <a class="cmsEdit jcallSubform" title="Edit" href="/cms/magazine/wizard/<?=@$t['magazine_id'].'/topic-form/?id='.@$t['id']; ?>"></a>
                                     <!--Delete-->
-                                    <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/topic-form/<?= $t['magazine_id']; ?>/delete?id=<?=$t['id'];?>" ></a>
+                                    <a class="jw cmsDelete" title="Delete" href="/cms/magazine/wizard/<?= @$t['magazine_id']; ?>/topic-form/delete?id=<?=$t['id'];?>" ></a>
                                 </td> 
                             </tr> 
                         <? endforeach; ?>
@@ -96,7 +96,7 @@
             
             <div clear="both"><!--clear--></div>
             
-            <a href="/cms/magazine/wizard/topic-form/<?=@$params['id'];?>" class="cmsAdd jcallSubform">Add topic</a>
+            <a href="/cms/magazine/wizard/<?=@$params['id'];?>/topic-form" class="cmsAdd jcallSubform">Add topic</a>
             
             <div clear="both"><!--clear--></div>
             

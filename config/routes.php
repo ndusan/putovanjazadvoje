@@ -217,24 +217,34 @@ $routes = array(
             'action'     => 'wizard', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/?$/', 
+    array(  'url'        => '/^cms\/magazine\/wizard\/(?P<magazine_id>\d*)\/topic-form\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'topicForm', 
             'layout'     => 'ajax'
     ),
-    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/delete\/?$/', 
+    array(  'url'        => '/^cms\/magazine\/wizard\/(?P<magazine_id>\d*)\/topic-form\/delete\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'topicFormDelete', 
             'layout'     => 'empty'
     ),
-    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/submit\/?$/', 
+    array(  'url'        => '/^cms\/magazine\/wizard\/(?P<magazine_id>\d*)\/topic-form\/submit\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'topicFormSubmit', 
             'layout'     => 'empty'
     ),
-    array(  'url'        => '/^cms\/magazine\/wizard\/topic-form\/(?P<magazine_id>\d*)\/delete-image\/?$/', 
+    array(  'url'        => '/^cms\/magazine\/wizard\/(?P<magazine_id>\d*)\/topic-form\/delete-image\/?$/', 
             'controller' => 'cmsMagazine', 
             'action'     => 'topicFormDeleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/magazine\/wizard\/(?P<id>\d*)\/editors-word\/delete-image\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'wordDeleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/magazine\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'delete', 
             'layout'     => 'empty'
     ),
     

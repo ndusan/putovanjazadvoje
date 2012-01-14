@@ -5,14 +5,14 @@
             <li><a href="#fragment-topic-1">Srpski</a></li>
             <li><a href="#fragment-topic-2">English (optional)</a></li>
         </ul>
-        <form action="/cms/magazine/wizard/topic-form/<?=$params['magazine_id'];?>/submit" method="post" enctype="multipart/form-data">
+        <form name="wizard_topic" action="/cms/magazine/wizard/<?=@$params['magazine_id'];?>/topic-form/submit" method="post" enctype="multipart/form-data">
             <div class="addContent" id="fragment-topic-1">
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
                             <td>Title:</td>
                             <td>
-                                <input type="text" name="topic[sr][title]" value="<?= @$topic['sr']['title']; ?>" />
+                                <input type="text" name="topic[sr][title]" class="jr-wizard_topic" value="<?= @$topic['sr']['title']; ?>" />
                             </td>
                         </tr>
                         <tr>
@@ -49,9 +49,10 @@
                             <td>Image:</td>
                             <td>
                                 <? if (!empty($topic['id']) && !empty($topic['image_name'])): ?>
-                                    <input type="file" name="image" value=""/>
-                                    <a href="<?=DS.'public'.DS.'uploads'.DS.'magazine'.DS.$topic['image_name'];?>" class="jImage"><?= $topic['image_name']; ?></a>
-                                    <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . 'wizard'.DS.'topic-image'.DS.$topic['magazine_id'].DS.'delete-image'.DS.'?id='.$topic['id']; ?>" class="cmsDelete jw jSubfomDelete jImage"></a>
+                                <div class="jSubformImage">
+                                    <a href="<?=DS.'public'.DS.'uploads'.DS.'magazine'.DS.$topic['image_name'];?>" target="_blank"><?= $topic['image_name']; ?></a>
+                                    <a href="<?= DS . 'cms' . DS . 'magazine' . DS . 'wizard'.DS.$topic['magazine_id'].DS.'topic-form'.DS.'delete-image'.DS.'?id='.$topic['id']; ?>" class="cmsDelete jw jSubfomDelete"></a>
+                                </div>
                                 <? else: ?>
                                     <input type="file" name="image" value=""/>
                                 <? endif; ?>
@@ -59,6 +60,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
+                                <input type="hidden" value="<?=@$params['id'];?>" name="id" />
                                 <input type="submit" value="Submit" name="submit" />
                             </td>
                         </tr>
