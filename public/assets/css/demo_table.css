@@ -33,7 +33,7 @@
 .dataTables_wrapper {
     position: relative;
     overflow:hidden;
-    padding:20px;
+    padding:0 20px;
     zoom: 1; /* Feeling sorry for IE */
 }
 

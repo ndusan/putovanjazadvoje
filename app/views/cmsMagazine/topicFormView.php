@@ -1,4 +1,3 @@
-<a href="#" id="jremoveSubform" class="cmsDelete">Remove</a>
 <div class="addContent2">
     <div class="tabs">
         <ul>
@@ -60,8 +59,9 @@
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
+                                <input id="jremoveSubform" type="submit" value="Cancel" name="cancel" />
                                 <input type="hidden" value="<?=@$params['id'];?>" name="id" />
-                                <input type="submit" value="Submit" name="submit" />
+                                <input type="submit" value="Save Topic" name="submit" />
                             </td>
                         </tr>
                     </tbody>
