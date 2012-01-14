@@ -13,13 +13,13 @@
                             Contest name:
                         </td>
                         <td>
-                            <input type="text" value="" name="contest[sr][name]" class="jr-wizard_init" />
+                            <input type="text" value="<?=@$contest['init']['name']['sr'];?>" name="contest[sr][name]" class="jr-wizard_init" />
                         </td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Short description">Short description:</span></td>
                         <td>
-                            <textarea name="contest[sr][desc]"></textarea>
+                            <textarea name="contest[sr][content]"><?=@$contest['init']['content']['sr'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -33,13 +33,13 @@
                             Contest name:
                         </td>
                         <td>
-                            <input type="text" name="contest[en][name]" value=""/>
+                            <input type="text" name="contest[en][name]" value="<?=@$contest['init']['name']['en'];?>"/>
                         </td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Short description">Short description:</span></td>
                         <td>
-                            <textarea name="contest[en][desc]"></textarea>
+                            <textarea name="contest[en][content]"><?=@$contest['init']['content']['en'];?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -53,7 +53,12 @@
                             <span class="jtooltip" title="Image of sponzore or random image">Image:</span>
                         </td>
                         <td>
-                            <input type="file" name="file" value="" />
+                            <? if (isset($contest['id']) && !empty($contest['init']['image_name'])): ?>
+                                <input type="file" name="image" value=""/>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'contest' . DS . $contest['init']['image_name']; ?>" target="_blank"><?=$contest['init']['image_name']; ?></a>
+                            <? else: ?>
+                                <input type="file" name="image" value="" class="jr-wizard_init"/>
+                            <? endif; ?>
                         </td>
                     </tr>
                     <tr>
@@ -62,8 +67,8 @@
                         </td>
                         <td>
                             <select name="contest[type]">
-                                <option value="online">Online contest</option>
-                                <option value="offline">Offline contest</option>
+                                <option value="online" <?=$contest['init']['type']=='online'?'selected="selected"':'';?>>Online contest</option>
+                                <option value="offline" <?=$contest['init']['type']=='offline'?'selected="selected"':'';?>>Offline contest</option>
                             </select>
                         </td>
                     </tr>
@@ -74,19 +79,27 @@
                         </td>
                         <td>
                             <select name="contest[magazine]">
-                                <option value="0">-- Select magazine --</option>
                                 <? foreach($magazineCollection as $magazine):?>
-                                <option value="<?=$magazine['id'];?>"><?=$magazine['number'];?></option>
+                                <? if($magazine['id'] == $contest['init']['magazine_id']) $sel='selected="selected"';
+                                   else $sel='';?>
+                                <option value="<?=$magazine['id'];?>" <?=$sel;?>><?=$magazine['number'];?></option>
                                 <? endforeach;?>
                             </select>
                         </td>
                     </tr>
-                    <? endif;?>
                     <tr>
                         <td colspan="2">
+                            <input type="hidden" value="<?= @$params['id']; ?>" name="contest[id]" />
                             <input type="submit" value="Set contest &raquo;" name="submit"/>
                         </td>
                     </tr>
+                    <? else: ?>
+                    <tr>
+                        <td colspan="2">
+                            <div>Create first magazine!</div>
+                        </td>
+                    </tr>
+                    <? endif;?>
                 </tbody>
             </table>
         </div>

@@ -371,7 +371,7 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/contest\/wizard(\/(?P<id>\d*))*\/?$/', 
+    array(  'url'        => '/^cms\/contest\/wizard(\/(?P<id>\d*)){0,1}\/?$/', 
             'controller' => 'cmsContest', 
             'action'     => 'wizard', 
             'layout'     => 'cms'

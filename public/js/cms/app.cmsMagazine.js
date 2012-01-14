@@ -20,7 +20,7 @@ var App = App || {};
             
             
             //Required fileds in this wizard
-            $('body').delegate('form[name=wizard_index]', 'submit', function(){
+            $('body').delegate('form[name="wizard_index"]', 'submit', function(){
                 var allOk = true;
                 
                 $('.jr-wizard_index').each(function(){
@@ -38,7 +38,7 @@ var App = App || {};
                     return false;
                 }
             });
-            $('body').delegate('form[name=wizard_topic]', 'submit', function(){
+            $('body').delegate('form[name="wizard_topic"]', 'submit', function(){
                 var allOk = true;
                 
                 $('.jr-wizard_topic').each(function(){

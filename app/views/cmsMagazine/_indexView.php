@@ -11,7 +11,6 @@
                 <tr>
                     <td>Image:</td>
                     <td>
-
                         <? if (isset($magazine['id']) && !empty($magazine['index']['image_name'])): ?>
                             <input type="file" name="image" value=""/>
                             <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'magazine' . DS . $magazine['index']['image_name']; ?>" target="_blank"><?= $magazine['index']['image_name']; ?></a>

@@ -14,6 +14,40 @@ var App = App || {};
             App.Common.jtooltip();
             App.Common.mce();
             
+            $('body').delegate('form[name="wizard_init"]', 'submit', function(){
+               var allOk = true;
+                
+                $('.jr-wizard_init').each(function(){
+                    if($(this).val().length <= 0 || $(this).val() == 0){
+                        $(this).addClass('warning');
+                        allOk = false;
+                    }else{
+                        $(this).removeClass('warning');
+                    }
+                });
+                
+                if(!allOk){
+                    return false;
+                } 
+            });
+            
+            $('body').delegate('form[name="wizard_description"]', 'submit', function(){
+               var allOk = true;
+                
+                $('.jr-wizard_description').each(function(){
+                    if($(this).val().length <= 0 || $(this).val() == 0){
+                        $(this).addClass('warning');
+                        allOk = false;
+                    }else{
+                        $(this).removeClass('warning');
+                    }
+                });
+                
+                if(!allOk){
+                    return false;
+                } 
+            });
+            
             //Wizard => prize
             App.CmsContest.wizardPrizeFragment();
         },

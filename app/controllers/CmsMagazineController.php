@@ -26,7 +26,7 @@ class CmsMagazineController extends Controller
                     if(!empty($id)){
                         $this->redirect('cms'.DS.'magazine'.DS.'wizard'.DS.$id, 'success', '#fragment-2');
                     }else{
-                        $this->redirect('cms'.DS.'magazine'.DS.'wizard', 'error', '#fragment-1');
+                        $this->redirect('cms'.DS.'magazine', 'error', '#fragment-1');
                     }
                     break;
                 case 'content':
