@@ -19,12 +19,12 @@
                     <td><?=$contest['type'];?></td>
                     <td><?=$html->convertDate($contest['created'], true);?></td>
                     <td>
-                        <? $status = array('Pending', 'Active', 'Finished', 'Archived');?>
+                        <? $status = array('pending'=>'Pending', 'active'=>'Active', 'finished'=>'Finished', 'archived'=>'Archived');?>
                         <select class="jStatus">
-                            <? foreach ($status as $s):?>
-                            <? if($s == $contest['status']) $sel = 'selected="selected"';
+                            <? foreach ($status as $k=>$v):?>
+                            <? if($k == $contest['status']) $sel = 'selected="selected"';
                                else $sel = '';?>
-                            <option value="<?=DS.'cms'.DS.'contest?id='.$contest['id'].'&status='.$s;?>" <?=$sel;?>><?=$s;?></option>
+                            <option value="<?=DS.'cms'.DS.'contest?id='.$contest['id'].'&status='.$k;?>" <?=$sel;?>><?=$v;?></option>
                             <? endforeach;?>
                         </select>
                         <span><a class="cmsAdd" style="line-height:20px; display:inline-block;" href="/cms/contest/winners/<?=$contest['id'];?>">Define winners</a></span>
