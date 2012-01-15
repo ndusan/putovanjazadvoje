@@ -39,20 +39,9 @@ class CmsContestController extends Controller
                 case 'description':
                     $response = $this->submitDescriptionView($params);
                     if($response){
-                       $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['id'], 'success', 'fragment-4'); 
+                       $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['id'], 'success', '#fragment-4'); 
                     }else{
-                        $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['id'], 'error', 'fragment-3'); 
-                    }
-                    break;
-                case 'prizes':
-                    
-                    $response = $this->submitPrizesView($params);
-                    if($response){
-                        
-                       $this->redirect('cms'.DS.'contest'.DS, 'success'); 
-                    }else{
-                        
-                        $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['id'], 'error', 'fragment-4'); 
+                        $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['id'], 'error', '#fragment-3'); 
                     }
                     break;
             }
@@ -66,7 +55,27 @@ class CmsContestController extends Controller
     
     public function wizardPrizeFormAction($params)
     {
+        $response = $this->db->prizeForm($params);
+        $this->set('prize', $response);
+    }
+    
+    
+    public function wizardPrizeFormSubmitAction($params)
+    {
         
+        if(!empty($params['submit'])){
+            if($id = $this->db->wizardPrizeFormSubmit($params['id'], $params['contest_id'], $params['prize'])){
+                
+                //if file set upload it
+                if(!empty($params['prize_image']) && 0 == $params['prize_image']['error']){
+                    $imageName = $id.'-prize-'.$params['prize_image']['name'];
+                    $this->db->wizardPrizeSetImage($id, $imageName);
+
+                    $this->uploadImage($imageName, $params['prize_image'], 'contest');
+                }
+                $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['contest_id'], 'success', '#fragment-4');
+            }
+        }
     }
     
     
@@ -113,23 +122,13 @@ class CmsContestController extends Controller
                     $this->deleteImage($images['puzzle_image_name'], 'contest');
                 }
                 
-                $newImageName = $id.'-'.$params['puzzle_image']['name'];
-                $this->db->setImage($id, $newImageName, 'puzzle_image_name');
+                $newImageName = $params['id'].'-puzzle-'.$params['puzzle_image']['name'];
+                $this->db->setImage($params['id'], $newImageName, 'puzzle_image_name');
                 
                 $this->uploadImage($newImageName, $params['puzzle_image'], 'contest');
             }
-        }
-    }
-    
-    private function submitPrizesView($params)
-    {
-        
-        if($this->db->submitPrizes($params)){
-                
-            return true;
-        }else{
             
-            return false;
+            return true;
         }
     }
 }

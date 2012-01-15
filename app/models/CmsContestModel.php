@@ -7,6 +7,8 @@ class CmsContestModel extends Model
     private $tableContestLanguage = 'contest_language';
     private $tableLanguage = 'language';
     private $tableMagazine = 'magazine';
+    private $tableContestPrize = 'contest_prize';
+    private $tableContestPrizeLanguage = 'contest_prize_language';
     
     public function getContests()
     {
@@ -58,8 +60,23 @@ class CmsContestModel extends Model
                     $output['init']['name'][$r['iso_code']] = $r['name'];
                     $output['init']['content'][$r['iso_code']] = $r['content'];
                     $output['conditions'][$r['iso_code']] = $r['conditions'];
+                    $output['description'][$r['iso_code']] = $r['description'];
                 }
             }
+            
+            //Prizes
+            $query = sprintf("SELECT `cp`.*, `cpl`.`title` FROM %s AS `cp` 
+                                INNER JOIN %s AS `cpl` ON `cpl`.`contest_prize_id`=`cp`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cpl`.`language_id`
+                                WHERE `l`.`is_default`=1 AND 
+                                      `cp`.`contest_id`=:contestId 
+                                ORDER BY `cp`.`id` DESC", 
+                            $this->tableContestPrize, $this->tableContestPrizeLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':contestId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $output['prizes'] = $stmt->fetchAll();
             
             return $output;
         }catch(Exception $e){
@@ -208,7 +225,7 @@ class CmsContestModel extends Model
     public function getImages($id)
     {
         try{
-            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableContest);
+            $query = sprintf("SELECT `image_name`, `puzzle_image_name` FROM %s WHERE `id`=:id", $this->tableContest);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -234,6 +251,128 @@ class CmsContestModel extends Model
             
             $stmt = $this->dbh->prepare($query);
                 
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function prizeForm($params)
+    {
+        if(empty($params['id']) || empty($params['contest_id'])) return false;
+        
+        try{
+            $output = array();
+            
+            $output['id'] = $params['id'];
+            $output['contest_id'] = $params['contest_id'];
+            
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableContestPrize);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $response = $stmt->fetch();
+            $output['prize_image_name'] = $response['image_name'];
+            
+            $query = sprintf("SELECT `cpl`.*, `l`.`iso_code` FROM %s AS `cpl`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cpl`.`language_id`
+                                WHERE `cpl`.`contest_prize_id`=:id", 
+                            $this->tableContestPrizeLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $response = $stmt->fetchAll();
+            if(!empty($response)){
+                foreach($response as $r){
+                    $output[$r['iso_code']] = $r;
+                }
+            }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function wizardPrizeFormSubmit($id, $contestId, $params)
+    {
+        try{
+            if(!empty($id)){
+                //UPDATE
+                $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
+                $stmt = $this->dbh->prepare($query);
+                $stmt->execute();
+
+                $response = $stmt->fetchAll();
+                foreach($response as $r){
+                    $query = sprintf("UPDATE %s SET `title`=:title, `content`=:content 
+                                        WHERE `contest_id`=:contestId AND `language_id`=:languageId",
+                                        $this->tableContestPrizeLanguage);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':title', $params[$r['iso_code']]['title'], PDO::PARAM_STR);
+                    $stmt->bindParam(':content', $params[$r['iso_code']]['content'], PDO::PARAM_STR);
+                    $stmt->bindParam(':contestId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+                
+                return $id;
+            }else{
+                //INSERT
+                $query = sprintf("INSERT INTO %s SET `contest_id`=:contestId", $this->tableContestPrize);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':contestId', $contestId, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $latestId = $this->dbh->lastInsertId();
+                
+                $query = sprintf("SELECT * FROM %s", $this->tableLanguage);
+                $stmt = $this->dbh->prepare($query);
+                $stmt->execute();
+
+                $response = $stmt->fetchAll();
+                foreach($response as $r){
+                    $query = sprintf("INSERT INTO %s SET `title`=:title, `content`=:content, `contest_prize_id`=:contestPrizeId, `language_id`=:languageId",
+                                        $this->tableContestPrizeLanguage);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':title', $params[$r['iso_code']]['title'], PDO::PARAM_STR);
+                    $stmt->bindParam(':content', $params[$r['iso_code']]['content'], PDO::PARAM_STR);
+                    $stmt->bindParam(':contestPrizeId', $latestId, PDO::PARAM_INT);
+                    $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+                
+                return $latestId;
+            }
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function wizardPrizeSetImage($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableContestPrize);
+            $stmt = $this->dbh->prepare($query);
+
             $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();

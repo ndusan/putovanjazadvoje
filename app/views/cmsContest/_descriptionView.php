@@ -38,8 +38,15 @@
                         </td>
                         <td>
                             <? if (isset($contest['id']) && !empty($contest['init']['puzzle_image_name'])): ?>
+                                <? if($contest['init']['type'] == 'offline'):?>
+                                <!-- If offline allow remove of image -->
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'contest' . DS . $contest['init']['puzzle_image_name']; ?>" target="_blank"><?=$contest['init']['puzzle_image_name']; ?></a>
+                                <a href="<?=DS.'cms'.DS.'contest'.DS.'wizard'.DS.$params['id'].DS.'puzzle'.DS.'delete-image';?>" class="cmsDelete"></a>
+                                <? else: ?>
+                                <!-- If online image must exist -->
                                 <input type="file" name="puzzle_image" value=""/>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'contest' . DS . $contest['init']['puzzle_image_name']; ?>" target="_blank"><?=$contest['init']['puzzle_image_name']; ?></a>
+                                <? endif; ?>
                             <? else: ?>
                                 <input type="file" name="puzzle_image" value="" <?=$contest['init']['type'] == 'online' ? 'class="jr-wizard_description"' : '';?>/>
                             <? endif; ?>
@@ -47,7 +54,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="Set description &raquo;" name="Submit"/>
+                            <input type="submit" value="Set description &raquo;" name="submit"/>
                         </td>
                     </tr>
                 </tbody>

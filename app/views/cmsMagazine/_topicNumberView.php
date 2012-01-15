@@ -63,7 +63,7 @@
             <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
                 <thead> 
                     <tr> 
-                        <th>Image name</th> 
+                        <th>Name</th> 
                         <th>Created</th> 
                         <th width="100px">Action</th> 
                     </tr> 
@@ -83,7 +83,7 @@
                     <? endforeach; ?>
                 <tfoot> 
                     <tr> 
-                        <th>Image name</th> 
+                        <th>Name</th> 
                         <th>Created</th> 
                         <th width="100px">Action</th> 
                     </tr> 

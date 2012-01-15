@@ -376,9 +376,20 @@ $routes = array(
             'action'     => 'wizard', 
             'layout'     => 'cms'
     ), 
-    array(  'url'        => '/^cms\/contest\/wizard\/prize-form\/?$/', 
+    array(  'url'        => '/^cms\/contest\/wizard\/(?P<contest_id>\d*)\/prize-form\/?$/', 
             'controller' => 'cmsContest', 
             'action'     => 'wizardPrizeForm', 
             'layout'     => 'ajax'
-    ), 
+    ),
+    array(  'url'        => '/^cms\/contest\/wizard\/(?P<contest_id>\d*)\/prize-form\/submit\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'wizardPrizeFormSubmit', 
+            'layout'     => 'ajax'
+    ),
+    array(  'url'        => '/^cms\/contest\/wizard\/(?P<contest_id>\d*)\/prize-form\/delete-image\/?$/', 
+            'controller' => 'cmsMagazine', 
+            'action'     => 'wizardPrizeFormDeleteImage', 
+            'layout'     => 'empty'
+    ),
+    
 );
