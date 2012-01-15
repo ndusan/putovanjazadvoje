@@ -539,7 +539,7 @@ class CmsContestModel extends Model
         try{
             if(!empty($params['winner'])){
                 foreach($params['winner'] as $key=>$value){
-                    $query = sprintf("UPDATE %s SET `winner`=:winner WHERE `id`=:id", $this->tableContestPrize);
+                    $query = sprintf("UPDATE %s SET `winner`=:winner WHERE `id`=:id ORDER BY `id` DESC", $this->tableContestPrize);
                     $stmt = $this->dbh->prepare($query);
 
                     $stmt->bindParam(':winner', $value, PDO::PARAM_STR);
