@@ -7,13 +7,17 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr> 
-                <th>Created</th> 
+                <th>Title</th> 
+                <th>Heading</th>
+                <th>Created</th>
                 <th width="100px">Action</th>
           </tr> 
         </thead> 
         <tbody> 
             <? foreach ($newsCollection as $news): ?>
                 <tr> 
+                    <td><?=$news['title'];?></td>
+                    <td><?=$news['heading'];?></td>
                     <td><?=$html->convertDate($news['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
@@ -25,6 +29,8 @@
             <? endforeach; ?>
         <tfoot> 
             <tr> 
+                <th>Title</th> 
+                <th>Heading</th>
                 <th>Created</th> 
                 <th>Action</th> 
             </tr> 

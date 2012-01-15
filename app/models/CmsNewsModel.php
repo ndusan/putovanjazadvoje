@@ -10,10 +10,15 @@ class CmsNewsModel extends Model
     public function findAllNews()
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tableNews);
+            $query = sprintf("SELECT `n`.*, `nl`.`title`, `nl`.`heading` FROM %s AS `n`
+                                INNER JOIN %s AS `nl` ON `nl`.`news_id`=`n`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`nl`.`language_id`
+                                WHERE `l`.`is_default`='1' 
+                                ORDER BY `n`.`id` DESC", 
+                            $this->tableNews, $this->tableNewsLanguage, $this->tableLanguage);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
-
+            
             return $stmt->fetchAll();
         }catch(Exception $e){
             
