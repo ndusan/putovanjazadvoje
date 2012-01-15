@@ -6,8 +6,11 @@ class CmsContestController extends Controller
     public function indexAction($params)
     {
         
-        if(!empty($params['id'])){
-            $this->db->setVisible($params);
+        if(!empty($params['id']) && !empty($params['status'])){
+            $this->setRenderHTML(0);
+            
+            $this->db->setStatus($params);
+            echo true;
         }
         
         $this->set('contestCollection', $this->db->getContests());
@@ -49,8 +52,8 @@ class CmsContestController extends Controller
         
         if(!empty($params['id'])){
             $this->set('contest', $this->db->getContest($params));
-            $this->set('magazineCollection', $this->db->getAllMagazine());
         }
+        $this->set('magazineCollection', $this->db->getAllMagazine());
     }
     
     public function wizardPrizeFormAction($params)
@@ -75,6 +78,39 @@ class CmsContestController extends Controller
                 }
                 $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['contest_id'], 'success', '#fragment-4');
             }
+        }
+    }
+    
+    
+    public function wizardPrizeFormDeleteImageAction($params)
+    {
+        //Get image name if exist
+        $response = $this->db->wizardPriceFormGetImage($params['id']);
+        
+        if($this->db->wizardPrizeSetImage($params['id'], '')){
+            //Remove image from folder
+            $this->deleteImage($response['image_name'], 'contest');
+            
+            echo json_encode(array('response'=>true));
+        }else{
+            echo json_encode(array('response'=>false));
+        }
+    }
+    
+    
+    
+    public function wizardPrizeFormDeleteAction($params)
+    {
+        //Get image name if exist
+        $response = $this->db->wizardPriceFormGetImage($params['id']);
+        
+        if($this->db->wizardPrizeFormDelete($params)){
+            //Remove image from folder
+            if(!empty($response['image_name'])){
+                $this->deleteImage($response['image_name'], 'contest');
+            }
+            
+            $this->redirect('cms'.DS.'contest'.DS.'wizard'.DS.$params['contest_id'], 'success', '#fragment-4');
         }
     }
     
@@ -131,4 +167,33 @@ class CmsContestController extends Controller
             return true;
         }
     }
+    
+    
+    public function deleteAction($params)
+    {
+        $this->setRenderHTML(0);
+        
+        $data = $this->db->getImages($params['id']);
+        $wizardImages = $this->db->wizardPriceFormGetImages($params['id']);
+        
+        if($this->db->deleteContest($params)){
+            
+            //If exist delete
+            if(!empty($data)){
+                $this->deleteImage($data['image_name'], 'contest');
+                $this->deleteImage($data['puzzle_image_name'], 'contest');
+            }
+            //Delete topic images if exist
+            if(!empty($wizardImages)){
+                foreach($wizardImages as $tImage){
+                   $this->deleteImage($tImage['image_name'], 'contest'); 
+                }
+            }
+            
+            $this->redirect ('cms'.DS.'contest', 'success');
+        }else{
+            $this->redirect ('cms'.DS.'contest', 'error');
+        }
+    }
 }
+

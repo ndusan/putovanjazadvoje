@@ -64,7 +64,7 @@
                     <tbody>
                         <tr>
                             <td align="right" width="50%">
-                                <input id="jremoveSubform" type="submit" value="Cancel" name="cancel" />
+                                <input id="jCancelSubform" type="submit" value="Cancel" />
                             </td>
                             <td align="left">
                                 <input type="hidden" value="<?= @$params['id']; ?>" name="id" />

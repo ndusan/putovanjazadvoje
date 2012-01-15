@@ -1,5 +1,3 @@
-<div id="jPrizeRemove" class="cmsDelete"><!-- remove --></div>
-
 <div id="fragment-4" class="addContent2">
     <div class="tabs">
         <ul>
@@ -65,6 +63,7 @@
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?=$prize['id'];?>" />
+                        <input type="submit" id="jPrizeRemove" value="Cancel"/>
                         <input type="submit" value="Create contest" name="submit"/>
                     </td>
                 </tr>

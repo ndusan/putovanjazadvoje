@@ -73,7 +73,9 @@ var App = App || {};
                             App.Common.jtooltip();
                             App.Common.mce();
                             App.Common.tabs();
-                            $('#jremoveSubform').click(function(){
+                            $('#jCancelSubform').click(function(e){
+                                e.preventDefault();
+                                
                                 $('#jSubform').html('');
                             });
                         }

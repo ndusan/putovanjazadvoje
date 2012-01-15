@@ -8,7 +8,18 @@ var App = App || {};
             //Set datatable
             $('#dataTable').dataTable();
             App.Common.thead();
+            
+            
+            $('body').delegate('.jStatus', 'change', function(){
+               
+               var cHref= $(this).val();
+               $.ajax({
+                  'url': cHref,
+                  'type': 'GET'
+               });
+            });
         },
+        
         wizard: function() {
             App.Common.tabs();
             App.Common.jtooltip();
@@ -84,6 +95,7 @@ var App = App || {};
                     type: "GET",
                     dataType: "json",
                     success: function(data){
+                        
                         if(data.response){
                             $('.jPrizeImage').html('<input type="file" name="prize_image" value=""/>');
                         }
@@ -93,10 +105,6 @@ var App = App || {};
             
             $('body').delegate('#jPrizeRemove', 'click', function(e){
                e.preventDefault();
-               
-               //Add action on remove button
-               var answer = confirm ("Are you sure you want to delete this line?");
-               if (!answer) return false;
                 
                $('#jPrizeForm').html('');
             });

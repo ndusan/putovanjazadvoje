@@ -8,6 +8,7 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Created</th>
+                <th>Status</th>
                 <th width="100px">Action</th>
           </tr> 
         </thead> 
@@ -17,6 +18,16 @@
                     <td><?=$contest['name'];?></td>
                     <td><?=$contest['type'];?></td>
                     <td><?=$html->convertDate($contest['created'], true);?></td>
+                    <td>
+                        <? $status = array('inprocess', 'archived', 'approved');?>
+                        <select class="jStatus">
+                            <? foreach ($status as $s):?>
+                            <? if($s == $contest['status']) $sel = 'selected="selected"';
+                               else $sel = '';?>
+                            <option value="<?=DS.'cms'.DS.'contest?id='.$contest['id'].'&status='.$s;?>" <?=$sel;?>><?=$s;?></option>
+                            <? endforeach;?>
+                        </select>
+                    </td>
                     <td align="center">
                         <!--Edit-->
                         <a title="Edit" class="cmsEdit" href="/cms/contest/wizard/<?= $contest['id']; ?>"></a>
@@ -30,6 +41,7 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Created</th> 
+                <th>Status</th>
                 <th>Action</th> 
             </tr> 
         </tfoot> 

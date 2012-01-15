@@ -43,4 +43,14 @@
         <div id="jPrizeForm"><!-- load prize form on request --></div>
         <input type="hidden" value="prizes" name="page" />
     </form>
+    <!--outside of form -->
+    <table cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit contest" onClick="window.location='<?=DS.'cms'.DS.'contest';?>';"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
