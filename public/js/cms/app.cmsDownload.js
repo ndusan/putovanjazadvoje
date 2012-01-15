@@ -19,7 +19,7 @@ var App = App || {};
         },
         wallpaper: function(){
             //Set datatable
-            $('#dataTable').dataTable();
+            $('#dataTable').dataTable({"aaSorting": [[ 1, "desc" ]]});
             App.Common.thead();
         }
     };

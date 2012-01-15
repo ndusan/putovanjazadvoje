@@ -6,7 +6,7 @@ var App = App || {};
         },
         index: function() {
             //Set datatable
-            $('#dataTable').dataTable();
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]]});
             App.Common.thead();
             
             
@@ -65,7 +65,7 @@ var App = App || {};
         wizardPrizeFragment: function(){
             
             //Set datatable
-            $('.dataTable').dataTable();
+            $('.dataTable').dataTable({"aaSorting": [[ 1, "asc" ]]});
             App.Common.thead();
             
             $('body').delegate('.jPrizeAdd', 'click', function(e){

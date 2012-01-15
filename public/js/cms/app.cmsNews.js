@@ -7,7 +7,7 @@ var App = App || {};
         index: function() {
             
             //Set datatable
-            $('#dataTable').dataTable();
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]]});
             App.Common.thead();
        },
        add: function() {
