@@ -126,6 +126,9 @@ var App = App || {};
                 } 
             });
             
+        },
+        winners: function(){
+            App.Common.jtooltip();
         }
         
     };

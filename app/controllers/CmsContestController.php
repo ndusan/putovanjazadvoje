@@ -195,5 +195,16 @@ class CmsContestController extends Controller
             $this->redirect ('cms'.DS.'contest', 'error');
         }
     }
+    
+    
+    public function winnersAction($params)
+    {
+        if(!empty($params['submit'])){
+            $this->db->setWinners($params);
+            $this->redirect ('cms'.DS.'contest', 'success');
+        }
+        
+        $this->set('prizesCollection', $this->db->getPrizes($params));
+    }
 }
 

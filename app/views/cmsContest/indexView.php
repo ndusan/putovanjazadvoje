@@ -19,7 +19,7 @@
                     <td><?=$contest['type'];?></td>
                     <td><?=$html->convertDate($contest['created'], true);?></td>
                     <td>
-                        <? $status = array('inprocess', 'archived', 'approved');?>
+                        <? $status = array('inprocess', 'approved', 'closed', 'archived');?>
                         <select class="jStatus">
                             <? foreach ($status as $s):?>
                             <? if($s == $contest['status']) $sel = 'selected="selected"';
@@ -29,6 +29,8 @@
                         </select>
                     </td>
                     <td align="center">
+                        <!--Winners-->
+                        <a href="/cms/contest/winners/<?=$contest['id'];?>">Define winners</a>
                         <!--Edit-->
                         <a title="Edit" class="cmsEdit" href="/cms/contest/wizard/<?= $contest['id']; ?>"></a>
                         <!--Delete-->

@@ -507,4 +507,51 @@ class CmsContestModel extends Model
             return false;
         }
     }
+    
+    
+    
+    public function getPrizes($params)
+    {
+        
+        try{
+            $query = sprintf("SELECT `cp`.*, `cpl`.`title`, `cpl`.`content` FROM %s AS `cp` 
+                                INNER JOIN %s AS `cpl` ON `cpl`.`contest_prize_id`=`cp`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cpl`.`language_id`
+                                WHERE `l`.`is_default`=1 AND 
+                                      `cp`.`contest_id`=:contestId 
+                                ORDER BY `cp`.`id` DESC", 
+                            $this->tableContestPrize, $this->tableContestPrizeLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':contestId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setWinners($params)
+    {
+        try{
+            if(!empty($params['winner'])){
+                foreach($params['winner'] as $key=>$value){
+                    $query = sprintf("UPDATE %s SET `winner`=:winner WHERE `id`=:id", $this->tableContestPrize);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':winner', $value, PDO::PARAM_STR);
+                    $stmt->bindParam(':id', $key, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }
