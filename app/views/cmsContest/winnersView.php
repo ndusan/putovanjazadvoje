@@ -18,7 +18,7 @@
                 <td><?= $html->convertDate($t['created'], true); ?></td>
                 <td><img src="<?=PUBLIC_UPLOAD_PATH.'contest'.DS.$t['image_name'];?>" width="100" height="100" /></td>
                 <td align="center">
-                    <textarea name="winner[<?=$t['id'];?>]"><?=$winner[$t['id']];?></textarea>
+                    <textarea name="winner[<?=$t['id'];?>]"><?=$t['winner'];?></textarea>
                 </td> 
             </tr> 
         <? endforeach; ?>
