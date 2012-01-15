@@ -4,18 +4,18 @@
             <li><a href="#fragment-4-1">Srpski</a></li>
             <li><a href="#fragment-4-2">English (optionsl)</a></li>
         </ul>
-        
+
         <div id="fragment-4-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
                         <td><span class="jtooltip" title="Define text about prize">Prize place:</span></td>
-                        <td><input type="text" value="<?=@$prize['sr']['title'];?>" name="prize[sr][title]" class="jr-wizard_prize"/></td>
+                        <td><input type="text" value="<?= @$prize['sr']['title']; ?>" name="prize[sr][title]" class="jr-wizard_prize"/></td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Conditions for ONLINE contest">Conditions:</span></td>
                         <td>
-                            <textarea name="prize[sr][content]"><?=@$prize['sr']['content'];?></textarea>
+                            <textarea name="prize[sr][content]"><?= @$prize['sr']['content']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -26,12 +26,12 @@
                 <tbody>
                     <tr>
                         <td><span class="jtooltip" title="Define text about prize">Prize place:</span></td>
-                        <td><input type="text" name="prize[en][title]" value="<?=@$prize['en']['title'];?>"/></td>
+                        <td><input type="text" name="prize[en][title]" value="<?= @$prize['en']['title']; ?>"/></td>
                     </tr>
                     <tr>
                         <td><span class="jtooltip" title="Conditions for ONLINE contest">Conditions:</span></td>
                         <td>
-                            <textarea name="prize[en][content]"><?=@$prize['sr']['content'];?></textarea>
+                            <textarea name="prize[en][content]"><?= @$prize['sr']['content']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
@@ -58,13 +58,15 @@
         </div>
     </div>
     <div class="addContent">
-        <table cellpadding="0" cellspacing="0">
+        <table cellpadding="0" cellspacing="0" width="100%">
             <tbody>
                 <tr>
-                    <td colspan="2">
-                        <input type="hidden" name="id" value="<?=$prize['id'];?>" />
+                    <td align="right" width="50%">
+                        <input type="hidden" name="id" value="<?= $prize['id']; ?>" />
                         <input type="submit" id="jPrizeRemove" value="Cancel"/>
-                        <input type="submit" value="Create contest" name="submit"/>
+                    </td>
+                    <td>
+                        <input type="submit" value="Save Prize" name="submit"/>
                     </td>
                 </tr>
             </tbody>

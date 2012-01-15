@@ -1,8 +1,8 @@
 <div id="fragment-4" class="addContent2">
     <ul class="addTop">
-        <li><a class="cmsAdd jPrizeAdd" href="<?=DS.'cms'.DS.'contest'.DS.'wizard'.DS.@$params['id'].DS.'prize-form';?>" >Add prize</a></li>
+        <li><a class="cmsAdd jPrizeAdd" href="<?= DS . 'cms' . DS . 'contest' . DS . 'wizard' . DS . @$params['id'] . DS . 'prize-form'; ?>" >Add prize</a></li>
     </ul>
-        <? if (!empty($contest['prizes'])): ?>
+    <? if (!empty($contest['prizes'])): ?>
         <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
             <thead> 
                 <tr> 
@@ -33,24 +33,28 @@
             </tfoot> 
             </tbody> 
         </table> 
-        <? else: ?>
-            <div class="noResults">
-                There are no results on this page.
-            </div>
-        <? endif; ?>
+    <? else: ?>
+        <div class="noResults">
+            There are no results on this page.
+        </div>
+    <? endif; ?>
 
-    <form name="wizard_prize" action="/cms/contest/wizard/<?=@$params['id'];?>/prize-form/submit" method="post" enctype="multipart/form-data">
+    <!--outside of form -->
+    <div class="addContent">
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <input type="submit" value="Submit Contest" onClick="window.location='<?= DS . 'cms' . DS . 'contest'; ?>';"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form name="wizard_prize" action="/cms/contest/wizard/<?= @$params['id']; ?>/prize-form/submit" method="post" enctype="multipart/form-data">
         <div id="jPrizeForm"><!-- load prize form on request --></div>
         <input type="hidden" value="prizes" name="page" />
     </form>
-    <!--outside of form -->
-    <table cellpadding="0" cellspacing="0">
-        <tbody>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Submit contest" onClick="window.location='<?=DS.'cms'.DS.'contest';?>';"/>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
 </div>

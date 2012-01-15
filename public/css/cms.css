@@ -104,7 +104,7 @@ ul.addTop li a {line-height:20px; font-size:14px; display:block;}
 
 .addContent {padding:20px;}
 .addContent1 {padding:20px 0;}
-.addContent2 {padding:0;}
+.addContent2 {padding:2px 0 0;}
 .addContent td, .addContent1 td {padding:5px;}
 .addContent th {text-align:left; padding:10px 5px; border-bottom:solid 1px #BAD4E3;}
 .addContent .trSpec {display:block; padding:10px; margin:5px 0; border:solid 1px #BAD4E3;}
