@@ -17,5 +17,9 @@ class DownloadController extends Controller
         
         $this->set('dataCollection', $dataCollection);
         $this->set('wDataCollection', $wDataCollection);
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
 }

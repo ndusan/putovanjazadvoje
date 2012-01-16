@@ -32,19 +32,21 @@
         <div class="wrapper">
             <div class="header">
                 <ul class="topNav">
-                    <li><a href="#">Pretplati se</a></li>
-                    <li><a href="#">Naruci ranije brojeve</a></li>
-                    <li><a href="#">Pokloni pretplatu</a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>">Pretplati se</a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>">Naruci ranije brojeve</a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Pokloni pretplatu</a></li>
                 </ul>
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                 </a>
                 <ul class="topInfo">
                     <li class="first">
-                        <h1>BROJ 18</h1>
-                        <a href="#">broj u prodaji</a>
+                        <h1><?=$magazine['number'];?></h1>
+                        <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>">broj u prodaji</a>
                     </li>
-                    <li><img src="<?= IMAGE_PATH . 'topImg.png'; ?>" /></li>
+                    <? if(!empty($magazine['header_image_name'])):?>
+                    <li><img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['header_image_name']; ?>" /></li>
+                    <? endif;?>
                 </ul>
             </div>
             <div class="main">

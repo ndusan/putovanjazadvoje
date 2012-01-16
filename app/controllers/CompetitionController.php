@@ -25,5 +25,9 @@ class CompetitionController extends Controller
         }
         
         $this->set('subpage', $subpageView);
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
 }

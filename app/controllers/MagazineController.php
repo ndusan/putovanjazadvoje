@@ -26,5 +26,15 @@ class MagazineController extends Controller
         }
         
         $this->set('subpage', $subpageView);
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        
+        $magazineCollection = $this->db->getMagazine($params);
+        $this->set('magazineCollection', $magazineCollection);
+        
+        $params['magazine_id'] = $magazineCollection['id'];
+        $this->set('topicCollection', $this->db->getTopic($params));
     }
 }

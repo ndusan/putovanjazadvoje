@@ -8,6 +8,8 @@ class HomeModel extends Model
     private $tableCarouselLanguage = 'carousel_language';
     private $tableNews = 'news';
     private $tableNewsLanguage = 'news_language';
+    private $tableMagazine = 'magazine';
+    private $tableMagazineLanguage = 'magazine_language';
     
     
     public function getCarouselCollection($params)
@@ -35,7 +37,7 @@ class HomeModel extends Model
     }
     
     
-    public function getLattestNews($params, $startOfNews, $numOfNews)
+    public function getLatestNews($params, $startOfNews, $numOfNews)
     {
         
         try{
@@ -60,4 +62,6 @@ class HomeModel extends Model
             return false;
         }
     }
+    
+    
 }

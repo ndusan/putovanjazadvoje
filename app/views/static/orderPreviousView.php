@@ -83,23 +83,16 @@
                                 <td>
                                     <label><?=$_t['orderform.previouseditions.label'];?><span>*</span></label>
                                 </td>
+                                <? if(!empty($magazineCollection)):?>
                                 <td>
                                     <ul class="orderSelect">
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 01</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 02</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 03</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 01</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 02</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 03</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 01</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 02</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 03</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 01</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 02</span></li>
-                                        <li><input type="checkbox" name="" value="ON" /><span>Br 03</span></li>
+                                        <? foreach($magazineCollection as $magazine):?>
+                                        <li><input type="checkbox" name="collection[magazine][<?=$magazine['id'];?>]" value="<?=$magazine['number'];?>" /><span><?=$magazine['number'];?></span></li>
+                                        <? endforeach;?>
                                     </ul>
                                     <span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
+                                <? endif;?>
                             </tr>
                             <tr>
                                 <td colspan="2">

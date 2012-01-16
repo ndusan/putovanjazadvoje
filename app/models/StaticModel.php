@@ -16,6 +16,12 @@ class StaticModel extends Model
     private $tableNews = 'news';
     private $tableNewsLanguage = 'news_language';
     
+    private $tableMagazine = 'magazine';
+    private $tableMagazineLanguage = 'magazine_language';
+
+    private $tableTopic = 'topic';
+    private $tableTopicLanguage = 'topic_language';
+    
     private $types = array(0 => self::STATIC_ABOUTUS, 
                            1 => self::STATIC_GIVEAWAY, 
                            2 => self::STATIC_ORDERPREVIOUS, 
@@ -87,6 +93,22 @@ class StaticModel extends Model
         //Search via magazine for selected language
         
         return $output;
+    }
+    
+    
+    public function getAllMagazine($params)
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s ORDER BY `id` ASC", $this->tableMagazine);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
 }

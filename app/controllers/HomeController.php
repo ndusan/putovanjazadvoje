@@ -18,11 +18,15 @@ class HomeController extends Controller
         
         $this->startOfNews = 0;
         $this->numOfNews = 3;
-        $this->set('topNewsCollection', $this->getLattestNews($params, $this->startOfNews, $this->numOfNews));
+        $this->set('topNewsCollection', $this->getLatestNews($params, $this->startOfNews, $this->numOfNews));
         
         $this->startOfNews = 3;
         $this->numOfNews = 2;
-        $this->set('otherNewsCollection', $this->getLattestNews($params, $this->startOfNews, $this->numOfNews));
+        $this->set('otherNewsCollection', $this->getLatestNews($params, $this->startOfNews, $this->numOfNews));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
     
     
@@ -32,10 +36,10 @@ class HomeController extends Controller
         return $this->db->getCarouselCollection($params);
     }
     
-    private function getLattestNews($params, $startOfNews, $numOfNews)
+    private function getLatestNews($params, $startOfNews, $numOfNews)
     {
 
-        return $this->db->getLattestNews($params, $startOfNews, $numOfNews);
+        return $this->db->getLatestNews($params, $startOfNews, $numOfNews);
     }
     
 }

@@ -32,5 +32,9 @@ class AdsController extends Controller
         
         $this->set('dataCollection', $dataCollection);
         $this->set('subpage', $subpageView);
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
 }

@@ -33,8 +33,11 @@
         <li><a href="<?=DS.$params['lang'].DS.'preuzimanje';?>"><?=$_t['nav.dow.l'];?></a></li>
         <li><a href="<?=DS.$params['lang'].DS.'kontakt';?>"><?=$_t['nav.conct.l'];?></a></li>
     </ul>
+    <? $getId = !empty($_GET) ? '?'.http_build_query($_GET) : ''; ?>
     <ul class="lang">
-        <li><a <?=(isset($params['lang']) && $params['lang'] == 'sr' ? 'class="active"':'');?> href="<?=DS.'sr'.DS.implode('/', $params['breadcrumb']);?>">SR</a></li>
-        <li><a <?=(isset($params['lang']) && $params['lang'] == 'en' ? 'class="active"':'');?> href="<?=DS.'en'.DS.implode('/', $params['breadcrumb']);?>">EN</a></li>
+        <li><a <?=(isset($params['lang']) && $params['lang'] == 'sr' ? 'class="active"':'');?> href="<?=DS.'sr'.DS.implode('/', $params['breadcrumb']).$getId;?>">SR</a></li>
+        <? if(!empty($isActive)):?>
+        <li><a <?=(isset($params['lang']) && $params['lang'] == 'en' ? 'class="active"':'');?> href="<?=DS.'en'.DS.implode('/', $params['breadcrumb']).$getId;?>">EN</a></li>
+        <? endif;?>
     </ul>
 </div>

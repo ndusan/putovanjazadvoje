@@ -17,10 +17,14 @@ class NewsController extends Controller
         if(!empty($params['newsId']) && is_numeric($params['newsId'])){
             $newsId = $params['newsId'];
             
-            parent::set('currentNews', $this->db->getSelectedNews($params));
+            $this->set('currentNews', $this->db->getSelectedNews($params));
         }
         
-        parent::set('newsCollection', $this->db->getAllNews($params, $newsId));
+        $this->set('newsCollection', $this->db->getAllNews($params, $newsId));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
     
     

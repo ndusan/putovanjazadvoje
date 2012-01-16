@@ -159,6 +159,15 @@ class HTML {
 
         return $result;
     }
+    
+    
+    function snap($text, $length){
+        
+        $text = substr($text, 0, $length);
+        $text = preg_replace("|<(\w+)([^>/]+)?|", "<$1", $text);
+
+        return strip_tags($text);
+    }
 
     
 }

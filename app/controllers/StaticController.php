@@ -16,6 +16,10 @@ class StaticController extends Controller
         $this->setLeftMenu($params);
 
         $this->set('collection', $this->db->find($params, 'aboutus'));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
     
     /**
@@ -28,6 +32,11 @@ class StaticController extends Controller
         $this->setLeftMenu($params);
         
         $this->set('collection', $this->db->find($params, 'archive'));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('magazineCollection', $this->db->getAllMagazine($params));
     }
     
     /**
@@ -46,6 +55,11 @@ class StaticController extends Controller
         $this->sendFormIfSubmited($params, $array);
         
         $this->set('collection', $this->db->find($params, 'giveaway'));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('magazineCollection', $this->db->getAllMagazine($params));
     }
     
     /**
@@ -64,6 +78,11 @@ class StaticController extends Controller
         $this->sendFormIfSubmited($params, $array);
 
         $this->set('collection', $this->db->find($params, 'orderprevious'));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('magazineCollection', $this->db->getAllMagazine($params));
     }
     
     /**
@@ -82,6 +101,11 @@ class StaticController extends Controller
         $this->sendFormIfSubmited($params, $array);
         
         $this->set('collection', $this->db->find($params, 'signupformagazine'));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('magazineCollection', $this->db->getAllMagazine($params));
     }
     
     
@@ -97,6 +121,10 @@ class StaticController extends Controller
         }
         
         $this->set('resultCollection', $resultCollection);
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
         
     }
     

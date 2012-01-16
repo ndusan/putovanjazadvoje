@@ -29,18 +29,20 @@
             </div>
             <ul class="intro">
                 <li>
-                    <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <? if(!empty($magazine['image_name'])):?>
+                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['word_image_name']; ?>" />
+                    <? endif;?>
                     <div class="txt">
-                        <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
-                        </p>
+                        <?=$html->snap($magazine['word'], 200).'...';?>
                     </div>
                 </li>
                 <li>
-                    <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <? if(!empty($magazine['word_image_name'])):?>
+                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['image_name']; ?>" />
+                    <? endif;?>
                     <div class="txt">
                         <p>
-                            Kompanija Plava Laguna d.d. uvela je novi krovni brand - Laguna Poreč, koji se oslanja na prednosti dobro poznatog imena svoje destinacije.
+                            <?=$html->snap($magazine['topic_content'], 200).'...';?>
                         </p>
                     </div>
                 </li>
