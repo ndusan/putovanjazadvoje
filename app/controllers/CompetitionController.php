@@ -29,5 +29,7 @@ class CompetitionController extends Controller
         //Language
         $this->set('isActive', $this->db->isActiveLang('en'));
         $this->set('magazine', $this->db->getLatestMagazine($params));
+        
+        $this->set('winnersCollection', $this->db->getWinners($params));
     }
 }

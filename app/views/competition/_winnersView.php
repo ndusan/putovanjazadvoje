@@ -7,18 +7,29 @@
             <div class="wys">
                 <h1><?=$_t['page.winners.title'];?></h1>
             </div>
+            
+            <? if(!empty($winnersCollection)):?>
             <ul class="winners">
+                <? foreach($winnersCollection as $w):?>
                 <li>
-                    <h2>FOTO TAKMICENJE broj 9:</h2>
-                    <p>Dobitnik Women’Secret pižame i nesesera</p>
-                    <h2>Miloš Pavković</h2>
+                    <!-- Contest name -->
+                    <h2><?=$w['name'];?>:</h2>
+                    <!-- Contest description -->
+                    <p><?=$w['description'];?></p>
+                    <? if(!empty($w['winners'])):?>
+                        <? foreach($w['winners'] as $winner):?>
+                            <!-- Winner name -->
+                            <h2><?=$winner['winner'];?></h2>
+                        <? endforeach;?>
+                    <? endif;?>
                 </li>
-                <li>
-                    <h2>Pobednici igre GDE SMO:</h2>
-                    <p>1. Nagrada Women’Secret pižama i neseser</p>
-                    <h2>Miloš Pavković</h2>
-                </li>
+                <? endforeach;?>
             </ul>
+            <? else: ?>
+            <div class="noResults">
+                Sorry, no results here
+            </div>
+            <? endif;?>
         </div>
     </div>
 </div>
