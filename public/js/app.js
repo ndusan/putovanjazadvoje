@@ -54,6 +54,7 @@ var App = App || {};
                 theme : "advanced",
                 mode : "textareas",
                 plugins : "fullscreen",
+                editor_deselector : "mceNoEditor",
                 theme_advanced_buttons3_add : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
                 // Theme options
                 theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",

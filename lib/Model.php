@@ -138,7 +138,8 @@ class Model
     {
         try{
             $query = sprintf("SELECT `m`.`id`, `m`.`header_image_name`, `m`.`word_image_name`, `m`.`number`, `m`.`created`, 
-                                     `ml`.`content`, `ml`.`impressum`, `ml`.`topic_title`, `ml`.`topic_content`, `ml`.`word` FROM %s AS `m` 
+                                     `ml`.`content`, `ml`.`impressum`, `ml`.`topic_title`, `ml`.`topic_content`, 
+                                     `ml`.`topic_content_heading`, `ml`.`word`, `ml`.`word_heading` FROM %s AS `m` 
                                 INNER JOIN %s AS `ml` ON `ml`.`magazine_id`=`m`.`id`
                                 INNER JOIN %s AS `l` ON `l`.`id`=`ml`.`language_id`
                                 WHERE `l`.`iso_code`=:isoCode 

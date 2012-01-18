@@ -58,7 +58,9 @@ class CmsMagazineModel extends Model
                     $output['impressum'][$r['iso_code']] = $r['impressum'];
                     $output['topic_title'][$r['iso_code']] = $r['topic_title'];
                     $output['topic_content'][$r['iso_code']] = $r['topic_content'];
+                    $output['topic_content_heading'][$r['iso_code']] = $r['topic_content_heading'];
                     $output['editorsword'][$r['iso_code']] = $r['word'];
+                    $output['editorsword_heading'][$r['iso_code']] = $r['word_heading'];
                 }
             }
             
@@ -229,13 +231,15 @@ class CmsMagazineModel extends Model
             $response = $stmt->fetchAll();
             
             foreach($response as $r){
-                $query = sprintf("INSERT INTO %s SET `topic_title`=:topicTitle, `topic_content`=:topicContent, `magazine_id`=:magazineId, `language_id`=:languageId 
-                                    ON DUPLICATE KEY UPDATE `topic_title`=:topicTitle, `topic_content`=:topicContent",
+                $query = sprintf("INSERT INTO %s SET `topic_title`=:topicTitle, `topic_content`=:topicContent, `topic_content_heading`=:topicContentHeading, 
+                                    `magazine_id`=:magazineId, `language_id`=:languageId 
+                                    ON DUPLICATE KEY UPDATE `topic_title`=:topicTitle, `topic_content`=:topicContent, `topic_content_heading`=:topicContentHeading",
                                     $this->tableMagazineLanguage);
                 $stmt = $this->dbh->prepare($query);
 
                 $stmt->bindParam(':topicTitle', $params['magazine'][$r['iso_code']]['topic_title'], PDO::PARAM_STR);
                 $stmt->bindParam(':topicContent', $params['magazine'][$r['iso_code']]['topic_content'], PDO::PARAM_STR);
+                $stmt->bindParam(':topicContentHeading', $params['magazine'][$r['iso_code']]['topic_content_heading'], PDO::PARAM_STR);
                 $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
                 $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);
                 $stmt->execute();
@@ -432,11 +436,12 @@ class CmsMagazineModel extends Model
             $response = $stmt->fetchAll();
             
             foreach($response as $r){
-                $query = sprintf("INSERT INTO %s SET `word`=:word, `magazine_id`=:magazineId, `language_id`=:languageId 
-                                    ON DUPLICATE KEY UPDATE `word`=:word",
+                $query = sprintf("INSERT INTO %s SET `word_heading`=:wordHeading, `word`=:word, `magazine_id`=:magazineId, `language_id`=:languageId 
+                                    ON DUPLICATE KEY UPDATE `word_heading`=:wordHeading, `word`=:word",
                                     $this->tableMagazineLanguage);
                 $stmt = $this->dbh->prepare($query);
 
+                $stmt->bindParam(':wordHeading', $params['magazine'][$r['iso_code']]['editorsword_heading'], PDO::PARAM_STR);
                 $stmt->bindParam(':word', $params['magazine'][$r['iso_code']]['editorsword'], PDO::PARAM_STR);
                 $stmt->bindParam(':magazineId', $params['id'], PDO::PARAM_INT);
                 $stmt->bindParam(':languageId', $r['id'], PDO::PARAM_INT);

@@ -33,7 +33,7 @@
                     <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['word_image_name']; ?>" />
                     <? endif;?>
                     <div class="txt">
-                        <?=$html->snap($magazine['word'], 200).'...';?>
+                        <?=$html->snap($magazine['word_heading'], 200).'...';?>
                     </div>
                 </li>
                 <li>
@@ -42,7 +42,7 @@
                     <? endif;?>
                     <div class="txt">
                         <p>
-                            <?=$html->snap($magazine['topic_content'], 200).'...';?>
+                            <?=$html->snap($magazine['topic_content_heading'], 200).'...';?>
                         </p>
                     </div>
                 </li>

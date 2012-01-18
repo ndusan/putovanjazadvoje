@@ -9,6 +9,12 @@
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
+                            <td><span class="jtooltip" title="Visible on home page">Short intro word:</span></td>
+                            <td>
+                                <textarea name="magazine[sr][editorsword_heading]" class="mceNoEditor"><?= @$magazine['editorsword_heading']['sr']; ?></textarea>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><span class="jtooltip" title="Content tha will be visible on site">Editors word:</span></td>
                             <td>
                                 <textarea name="magazine[sr][editorsword]"><?= @$magazine['editorsword']['sr']; ?></textarea>
@@ -20,6 +26,12 @@
             <div id="fragment-5-2" class="addContent">
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
+                        <tr>
+                            <td><span class="jtooltip" title="Visible on home page">Short intro word:</span></td>
+                            <td>
+                                <textarea name="magazine[en][editorsword_heading]" class="mceNoEditor"><?= @$magazine['editorsword_heading']['en']; ?></textarea>
+                            </td>
+                        </tr>
                         <tr>
                             <td><span class="jtooltip" title="Content tha will be visible on site">Editors word:</span></td>
                             <td>

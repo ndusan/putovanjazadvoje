@@ -15,11 +15,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><span class="jtooltip" title="Visible on home page">Topic intro:</span></td>
+                            <td>
+                                <textarea class="mceNoEditor" name="magazine[sr][topic_content_heading]"><?= @$magazine['topic_content_heading']['sr']; ?></textarea>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><span class="jtooltip" title="Content tha will be visible on site">Topic content:</span></td>
                             <td>
                                 <textarea name="magazine[sr][topic_content]"><?= @$magazine['topic_content']['sr']; ?></textarea>
                             </td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -33,11 +40,18 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><span class="jtooltip" title="Visible on home page">Topic intro:</span></td>
+                            <td>
+                                <textarea class="mceNoEditor" name="magazine[en][topic_content_heading]"><?= @$magazine['topic_content_heading']['en']; ?></textarea>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><span class="jtooltip" title="Content tha will be visible on site">Topic content:</span></td>
                             <td>
                                 <textarea name="magazine[en][topic_content]"><?= @$magazine['topic_content']['en']; ?></textarea>
                             </td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>
