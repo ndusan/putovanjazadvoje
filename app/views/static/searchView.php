@@ -35,9 +35,9 @@
                         <? if(!empty($resultCollection['magazine'])):?>
                         <? foreach ($resultCollection['magazine'] as $r): ?>
                         <li>
-                            <h2><a href="#"><?=$r['title'];?></a></h2>
+                            <h2><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj?id='.$r['magazine_id'];?>"><?=$r['number'];?></a></h2>
                             <p>
-                                <?=$r['heading'];?>
+                                <?=$r['content'];?>
                             </p>
                         </li>
                         <? endforeach; ?>
