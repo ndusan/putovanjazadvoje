@@ -8,10 +8,12 @@
                             <!-- Link on image -->
                             <? if (!empty($cc['link'])): ?>
                                 <a href="http://<?= rtrim($cc['link'], 'http://'); ?>" target="_blank">
+                            <? endif; ?>
                                     <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
                                     <span class="desc">
                                         <h2><?= $cc['text']; ?></h2>
                                     </span>
+                            <? if (!empty($cc['link'])): ?>
                                 </a>
                             <? endif; ?>
                         </div>

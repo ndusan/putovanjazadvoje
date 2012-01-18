@@ -196,7 +196,7 @@ class Controller {
             
             return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
-
+            
             return false;
         }
     }
@@ -208,10 +208,10 @@ class Controller {
         
         if (move_uploaded_file($file['tmp_name'], UPLOAD_PATH . $folder . DS . $fileName)) {
             chmod(UPLOAD_PATH . $folder . DS . $fileName, 0644);
-            
+           
             return array('size'=>$file['size'], 'type'=>$file['type']);
         } else {
-
+            
             return false;
         }
     }

@@ -142,7 +142,7 @@ class Model
                                      `ml`.`topic_content_heading`, `ml`.`word`, `ml`.`word_heading` FROM %s AS `m` 
                                 INNER JOIN %s AS `ml` ON `ml`.`magazine_id`=`m`.`id`
                                 INNER JOIN %s AS `l` ON `l`.`id`=`ml`.`language_id`
-                                WHERE `l`.`iso_code`=:isoCode 
+                                WHERE `l`.`iso_code`=:isoCode AND `m`.`visible`=1
                                 ORDER BY `m`.`id` DESC LIMIT 0,1", 
                                 $this->tableMagazine, 
                                 $this->tableMagazineLanguage, 

@@ -129,11 +129,11 @@ class Cache {
         public static function loadFromDictionary(){
                 
             $fileName = CACHE_PATH.'cacheDictionary.php';
-
+            
             if(!file_exists($fileName)) return false;
 
             $h = fopen($fileName, "r");
-
+            
             if(!$h) return false;
 
             // Getting a shared lock 

@@ -23,7 +23,7 @@
                         <? if(!empty($resultCollection['news'])):?>
                         <? foreach ($resultCollection['news'] as $r): ?>
                         <li>
-                            <h2><a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$r['id'];?>"><?=$r['title'];?></a></h2>
+                            <h2><a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$r['news_id'];?>"><?=$r['title'];?></a></h2>
                             <p>
                                 <?=$r['heading'];?>
                             </p>
