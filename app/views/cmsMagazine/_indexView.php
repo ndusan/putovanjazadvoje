@@ -20,7 +20,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Header image:</td>
+                    <td><span class="jtooltip" title="Recommended size 160x160px">Header image:</span></td>
                     <td>
 
                         <? if (isset($magazine['id']) && !empty($magazine['index']['header_image_name'])): ?>
