@@ -63,7 +63,7 @@ class MagazineModel extends Model
                                     FROM %s AS `t`
                                     INNER JOIN %s AS `tl` ON `tl`.`topic_id`=`t`.`id`
                                     INNER JOIN %s AS `l` ON `l`.`id`=`tl`.`language_id`
-                                WHERE `l`.`iso_code`=:isoCode AND `t`.`magazine_id`=:magazineId ORDER BY `t`.`id` DESC LIMIT 0,1", 
+                                WHERE `l`.`iso_code`=:isoCode AND `t`.`magazine_id`=:magazineId ORDER BY `t`.`id` DESC", 
                             $this->tableTopic, $this->tableTopicLanguage, $this->tableLanguage);
                 $stmt = $this->dbh->prepare($query);
                 
