@@ -49,8 +49,9 @@
             </ul>
             <? if(!empty($topNewsCollection)):?>
             <ul class="news">
+                <? $countNews = 0;?>
                 <?foreach($topNewsCollection as $tNews):?>
-                <li>
+                <li <?=$countNews++ >= count($otherNewsCollection) ? 'class="last"' : '' ;?>>
                     <div class="gTitle">
                         <?=$_t['home.new.label'];?>
                     </div>
@@ -68,7 +69,7 @@
             <? if(!empty($otherNewsCollection)):?>
             <ul class="actual">
                 <? foreach($otherNewsCollection as $oNews):?>
-                <li>
+                <li >
                     <? if(!empty($oNews['image_name'])):?>
                     <img src="<?= PUBLIC_UPLOAD_PATH . 'news' .DS.'thumb-'.$oNews['image_name']; ?>" />
                     <? endif;?>
