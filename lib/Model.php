@@ -137,7 +137,7 @@ class Model
     public function getLatestMagazine($params)
     {
         try{
-            $query = sprintf("SELECT `m`.`id`, `m`.`header_image_name`, `m`.`word_image_name`, `m`.`number`, `m`.`created`, 
+            $query = sprintf("SELECT `m`.`id`, `m`.`image_name`, `m`.`header_image_name`, `m`.`word_image_name`, `m`.`number`, `m`.`created`, 
                                      `ml`.`content`, `ml`.`impressum`, `ml`.`topic_title`, `ml`.`topic_content`, 
                                      `ml`.`topic_content_heading`, `ml`.`word`, `ml`.`word_heading` FROM %s AS `m` 
                                 INNER JOIN %s AS `ml` ON `ml`.`magazine_id`=`m`.`id`

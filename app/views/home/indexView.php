@@ -29,16 +29,16 @@
             </div>
             <ul class="intro">
                 <li>
-                    <? if(!empty($magazine['image_name'])):?>
-                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['word_image_name']; ?>" />
+                    <? if(!empty($magazine['word_image_name'])):?>
+                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.'thumb-'.$magazine['word_image_name']; ?>" />
                     <? endif;?>
                     <div class="txt">
                         <?=$html->snap($magazine['word_heading'], 200).'...';?>
                     </div>
                 </li>
                 <li>
-                    <? if(!empty($magazine['word_image_name'])):?>
-                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['image_name']; ?>" />
+                    <? if(!empty($magazine['image_name'])):?>
+                    <img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.'thumb-'.$magazine['image_name']; ?>" />
                     <? endif;?>
                     <div class="txt">
                         <p>

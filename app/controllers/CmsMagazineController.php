@@ -85,8 +85,10 @@ class CmsMagazineController extends Controller
             //If exist delete
             if(!empty($data)){
                 $this->deleteImage($data['image_name'], 'magazine');
+                $this->deleteImage('thumb-'.$data['image_name'], 'magazine');
                 $this->deleteImage($data['header_image_name'], 'magazine');
                 $this->deleteImage($data['word_image_name'], 'magazine');
+                $this->deleteImage('thumb-'.$data['word_image_name'], 'magazine');
             }
             //Delete topic images if exist
             if(!empty($topicImages)){
@@ -181,7 +183,7 @@ class CmsMagazineController extends Controller
         if($this->db->setImage($params['id'], '', 'word_image_name')){
             //Remove image from folder
             $this->deleteImage($response['word_image_name'], 'magazine');
-            
+            $this->deleteImage('thumb-'.$response['word_image_name'], 'magazine');
             echo json_encode(array('response'=>true));
         }else{
             echo json_encode(array('response'=>false));
@@ -201,12 +203,14 @@ class CmsMagazineController extends Controller
                 //Check if exists
                 if(!empty($images['image_name'])){
                     $this->deleteImage($images['image_name'], 'magazine');
+                    $this->deleteImage('thumb-'.$images['image_name'], 'magazine');
                 }
                 
                 $newImageName = $id.'-'.$params['image']['name'];
                 $this->db->setImage($id, $newImageName, 'image_name');
                 
                 $this->uploadImage($newImageName, $params['image'], 'magazine');
+                $this->createThumbImage($newImageName, 'magazine', 95, 95);
             }
             
             if(0 == $params['header_image']['error']){
@@ -269,6 +273,7 @@ class CmsMagazineController extends Controller
                 $this->db->setImage($id, $newImageName, 'word_image_name');
                 
                 $this->uploadImage($newImageName, $params['image'], 'magazine');
+                $this->createThumbImage($newImageName, 'magazine', 95, 95);
             }
             
             return $id;
