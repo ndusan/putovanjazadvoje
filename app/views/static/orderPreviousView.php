@@ -113,56 +113,19 @@
             <div class="wys">
                 <?= $collection['text']; ?>
             </div>
+            <? if(!empty($magazineCollection)):?>
             <ul class="magazines">
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                <?$countMagazine=0;?>
+                <? foreach($magazineCollection as $magazine):?>
+                <li <? if($countMagazine++ >= 6){ echo 'class="last"'; $countMagazine=0;} ?>>
+                    <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj?id='.$magazine['id'];?>">
+                        <img src="<?= PUBLIC_UPLOAD_PATH .'magazine'.DS.'thumb-'.$magazine['image_name']; ?>" />
                     </a>
-                    <h4>BR 01</h4>
+                    <h4><?=$magazine['number'];?></h4>
                 </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 02</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 03</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 04</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 05</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 06</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 07</h4>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    </a>
-                    <h4>BR 08</h4>
-                </li>
+                <? endforeach;?>
             </ul>
+            <? endif;?>
         </div>
     </div>
 </div>

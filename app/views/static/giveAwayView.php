@@ -8,10 +8,11 @@
                 <h1><?=$_t['page.giftsub.title'];?></h1>
                 <? if(!empty($magazineCollection)):?>
                 <ul class="magazines">
+                    <?$countMagazine=0;?>
                     <? foreach($magazineCollection as $magazine):?>
-                    <li>
+                    <li <? if($countMagazine++ >= 6){ echo 'class="last"'; $countMagazine=0;} ?>>
                         <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj?id='.$magazine['id'];?>">
-                            <img src="<?= PUBLIC_UPLOAD_PATH .'magazine'.DS.$magazine['image_name']; ?>" />
+                            <img src="<?= PUBLIC_UPLOAD_PATH .'magazine'.DS.'thumb-'.$magazine['image_name']; ?>" />
                         </a>
                         <h4><?=$magazine['number'];?></h4>
                     </li>

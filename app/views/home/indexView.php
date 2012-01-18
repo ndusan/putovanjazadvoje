@@ -31,7 +31,9 @@
             <ul class="intro">
                 <li>
                     <? if (!empty($magazine['word_image_name'])): ?>
+                    <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'rec-urednika';?>">
                         <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . 'thumb-' . $magazine['word_image_name']; ?>" />
+                    </a>
                     <? endif; ?>
                     <div class="txt">
                         <?= $html->snap($magazine['word_heading'], 200) . '...'; ?>
@@ -39,7 +41,9 @@
                 </li>
                 <li>
                     <? if (!empty($magazine['image_name'])): ?>
+                        <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'tema-broja';?>">
                         <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . 'thumb-' . $magazine['image_name']; ?>" />
+                        </a>
                     <? endif; ?>
                     <div class="txt">
                         <p>
@@ -57,9 +61,15 @@
                                 <?= $_t['home.new.label']; ?>
                             </div>
                             <? if (!empty($tNews['image_name'])): ?>
+                                <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$tNews['id'];?>">
                                 <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . 'thumb-' . $tNews['image_name']; ?>" />
+                                </a>
                             <? endif; ?>
-                            <h2><?= $tNews['title']; ?></h2>
+                            <h2>
+                                <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$tNews['id'];?>">
+                                <?= $tNews['title']; ?>
+                                </a>
+                            </h2>
                             <p>
                                 <?= $tNews['heading']; ?>
                             </p>
@@ -72,10 +82,16 @@
                     <? foreach ($otherNewsCollection as $oNews): ?>
                         <li >
                             <? if (!empty($oNews['image_name'])): ?>
+                                <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$oNews['id'];?>">
                                 <img src="<?= PUBLIC_UPLOAD_PATH . 'news' . DS . 'thumb-' . $oNews['image_name']; ?>" />
+                                </a>
                             <? endif; ?>
                             <div class="txt">
-                                <h2><?= $oNews['title']; ?></h2>
+                                <h2>
+                                    <a href="<?=DS.$params['lang'].DS.'aktuelno?newsId='.$oNews['id'];?>">
+                                    <?= $oNews['title']; ?>
+                                    </a>
+                                </h2>
                                 <p>
                                     <?= $oNews['heading']; ?>
                                 </p>
