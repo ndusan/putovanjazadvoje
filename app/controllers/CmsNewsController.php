@@ -22,7 +22,7 @@ class CmsNewsController extends Controller
                     $this->uploadImage($newImageName, $params['image'], 'news');
                     
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'news', 200, 95);
+                    $this->createThumbImage($newImageName, 'news', 195, 95);
                 }
                 $this->redirect ('cms'.DS.'news', 'success');
             }else{
@@ -53,7 +53,7 @@ class CmsNewsController extends Controller
                     $oldThumbImageName = 'thumb-'.$oldImageName;
                     $this->deleteImage($oldThumbImageName, 'news');
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'news', 200, 95);
+                    $this->createThumbImage($newImageName, 'news', 195, 95);
                 }
                 $this->redirect ('cms'.DS.'news', 'success');
             }else{
