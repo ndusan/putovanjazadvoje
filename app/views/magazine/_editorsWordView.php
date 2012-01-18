@@ -1,15 +1,15 @@
 <div class="breadcrumb">
-    <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.actualedition.link'];?> / <?=$_t['breadcrumb.editor.link'];?>
+    <a href="<?= DS . $params['lang']; ?>"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.actualedition.link']; ?> / <?= $_t['breadcrumb.editor.link']; ?>
 </div>
-<? if(!empty($magazineCollection)):?>
-
-    <?=$magazineCollection['word'];?>
-
-    <? if(!empty($magazineCollection['word_image_name'])):?>
-    <img src="<?=PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazineCollection['word_image_name'];?>" />
-    <? endif; ?>
-
-<? else:?>
+<? if (!empty($magazineCollection)): ?>
+    <div class="wys">
+        <h1>Rec urednika</h1> 
+        <? if (!empty($magazineCollection['word_image_name'])): ?>
+            <img class="wysImg" src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $magazineCollection['word_image_name']; ?>" />
+        <? endif; ?>
+        <?= $magazineCollection['word']; ?>
+    </div>
+<? else: ?>
     <div class="noResults">
         Sorry, no magazine to display
     </div>

@@ -45,7 +45,7 @@
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
-                            <td>Image:</td>
+                            <td><span class="jtooltip" title="Recommended image width 660px">Image:</span></td>
                             <td>
                                 <? if (!empty($topic['id']) && !empty($topic['image_name'])): ?>
                                     <div class="jSubformImage">

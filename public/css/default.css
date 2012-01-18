@@ -98,10 +98,10 @@ ul.banners {overflow:hidden; }
 ul.banners li {margin:10px 0 0 20px;}
 
 .banner {padding:10px 0; position:relative; margin:0 0 15px; background:transparent url(../images/shadowBig.png) scroll no-repeat 0 100%;}
-.slides_container {width:700px; height:260px;} 
-.slides_container p {padding:10px 0; color:#FFF;}
-.slides_container .slide {width:700px; height:260px; display:block;}
-.slides_container .desc {padding:10px 20px; position:absolute; right:0; bottom:0; width:660px; background-image:url(../images/mask.png);}
+.slides_container {width:660px; height:260px;} 
+.slides_container h2 {padding:10px 0; color:#FFF;}
+.slides_container .slide {width:660px; height:260px; display:block;}
+.slides_container .desc {padding:10px 20px; position:absolute; right:0; bottom:0; width:620px; background-image:url(../images/mask.png);}
 
 .pagination {position:absolute; right:0; bottom:0; height:200px; padding:40px 0; width:50px; background:transparent url(../images/bannerPag_bg.png) scroll no-repeat 0 0;}
 .pagination li {margin:10px 10px 5px 20px; overflow:hidden;}
@@ -132,7 +132,7 @@ ul.news li.last {margin:0;}
 
 ul.actual {padding:0 0 20px;}
 ul.actual li {padding:20px 0 20px 10px; border-bottom:solid 1px #EEE; overflow:hidden;overflow:hidden;}
-ul.actual li > a {height:95px; overflow:hidden; float:left;}
+ul.actual li > a {float:left;}
 ul.actual li .txt {margin:0 0 0 210px;}
 
 .footer .copy {float:left; padding:60px 0 0;}
@@ -144,6 +144,8 @@ ul.footerLinks li ul {padding:20px 0 0;}
 
 .wys {padding:10px 0;}
 .wys p {padding:5px 0;}
+.wysImg {float:left; margin:10px 20px 10px 0;}
+
 .breadcrumb {color:#999; line-height:30px; font-size:12px; border-bottom:solid 1px #EEE;}
 
 .forms {overflow:hidden; padding:10px 10px 0; border:solid 1px #f5f5f5; margin:10px 0;}
@@ -167,7 +169,8 @@ ul.orderSelect li span {padding:0 5px;}
 ul.orderSelect input[type=checkbox] {vertical-align:sub;}
 
 ul.magazines {overflow:hidden;}
-ul.magazines li {float:left; padding:10px 2px;}
+ul.magazines li {float:left; padding:10px 0; margin:0 18px 0 0;}
+ul.magazines li.last {margin:0;}
 ul.magazines li img {padding:0 0 5px;}
 ul.magazines li a {display:block; padding:0 0 5px; text-align:center; font-size:12px; line-height:15px;}
 
@@ -179,6 +182,7 @@ ul.downloads li {padding:10px; border-bottom:solid 1px #f5f5f5;}
 
 .contextMain {float:left; width:420px;}
 .contextSidebar {float:right; width:200px; padding:0 10px; text-align:center;}
+.contextSidebar img {width:200px;}
 
 ul.sidebarLinks {overflow:hidden; padding:20px 0;}
 ul.sidebarLinks li a {line-height:50px; font-family: 'Francois One', sans-serif; text-align:center; display:block; width:200px; color:#FFF; background-image:url(../images/links_bg.png);}
@@ -201,6 +205,9 @@ ul.winners li {padding:10px 0; border-top:solid 1px #41a8f0;}
 
 .bgL {position:fixed; top:0; right:50%; width:50%; height:100%; margin:0 490px 0 0;}
 .bgR {position:fixed; top:0; left:50%; width:50%; height:100%; margin:0 0 0 490px;}
+
+.Onetopic {padding:10px 0;}
+.Onetopic img {padding:15px 0;}
 
 
 
