@@ -91,6 +91,35 @@ class StaticModel extends Model
         $output['news'] = $stmt->fetchAll();
         
         //Search via magazine for selected language
+        $query = sprintf("SELECT `m`.`number`, `m`.`image_name` ,`ml`.* FROM %s AS `m`
+                            INNER JOIN %s AS `ml` ON `ml`.`magazine_id`=`m`.`id`
+                            INNER JOIN %s AS `l` ON `l`.`id`=`ml`.`language_id`
+                            WHERE `l`.`iso_code`=:isoCode AND 
+                            (`m`.`number` LIKE :number OR 
+                             `ml`.`content` LIKE :content OR 
+                             `ml`.`impressum` LIKE :impressum OR 
+                             `ml`.`topic_title` LIKE :topicTitle OR 
+                             `ml`.`topic_content` LIKE :topicContent OR 
+                             `ml`.`topic_content_heading` LIKE :topicContentHeading OR 
+                             `ml`.`word` LIKE :word OR 
+                             `ml`.`word_heading` LIKE :wordHeading) AND `m`.`visible`=1",
+                            $this->tableMagazine, $this->tableMagazineLanguage, $this->tableLanguage);
+        $stmt = $this->dbh->prepare($query);
+        
+        $key = '%'.$params['q'].'%';
+        
+        $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+        $stmt->bindParam(':number', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':content', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':impressum', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':topicTitle', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':topicContent', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':topicContentHeading', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':word', $key, PDO::PARAM_STR);
+        $stmt->bindParam(':wordHeading', $key, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $output['magazine'] = $stmt->fetchAll();
         
         return $output;
     }
