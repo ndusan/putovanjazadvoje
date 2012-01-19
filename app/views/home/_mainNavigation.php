@@ -15,8 +15,8 @@
         <li><a href="#"><?=$_t['nav.conts.l'];?></a>
             <ul>
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici-nagradnih-igara';?>"><?=$_t['nav.winners.link'];?></a></li>
-                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'foto-naticanje';?>"><?=$_t['nav.photo.link'];?></a></li>
-                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'gde-smo';?>"><?=$_t['nav.wherecontest.link'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'offline';?>"><?=$_t['nav.photo.link'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>"><?=$_t['nav.wherecontest.link'];?></a></li>
             </ul>
         </li>
         <li><a href="#"><?=$_t['nav.press.l'];?></a>

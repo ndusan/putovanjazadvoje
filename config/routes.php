@@ -57,7 +57,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Competition
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici-nagradnih-igara|online-nagrade-igre|offline-nagradne-igre))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici-nagradnih-igara|online|offline))\/?$/', 
             'controller' => 'competition', 
             'action'     => 'index', 
             'layout'     => 'default'

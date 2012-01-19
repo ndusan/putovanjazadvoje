@@ -18,8 +18,8 @@ class CompetitionController extends Controller
         if(!empty($params['page'])){
             switch($params['page']){
                 case 'dobitnici-nagradnih-igara': $subpageView = '_winners'; break;
-                case 'foto-naticanje': $subpageView = '_fotoCompetition'; break;
-                case 'gde-smo': $subpageView = '_whereAreWe'; break;
+                case 'offline': $subpageView = '_offline'; break;
+                case 'online': $subpageView = '_online'; break;
                 default: $subpageView = '_winners';
             }
         }
