@@ -41,7 +41,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td><span class="jtooltip" title="Image about prize">Image place:</span></td>
+                        <td><span class="jtooltip" title="Image size 210x100px">Prize image:</span></td>
                         <td>
                             <? if (!empty($prize['id']) && !empty($prize['prize_image_name'])): ?>
                                 <div class="jPrizeImage">
