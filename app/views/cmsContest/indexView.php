@@ -19,7 +19,9 @@
                     <td><?=$contest['type'];?></td>
                     <td><?=$html->convertDate($contest['created'], true);?></td>
                     <td>
-                        <? $status = array('pending'=>'Pending', 'active'=>'Active', 'finished'=>'Finished', 'archived'=>'Archived');?>
+                        <? 
+                        //!!!! DONT CHANGE VALUE OF THIS ARRAY -> IT's REALATE TO DB VALUES!!
+                        $status = array('pending'=>'Pending', 'active'=>'Active', 'finished'=>'Finished', 'archived'=>'Archived');?>
                         <select class="jStatus">
                             <? foreach ($status as $k=>$v):?>
                             <? if($k == $contest['status']) $sel = 'selected="selected"';

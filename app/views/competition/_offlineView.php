@@ -4,54 +4,39 @@
             <div class="breadcrumb">
                 <a href="<?= DS . $params['lang']; ?>"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.winners.link']; ?>
             </div>
+            <? if(!empty($offlineContestCollection)):?>
             <div class="wys">
                 <!-- contest init image -->
-                <img width="660" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
+                <img width="660" height="100" src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$offlineContestCollection['image_name']; ?>" />
                 <!-- contest name -->
-                <h1>Naziv nagradne igre</h1>
-                <!-- contest init short description -->
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris adipiscing sapien eu elit lobortis convallis. Phasellus malesuada magna in mauris facilisis pellentesque. Quisque sollicitudin nisi quis metus porttitor consectetur sed eu nulla. Vivamus ipsum enim, mollis eget varius eget, imperdiet quis quam.
-                </p>
-
+                <h1><?=$offlineContestCollection['name'];?></h1>
+                <!-- contest init short content -->
+                <?=$offlineContestCollection['content'];?>
+                
+                <!--prizes-->
+                <? if(!empty($offlineContestPrizes)):?>
                 <h2>Nagrade</h2>
                 <ul class="prizes">
-                    <li>
-                        <h3>1. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
+                    <? $count=0;?>
+                    <? foreach($offlineContestPrizes as $prize):?>
+                    <li <? if($count++ >= 2): $count=0; echo 'class="last"'; endif;?>>
+                        <h3><?=$prize['title'];?></h3>
+                        <?=$prize['content'];?>
+                        <? if(!empty($prize['image_name'])):?>
+                        <img width="210" height="100" src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$prize['image_name']; ?>" />
+                        <? endif; ?>
                     </li>
-                    <li>
-                        <h3>2. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
-                    </li>
-                    <!-- third li has class .last -->
-                    <li class="last">
-                        <h3>3. - 5. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade ide ovde ovo ono</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
-                    </li>
-                    <li>
-                        <h3>1. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
-                    </li>
-                    <li>
-                        <h3>2. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
-                    </li>
-                    <li class="last">
-                        <h3>3. - 5. Mesto : Naziv nagrade</h3>
-                        <p>Opis nagrade</p>
-                        <img width="210" height="100" src="<?= IMAGE_PATH . 'alitalia-logo.jpg'; ?>" />
-                    </li>
+                    <? endforeach; ?>
                 </ul>
+                <? else: ?>
+                    Sorry, no prizes set!
+                <? endif;?>
             </div>
+            <? else:?>
             <div class="noResults">
                 Sorry, no results here
             </div>
+            <? endif;?>
         </div>
     </div>
 </div>

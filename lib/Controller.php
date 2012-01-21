@@ -410,14 +410,14 @@ class Controller {
     
     public function setLeftMenu($params)
     {
-        $onlineCompetitionCollection = $this->db->getOnlineCompetitionCollection($params);
-        $offlineCompetitionCollection = $this->db->getOfflineCompetitionCollection($params);
+        $onlineCollection = $this->db->getOnlineCollection($params);
+        $offlineCollection = $this->db->getOfflineCollection($params);
         
         //Add background
         $backgroundOptions = $this->db->getBackgroundOptions($params);
         
-        $this->set('onlineCompetitionCollection', $onlineCompetitionCollection);
-        $this->set('offlineCompetitionCollection', $offlineCompetitionCollection);
+        $this->set('onlineCollection', $onlineCollection);
+        $this->set('offlineCollection', $offlineCollection);
         $this->set('bgd', $backgroundOptions);
     }
     

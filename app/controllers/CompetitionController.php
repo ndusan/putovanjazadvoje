@@ -17,10 +17,23 @@ class CompetitionController extends Controller
         
         if(!empty($params['page'])){
             switch($params['page']){
-                case 'dobitnici-nagradnih-igara': $subpageView = '_winners'; break;
-                case 'offline': $subpageView = '_offline'; break;
-                case 'online': $subpageView = '_online'; break;
-                default: $subpageView = '_winners';
+                case 'dobitnici-nagradnih-igara': 
+                    $this->set('winnersCollection', $this->db->getWinners($params));
+                    $subpageView = '_winners'; 
+                    break;
+                case 'offline': 
+                    $this->set('offlineContestCollection', $this->db->getOfflineContest($params));
+                    $this->set('offlineContestPrizes', $this->db->getAllOfflinePrizes($params));
+                    $subpageView = '_offline'; 
+                    break;
+                case 'online': 
+                    $onlineContestCollection = $this->db->getAllOnlineContests($params);
+                    $this->set('onlineContestCollection', $onlineContestCollection);
+                    $subpageView = '_online'; 
+                    break;
+                default: 
+                    $this->set('winnersCollection', $this->db->getWinners($params));
+                    $subpageView = '_winners';
             }
         }
         
@@ -29,7 +42,51 @@ class CompetitionController extends Controller
         //Language
         $this->set('isActive', $this->db->isActiveLang('en'));
         $this->set('magazine', $this->db->getLatestMagazine($params));
+    }
+    
+    public function conditionsAction($params)
+    {
         
-        $this->set('winnersCollection', $this->db->getWinners($params));
+        if(empty($params['contest_id']) || !is_numeric($params['contest_id'])){
+            //Go to onilne games home page
+            $this->redirect($params['lang'].'nagradne-igre'.DS.'online', 'error');
+        }
+        
+        //Set left menu
+        $this->setLeftMenu($params);
+        
+        if(!empty($params['submit']) && !empty($params['accept'])){
+            
+            $playerId = sha1(time());
+            //Store info about player
+            if($this->db->setPlayerInfo($playerId, $params)){
+                //Redirect to game
+                $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online'.DS.$params['contest_id'].DS.'play', 'start&player_id='.$playerId);
+            }
+            
+        }
+        //Conditions 
+        $this->set('conditionCollection', $this->db->getConditions($params));
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        
+    }
+    
+    public function playAction($params)
+    {
+        if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['player_id'])){
+            //Go to onilne games home page
+            $this->redirect($params['lang'].'nagradne-igre'.DS.'online', 'error');
+        }
+        //Set left menu
+        $this->setLeftMenu($params);
+        
+        
+        
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
     }
 }

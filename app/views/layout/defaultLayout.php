@@ -61,36 +61,45 @@
                                 </form>
                             </div>
                         </div>
+                        
+                        <? if (!empty($onlineCollection)): ?>
+                        <!--ONLINE START -->
                         <div class="sideBox">
                             <div class="title">
                                 <?= $_t['sidebar.onlinecontest.title']; ?>
                             </div>
                             <div class="context custom">
-                                <img src="<?= IMAGE_PATH . 'baner1.jpg'; ?>" />
-                                <? if (!empty($onlineCompetitionCollection)): ?>
-                                    <? foreach ($onlineCompetitionCollection as $onlineCompetition): ?>
-                                        <?= $onlineCompetition['text']; ?>
-                                    <? endforeach; ?>
-                                <? endif; ?>
+                                <a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>">
+                                    <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS. 'thumb-'.$onlineCollection['image_name']; ?>" alt="<?= $onlineCollection['name']; ?>" title="<?= $onlineCollection['name']; ?>"/>
+                                </a>
+                                <?= $onlineCollection['name']; ?>
                             </div>
                         </div>
+                        <!-- ONLINE END-->
+                        <? endif; ?>
+                        
+                        <? if (!empty($offlineCollection)): ?>
+                        <!--OFFLINE START -->
                         <div class="sideBox">
                             <div class="title">
-                                <?= $_t['sidebar.contest.title']; ?>
+                                Offline nagradne igre
                             </div>
+                            <? foreach ($offlineCollection as $offline): ?>
                             <div class="context custom">
-                                <img src="<?= IMAGE_PATH . 'baner1.jpg'; ?>" />
-                                <? if (!empty($offlineCompetitionCollection)): ?>
-                                    <? foreach ($offlineCompetitionCollection as $offlineCompetition): ?>
-                                        <?= $offlineCompetition['text']; ?>
-                                    <? endforeach; ?>
-                                <? endif; ?>
+                                <a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'offline?id='.$offline['id'];?>">
+                                    <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS. 'thumb-'.$offline['image_name']; ?>" alt="<?= $offline['name']; ?>" title="<?= $offline['name']; ?>"/>
+                                </a>
+                                <?= $offline['name']; ?>
                             </div>
+                            <? endforeach; ?>
                         </div>
+                        <!--OFFLINE END-->
+                        <? endif; ?>
+                        
                         <? if (!empty($bannerCollection)): ?>
                             <ul class="banners">
                                 <? foreach ($bannerCollection as $banner): ?>
-                                    <li><img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . 'thumb-' . $currentNews['image_name']; ?>" /></li>
+                                    <li><img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . 'thumb-' . $banner['image_name']; ?>" /></li>
                                 <? endforeach; ?>
                             </ul>
                         <? endif; ?>

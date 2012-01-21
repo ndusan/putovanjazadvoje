@@ -57,10 +57,20 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Competition
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici-nagradnih-igara|online|offline))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/(?P<page>(dobitnici|online|offline))\/?$/', 
             'controller' => 'competition', 
             'action'     => 'index', 
             'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/online\/(?P<contest_id>\d*)\/conditions\/?$/', 
+            'controller' => 'competition', 
+            'action'     => 'conditions', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/nagradne-igre\/online\/(?P<contest_id>\d*)\/play\/?$/', 
+            'controller' => 'competition', 
+            'action'     => 'play', 
+            'layout'     => 'play'
     ),
     
     //Press

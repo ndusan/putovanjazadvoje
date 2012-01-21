@@ -126,12 +126,16 @@ class CmsContestController extends Controller
                 //Check if exists
                 if(!empty($images['image_name'])){
                     $this->deleteImage($images['image_name'], 'contest');
+                    $this->deleteImage('thumb-'.$images['image_name'], 'contest');
                 }
                 
                 $newImageName = $id.'-'.$params['image']['name'];
                 $this->db->setImage($id, $newImageName, 'image_name');
                 
                 $this->uploadImage($newImageName, $params['image'], 'contest');
+                
+                //Create thumb
+                $this->createThumbImage($newImageName, 'contest', 100, 100);
             }
             
             return $id;

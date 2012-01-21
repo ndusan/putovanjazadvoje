@@ -15,6 +15,8 @@ class Model
     private $tableBackground = 'background';
     private $tableMagazine = 'magazine';
     private $tableMagazineLanguage = 'magazine_language';
+    private $tableContest = 'contest';
+    private $tableContestLanguage = 'contest_language';
 
     /**
      * Contructor
@@ -84,18 +86,54 @@ class Model
         }
     }
 
-
-    public function getOnlineCompetitionCollection($params)
+    public function getOnlineCollection($params)
     {
+        try{
+            $query = sprintf("SELECT `c`.`id`, `c`.`image_name`, `c`.`puzzle_image_name`, `c`.`winner_image_name`, `cl`.`name` FROM %s AS `c`
+                                INNER JOIN %s AS `cl` ON `cl`.`contest_id`=`c`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cl`.`language_id`
+                                WHERE `l`.`iso_code`=:isoCode AND `c`.`status`=:status AND `c`.`type`=:type 
+                                ORDER BY `c`.`id` DESC LIMIT 0,1",
+                    $this->tableContest, $this->tableContestLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
 
+            $status = 'active';
+            $type = 'online';
+            $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
 
+            return $stmt->fetch();
+        }catch(\Exception $e){
+
+            return false;
+        }
     }
 
 
-    public function getOfflineCompetitionCollection($params)
+    public function getOfflineCollection($params)
     {
+        try{
+            $query = sprintf("SELECT `c`.`id`, `c`.`image_name`, `c`.`puzzle_image_name`, `c`.`winner_image_name`, `cl`.`name` FROM %s AS `c`
+                                INNER JOIN %s AS `cl` ON `cl`.`contest_id`=`c`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cl`.`language_id`
+                                WHERE `l`.`iso_code`=:isoCode AND `c`.`status`=:status AND `c`.`type`=:type ORDER BY `c`.`id` DESC",
+                    $this->tableContest, $this->tableContestLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
 
+            $status = 'active';
+            $type = 'offline';
+            $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
 
+            return $stmt->fetchAll();
+        }catch(\Exception $e){
+
+            return false;
+        }
     }
 
     public function getBackgroundOptions($params)
