@@ -12,3 +12,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    App.Competition = App.Competition || {};
+    //This needs to be translated
+    App.Competition.completed = 'Congratulations! <a href="<?=DS.$params['lang'];?>">Click here to finish.</a>';
+</script>
