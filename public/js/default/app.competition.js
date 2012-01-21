@@ -23,8 +23,11 @@ var App = App || {};
                 stop: function(){
                     var list = "&"+$('#sortable').sortable('serialize');
                     var order = list.split('&img[]=');
-                    
-                    if((order[1] == 0)&&(order[2] == 3)&&(order[3] == 6)&&(order[4] == 1)&&(order[5] == 4)&&(order[6] == 7)&&(order[7] == 2)&&(order[8] == 5)&&(order[9] == 8)){ 
+                    console.log(order);
+                    if((order[1] == 0)&&(order[2] == 4)&&(order[3] == 8)&&(order[4] == 12)&&
+                       (order[5] == 1)&&(order[6] == 5)&&(order[7] == 9)&&(order[8] == 13)&& 
+                       (order[9] == 2)&&(order[10] == 6)&&(order[11] == 10)&&(order[12] == 14)&&
+                       (order[13] == 3)&&(order[14] == 7)&&(order[15] == 11)&&(order[16] == 15)){
                         $('#sortable').sortable('disable');
                         clearInterval(t);
                         $('#sortable').css('background-image',$("#sortable li").css("background-image")); 
