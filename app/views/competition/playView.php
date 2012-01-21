@@ -12,8 +12,16 @@
         </div>
     </div>
 </div>
+<div class="containerSide">
+    <h1>Ime nagradne igre</h1>
+    <p>
+        Fotografija mora biti zapisa od minimalno 500 kb s naznakom za Foto natječaj. Ne zaboravite istaknuti vaše podatke: ime, prezime, adresu, e-mail i broj telefona.
+    </p>
+    <img width=300" height="300" src="<?= IMAGE_PATH . 'dog.jpg'; ?>" />
+</div>
+
 <script type="text/javascript">
     App.Competition = App.Competition || {};
     //This needs to be translated
-    App.Competition.completed = 'Congratulations! <a href="<?=DS.$params['lang'];?>">Click here to finish.</a>';
+    App.Competition.completed = 'Congratulations! <a href="<?= DS . $params['lang']; ?>">Click here to finish.</a>';
 </script>
