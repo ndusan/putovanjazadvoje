@@ -23,8 +23,24 @@
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="<?= (!empty($bgd['background_color']) ? 'background:' . $bgd['background_color'] : ''); ?> <?= (!empty($bgd['image_name']) ? 'url(' . DS . 'public' . DS . 'uploads' . DS . 'background' . DS . $bgd['image_name'] . ')' : ''); ?> scroll no-repeat 50% 0;">
-    <!-- This is a content that will be included on page inside of this layout -->
-    <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+        <!-- This is a content that will be included on page inside of this layout -->
+        <div class="wrapper">
+            <div class="main">
+                <div class="content">
+                    <div class="fullBox">
+                        <div class="context">
+                            <h1>Play</h1>
+                            <p>
+                                asdasds
+                            </p>
+                            <!-- This is a content that will be included on page inside of this layout -->
+                            <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+                                include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </htm>

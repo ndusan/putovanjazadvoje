@@ -14,7 +14,7 @@
     <body style="background:#369 url(<?= IMAGE_PATH . 'w404.jpg'; ?>) scroll no-repeat 50% 0;">
         <div class="wrapper">
             <div class="main" style="padding:100px 0">
-                <div class="content">
+                <div class="content page404">
                     <div class="fullBox">
                         <div class="context">
                             <h1>404 : Page Not Found</h1>

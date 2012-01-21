@@ -112,7 +112,8 @@ ul.banners li {margin:10px 0 0 20px;}
 .contentBox .context {background-color:#FFF; padding:0 20px 20px; position:relative; min-height:800px;}
 
 .fullBox {padding:10px 0; background:transparent url(../images/shadowFull.png) scroll no-repeat 0 100%;}
-.fullBox .context {padding:100px 60px; position:relative; min-height:550px; background:#FFF url(../images/map.jpg) scroll no-repeat 50% 100%;}
+.fullBox .context.page404 {padding:100px 60px; position:relative; min-height:550px; background:#FFF url(../images/map.jpg) scroll no-repeat 50% 100%;}
+.fullBox .context {margin:50px 0 0; padding:60px; position:relative; background-color:#FFF;}
 .fullBox .context p {padding:10px 0;}
 
 .gTitle {text-transform:uppercase; position:absolute; top:0; line-height:60px; padding:0 15px 10px; font-family: 'Francois One', sans-serif; font-size:15px; color:#FFF; left:0; background:transparent url(../images/bGreen1.png) scroll no-repeat 0 0;}
@@ -158,6 +159,8 @@ ul.footerLinks li ul {padding:20px 0 0;}
 .forms input[type=text]:focus {background-color:#FFF; }
 .forms input[type=submit] {font-family:'Arial',sans-serif; padding:10px 20px 10px 35px; border-radius:2px; font-size:14px; color:#FFF; font-weight:bold; border:none; background:transparent url(../images/butOk_bg.png) scroll no-repeat 0 -5px;}
 .forms input[type=submit]:hover {background-position:0 -55px; cursor:pointer;}
+.forms select {font-family:'Arial',sans-serif; width:214px; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms select:focus {background-color:#FFF; }
 .forms textarea {font-family:'Arial',sans-serif; width:200px; vertical-align:middle; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .forms textarea:focus {background-color:#FFF; }
 .forms .req {padding:0 10px; color:#b85252; display: none;}
@@ -210,6 +213,20 @@ ul.winners li {padding:10px 0; border-top:solid 1px #41a8f0;}
 ul.prizes {overflow:hidden; margin:20px 0;}
 ul.prizes li {float:left; width:210px; margin:0 15px 15px 0;}
 ul.prizes li.last {margin:0;}
+
+.conditions {padding:10px; height:100px; background-color:#FAFAFA; overflow:auto; color:#369; font-style:italic;}
+
+#container {width:500px;}
+#puzzle {}
+#sortable {list-style-type:none; margin:0px; padding:0px;}
+#sortable li { margin: 0; float: left; width: 125px; height: 125px; color:#FFFFFF; }
+#stats { background-color:#F5F5F5; text-align:center; font-family:'Francois One', sans-serif; padding:15px 0;}
+#stats span {width:70px; text-align:center; display:inline-block; color:#3399CC;}
+#time, #moves { font-size:26px; line-height:30px; vertical-align:middle;}
+#start { background-color: #000000; color:#FFFFFF; opacity: 0.75; font-size:16px; text-align:center; padding:15px 0; margin:240px 0 0; width: 100%; float:left; cursor:pointer; }
+#more { float:left; width: 228px; height:auto; margin-left:40px; background-color:#DDFFAA; }
+#more .images{ float:left; margin: 0; cursor:pointer; }
+#more .images img{ width:125px; height:125px; border: 1px solid #009900; }
 
 
 

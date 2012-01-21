@@ -46,11 +46,11 @@ var App = App || {};
             function breakImage(){
                 t = setInterval('$("#time").html(parseInt($("#time").html())+1);',1000);
                 var image = $("#sortable").css("background-image");
-                var positionX = new Array('0%','-20%','-40%','-60%','-80%');
-                var positionY = new Array('0%','-20%','-40%','-60%','-80%');
+                var positionX = new Array('0','-125px','-250px','-375px');
+                var positionY = new Array('0','-125px','-250px','-375px');
                 $("#sortable").html('');
-                for(var y=0,z=0;y<5;y++){
-                    for(var x=0;x<5;x++){
+                for(var y=0,z=0;y<4;y++){
+                    for(var x=0;x<4;x++){
                         $("#sortable").append('<li id="img_'+z+'">&nbsp;</li>');
                         $("#img_"+z).css("background-image", image);
                         $("#img_"+z).css("background-position", positionX[y]+" "+positionY[x]);
