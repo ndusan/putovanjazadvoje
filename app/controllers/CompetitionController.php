@@ -57,11 +57,11 @@ class CompetitionController extends Controller
         
         if(!empty($params['submit']) && !empty($params['accept'])){
             
-            $playerId = sha1(time());
+            $tocken = sha1(time());
             //Store info about player
-            if($this->db->setPlayerInfo($playerId, $params)){
+            if($this->db->setPlayerInfo($tocken, $params)){
                 //Redirect to game
-                $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online'.DS.$params['contest_id'].DS.'play', 'start&player_id='.$playerId);
+                $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online'.DS.$params['contest_id'].DS.'play', 'start&tocken='.$tocken);
             }
             
         }
@@ -76,7 +76,7 @@ class CompetitionController extends Controller
     
     public function playAction($params)
     {
-        if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['player_id'])){
+        if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['tocken'])){
             //Go to onilne games home page
             $this->redirect($params['lang'].'nagradne-igre'.DS.'online', 'error');
         }
