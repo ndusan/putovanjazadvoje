@@ -78,7 +78,7 @@ class CompetitionController extends Controller
     {
         if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['tocken'])){
             //Go to onilne games home page
-            $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error');
+            $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error2');
         }
         
         if(!empty($params['closed'])){
