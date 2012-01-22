@@ -306,6 +306,28 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    //CMS banners page
+    array(  'url'        => '/^cms\/banners\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/add\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
     //CMS press page
     array(  'url'        => '/^cms\/press\/about-magazine\/?$/', 
             'controller' => 'cmsPress', 
@@ -385,6 +407,21 @@ $routes = array(
             'controller' => 'cmsContest', 
             'action'     => 'winners', 
             'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contest\/players\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'players', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/contest\/players\/(?P<id>\d*)\/export\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'export', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/contest\/winners\/(?P<id>\d*)\/delete-image\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'winnerDeleteImage', 
+            'layout'     => 'empty'
     ),
     array(  'url'        => '/^cms\/contest\/wizard(\/(?P<id>\d*)){0,1}\/?$/', 
             'controller' => 'cmsContest', 

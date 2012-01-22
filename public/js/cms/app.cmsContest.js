@@ -129,6 +129,27 @@ var App = App || {};
         },
         winners: function(){
             App.Common.jtooltip();
+            $('body').delegate('.jPrizeImageDelete', 'click', function(e){
+                e.preventDefault();
+
+                var cHref = $(this).attr('href');
+                $.ajax({
+                    url: cHref,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        
+                        if(data.response){
+                            $('.jPrizeImage').html('<input type="file" name="winner_image" value=""/>');
+                        }
+                    }
+                });
+            });
+        }, 
+        players: function(){
+            //Set datatable
+            $('#dataTable').dataTable({"aaSorting": [[ 6, "desc" ]]});
+            App.Common.thead();
         }
         
     };

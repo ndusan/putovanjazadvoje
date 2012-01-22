@@ -77,9 +77,8 @@
                             <li><a <?= $this->_action=='wallpaper'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'download' .DS.'wallpaper'; ?>">Wallpaper</a></li>
                         </ul>
                     </li>
-                    <li class="leaf">
-                        <a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a>
-                    </li>
+                    <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
+                    <li><a <?= $this->_controller=='cmsBanners'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'banners'; ?>">Banners</a></li>
                 </ul>
             </div>
             <div class="content">

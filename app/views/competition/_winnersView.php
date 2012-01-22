@@ -13,19 +13,25 @@
                     <? foreach ($winnersCollection as $w): ?>
                         <li>
                             <!-- Contest name -->
-                            <h2><?= $w['name']; ?>:</h2>
+                            <h2><?= $w['name']; ?></h2>
                             <!-- Contest description -->
-                            <p><?= $w['description']; ?></p>
+                            <?= $w['content']; ?>
+                            <!-- Winner image if set -->
+                            <? if(!empty($w['winner_image_name'])):?>
+                            <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS.$w['winner_image_name']; ?>" />
+                            <? endif;?>
+                                    
                             <? if (!empty($w['winners'])): ?>
                                 <? foreach ($w['winners'] as $winner): ?>
                                     <!-- Winner name -->
                                     <div class="wys">
-                                    <h2>1. Nagrada bla bla bla</h2>
-                                    <p>Knjiga Muškarci koje sam voljela, Adele Parks, PROFIL
-                                        Petra Matjašec, Zagreb</p>
-                                    <h3><?= $winner['winner']; ?></h3>
+                                    <h2><?=$winner['title'];?></h2>
+                                    <?=$winner['content'];?>
+                                    <h3><?=$winner['winner'];?></h3>
                                     </div>
-                                    <img width="660" height="300" src="<?= IMAGE_PATH . 'dog.jpg'; ?>" />
+                                    <? if(!empty($winner['image_name'])):?>
+                                    <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS.$winner['image_name']; ?>" />
+                                    <? endif;?>
                                 <? endforeach; ?>
                             <? endif; ?>
                         </li>

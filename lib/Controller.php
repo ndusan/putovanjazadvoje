@@ -419,6 +419,7 @@ class Controller {
         $this->set('onlineCollection', $onlineCollection);
         $this->set('offlineCollection', $offlineCollection);
         $this->set('bgd', $backgroundOptions);
+        $this->set('bannerCollection', $this->db->getBannerCollection($params));
     }
     
 

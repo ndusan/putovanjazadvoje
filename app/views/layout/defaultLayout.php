@@ -99,7 +99,11 @@
                         <? if (!empty($bannerCollection)): ?>
                             <ul class="banners">
                                 <? foreach ($bannerCollection as $banner): ?>
-                                    <li><img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . 'thumb-' . $banner['image_name']; ?>" /></li>
+                                    <li>
+                                        <a href="<?=$banner['link']; ?>" target="_blank">
+                                            <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . $banner['image_name']; ?>" />
+                                        </a>
+                                    </li>
                                 <? endforeach; ?>
                             </ul>
                         <? endif; ?>

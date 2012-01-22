@@ -7,6 +7,7 @@
             <tr>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Magazine number</th>
                 <th>Created</th>
                 <th>Status</th>
                 <th width="100px">Action</th>
@@ -17,6 +18,7 @@
                 <tr> 
                     <td><?=$contest['name'];?></td>
                     <td><?=$contest['type'];?></td>
+                    <td><?=$contest['number'];?></td>
                     <td><?=$html->convertDate($contest['created'], true);?></td>
                     <td>
                         <? 
@@ -30,6 +32,7 @@
                             <? endforeach;?>
                         </select>
                         <span><a class="cmsAdd" style="line-height:20px; display:inline-block;" href="/cms/contest/winners/<?=$contest['id'];?>">Define winners</a></span>
+                        <span><a class="cmsEdit" style="line-height:20px; display:inline-block;" href="/cms/contest/players/<?=$contest['id'];?>">Players</a></span>
                     </td>
                     <td align="center">
                         <!--Winners-->
@@ -45,6 +48,7 @@
             <tr> 
                 <th>Name</th>
                 <th>Type</th>
+                <th>Magazine number</th>
                 <th>Created</th> 
                 <th>Status</th>
                 <th>Action</th> 

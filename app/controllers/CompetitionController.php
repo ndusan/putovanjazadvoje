@@ -49,11 +49,8 @@ class CompetitionController extends Controller
         
         if(empty($params['contest_id']) || !is_numeric($params['contest_id'])){
             //Go to onilne games home page
-            $this->redirect($params['lang'].'nagradne-igre'.DS.'online', 'error');
+            $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error');
         }
-        
-        //Set left menu
-        $this->setLeftMenu($params);
         
         if(!empty($params['submit']) && !empty($params['accept'])){
             
@@ -65,6 +62,9 @@ class CompetitionController extends Controller
             }
             
         }
+        //Set left menu
+        $this->setLeftMenu($params);
+        
         //Conditions 
         $this->set('conditionCollection', $this->db->getConditions($params));
         
@@ -78,12 +78,31 @@ class CompetitionController extends Controller
     {
         if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['tocken'])){
             //Go to onilne games home page
-            $this->redirect($params['lang'].'nagradne-igre'.DS.'online', 'error');
+            $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error');
         }
+        
+        if(!empty($params['closed'])){
+            //Update status of player
+            $response = $this->db->updateGame($params);
+            
+            if($response){
+                echo json_encode(array('response'=>true));
+            }else{
+                echo json_encode(array('response'=>false));
+            }
+        }
+        
+        //Check if this game is done
+        $data = $this->db->checkGame($params);
+        if(empty($data['player']['id'])){
+            //Go to onilne games home page
+           
+            $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error');
+        }
+        $this->set('play', $this->db->checkGame($params));
+        
         //Set left menu
         $this->setLeftMenu($params);
-        
-        
         
         //Language
         $this->set('isActive', $this->db->isActiveLang('en'));

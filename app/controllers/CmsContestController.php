@@ -186,6 +186,7 @@ class CmsContestController extends Controller
             if(!empty($data)){
                 $this->deleteImage($data['image_name'], 'contest');
                 $this->deleteImage($data['puzzle_image_name'], 'contest');
+                $this->deleteImage($data['winner_image_name'], 'contest');
             }
             //Delete topic images if exist
             if(!empty($wizardImages)){
@@ -205,10 +206,67 @@ class CmsContestController extends Controller
     {
         if(!empty($params['submit'])){
             $this->db->setWinners($params);
+            
+            if(0 == $params['winner_image']['error']){
+                //Check if exists
+                if(!empty($images['winner_image_name'])){
+                    $this->deleteImage($images['winner_image_name'], 'contest');
+                }
+                
+                $newImageName = $params['id'].'-winner-'.$params['winner_image']['name'];
+                $this->db->setImage($params['id'], $newImageName, 'winner_image_name');
+                
+                $this->uploadImage($newImageName, $params['winner_image'], 'contest');
+            }
             $this->redirect ('cms'.DS.'contest', 'success');
         }
         
         $this->set('prizesCollection', $this->db->getPrizes($params));
+    }
+    
+    
+    public function winnerDeleteImageAction($params)
+    {
+        //Get image name if exist
+        $response = $this->db->getImages($params['id']);
+        
+        if($this->db->setImage($params['id'], '', 'winner_image_name')){
+            //Remove image from folder
+            $this->deleteImage($response['winner_image_name'], 'contest');
+            
+            echo json_encode(array('response'=>true));
+        }else{
+            echo json_encode(array('response'=>false));
+        }
+    }
+    
+    
+    public function playersAction($params)
+    {
+        $this->set('playerCollection', $this->db->getPlayers($params));
+    }
+    
+    public function exportAction($params)
+    {
+        
+        $response = $this->db->getPlayers($params);
+        
+        //Add header
+        $output = 'Firstname,Lastname,Email,Sex,Address,Status,Created';
+        $output.= "\n";
+        foreach($response as $r){
+            $output.= $r['firstname'].','.$r['lastname'].','.$r['email'].','.$r['sex'].','.$r['address'].','.($r['closed']?'Closed':'Active').','.$r['created'];
+            $output.= "\n";
+        }
+        
+        // Output to browser with appropriate mime type, you choose ;)
+	header("Content-type: text/x-csv");
+	//header("Content-type: text/csv");
+	//header("Content-type: application/csv");
+	header("Content-Disposition: attachment; filename=search_results.csv");
+	
+        echo $output;
+	exit;
     }
 }
 

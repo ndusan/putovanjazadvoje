@@ -7,18 +7,21 @@ class CmsContestModel extends Model
     private $tableContestLanguage = 'contest_language';
     private $tableLanguage = 'language';
     private $tableMagazine = 'magazine';
+    private $tableMagazineLanguage = 'magazine_language';
     private $tableContestPrize = 'contest_prize';
     private $tableContestPrizeLanguage = 'contest_prize_language';
+    private $tablePlayers = 'players';
     
     public function getContests()
     {
         try{
-            $query = sprintf("SELECT `c`.*, `cl`.`name` FROM %s AS `c`
+            $query = sprintf("SELECT `c`.*, `m`.`number`, `cl`.`name` FROM %s AS `c`
+                                LEFT JOIN %s AS `m` ON `m`.`id`=`c`.`magazine_id`
                                 INNER JOIN %s AS `cl` ON `cl`.`contest_id`=`c`.`id`
                                 INNER JOIN %s AS `l` ON `l`.`id`=`cl`.`language_id`
                                 WHERE `l`.`is_default`=1
                                 ORDER BY `c`.`id` DESC", 
-                                $this->tableContest, $this->tableContestLanguage, $this->tableLanguage);
+                                $this->tableContest, $this->tableMagazine, $this->tableContestLanguage, $this->tableLanguage);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -226,7 +229,7 @@ class CmsContestModel extends Model
     public function getImages($id)
     {
         try{
-            $query = sprintf("SELECT `image_name`, `puzzle_image_name` FROM %s WHERE `id`=:id", $this->tableContest);
+            $query = sprintf("SELECT `image_name`, `puzzle_image_name`, `winner_image_name` FROM %s WHERE `id`=:id", $this->tableContest);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -248,7 +251,11 @@ class CmsContestModel extends Model
             }elseif($field == 'puzzle_image_name'){
                 $query = sprintf("UPDATE %s SET `puzzle_image_name`=:imageName WHERE `id`=:id",
                                     $this->tableContest);
+            }elseif($field == 'winner_image_name'){
+                $query = sprintf("UPDATE %s SET `winner_image_name`=:imageName WHERE `id`=:id",
+                                    $this->tableContest);
             }
+            
             
             $stmt = $this->dbh->prepare($query);
                 
@@ -519,14 +526,26 @@ class CmsContestModel extends Model
                                 INNER JOIN %s AS `l` ON `l`.`id`=`cpl`.`language_id`
                                 WHERE `l`.`is_default`=1 AND 
                                       `cp`.`contest_id`=:contestId 
-                                ORDER BY `cp`.`id` DESC", 
+                                ORDER BY `cp`.`id` ASC", 
                             $this->tableContestPrize, $this->tableContestPrizeLanguage, $this->tableLanguage);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':contestId', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
             
-            return $stmt->fetchAll();
+            $output['winners'] = $stmt->fetchAll();
+            
+            //Add winner image
+            $query = sprintf("SELECT `winner_image_name` FROM %s WHERE `id`=:id", $this->tableContest);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $winnerImage = $stmt->fetch();
+            $output['winner_image_name'] = $winnerImage['winner_image_name'];
+            
+            return $output;
         }catch(Exception $e){
             
             return false;
@@ -549,6 +568,30 @@ class CmsContestModel extends Model
             }
             
             return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getPlayers($params)
+    {
+        try{
+            $query = sprintf("SELECT `p`.*, `cl`.`name` FROM %s AS `p` 
+                                INNER JOIN %s AS `c` ON `c`.`id`=`p`.`contest_id`
+                                INNER JOIN %s AS `cl` ON `cl`.`contest_id`=`c`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`cl`.`language_id`
+                                WHERE `l`.`is_default`=1 AND 
+                                      `c`.`id`=:contestId 
+                                ORDER BY `p`.`id` DESC", 
+                            $this->tablePlayers, $this->tableContest, $this->tableContestLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':contestId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;

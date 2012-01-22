@@ -29,15 +29,30 @@ var App = App || {};
                 }
                 
                 $('.jr').each(function(){
-                    if($(this).val().length <= 0){
+                    if($(this).val().length <= 0 || $(this).val() == 0){
                         
                         $(this).addClass('warning');
                         $(this).closest('tr').find('span.req').show();
 
                         allOk = false;
                     }else{
-                        $(this).removeClass('warning');
-                        $(this).closest('tr').find('span.req').hide();
+                        if($(this).hasClass('jCheckEmail')){
+                            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                            var cEmail = $(this).val();
+                            
+                            if(reg.test(cEmail) == false){
+                                $(this).addClass('warning');
+                                $(this).closest('tr').find('span.req').show();
+
+                                allOk = false;
+                            }else{
+                                $(this).removeClass('warning');
+                                $(this).closest('tr').find('span.req').hide();
+                            }
+                        }else{
+                            $(this).removeClass('warning');
+                            $(this).closest('tr').find('span.req').hide();
+                        }
                     }
                 });
                 

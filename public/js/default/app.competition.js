@@ -7,9 +7,9 @@ var App = App || {};
             //If checkbox active enable submit
             $('body').delegate('#jCheckbox','click', function(){
                 if($(this).is(':checked')){
-                    $('#jSubmit').removeAttr('disabled');
+                    $('#jSubmit').addClass('active').removeAttr('disabled');
                 }else{
-                    $('#jSubmit').attr('disabled','disabled');
+                    $('#jSubmit').removeClass('active').attr('disabled','disabled');
                 }
             });
         },
@@ -34,17 +34,23 @@ var App = App || {};
                         $('#sortable li').fadeOut('slow', function(){
                             $('#sortable').html('<div class="completed">'+App.Competition.completed+'</div>'); 
                         });
-                        
+                        //Set done
+                        $.ajax({
+                            'url': App.Competition.data['url'],
+                            'type': 'POST',
+                            'data': 'tocken='+App.Competition.data['tocken']+'&contest_id='+App.Competition.data['contest']+'&closed=1',
+                            'dataType':'json'
+                        });
                     }else{ 
                         $('#moves').html(parseInt($('#moves').html())+1); 
                     }
                 }
             });	
             $('#sortable').disableSelection().sortable('disable');
+            
             $('body').delegate('#start','click',function(){
                 breakImage();
             });
-
             // function to break main image into tiles
             function breakImage(){
                 t = setInterval('$("#time").html(parseInt($("#time").html())+1);',1000);
