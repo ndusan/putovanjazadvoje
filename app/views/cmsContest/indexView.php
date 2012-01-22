@@ -32,7 +32,7 @@
                             <? endforeach;?>
                         </select>
                         <span><a class="cmsAdd" style="line-height:20px; display:inline-block;" href="/cms/contest/winners/<?=$contest['id'];?>">Define winners</a></span>
-                        <span><a class="cmsAdd" style="line-height:20px; display:inline-block;" href="/cms/contest/players/<?=$contest['id'];?>">Players</a></span>
+                        <span><a class="cmsAdd" style="line-height:20px; display:inline-block;" href="/cms/contest/players/<?=$contest['id'];?>">Export</a></span>
                     </td>
                     <td align="center">
                         <!--Winners-->
