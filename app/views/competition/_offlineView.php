@@ -7,7 +7,7 @@
             <? if(!empty($offlineContestCollection)):?>
             <div class="wys">
                 <!-- contest init image -->
-                <img width="660" height="100" src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$offlineContestCollection['image_name']; ?>" />
+                <img src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$offlineContestCollection['image_name']; ?>" />
                 <!-- contest name -->
                 <h1><?=$offlineContestCollection['name'];?></h1>
                 <!-- contest init short content -->
@@ -23,7 +23,7 @@
                         <h3><?=$prize['title'];?></h3>
                         <?=$prize['content'];?>
                         <? if(!empty($prize['image_name'])):?>
-                        <img width="210" height="100" src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$prize['image_name']; ?>" />
+                        <img src="<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$prize['image_name']; ?>" />
                         <? endif; ?>
                     </li>
                     <? endforeach; ?>

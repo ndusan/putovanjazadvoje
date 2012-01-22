@@ -25,6 +25,11 @@
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="<?= (!empty($bgd['background_color']) ? 'background:' . $bgd['background_color'] : ''); ?> <?= (!empty($bgd['image_name']) ? 'url(' . DS . 'public' . DS . 'uploads' . DS . 'background' . DS . $bgd['image_name'] . ')' : ''); ?> scroll no-repeat 50% 0;">
         <!-- This is a content that will be included on page inside of this layout -->
         <div class="wrapper">
+            <div class="header">
+                <a class="logo" href="/">
+                    <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
+                </a>
+            </div>
             <div class="main">
                 <div class="content">
                     <div class="fullBox">
@@ -37,6 +42,12 @@
                 </div>
             </div>
         </div>
-
+        <div class="footerW">
+            <div class="footer">
+                <div class="copy">
+                    Copyright © putovanjazadvoje.rs 2011.
+                </div>
+            </div>
+        </div>
     </body>
 </htm>
