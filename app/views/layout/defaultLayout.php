@@ -1,11 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Putovanja za dvoje</title>
+        <?  $breadcrumb = '';
+            if(!empty($params['breadcrumb'])):
+                foreach($params['breadcrumb'] as $bc):
+                    if(!is_numeric($bc)):
+                        $breadcrumb.= ' - '.str_replace('-', ' ', ucfirst($bc));
+                    endif;
+                endforeach;
+            endif;?>
+        <title>Putovanja za dvoje<?=$breadcrumb;?></title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="Description" content="" />
-        <meta name="Keywords" content="" />
+        <meta name="Description" content="Magazin Putovanja za dvoje vodeći je turistički magazin u regionu koji savremenim putnicima pruža zanimljive i korisne informacije o domaćim i svetskim destinacijama. Kroz franšizna izdanja dostupan je u više od 15 zemalja Europe. Tekstovi sa stvarnih putovanja obogaćeni su vrhunskim autorskim fotografijama srpskih i internacionalnih putnika." />
+        <meta name="Keywords" content="putovanja za dvoje, magazin za savremong putnika, časopis o putovanjima, egzotične destinacije, poznata skijališta, istorijske građevine, putovanja u pustinju, popularni restorani, divlje životinje, krstarenja, najlepše plaže, avanturizam, kulturna središta, preporuke hotela, modne stranice, nagradne igre, internet izdanje časopisa, sajam turizma, franšizna izdanja, putovanja, skijanje, arhitektura, znamenitosti, pustinje, muzeji, moda, turizam" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <link rel="author" href="<?= DS . 'public' . DS . 'humans.txt'; ?>" />
         <!-- Load all assets (js + css) -->
