@@ -76,7 +76,7 @@ class CompetitionController extends Controller
     
     public function playAction($params)
     {
-        if(empty($params['contest_id']) || !is_numeric($params['contest_id']) || empty($params['tocken'])){
+        if(empty($params['contest_id']) || empty($params['tocken'])){
             //Go to onilne games home page
             $this->redirect($params['lang'].DS.'nagradne-igre'.DS.'online', 'error');
         }
