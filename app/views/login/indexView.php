@@ -1,5 +1,5 @@
 <div class="headerLogin">
-    <h1><span><img src="<?= IMAGE_PATH . 'Smartfish.png'; ?>" /></span>BG Info Box</h1>
+    <h1><span><img src="<?= IMAGE_PATH . 'Smartfish.png'; ?>" /></span>Putovanja za dvoje</h1>
 </div>
 
 <div class="login">
