@@ -3,6 +3,9 @@
         <li><a href="/cms/contest" >Contest</a></li>
         <li><h3>/ Players</h3></li>
     </ul>
+    <ul class="addTop">
+        <li><a class="cmsAdd" href="/cms/contest/players/<?= $params['id']; ?>/export" target="_blank">Export to CVS</a></li>
+    </ul>
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 
             <tr>
@@ -40,9 +43,7 @@
         </tfoot> 
     </tbody> 
     </table> 
-    <ul class="addTop">
-        <li><a class="cmsAdd" href="/cms/contest/players/<?= $params['id']; ?>/export" target="_blank">Export to CVS</a></li>
-    </ul>
+
 <? else: ?>
     <div class="noResults">
         There are no results on this page.
