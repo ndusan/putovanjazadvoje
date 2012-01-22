@@ -6,7 +6,7 @@ var App = App || {};
         },
         index: function() {
             //Set datatable
-            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]]});
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
         },
         wizard: function() {
@@ -14,7 +14,7 @@ var App = App || {};
             App.Common.jtooltip();
             App.Common.mce();
             
-            $('.dataTable').dataTable({"aaSorting": [[ 1, "desc" ]]});
+            $('.dataTable').dataTable({"aaSorting": [[ 1, "desc" ]], "iDisplayLength": 50});
             
             App.Common.thead();
             

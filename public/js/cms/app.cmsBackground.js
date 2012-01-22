@@ -35,7 +35,7 @@ var App = App || {};
             });
             
             //Set datatable
-            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]]});
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
         }
     };

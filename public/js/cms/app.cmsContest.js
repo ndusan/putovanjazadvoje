@@ -6,7 +6,7 @@ var App = App || {};
         },
         index: function() {
             //Set datatable
-            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]]});
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
             
             
@@ -65,7 +65,7 @@ var App = App || {};
         wizardPrizeFragment: function(){
             
             //Set datatable
-            $('.dataTable').dataTable({"aaSorting": [[ 1, "asc" ]]});
+            $('.dataTable').dataTable({"aaSorting": [[ 1, "asc" ]], "iDisplayLength": 50});
             App.Common.thead();
             
             $('body').delegate('.jPrizeAdd', 'click', function(e){
@@ -148,7 +148,7 @@ var App = App || {};
         }, 
         players: function(){
             //Set datatable
-            $('#dataTable').dataTable({"aaSorting": [[ 6, "desc" ]]});
+            $('#dataTable').dataTable({"aaSorting": [[ 6, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
         }
         

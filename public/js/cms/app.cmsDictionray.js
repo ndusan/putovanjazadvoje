@@ -15,7 +15,7 @@ var App = App || {};
         index: function() {
             
             //Set datatable
-            $('#dataTable').dataTable();
+            $('#dataTable').dataTable({"iDisplayLength": 50});
             App.Common.thead();
         }
     };
