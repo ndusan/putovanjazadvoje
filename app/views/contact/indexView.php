@@ -34,6 +34,22 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <label><?=$_t['contactform.company.label'];?>Zemlja<span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[company]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label><?=$_t['contactform.company.label'];?>Email<span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[company]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <label><?=$_t['contactform.message.label'];?><span>*</span></label>
                                 </td>
                                 <td>

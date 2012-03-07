@@ -43,9 +43,13 @@
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>">Pretplati se</a></li>
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>">Naruci ranije brojeve</a></li>
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Pokloni pretplatu</a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Newsletter</a></li>
                 </ul>
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
+                </a>
+                <a href="#" class="topBanner">
+                    gornji banner
                 </a>
                 <ul class="topInfo">
                     <li class="first">
