@@ -44,7 +44,7 @@
                         <tfoot
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" value="Posalji" name="submit" />
+                                    <input type="submit" value="<?=$_t['orderform.buttonsend.label'];?>" name="submit" />
                                 </td>
                             </tr>
                         </tfoot>

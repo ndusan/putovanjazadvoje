@@ -4,15 +4,15 @@
         <!-- Image Puzzle -->
         <ul id="sortable" style="background:url(<?= PUBLIC_UPLOAD_PATH.'contest'.DS.$play['game']['puzzle_image_name']; ?>) center center no-repeat; width:500px; height:500px;">
             <? if($play['player']['closed'] == 0):?>
-            <div id="start">Click to Start</div>
+            <div id="start"><?= $_t['game.start.label']; ?></div>
             <? else: ?>
-            <div class="completed">Congratulations! <a href="<?= DS . $params['lang']; ?>">Click here to go on homepage.</div>
+            <div class="completed"><?= $_t['game.congr.label']; ?> <a href="<?= DS . $params['lang']; ?>"><?= $_t['game.homepage.link']; ?></div>
             <? endif;?>
         </ul>
         <!-- Puzzle Stats -->
         <div id="stats">
-            <span id="moves">0</span> moves
-            <span id="time">0</span> seconds
+            <span id="moves">0</span><?= $_t['game.moves.label']; ?>
+            <span id="time">0</span><?= $_t['game.sec.label']; ?> 
         </div>
     </div>
 </div>

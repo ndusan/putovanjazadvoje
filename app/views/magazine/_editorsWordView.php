@@ -3,7 +3,7 @@
 </div>
 <? if (!empty($magazineCollection)): ?>
     <div class="wys">
-        <h1>Rec urednika</h1> 
+        <h1><?= $_t['subnav.editor.link']; ?></h1> 
         <? if (!empty($magazineCollection['word_image_name'])): ?>
             <img class="wysImg" src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $magazineCollection['word_image_name']; ?>" />
         <? endif; ?>
@@ -11,6 +11,6 @@
     </div>
 <? else: ?>
     <div class="noResults">
-        Sorry, no magazine to display
+        <?= $_t['magazine.sorry.label']; ?>
     </div>
 <? endif; ?>

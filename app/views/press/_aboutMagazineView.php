@@ -9,7 +9,7 @@
                 <?=$dataCollection['text'];?>
             </div>
             <? if(!empty($dataCollection['files'])):?>
-            <h2>Šta ovde ide, tj koji naslov?</h2>
+            <h2><?= $_t['press.about.title']; ?></h2>
             <ul class="downloads">
                 <? foreach($dataCollection['files'] as $file):?>
                 <li><a href="<?=PUBLIC_UPLOAD_PATH.'press'.DS.$file['file_name'];?>" target="_blank"><?=$file['file_name'];?> (Download <?=$file['type'];?>, <?=$file['size']/1024;?> kB)</a></li>

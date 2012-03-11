@@ -24,6 +24,6 @@
     </div>
 <? else: ?>       
     <div class="noResults">
-        Sorry, no magazine to display
+        <?= $_t['magazine.sorry.label']; ?>
     </div>
 <? endif; ?>

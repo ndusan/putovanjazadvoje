@@ -20,7 +20,7 @@
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'offline?id='.$offline['id'];?>"><?=$offline['name'];?></a></li>
                 <? endforeach;?>
                 <? endif;?>
-                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>">Online nagradne igre</a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>"><?=$_t['nav.online.link'];?></a></li>
             </ul>
         </li>
         <li><a href="#"><?=$_t['nav.press.l'];?></a>
