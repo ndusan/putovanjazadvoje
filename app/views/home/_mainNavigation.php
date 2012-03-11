@@ -14,13 +14,17 @@
         <li><a href="<?=DS.$params['lang'].DS.'aktuelno';?>"><?=$_t['nav.act.l'];?></a></li>
         <li><a href="#"><?=$_t['nav.conts.l'];?></a>
             <ul>
-                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici';?>"><?=$_t['nav.winners.link'];?></a></li>
                 <? if(!empty($offlineCollection)):?>
                 <? foreach($offlineCollection as $offline):?>
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'offline?id='.$offline['id'];?>"><?=$offline['name'];?></a></li>
                 <? endforeach;?>
                 <? endif;?>
+
                 <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>"><?=$_t['nav.online.link'];?></a></li>
+
+               
+                <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici';?>"><?=$_t['nav.winners.link'];?></a></li>
+
             </ul>
         </li>
         <li><a href="#"><?=$_t['nav.press.l'];?></a>

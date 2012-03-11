@@ -40,12 +40,19 @@
         <div class="wrapper">
             <div class="header">
                 <ul class="topNav">
+
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>"><?= $_t['nav.sub.link']; ?></a></li>
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>"><?= $_t['nav.order.link']; ?></a></li>
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>"><?= $_t['nav.gift.link']; ?></a></li>
+                
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Newsletter</a></li>
+
                 </ul>
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
+                </a>
+                <a href="#" class="topBanner">
+                    gornji banner
                 </a>
                 <ul class="topInfo">
                     <li class="first">
