@@ -4,7 +4,7 @@
         <?  $breadcrumb = '';
             if(!empty($params['breadcrumb'])):
                 foreach($params['breadcrumb'] as $bc):
-                    if(!is_numeric($bc)):
+                    if(!is_numeric($bc) && !empty($bc)):
                         $breadcrumb.= ' - '.str_replace('-', ' ', ucfirst($bc));
                     endif;
                 endforeach;
