@@ -34,6 +34,31 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <label><?=$_t['contactform.city.label'];?><span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[city]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label><?=$_t['contactform.country.label'];?><span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[country]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                             
+                            <tr>
+                                <td>
+                                    <label>Email<span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="collection[email]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <label><?=$_t['contactform.message.label'];?><span>*</span></label>
                                 </td>
                                 <td>
@@ -44,7 +69,7 @@
                         <tfoot
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" value="Posalji" name="submit" />
+                                    <input type="submit" value="<?=$_t['orderform.buttonsend.label'];?>" name="submit" />
                                 </td>
                             </tr>
                         </tfoot>

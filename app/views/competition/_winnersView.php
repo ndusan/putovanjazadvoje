@@ -39,7 +39,7 @@
                 </ul>
             <? else: ?>
                 <div class="noResults">
-                    Sorry, no results here
+                    <?= $_t['noresults.label']; ?>
                 </div>
             <? endif; ?>
         </div>

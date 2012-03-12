@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="<?= DS . $params['lang']; ?>"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.winners.link']; ?>
+                <a href="<?= DS . $params['lang']; ?>"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.offline.link']; ?>
             </div>
             <? if(!empty($offlineContestCollection)):?>
             <div class="wys">
@@ -15,7 +15,7 @@
                 
                 <!--prizes-->
                 <? if(!empty($offlineContestPrizes)):?>
-                <h2>Nagrade</h2>
+                <h2><?= $_t['contests.prizes']; ?></h2>
                 <ul class="prizes">
                     <? $count=0;?>
                     <? foreach($offlineContestPrizes as $prize):?>
@@ -29,12 +29,12 @@
                     <? endforeach; ?>
                 </ul>
                 <? else: ?>
-                    Sorry, no prizes set!
+                    <?= $_t['contests.noprizes.label']; ?>
                 <? endif;?>
             </div>
             <? else:?>
             <div class="noResults">
-                Sorry, no results here
+                <?= $_t['noresults.label']; ?>
             </div>
             <? endif;?>
         </div>

@@ -40,17 +40,24 @@
         <div class="wrapper">
             <div class="header">
                 <ul class="topNav">
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>">Pretplati se</a></li>
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>">Naruci ranije brojeve</a></li>
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Pokloni pretplatu</a></li>
+
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>"><?= $_t['nav.sub.link']; ?></a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>"><?= $_t['nav.order.link']; ?></a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>"><?= $_t['nav.gift.link']; ?></a></li>
+                
+                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Newsletter</a></li>
+
                 </ul>
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                 </a>
+                <a href="#" class="topBanner">
+                    gornji banner
+                </a>
                 <ul class="topInfo">
                     <li class="first">
                         <h1><?=$magazine['number'];?></h1>
-                        <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>">broj u prodaji</a>
+                        <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>"><?= $_t['nav.edit-sale.link']; ?></a>
                     </li>
                     <? if(!empty($magazine['header_image_name'])):?>
                     <li><img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['header_image_name']; ?>" /></li>
@@ -90,7 +97,7 @@
                         <!--OFFLINE START -->
                         <div class="sideBox">
                             <div class="title">
-                                Offline nagradne igre
+                                <?= $_t['sidebar.contest.title']; ?>
                             </div>
                             <? foreach ($offlineCollection as $offline): ?>
                             <div class="context custom">
@@ -135,30 +142,29 @@
                 <ul class="footerLinks">
                     <li class="first"><a href="#"><?= $_t['footer.home.link']; ?></a>
                         <ul>
-                            <li><a href="#"><?= $_t['footer.magazine.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.actual.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.contests.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.press.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.adv.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.download.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.contact.link']; ?></a></li>
+                            
+                            <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'o-nama';?>"><?= $_t['footer.aboutus.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'o-magazinu';?>"><?= $_t['footer.press.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'oglasavanje'.DS.'cenovnik-i-formati';?>"><?= $_t['footer.adv.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'preuzimanje';?>"><?= $_t['footer.download.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'kontakt';?>"><?= $_t['footer.contact.link']; ?></a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><?= $_t['footer.actual.link']; ?></a>
+                    <li>
                         <ul>
-                            <li><a href="#"><?= $_t['footer.magazine.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.actual.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.contests.link']; ?></a></li>
-                            <li><a href="#"><?= $_t['footer.press.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'aktuelno';?>"><?= $_t['footer.actual.link']; ?></a>
+                            <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>"><?= $_t['footer.onsale.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>"><?= $_t['footer.contests.link']; ?></a></li>
+                            <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici';?>"><?= $_t['footer.winners.link']; ?></a></li>
+                            
                         </ul>
                     </li>
-                    <li class="last"><a href="#"><?= $_t['footer.contact.link']; ?></a>
+                    <li>
                         <ul>
-                            <li>Email:</li>
+                            <li>Email: office@putovanjazadvoje.rs</li>
                             <li>Tel:</li>
-                            <li>Skype:</li>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
+                            <li><a href="http://www.facebook.com/pages/Putovanja-za-dvojers/126685817416482" target="_blank">Facebook </a></li>
+                            <li><a href="https://twitter.com/#!/putovanjars" target="_blank">Twitter</a></li>
                         </ul>
                     </li>
                 </ul>

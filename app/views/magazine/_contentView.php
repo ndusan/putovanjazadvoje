@@ -5,7 +5,7 @@
 <? if (!empty($magazineCollection)): ?>
     <div class="contextMain">
         <div class="wys">
-            <h1>Sadrzaj</h1>    
+            <h1><?= $_t['magazine.content.title']; ?></h1>    
             <?= $magazineCollection['content']; ?>
         </div>
     </div>
@@ -15,13 +15,13 @@
         </div>
         <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $magazineCollection['image_name']; ?>" />
         <ul class="sidebarLinks">
-            <li class="blue"><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'pretplati-se-na-magazin'; ?>">STAMPANO IZDANJE</a></li>
-            <li class="green"><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'arhiva-izdanja'; ?>">ARHIVA IZDANJA</a></li>
+            <li class="blue"><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'pretplati-se-na-magazin'; ?>"><?= $_t['magazine.print-ed.link']; ?></a></li>
+            <li class="green"><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'arhiva-izdanja'; ?>"><?= $_t['magazine.archive.link']; ?></a></li>
         </ul>
     </div>
 <? else: ?>
     <div class="noResults">
-        Sorry, no magazine to display
+        <?= $_t['magazine.sorry.label']; ?>
     </div>
 <? endif; ?>
 

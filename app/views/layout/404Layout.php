@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>BG Info Box</title>
+        <title>Putovanja za dvoje</title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="" />
@@ -17,12 +17,12 @@
                 <div class="content page404">
                     <div class="fullBox">
                         <div class="context">
-                            <h1>404 : Page Not Found</h1>
+                            <h1><?= $_t['404.title']; ?></h1>
                             <p>
-                                Sorry, but the page you are trying to find is not here.
+                                <?= $_t['404.text']; ?>
                             </p>
                             <p>
-                                Return to <a href="/">Homepage</a>
+                                <?= $_t['404.return.label']; ?><a href="/"><?= $_t['404.homepage.link']; ?></a>
                             </p>
                             <!-- This is a content that will be included on page inside of this layout -->
                             <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
