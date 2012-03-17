@@ -18,7 +18,8 @@ class Model
     private $tableContest = 'contest';
     private $tableContestLanguage = 'contest_language';
     private $tableBanner = 'banners';
-
+    private $tableHeader = 'header';
+    
     /**
      * Contructor
      * @return boolean
@@ -27,7 +28,7 @@ class Model
     {
         try {
             $this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=UTF-8", DB_USER, DB_PASS);
-        }catch(PDOException $e){
+        }catch(PDO\PDOException $e){
            // echo $e->getMessage();
         }
     }
@@ -60,7 +61,7 @@ class Model
             $stmt->execute();
             $response = $stmt->fetchAll();
 
-            if(empty($response)) throw new \Exception('No language specified in DB');
+            if(empty($response)) throw new \PDOException('No language specified in DB');
 
             foreach($response as $r){
 
@@ -81,7 +82,7 @@ class Model
             }
 
             return $output;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
@@ -106,7 +107,7 @@ class Model
             $stmt->execute();
 
             return $stmt->fetch();
-        }catch(\Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
@@ -131,7 +132,7 @@ class Model
             $stmt->execute();
 
             return $stmt->fetchAll();
-        }catch(\Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
@@ -147,7 +148,7 @@ class Model
             $stmt->execute();
 
             return $stmt->fetch();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
@@ -166,7 +167,7 @@ class Model
             $response = $stmt->fetch();
 
             return $response['visible'] ? true : false;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
@@ -192,7 +193,7 @@ class Model
             $stmt->execute();
             
             return $stmt->fetch();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -208,10 +209,25 @@ class Model
             $stmt->execute();
             
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
 
             return false;
         }
         
+    }
+    
+    public function getHeader()
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `visible`='1'", $this->tableHeader);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            return $stmt->fetch();
+        }catch(\PDOException $e){
+
+            return false;
+        }
     }
 }

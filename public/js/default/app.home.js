@@ -7,6 +7,9 @@ var App = App || {};
                 effect: 'fade',
                 play: 5000
             });
+            
+            //Call newsletter app for home page
+            App.Custom.newsletter();
         }
     };
 })(this.jQuery)

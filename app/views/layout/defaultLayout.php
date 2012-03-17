@@ -51,9 +51,16 @@
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                 </a>
-                <a href="#" class="topBanner">
-                    gornji banner
-                </a>
+                <? if(!empty($header)):?>
+                <!--header -->
+                <? if (!empty($header['link'])):?>
+                    <a href="<?=$header['link'];?>" class="topBanner" target="_blank">
+                        <img src="<?=PUBLIC_UPLOAD_PATH.'header'.DS.$header['image_name'];?>" title="<?=$header['title'];?>" alt="<?=$header['title'];?>"/>
+                    </a>
+                <? else: ?>
+                    <img src="<?=PUBLIC_UPLOAD_PATH.'header'.DS.$header['image_name'];?>" title="<?=$header['title'];?>" alt="<?=$header['title'];?>"/>
+                <? endif; ?>
+                <? endif;?>
                 <ul class="topInfo">
                     <li class="first">
                         <h1><?=$magazine['number'];?></h1>

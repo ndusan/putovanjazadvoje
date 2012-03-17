@@ -3,6 +3,13 @@
 class MagazineController extends Controller
 {
     
+    private function init($params)
+    {
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('header', $this->db->getHeader());
+    }
     
     /**
      * HOME PAGE
@@ -27,9 +34,7 @@ class MagazineController extends Controller
         
         $this->set('subpage', $subpageView);
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
         
         $magazineCollection = $this->db->getMagazine($params);
         $this->set('magazineCollection', $magazineCollection);

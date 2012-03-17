@@ -24,7 +24,7 @@ var App = App || {};
             $('body').delegate('form', 'submit', function(){
                 var allOk = true;
                 
-                if($(this).attr('name') == 'search_form'){
+                if($(this).attr('name') == 'search_form' || $(this).attr('name') == 'newsletter_form'){
                     return true;
                 }
                 

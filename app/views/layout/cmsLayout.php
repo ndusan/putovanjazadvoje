@@ -42,6 +42,7 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsDictionary'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'dictionary'; ?>">Dictionary</a></li>
+                    <li><a <?= $this->_controller=='cmsHeader'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'header'; ?>">Header</a></li>
                     <li class="leaf">
                         <a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="#" name="leaf-link" child-class="leaf-child-static-content">Static content</a>
                         <ul class="leaf-child leaf-child-static-content" <?= $this->_controller=='cmsStatic'?'style="display:block;"':''; ?>>

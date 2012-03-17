@@ -2,7 +2,13 @@
 
 class AdsController extends Controller
 {
-    
+    private function init($params)
+    {
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('header', $this->db->getHeader());
+    }
     
     /**
      * @param type $params 
@@ -33,8 +39,6 @@ class AdsController extends Controller
         $this->set('dataCollection', $dataCollection);
         $this->set('subpage', $subpageView);
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
     }
 }

@@ -44,6 +44,17 @@ $routes = array(
             'action'     => 'search', 
             'layout'     => 'default'
     ),
+    //Newsletter
+    array(  'url'        => '/^newsletter\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'addNewsletter', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^removeNewsletter\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'removeNewsletter', 
+            'layout'     => 'empty'
+    ),
     //Magazine
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/broj-u-prodaji\/(?P<page>(sadrzaj|impresum|tema-broja|rec-urednika))\/?$/', 
             'controller' => 'magazine', 
@@ -98,6 +109,7 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'default'
     ),
+    
         
     //Login page
     array(  'url'        => '/^login\/?$/', 
@@ -396,6 +408,27 @@ $routes = array(
             'controller' => 'cmsContact', 
             'action'     => 'index', 
             'layout'     => 'cms'
+    ),
+    //CMS header page
+    array(  'url'        => '/^cms\/header\/?$/', 
+            'controller' => 'cmsHeader', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/header\/add\/?$/', 
+            'controller' => 'cmsHeader', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/header\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsHeader', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/header\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsHeader', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
     ),
     //CMS contest content
     array(  'url'        => '/^cms\/contest\/?$/', 

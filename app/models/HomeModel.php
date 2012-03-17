@@ -10,6 +10,7 @@ class HomeModel extends Model
     private $tableNewsLanguage = 'news_language';
     private $tableMagazine = 'magazine';
     private $tableMagazineLanguage = 'magazine_language';
+    private $tableNewsletter = 'newsletter';
     
     
     public function getCarouselCollection($params)
@@ -30,7 +31,7 @@ class HomeModel extends Model
             $stmt->execute();
 
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -57,11 +58,46 @@ class HomeModel extends Model
             $stmt->execute();
             
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
     }
     
     
+    public function addNewsletter($email)
+    {
+        try {
+            $query = sprintf("INSERT IGNORE INTO %s SET `email`=:email",
+                                $this->tableNewsletter);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return true;
+        } catch (\PDOException $e) {
+            
+            return false;
+        }
+    }
+    
+    public function removeNewsletter($email)
+    {
+        try {
+            $query = sprintf("UPDATE %s SET `status`=:status WHERE `email`=:email",
+                                $this->tableNewsletter);
+            $stmt = $this->dbh->prepare($query);
+
+            $status = 'inactive';
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return true;
+        } catch (\PDOException $e) {
+            
+            return false;
+        }
+    }
 }

@@ -3,6 +3,13 @@
 class CompetitionController extends Controller
 {
     
+    private function init($params)
+    {
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('header', $this->db->getHeader());
+    }
     
     /**
      * HOME PAGE
@@ -39,9 +46,7 @@ class CompetitionController extends Controller
         
         $this->set('subpage', $subpageView);
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
     }
     
     public function conditionsAction($params)
@@ -68,9 +73,7 @@ class CompetitionController extends Controller
         //Conditions 
         $this->set('conditionCollection', $this->db->getConditions($params));
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
         
     }
     
@@ -104,8 +107,6 @@ class CompetitionController extends Controller
         //Set left menu
         $this->setLeftMenu($params);
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
     }
 }

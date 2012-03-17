@@ -5,6 +5,14 @@ class HomeController extends Controller
     private $startOfNews;
     private $numOfNews;
     
+    private function init($params)
+    {
+        //Language
+        $this->set('isActive', $this->db->isActiveLang('en'));
+        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->set('header', $this->db->getHeader());
+    }
+    
     /**
      * HOME PAGE
      * @param type $params 
@@ -24,11 +32,35 @@ class HomeController extends Controller
         $this->numOfNews = 2;
         $this->set('otherNewsCollection', $this->getLatestNews($params, $this->startOfNews, $this->numOfNews));
         
-        //Language
-        $this->set('isActive', $this->db->isActiveLang('en'));
-        $this->set('magazine', $this->db->getLatestMagazine($params));
+        $this->init($params);
     }
     
+    public function addNewsletterAction($params)
+    {
+        if (true == $this->isAjax()) {
+            //Ok to replay
+            if ($this->db->addNewsletter($params['email'])) {
+                echo json_encode('success');
+            } else {
+                echo json_encode('error');
+            }
+        } else {
+            //Not ok
+            $this->redirect('404', 'error');
+        }
+    }
+    
+    public function removeNewsletterAction($params)
+    {
+        //Check if it's email
+        
+        //Remove from db
+        if($this->db->removeNewsletter($params['email'])) {
+            $this->redirect('sr', 'success');
+        } else {
+            $this->redirect('sr', 'error');
+        }
+    }
     
     private function getCarouselCollection($params)
     {
