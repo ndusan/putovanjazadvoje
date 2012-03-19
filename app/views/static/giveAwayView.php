@@ -24,7 +24,9 @@
                 <?= $collection['text']; ?>
             </div>
             <? if (!empty($sent)): ?>
+             <div class="success">
                 <?=$_t['orderform.sent.label'];?>
+             </div>
             <? endif; ?>
             <div class="forms">
                 <!-- Form -->

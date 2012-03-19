@@ -14,19 +14,21 @@
     <body style="background:#369 url(<?= IMAGE_PATH . 'w404.jpg'; ?>) scroll no-repeat 50% 0;">
         <div class="wrapper">
             <div class="main" style="padding:100px 0">
-                <div class="content page404">
+                <div class="content">
                     <div class="fullBox">
-                        <div class="context">
-                            <h1><?= $_t['404.title']; ?></h1>
-                            <p>
-                                <?= $_t['404.text']; ?>
-                            </p>
-                            <p>
-                                <?= $_t['404.return.label']; ?><a href="/"><?= $_t['404.homepage.link']; ?></a>
-                            </p>
-                            <!-- This is a content that will be included on page inside of this layout -->
-                            <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-                                include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+                        <div class="context page404">
+                            <div class="wys">
+                                <h1>naslov ovde<?= $_t['404.title']; ?></h1>
+                                <p>
+                                    tekst ovde<?= $_t['404.text']; ?>
+                                </p>
+                                <p>
+                                    neki tekst ovde<?= $_t['404.return.label']; ?> <a href="/">link ovde<?= $_t['404.homepage.link']; ?></a>
+                                </p>
+                                <!-- This is a content that will be included on page inside of this layout -->
+                                <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+                                    include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>

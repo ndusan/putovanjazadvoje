@@ -8,7 +8,7 @@
                 <?=$dataCollection['text'];?>
             </div>
             <? if (!empty($sent)): ?>
-                <?=$_t['contactform.sent.label'];?>
+            <div class="success"><?=$_t['contactform.sent.label'];?></div>
             <? endif; ?>
                 <h2><?=$_t['page.contactform.title'];?></h2>
             <div class="forms">
