@@ -80,6 +80,9 @@
                     </li>
                     <li><a <?= $this->_controller=='cmsContact'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'contact'; ?>">Contact</a></li>
                     <li><a <?= $this->_controller=='cmsBanners'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'banners'; ?>">Banners</a></li>
+                    <li class="leaf">
+                        <a <?= $this->_controller=='cmsNewsletter'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'newsletter'; ?>" >Newsletter</a>
+                    </li>
                 </ul>
             </div>
             <div class="content">

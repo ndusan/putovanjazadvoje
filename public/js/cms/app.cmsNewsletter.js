@@ -1,22 +1,14 @@
 var App = App || {};
 (function($) {
-    App.CmsBanners = {
+    App.CmsNewsletter = {
         init: function() {
         },
         
-        index: function() {
+        subscribed: function() {
             
             //Set datatable
-            $('#dataTable').dataTable();
+            $('#dataTable').dataTable({"aaSorting": [[ 1, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
-        },
-        add: function() {
-           App.Common.tabs();
-           App.Common.jtooltip();
-       },
-       edit: function() {
-           App.Common.tabs();
-           App.Common.jtooltip();
-       }
+        }
     };
 })(this.jQuery);

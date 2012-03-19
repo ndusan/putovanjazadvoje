@@ -15,7 +15,7 @@ class CmsDictionaryModel extends Model
             $stmt->execute();
 
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -55,7 +55,7 @@ class CmsDictionaryModel extends Model
             $object['lang'] = $language;
             
             return $object;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -95,7 +95,7 @@ class CmsDictionaryModel extends Model
             }
             
             return true;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -146,7 +146,7 @@ class CmsDictionaryModel extends Model
             }
             
             return true;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -171,7 +171,7 @@ class CmsDictionaryModel extends Model
             $stmt->execute();
 
             return true;
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }

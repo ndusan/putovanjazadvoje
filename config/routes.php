@@ -486,5 +486,15 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
-    
+    //CMS newsletter page
+    array(  'url'        => '/^cms\/newsletter\/?$/', 
+            'controller' => 'cmsNewsletter', 
+            'action'     => 'subscribed', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/newsletter\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsNewsletter', 
+            'action'     => 'deleteSubscribed', 
+            'layout'     => 'empty'
+    ),
 );
