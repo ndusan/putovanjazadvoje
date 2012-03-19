@@ -121,6 +121,17 @@ var App = App || {};
             $('#search_field').blur(function(){
                 if ($(this).val().length <= 0) $(this).val($(this).attr('title'));
             });
+        },
+        antispam: function(page) {
+            $.ajax({url: '/'+page,
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function(data){
+                        if(data){
+                            $('#'+page).html('<img src="/'+page+'" />');
+                        }
+                    }
+            });
         }
     };
 })(this.jQuery);

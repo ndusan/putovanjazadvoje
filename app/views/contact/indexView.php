@@ -13,7 +13,7 @@
                 <h2><?=$_t['page.contactform.title'];?></h2>
             <div class="forms">
                 <!-- Form -->
-                <form method="post" action="/<?= $params['lang'] . DS . 'pretplati-se-na-magazin'; ?>" enctype="multipart/form-data">
+                <form method="post" action="/<?= $params['lang'] . DS . 'kontakt'; ?>" enctype="multipart/form-data">
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tbody>
                             <tr>
@@ -26,10 +26,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label><?=$_t['contactform.company.label'];?><span>*</span></label>
+                                    <label><?=$_t['contactform.company.label'];?></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[company]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                    <input type="text" name="collection[company]" value="" />
                                 </td>
                             </tr>
                             <tr>
@@ -37,7 +37,7 @@
                                     <label><?=$_t['contactform.city.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[city]" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                    <input type="text" name="collection[city]" class="jr" value="" />
                                 </td>
                             </tr>
                             <tr>
@@ -62,7 +62,13 @@
                                     <label><?=$_t['contactform.message.label'];?><span>*</span></label>
                                 </td>
                                 <td>
-                                    <textarea name="" class="jr" rows="4" cols="20"></textarea><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                    <textarea name="collection[message]" class="jr" rows="4" cols="20"></textarea><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="anti-spam"></td>
+                                <td>
+                                    <input type="text" name="anti-spam" id="form_spam" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                         </tbody>

@@ -3,8 +3,6 @@
 class StaticController extends Controller
 {
     
-    private $formValidation = array();
-    
     private function init($params)
     {
         //Language
@@ -52,11 +50,10 @@ class StaticController extends Controller
         //Set left menu
         $this->setLeftMenu($params);
         
-        $array = array();
+        $array = array('name'=>'Ime i prezime','company'=>'Firma','pin'=>'PIB','address'=>'Adresa','pak'=>'Postanski broj','city'=>'Grad','telephone'=>'Telefon','email'=>'Email',
+                       'receiver_name'=>'Ime i prezime primaoca','receiver_company'=>'Firma primaoca','receiver_pin'=>'PIB primaoca','receiver_address'=>'Adresa primaoca','receiver_pak'=>'Postanski broj primaoca','receiver_city'=>'Grad primaoca','receiver_telephone'=>'Telefon primaoca','receiver_email'=>'Email primaoca');
         
-        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
-        
-        $this->sendFormIfSubmited($params, $array);
+        $this->sendFormIfSubmited($params, $array, 'Pokloni pretplatu forma');
         
         $this->set('collection', $this->db->find($params, 'giveaway'));
         
@@ -74,11 +71,9 @@ class StaticController extends Controller
         //Set left menu
         $this->setLeftMenu($params);
         
-        $array = array();
+        $array = array('name'=>'Ime i prezime','company'=>'Firma','pin'=>'PIB','address'=>'Adresa','pak'=>'Postanski broj','city'=>'Grad','telephone'=>'Telefon','email'=>'Email');
         
-        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
-        
-        $this->sendFormIfSubmited($params, $array);
+        $this->sendFormIfSubmited($params, $array,'Naruci ranije brojeve forma');
 
         $this->set('collection', $this->db->find($params, 'orderprevious'));
         
@@ -97,14 +92,11 @@ class StaticController extends Controller
         //Set left menu
         $this->setLeftMenu($params);
         
-        $array = array();
+        $array = array('name'=>'Ime i prezime','company'=>'Firma','pin'=>'PIB','address'=>'Adresa','pak'=>'Postanski broj','city'=>'Grad','telephone'=>'Telefon','email'=>'Email');
         
-        $this->formValidation = array('name' => '/^[[:alnum:][:punct:][:space:](š|đ|č|ć|ž|Š|Đ|Č|Ć|Ž)*]{1,50}$/');
-        
-        $this->sendFormIfSubmited($params, $array);
+        $this->sendFormIfSubmited($params, $array, 'Pretplati se na magazin forma');
         
         $this->set('collection', $this->db->find($params, 'signupformagazine'));
-        
         $this->set('magazineCollection', $this->db->getAllMagazine($params));
         
         $this->init($params);
@@ -128,20 +120,18 @@ class StaticController extends Controller
     }
     
     
-    private function sendFormIfSubmited($params, array $array=array())
+    private function sendFormIfSubmited(array $params, array $array, $subject='Form')
     {
-        //Set left menu
-        $this->setLeftMenu($params);
-        
-        if(!isset($params['submit'])) return false;
-        
-        //Check if required fields are valid
-        if(!$this->validate($this->formValidation, $params['collection'])) return false;
-        
-        $subject = '';
-        
-        if($this->sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array)){
+
+        if(!empty($params['submit']) && 
+           !empty($_SESSION['anti-spam']) &&
+           !empty($params['anti-spam']) &&
+           $_SESSION['anti-spam'] == $params['anti-spam'])
+        {
             
+            $this->sendEmail(MAIL_TO, $subject, $params['collection'], MAIL_FROM, $array);
+            
+            unset($_SESSION['anti-spam']);
             $this->set('sent', true);
         }
     }

@@ -80,6 +80,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td id="anti-spam"></td>
+                                <td>
+                                    <input type="text" name="anti-spam" id="form_spam" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>
                                     <label><?=$_t['orderform.previouseditions.label'];?><span>*</span></label>
                                 </td>

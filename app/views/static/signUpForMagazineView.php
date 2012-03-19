@@ -95,6 +95,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td id="anti-spam"></td>
+                                <td>
+                                    <input type="text" name="anti-spam" id="form_spam" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2">
                                     <span class="small"><?=$_t['orderform.required-info.label'];?></span>
                                 </td>

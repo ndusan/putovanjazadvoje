@@ -1,3 +1,7 @@
+<ul class="addTop">
+    <li><a class="cmsAdd" href="/cms/newsletter/export" >Export to CSV</a></li>
+</ul>
+
 <? if (!empty($subscribedCollection)): ?>
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
         <thead> 

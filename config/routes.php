@@ -497,4 +497,14 @@ $routes = array(
             'action'     => 'deleteSubscribed', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/newsletter\/export\/?$/', 
+            'controller' => 'cmsNewsletter', 
+            'action'     => 'export', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^anti-spam\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'antiSpam', 
+            'layout'     => 'empty'
+    ),
 );

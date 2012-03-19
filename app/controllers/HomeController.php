@@ -37,7 +37,7 @@ class HomeController extends Controller
     
     public function addNewsletterAction($params)
     {
-        if (true == $this->isAjax()) {
+        if (true == $this->isAjax() && preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $params['email'])) {
             //Ok to replay
             if ($this->db->addNewsletter($params['email'])) {
                 echo json_encode('success');
@@ -72,6 +72,35 @@ class HomeController extends Controller
     {
 
         return $this->db->getLatestNews($params, $startOfNews, $numOfNews);
+    }
+    
+    
+    /**
+     * Anti-spam
+     */
+    public function antiSpamAction()
+    {
+        $lenght=6;
+        $number = ""; 
+        for ($i = 1; $i <= $lenght; $i++) 
+        { 
+             $number .= rand(0,9).""; 
+        } 
+        $width = 11*$lenght; 
+        $height = 30; 
+
+        $img = ImageCreate($width, $height); 
+        $background = imagecolorallocate($img,255,255,255); 
+        $color_black = imagecolorallocate($img,0,0,0); 
+        $color_grey = imagecolorallocate($img,169,169,169); 
+        imagerectangle($img,0, 0,$width-1,$height-1,$color_grey); 
+        imagestring($img, 5, $lenght, 7, $number, $color_black); 
+        $_SESSION['anti-spam'] = $number;
+        //////// VERY IMPORTANT 
+        header('Content-Type: image/png'); 
+        //////// VERY IMPORTANT 
+        imagepng($img); 
+        imagedestroy($img);
     }
     
 }

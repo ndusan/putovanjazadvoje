@@ -105,7 +105,7 @@ class CmsDownloadController extends Controller
                         $info = $this->uploadImage($newImageName, $image, 'download');
 
                         if($isThumb){
-                            $this->createThumbImage($newImageName, 'download', 128, 133);
+                            $this->createThumbImage($newImageName, 'download', 200, 200);
                             
                             $this->db->setThumbImage($id, 'thumb-'.$newImageName);
                             $isThumb = false;
