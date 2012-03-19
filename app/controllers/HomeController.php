@@ -35,19 +35,24 @@ class HomeController extends Controller
         $this->init($params);
     }
     
-    public function addNewsletterAction($params)
+    
+    public function newsletterAction($params)
     {
-        if (true == $this->isAjax() && preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $params['email'])) {
+        //Set left menu
+        $this->setLeftMenu($params);
+        
+        $this->set('carouselCollection', $this->getCarouselCollection($params));
+        
+        
+        if (!empty($params['submit']) && preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $params['email'])) {
             //Ok to replay
+            
             if ($this->db->addNewsletter($params['email'])) {
-                echo json_encode('success');
-            } else {
-                echo json_encode('error');
+                $this->set('sent', true);
             }
-        } else {
-            //Not ok
-            $this->redirect('404', 'error');
         }
+        
+        $this->init($params);
     }
     
     public function removeNewsletterAction($params)

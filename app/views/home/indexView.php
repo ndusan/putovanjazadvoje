@@ -102,9 +102,6 @@
                     <? endforeach; ?>
                 </ul>
             <? endif; ?>
-        
-            <!-- load newsletter form -->
-            <? include_once VIEW_PATH.'home/_newsletter.php';?>
         </div>
     </div>
 </div>

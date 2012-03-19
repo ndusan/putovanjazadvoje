@@ -24,7 +24,7 @@ var App = App || {};
             $('body').delegate('form', 'submit', function(){
                 var allOk = true;
                 
-                if($(this).attr('name') == 'search_form' || $(this).attr('name') == 'newsletter_form'){
+                if($(this).attr('name') == 'search_form'){
                     return true;
                 }
                 
@@ -59,6 +59,13 @@ var App = App || {};
                 if(!allOk){
                     return false;
                 }
+            });
+            
+            $('.jInput').focus(function(){
+                if ($(this).attr('title') == $(this).val()) $(this).val('');
+            });
+            $('.jInput').blur(function(){
+                if ($(this).val().length <= 0) $(this).val($(this).attr('title'));
             });
             
             App.Common.search();

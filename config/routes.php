@@ -12,6 +12,12 @@ $routes = array(
             'action'     => 'noPageFound', 
             'layout'     => '404'
     ),
+    //Newsletter
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/newsletter\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'newsletter', 
+            'layout'     => 'default'
+    ),
     //Static content
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/magazin\/o-nama\/?$/', 
             'controller' => 'static', 

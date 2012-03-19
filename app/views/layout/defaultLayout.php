@@ -45,7 +45,7 @@
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>"><?= $_t['nav.order.link']; ?></a></li>
                     <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>"><?= $_t['nav.gift.link']; ?></a></li>
                 
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>">Newsletter</a></li>
+                    <li><a href="<?=DS.$params['lang'].DS.'newsletter';?>">Newsletter</a></li>
 
                 </ul>
                 <a class="logo" href="/">
