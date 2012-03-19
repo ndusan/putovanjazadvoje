@@ -20,6 +20,7 @@ var App = App || {};
                            if(data){
                                //Roll-back to default
                                email.removeClass('warning').val(email.attr('title'));
+                               email.addClass('success');
                            }
                        }
                     });
