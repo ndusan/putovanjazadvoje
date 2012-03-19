@@ -334,9 +334,12 @@ class Controller {
                                 $messageHtml.= $p . '<br/>';
                             }
                             $messageHtml.= '</td>';
+                        }elseif(is_array($val)){
+                            $messageHtml.= '<td>' . print_r($val,true) . '</td>';
                         }else{
                             $messageHtml.= '<td>' . $val . '</td>';
                         }
+                        
                     $messageHtml.= '</tr>';
                 }
             }
