@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.newsletter.link']; ?>
+                <a href="#"><?= $_t['breadcrumb.home.link']; ?></a> / Newsletter
             </div>
 
             <? if (!empty($sent)): ?>
@@ -11,7 +11,7 @@
                 </div>
             <? endif; ?>
             <div class="wys">
-                <p>tekst ovde</p>         
+                <p><?= $_t['newsletter.text']; ?></p>         
             </div>
             <h2><?= $_t['page.newsletterform.title']; ?></h2>
 
@@ -24,7 +24,7 @@
                                     Email:<span>*</span>
                                 </td>
                                 <td>
-                                    <input type="text" name="email" class="jr jCheckEmail jInput" value="Please, enter your email" title="Please, enter your email"/>
+                                    <input type="text" name="email" class="jr jCheckEmail jInput" value="<?= $_t['newsletter.form']; ?>" title="<?= $_t['newsletter.form']; ?>"/>
                                     <span class="req"><?= $_t['newsletterform.required.label']; ?></span>
                                 </td>
                             </tr>
@@ -32,7 +32,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="2" align="center">
-                                    <input type="submit" name="submit" value="Submit"/>
+                                    <input type="submit" name="submit" value="<?= $_t['orderform.buttonsend.label']; ?>"/>
                                 </td>
                             </tr>
                         </tfoot>
