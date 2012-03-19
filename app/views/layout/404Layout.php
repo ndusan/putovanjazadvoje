@@ -18,12 +18,18 @@
                     <div class="fullBox">
                         <div class="context page404">
                             <div class="wys">
-                                <h1><?= $_t['404.title']; ?></h1>
+                                <h1>Tražena stranica ne postoji / Page not found</h1>
                                 <p>
-                                    <?= $_t['404.text']; ?>
+                                    Izvinjavamo se, ali stranica koju tražite ne postoji
                                 </p>
                                 <p>
-                                    <?= $_t['404.return.label']; ?> <a href="/"><?= $_t['404.homepage.link']; ?></a>
+                                    Vratite se na <a href="/">Počentu stranu </a>
+                                </p>
+                                <p>
+                                    Sorry, but page you are looking for does not exist
+                                </p>
+                                <p>
+                                    Go back to  <a href="/">Home page</a>
                                 </p>
                                 <!-- This is a content that will be included on page inside of this layout -->
                                 <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
