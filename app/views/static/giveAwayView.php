@@ -30,7 +30,7 @@
             <? endif; ?>
             <div class="forms">
                 <!-- Form -->
-                <form method="post" action="/<?= $params['lang'] . DS . 'pokloni-pretplatu'; ?>" enctype="multipart/form-data">
+                <form method="post" action="/<?= $params['lang'] . DS. 'magazin' . DS . 'pokloni-pretplatu'; ?>" enctype="multipart/form-data">
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <thead>
                             <tr>
