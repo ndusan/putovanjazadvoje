@@ -95,7 +95,7 @@
                                     <td>
                                         <ul class="orderSelect">
                                             <? foreach ($magazineCollection as $magazine): ?>
-                                                <li><input type="checkbox" name="collection[magazine][<?= $magazine['id']; ?>]" value="<?= $magazine['number']; ?>" /><span><?= $magazine['number']; ?></span></li>
+                                                <li><input type="checkbox" name="collection[magazine][<?= $magazine['id']; ?>]" value="<?= $magazine['number']; ?>" <?=$magazine['visible']==0?'disabled="disabled"':''?> /><span><?= $magazine['number']; ?></span></li>
                                             <? endforeach; ?>
                                         </ul>
                                         <span class="req"><?= $_t['orderform.required.label']; ?></span>
