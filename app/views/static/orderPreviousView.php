@@ -130,7 +130,7 @@
                     $countMagazine = 0;
                 } ?>>
                             <a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'broj-u-prodaji' . DS . 'sadrzaj?id=' . $magazine['id']; ?>">
-                                <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . 'thumb-' . $magazine['image_name']; ?>" />
+                                <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . 'thumb-' . $magazine['image_name']; ?>" <?=$magazine['visible']==0?'class="disabled"':''?>/>
                             </a>
                             <h4><?= $magazine['number']; ?></h4>
                         </li>
