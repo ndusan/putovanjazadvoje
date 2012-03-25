@@ -176,6 +176,7 @@ ul.magazines {overflow:hidden;}
 ul.magazines li {float:left; padding:10px 0; margin:0 18px 0 0; position:relative;}
 ul.magazines li.last {margin:0;}
 ul.magazines li img {padding:0 0 5px;}
+ul.magazines li .disabled {opacity:0.5;}
 ul.magazines li > a {display:block; padding:0 0 5px; text-align:center; font-size:12px; line-height:15px;}
 ul.magazines.dloads li span {display:none; position:absolute; width:100%; padding:5px 0; text-align:center; bottom:10px; left:0; background-image: url(../images/mask.png);}
 ul.magazines.dloads li span a {color:#FFF; font-size:12px;}
