@@ -11,6 +11,7 @@ var App = App || {};
                 e.preventDefault();
                 
                 var html = '<tr>\n\
+                                <td><input type="text" name="alias[]" value="" class="jr"/></td>\n\
                                 <td><input type="file" name="file[]" value=""/></td>\n\
                                 <td><a href="#" class="jRemoveBrowse cmsDelete" title="Remove file"></a></td>\n\
                             </tr>';

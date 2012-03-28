@@ -36,7 +36,7 @@
             <table cellpadding="0" cellspacing="0" width="710" id="jListBrowse">
                 <thead>
                     <tr>
-                        <th colspan="2">
+                        <th colspan="3">
                             Attach files (Pdf, Doc)
                         </th>
                     </tr>
@@ -45,7 +45,8 @@
                     <? if (!empty($fileCollection)): ?>
                         <? foreach ($fileCollection as $file): ?>
                             <tr id="jLine-<?= $file['id']; ?>">
-                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'press' . DS . $file['file_name']; ?>" target="_blank"><?= $file['image_name']; ?></a></td>
+                                <td><?= $file['alias_name']; ?></td>
+                                <td><a href="<?= DS . 'public' . DS . 'uploads' . DS . 'press' . DS . $file['file_name']; ?>" target="_blank"><?= $file['file_name']; ?></a></td>
                                 <td><a browse-line="jLine-<?= $file['id']; ?>" href="<?= DS . 'cms' . DS . 'press' . DS . 'about-magazine' . DS . 'delete-file' . DS . '?id=' . $file['id']; ?>" title="Remove file"class="jRemoveBrowse cmsDelete"></a></td>
                             </tr>
                         <? endforeach; ?>

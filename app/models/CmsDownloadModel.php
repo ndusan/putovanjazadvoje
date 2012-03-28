@@ -144,11 +144,12 @@ class CmsDownloadModel extends Model
     {
         try{
          
-            $query = sprintf("UPDATE %s SET `size`=:size, `type`=:type WHERE `file_name`=:fileName", $this->tableFiles);
+            $query = sprintf("UPDATE %s SET `size`=:size, `type`=:type, `alias_name`=:aliasName WHERE `file_name`=:fileName", $this->tableFiles);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':size', $info['size'], PDO::PARAM_INT);
             $stmt->bindParam(':type', $info['type'], PDO::PARAM_STR);
+            $stmt->bindParam(':aliasName', $info['alias'], PDO::PARAM_STR);
             $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
             $stmt->execute();
             

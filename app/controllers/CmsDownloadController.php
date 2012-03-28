@@ -28,6 +28,7 @@ class CmsDownloadController extends Controller
                                        );
                         
                         $info = $this->uploadFile($newFileName, $file, 'download');
+                        $info['alias'] = $params['alias'][$k];
                         $this->db->updateFileInfo($newFileName, $info);
                     }
                 }
