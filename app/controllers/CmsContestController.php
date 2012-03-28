@@ -268,5 +268,21 @@ class CmsContestController extends Controller
         echo $output;
 	exit;
     }
+    
+    
+    public function sponsorsAction($params)
+    {
+        
+    }
+    
+    public function addSponsorAction($params)
+    {
+        
+    }
+    
+    public function editSponsorAction($params)
+    {
+        
+    }
 }
 

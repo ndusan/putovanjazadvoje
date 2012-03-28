@@ -492,6 +492,27 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    
+    array(  'url'        => '/^cms\/sponsors\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'sponsors', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/sponsors\/add\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'addSponsor', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/sponsors\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'editSponsor', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/sponsors\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
     //CMS newsletter page
     array(  'url'        => '/^cms\/newsletter\/?$/', 
             'controller' => 'cmsNewsletter', 
