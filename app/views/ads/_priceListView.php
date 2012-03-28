@@ -16,7 +16,7 @@
 
                 <ul class="downloads">
                     <? foreach($dataCollection['files'] as $file):?>
-                    <li><a href="<?=PUBLIC_UPLOAD_PATH.'ads'.DS.$file['file_name'];?>" target="_blank"><?=$file['file_name'];?> (Download <?=$file['type'];?>, <?=$file['size']/1024;?> kB)</a></li>
+                    <li><a href="<?=PUBLIC_UPLOAD_PATH.'ads'.DS.$file['file_name'];?>" target="_blank"><?=$file['file_name'];?> (Download <?=$file['type'];?>, <?=round($file['size']/1024, 2);?> kB)</a></li>
                     <? endforeach;?>
                 </ul>
                 <? endif;?>
