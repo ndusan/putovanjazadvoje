@@ -29,6 +29,7 @@ class CmsPressController extends Controller
                                        );
                         
                         $info = $this->uploadFile($newFileName, $file, 'press');
+                        $info['alias'] = $params['alias'][$k];
                         $this->db->updateFileInfo($newFileName, $info);
                     }
                 }
