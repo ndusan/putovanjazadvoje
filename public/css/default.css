@@ -25,6 +25,7 @@ a:hover {color:#333;}
 img {border: none; vertical-align:top;}
 p {padding:0;}
 .cl {clear:both; line-height:0;}
+.oh {overflow:hidden;}
 .fl {float:left;}
 .fr {float:right;}
 
