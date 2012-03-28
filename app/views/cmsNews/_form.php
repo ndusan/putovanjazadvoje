@@ -57,7 +57,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td><span class="jtooltip" title="Recommended image width 660px">Image:</span></td>
+                        <td><span class="jtooltip" title="Recommended image size 660x325px">Image:</span></td>
                         <td>
                             <input type="file" name="image" value=""/>
                             <? if (isset($news['id']) && !empty($news['image_name'])): ?>
