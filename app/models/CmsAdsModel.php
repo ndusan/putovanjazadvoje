@@ -272,7 +272,7 @@ class CmsAdsModel extends Model
 
             $stmt->bindParam(':size', $info['size'], PDO::PARAM_INT);
             $stmt->bindParam(':type', $info['type'], PDO::PARAM_STR);
-            $stmt->bindParam(':alisName', $info['alias'], PDO::PARAM_STR);
+            $stmt->bindParam(':aliasName', $info['alias'], PDO::PARAM_STR);
             $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
             $stmt->execute();
             
