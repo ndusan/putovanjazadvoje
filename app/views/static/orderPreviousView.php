@@ -125,7 +125,7 @@
                 <ul class="magazines">
                     <? $countMagazine = 0; ?>
                     <? foreach ($magazineCollection as $magazine): ?>
-                        <li <? if ($countMagazine++ >= 6) {
+                        <li <? if ($countMagazine++ >= 5) {
                     echo 'class="last"';
                     $countMagazine = 0;
                 } ?>>

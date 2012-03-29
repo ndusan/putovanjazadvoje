@@ -14,8 +14,10 @@
         <div class="Onetopic">
                 <!-- Title-->
                 <h3><?= $topic['title']; ?></h3> 
+                <? if(!empty($topic['image_name'])):?>
                 <!-- Image -->
                 <img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $topic['image_name']; ?>" />
+                <? endif; ?>
                 <!-- Content-->
                 <?= $topic['content']; ?>
         </div>

@@ -108,7 +108,7 @@ class Cache {
             if(empty($params)) return false;
             
             $data = serialize($params);
-
+            
             //Write data in file
             if(!fwrite($h, $data)) throw new Exception('Problem with writting in file');
             flock($h, LOCK_UN); // release the lock
@@ -163,11 +163,9 @@ class Cache {
         public static function deleteDictionary(){
                 
             $fileName = CACHE_PATH.'cacheDictionary.php';
-            
             if(self::checkIfDictionaryExists()){
-                
                 if(unlink($fileName)){
-                    
+
                     return true;
                 }else{
                     

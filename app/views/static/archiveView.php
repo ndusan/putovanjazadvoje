@@ -12,7 +12,7 @@
                 <ul class="magazines">
                     <?$countMagazine=0;?>
                     <? foreach($magazineCollection as $magazine):?>
-                    <li <? if($countMagazine++ >= 6){ echo 'class="last"'; $countMagazine=0;} ?>>
+                    <li <? if($countMagazine++ >= 5){ echo 'class="last"'; $countMagazine=0;} ?>>
                         <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj?id='.$magazine['id'];?>">
                             <img src="<?= PUBLIC_UPLOAD_PATH .'magazine'.DS.'thumb-'.$magazine['image_name']; ?>" />
                         </a>

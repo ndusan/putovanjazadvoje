@@ -55,24 +55,23 @@ class MagazineModel extends Model
         try{
             if(!empty($params['id'])){
                 //Get selected one
-                
-            }else{
-                //Get lattest one
-                $query = sprintf("SELECT `t`.`id`, `t`.`image_name`,
-                                        `tl`.`title`, `tl`.`content`
-                                    FROM %s AS `t`
-                                    INNER JOIN %s AS `tl` ON `tl`.`topic_id`=`t`.`id`
-                                    INNER JOIN %s AS `l` ON `l`.`id`=`tl`.`language_id`
-                                WHERE `l`.`iso_code`=:isoCode AND `t`.`magazine_id`=:magazineId ORDER BY `t`.`id` DESC", 
-                            $this->tableTopic, $this->tableTopicLanguage, $this->tableLanguage);
-                $stmt = $this->dbh->prepare($query);
-                
-                $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
-                $stmt->bindParam(':magazineId', $params['magazine_id'], PDO::PARAM_INT);
-                $stmt->execute();
-
-                return $stmt->fetchAll();
+                $params['magazine_id'] = $params['id'];
             }
+            //Get lattest one
+            $query = sprintf("SELECT `t`.`id`, `t`.`image_name`,
+                                    `tl`.`title`, `tl`.`content`
+                                FROM %s AS `t`
+                                INNER JOIN %s AS `tl` ON `tl`.`topic_id`=`t`.`id`
+                                INNER JOIN %s AS `l` ON `l`.`id`=`tl`.`language_id`
+                            WHERE `l`.`iso_code`=:isoCode AND `t`.`magazine_id`=:magazineId ORDER BY `t`.`id` DESC", 
+                        $this->tableTopic, $this->tableTopicLanguage, $this->tableLanguage);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':isoCode', $params['lang'], PDO::PARAM_STR);
+            $stmt->bindParam(':magazineId', $params['magazine_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;
