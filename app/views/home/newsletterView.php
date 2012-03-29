@@ -20,12 +20,12 @@
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tbody>
                             <tr>
-                                <td>
+                                <td width="150">
                                     Email:<span>*</span>
                                 </td>
                                 <td>
                                     <input type="text" name="email" class="jr jCheckEmail jInput" value="<?= $_t['newsletter.form']; ?>" title="<?= $_t['newsletter.form']; ?>"/>
-                                    <span class="req"><?= $_t['newsletterform.required.label']; ?></span>
+                                    <span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
                             </tr>
                         </tbody>
