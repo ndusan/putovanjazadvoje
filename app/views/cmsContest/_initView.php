@@ -50,7 +50,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <span class="jtooltip" title="Sponsor logo or Random image">Image:</span>
+                                <span class="jtooltip" title="Image visible on game intro">Image:</span>
                             </td>
                             <td>
                                 <? if (isset($contest['id']) && !empty($contest['init']['image_name'])): ?>

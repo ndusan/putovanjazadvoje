@@ -33,7 +33,23 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tbody>
                         <tr>
-                            <td align="center">
+                            <td style="width:90px;">
+                               Sponsor: 
+                            </td>
+                            <td>
+                                <? if(!empty($sponsorCollection)):?>
+                                <select name="contest[sponsor]">
+                                    <? foreach ($sponsorCollection as $sponsor):?>
+                                    <option value="<?=$sponsor['id'];?>" <?=@$contest['init']['sponsor_id']==$sponsor['id'] ? 'selected="selected"':''; ?>><?=$sponsor['name'];?></option>
+                                    <? endforeach;?>
+                                </select>
+                                <? else: ?>
+                                Please, add sponsor!
+                                <? endif;?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2">
                                 <input type="submit" value="Submit" name="submit"/>
                             </td>
                         </tr>

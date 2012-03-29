@@ -83,19 +83,19 @@
                                 </form>
                             </div>
                         </div>
-                        
                         <? if (!empty($onlineCollection)): ?>
                         <!--ONLINE START -->
                         <div class="sideBox">
                             <div class="title">
                                 <?= $_t['sidebar.onlinecontest.title']; ?>
                             </div>
+                            <? foreach ($onlineCollection as $online): ?>
                             <div class="context custom">
                                 <a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>">
-                                    <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS. 'thumb-'.$onlineCollection['image_name']; ?>" alt="<?= $onlineCollection['name']; ?>" title="<?= $onlineCollection['name']; ?>"/>
+                                    <img src="<?= PUBLIC_UPLOAD_PATH .'sponsors'.DS. 'thumb-'.$online['image_name']; ?>" alt="<?= $online['name']; ?>" title="<?= $online['name']; ?>"/>
                                 </a>
-                                <?= $onlineCollection['name']; ?>
                             </div>
+                            <? endforeach; ?>
                         </div>
                         <!-- ONLINE END-->
                         <? endif; ?>

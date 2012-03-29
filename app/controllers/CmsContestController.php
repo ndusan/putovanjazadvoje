@@ -54,6 +54,7 @@ class CmsContestController extends Controller
             $this->set('contest', $this->db->getContest($params));
         }
         $this->set('magazineCollection', $this->db->getAllMagazine());
+        $this->set('sponsorCollection', $this->db->findAllSponsors());
     }
     
     public function wizardPrizeFormAction($params)
@@ -272,17 +273,86 @@ class CmsContestController extends Controller
     
     public function sponsorsAction($params)
     {
-        
+        $this->set('sponsorCollection', $this->db->findAllSponsors());
     }
     
     public function addSponsorAction($params)
     {
-        
+        if(!empty($params['submit'])){
+            //Data submited
+            if($id = $this->db->createSponsor($params['sponsor'])){
+                //If image uploaded add it
+                if(0 == $params['image']['error'] && !empty($id)){
+                    
+                    $newImageName = $id.'-'.$params['image']['name'];
+                    $this->db->setSponsorImageName($id, $newImageName);
+                    $this->uploadImage($newImageName, $params['image'], 'sponsors');
+                    
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'sponsors', 100, 100);
+                }
+                $this->redirect ('cms'.DS.'sponsors', 'success');
+            }else{
+                $this->redirect ('cms'.DS.'sponsors'.DS.'add', 'error');
+            }
+        }
     }
     
     public function editSponsorAction($params)
     {
+        if(!empty($params['submit'])){
+            //Data submited
+            if($this->db->updateSponsor($params['sponsor'])){
+                if(0 == $params['image']['error']){
+
+                    $data = $this->db->getSponsorImageName($params['sponsor']['id']);
+                    $oldImageName = $data['image_name'];
+
+                    $newImageName = $params['sponsor']['id'].'-'.$params['image']['name'];
+                    $this->db->setSponsorImageName($params['sponsor']['id'], $newImageName);
+                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'sponsors');
+
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'sponsors');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'sponsors', 100, 100);
+                }
+                $this->redirect ('cms'.DS.'sponsors', 'success');
+            }
+        }
+        $this->set('sponsor', $this->db->findSponsor($params['id']));
+    }
+    
+    public function deleteSponsorAction($params)
+    {
+        $this->setRenderHTML(0);
         
+        $data = $this->db->getSponsorImageName($params['id']);
+        if($this->db->deleteSponsor($params)){
+            
+            //If exist delete
+            if(!empty($data)){
+                $oldImageName = $data['image_name'];
+                $this->deleteImage($oldImageName, 'sponsors');
+                
+                //Delete thumb
+                $oldThumbImageName = 'thumb-'.$data['image_name'];
+                $this->deleteImage($oldThumbImageName, 'sponsors');
+            }
+            $this->redirect ('cms'.DS.'sponsors', 'success');
+        }else{
+            $this->redirect ('cms'.DS.'sponsors', 'error');
+        }
+    }
+    
+    public function visibleSponsorAction($params)
+    {
+        $this->setRenderHTML(0);
+        
+        $this->db->visibleSponsor($params);
+            
+        return true;
     }
 }
 

@@ -413,7 +413,7 @@ class Controller {
     
     public function setLeftMenu($params)
     {
-        $onlineCollection = $this->db->getOnlineCollection($params);
+        $onlineCollection = $this->db->getOnlineSponsorCollection($params);
         $offlineCollection = $this->db->getOfflineCollection($params);
         
         //Add background

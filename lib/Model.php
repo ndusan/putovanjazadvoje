@@ -19,6 +19,7 @@ class Model
     private $tableContestLanguage = 'contest_language';
     private $tableBanner = 'banners';
     private $tableHeader = 'header';
+    private $tableSponsors = 'sponsors';
     
     /**
      * Contructor
@@ -107,6 +108,22 @@ class Model
             $stmt->execute();
 
             return $stmt->fetch();
+        }catch(\PDOException $e){
+
+            return false;
+        }
+    }
+    
+    public function getOnlineSponsorCollection($params)
+    {
+        try{
+            $query = sprintf("SELECT `s`.* FROM %s AS `s` WHERE `s`.`visible`=1 ORDER BY `s`.`id` DESC",
+                    $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
         }catch(\PDOException $e){
 
             return false;

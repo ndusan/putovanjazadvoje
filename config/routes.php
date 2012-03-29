@@ -510,7 +510,12 @@ $routes = array(
     ),
     array(  'url'        => '/^cms\/sponsors\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsContest', 
-            'action'     => 'delete', 
+            'action'     => 'deleteSponsor', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/sponsors\/visible\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsContest', 
+            'action'     => 'visibleSponsor', 
             'layout'     => 'empty'
     ),
     //CMS newsletter page

@@ -11,6 +11,7 @@ class CmsContestModel extends Model
     private $tableContestPrize = 'contest_prize';
     private $tableContestPrizeLanguage = 'contest_prize_language';
     private $tablePlayers = 'players';
+    private $tableSponsors = 'sponsors';
     
     public function getContests()
     {
@@ -167,6 +168,14 @@ class CmsContestModel extends Model
                 $stmt->bindParam(':conditions', $params['contest'][$r['iso_code']]['conditions'], PDO::PARAM_STR);
                 $stmt->execute();
             }
+            
+            $query = sprintf("UPDATE %s SET `sponsor_id`=:sponsorId WHERE `id`=:id", 
+                                $this->tableContest);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':sponsorId', $params['contest']['sponsor'], PDO::PARAM_INT);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
             
             return true;
         }catch(Exception $e){
@@ -597,4 +606,142 @@ class CmsContestModel extends Model
             return false;
         }
     }
+    
+    
+    public function findAllSponsors()
+    {
+        try{
+            $query = sprintf("SELECT `s`.* FROM %s AS `s` ORDER BY `s`.`id` DESC", 
+                            $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function findSponsor($id)
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function createSponsor($params)
+    {
+        
+        try{
+            $query = sprintf("INSERT INTO %s SET `name`=:name", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':name', $params['name'], PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $this->dbh->lastInsertId();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function updateSponsor($params)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `name`=:name WHERE `id`=:id",
+                            $this->tableSponsors);
+
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':name', $params['name'], PDO::PARAM_STR);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function getSponsorImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setSponsorImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function deleteSponsor($params)
+    {
+        try{
+            $query = sprintf("DELETE FROM %s WHERE `id`=:id", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function visibleSponsor($params)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `visible`=1-`visible` WHERE `id`=:id", $this->tableSponsors);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
 }

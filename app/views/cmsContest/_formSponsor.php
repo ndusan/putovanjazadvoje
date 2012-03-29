@@ -4,11 +4,20 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
+                        <td><span class="jtooltip" title="Sponsor name">Sponsor name:</span></td>
+                        <td>
+                            <input type="text" name="sponsor[name]" value="<?=@$sponsor['name'];?>" class="jr"/>
+                        </td>
+                    </tr>
+                    <tr>
                         <td><span class="jtooltip" title="Sponsor image">Image:</span></td>
                         <td>
-                            <input type="file" name="image" value="" class="jr"/>
+                            
                             <? if (isset($sponsor['id']) && !empty($sponsor['image_name'])): ?>
+                                <input type="file" name="image" value=""/>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'sponsors' . DS . $sponsor['image_name']; ?>" target="_blank"><?= $sponsor['image_name']; ?></a>
+                            <? else: ?>
+                                <input type="file" name="image" value="" class="jr"/>
                             <? endif; ?>
                         </td>
                     </tr>

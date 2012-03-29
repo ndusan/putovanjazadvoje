@@ -142,7 +142,7 @@ var App = App || {};
                         if(data.response){
                             $('.jPrizeImage').html('<input type="file" name="winner_image" value=""/>');
                         }
-                    }
+                    }   
                 });
             });
         }, 
@@ -150,7 +150,28 @@ var App = App || {};
             //Set datatable
             $('#dataTable').dataTable({"aaSorting": [[ 6, "desc" ]], "iDisplayLength": 50});
             App.Common.thead();
-        }
+        },
+        sponsors: function() {
+            
+            //Set datatable
+            $('#dataTable').dataTable({"aaSorting": [[ 2, "desc" ]], "iDisplayLength": 50});
+            App.Common.thead();
+            $('body').delegate('.jVisible', 'click', function(){
+
+                var cHref = $(this).val();
+                $.ajax({
+                    url: cHref,
+                    type: "GET"
+                });
+            });
+            
+       },
+       addSponsor: function() {
+           App.Common.jtooltip();
+       },
+       editSponsor: function() {
+           App.Common.jtooltip();
+       }
         
     };
 })(this.jQuery);
