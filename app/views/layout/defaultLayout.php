@@ -1,15 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <?  $breadcrumb = '';
-            if(!empty($params['breadcrumb'])):
-                foreach($params['breadcrumb'] as $bc):
-                    if(!is_numeric($bc) && !empty($bc)):
-                        $breadcrumb.= ' - '.str_replace('-', ' ', ucfirst($bc));
-                    endif;
-                endforeach;
-            endif;?>
-        <title>Putovanja za dvoje<?=$breadcrumb;?></title>
+        <?
+        $breadcrumb = '';
+        if (!empty($params['breadcrumb'])):
+            foreach ($params['breadcrumb'] as $bc):
+                if (!is_numeric($bc) && !empty($bc)):
+                    $breadcrumb.= ' - ' . str_replace('-', ' ', ucfirst($bc));
+                endif;
+            endforeach;
+        endif;
+        ?>
+        <title>Putovanja za dvoje<?= $breadcrumb; ?></title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="Magazin Putovanja za dvoje vodeći je turistički magazin u regionu koji savremenim putnicima pruža zanimljive i korisne informacije o domaćim i svetskim destinacijama. Kroz franšizna izdanja dostupan je u više od 15 zemalja Europe. Tekstovi sa stvarnih putovanja obogaćeni su vrhunskim autorskim fotografijama srpskih i internacionalnih putnika." />
@@ -21,58 +23,58 @@
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery.lightbox-0.5.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('app', ASSETS_JS_PATH); ?>
-        <?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
+<?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
         <?= $html->assetsCss('jquery.lightbox-0.5', ASSETS_CSS_PATH); ?>
 
         <!-- Load all custom js -->
-        <?= $html->js('app', JS_PATH); ?>
+<?= $html->js('app', JS_PATH); ?>
         <?= $html->allCustomJs(JS_PATH . 'default' . DS); ?>
 
         <!-- Load all custom css -->
-        <?= $html->css('default', CSS_PATH); ?>
+<?= $html->css('default', CSS_PATH); ?>
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="<?= (!empty($bgd['background_color']) ? 'background:' . $bgd['background_color'] : ''); ?> <?= (!empty($bgd['image_name']) ? 'url(' . DS . 'public' . DS . 'uploads' . DS . 'background' . DS . $bgd['image_name'] . ')' : ''); ?> scroll no-repeat 50% 0;">
         <? if (!empty($bgd['link'])): ?>
             <a href="<?= $bgd['link']; ?>" target="_blank" class="bgL"></a>
             <a href="<?= $bgd['link']; ?>" target="_blank" class="bgR"></a>
-        <? endif; ?>
+<? endif; ?>
         <div class="wrapper">
             <div class="header">
                 <ul class="topNav">
 
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pretplati-se-na-magazin';?>"><?= $_t['nav.sub.link']; ?></a></li>
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'naruci-ranije-brojeve';?>"><?= $_t['nav.order.link']; ?></a></li>
-                    <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'pokloni-pretplatu';?>"><?= $_t['nav.gift.link']; ?></a></li>
-                
-                    <li><a href="<?=DS.$params['lang'].DS.'newsletter';?>">Newsletter</a></li>
+                    <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'pretplati-se-na-magazin'; ?>"><?= $_t['nav.sub.link']; ?></a></li>
+                    <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'naruci-ranije-brojeve'; ?>"><?= $_t['nav.order.link']; ?></a></li>
+                    <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'pokloni-pretplatu'; ?>"><?= $_t['nav.gift.link']; ?></a></li>
+
+                    <li><a href="<?= DS . $params['lang'] . DS . 'newsletter'; ?>">Newsletter</a></li>
 
                 </ul>
                 <a class="logo" href="/">
                     <img width=330" height="60" src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                 </a>
-                <? if(!empty($header)):?>
-                <!--header -->
-                <? if (!empty($header['link'])):?>
-                    <a href="<?=$header['link'];?>" class="topBanner" target="_blank">
-                        <img src="<?=PUBLIC_UPLOAD_PATH.'header'.DS.$header['image_name'];?>" title="<?=$header['title'];?>" alt="<?=$header['title'];?>"/>
-                    </a>
-                <? else: ?>
-                    <img src="<?=PUBLIC_UPLOAD_PATH.'header'.DS.$header['image_name'];?>" title="<?=$header['title'];?>" alt="<?=$header['title'];?>"/>
-                <? endif; ?>
-                <? endif;?>
+                <? if (!empty($header)): ?>
+                    <!--header -->
+    <? if (!empty($header['link'])): ?>
+                        <a href="<?= $header['link']; ?>" class="topBanner" target="_blank">
+                            <img src="<?= PUBLIC_UPLOAD_PATH . 'header' . DS . $header['image_name']; ?>" title="<?= $header['title']; ?>" alt="<?= $header['title']; ?>"/>
+                        </a>
+                    <? else: ?>
+                        <img src="<?= PUBLIC_UPLOAD_PATH . 'header' . DS . $header['image_name']; ?>" title="<?= $header['title']; ?>" alt="<?= $header['title']; ?>"/>
+    <? endif; ?>
+<? endif; ?>
                 <ul class="topInfo">
                     <li class="first">
-                        <h1><?=$magazine['number'];?></h1>
-                        <a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>"><?= $_t['nav.edit-sale.link']; ?></a>
+                        <h1><?= $magazine['number']; ?></h1>
+                        <a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'broj-u-prodaji' . DS . 'sadrzaj'; ?>"><?= $_t['nav.edit-sale.link']; ?></a>
                     </li>
-                    <? if(!empty($magazine['header_image_name'])):?>
-                    <li><img src="<?= PUBLIC_UPLOAD_PATH.'magazine'.DS.$magazine['header_image_name']; ?>" /></li>
-                    <? endif;?>
+                    <? if (!empty($magazine['header_image_name'])): ?>
+                        <li><img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $magazine['header_image_name']; ?>" /></li>
+<? endif; ?>
                 </ul>
             </div>
             <div class="main">
-                <? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
+<? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
                 <div class="content">
                     <div class="sideContent">
                         <div class="sideBox">
@@ -83,57 +85,57 @@
                                 </form>
                             </div>
                         </div>
-                        <? if (!empty($onlineCollection)): ?>
-                        <!--ONLINE START -->
-                        <div class="sideBox">
-                            <div class="title">
+<? if (!empty($onlineCollection)): ?>
+                            <!--ONLINE START -->
+                            <div class="sideBox">
+                                <div class="title">
                                 <?= $_t['sidebar.onlinecontest.title']; ?>
-                            </div>
-                            <? foreach ($onlineCollection as $online): ?>
-                            <div class="context custom">
-                                <a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>">
-                                    <img src="<?= PUBLIC_UPLOAD_PATH .'sponsors'.DS. 'thumb-'.$online['image_name']; ?>" alt="<?= $online['name']; ?>" title="<?= $online['name']; ?>"/>
-                                </a>
-                            </div>
+                                </div>
+    <? foreach ($onlineCollection as $online): ?>
+                                    <div class="context custom">
+                                        <a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'online'; ?>">
+                                            <img src="<?= PUBLIC_UPLOAD_PATH . 'sponsors' . DS . 'thumb-' . $online['image_name']; ?>" alt="<?= $online['name']; ?>" title="<?= $online['name']; ?>"/>
+                                        </a>
+                                    </div>
                             <? endforeach; ?>
-                        </div>
-                        <!-- ONLINE END-->
+                            </div>
+                            <!-- ONLINE END-->
                         <? endif; ?>
-                        
-                        <? if (!empty($offlineCollection)): ?>
-                        <!--OFFLINE START -->
-                        <div class="sideBox">
-                            <div class="title">
+
+<? if (!empty($offlineCollection)): ?>
+                            <!--OFFLINE START -->
+                            <div class="sideBox">
+                                <div class="title">
                                 <?= $_t['sidebar.contest.title']; ?>
-                            </div>
-                            <? foreach ($offlineCollection as $offline): ?>
-                            <div class="context custom">
-                                <a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'offline?id='.$offline['id'];?>">
-                                    <img src="<?= PUBLIC_UPLOAD_PATH .'contest'.DS. 'thumb-'.$offline['image_name']; ?>" alt="<?= $offline['name']; ?>" title="<?= $offline['name']; ?>"/>
-                                </a>
-                                <?= $offline['name']; ?>
-                            </div>
+                                </div>
+    <? foreach ($offlineCollection as $offline): ?>
+                                    <div class="context custom">
+                                        <a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'offline?id=' . $offline['id']; ?>">
+                                            <img src="<?= PUBLIC_UPLOAD_PATH . 'contest' . DS . 'thumb-' . $offline['image_name']; ?>" alt="<?= $offline['name']; ?>" title="<?= $offline['name']; ?>"/>
+                                        </a>
+                                    <?= $offline['name']; ?>
+                                    </div>
                             <? endforeach; ?>
-                        </div>
-                        <!--OFFLINE END-->
+                            </div>
+                            <!--OFFLINE END-->
                         <? endif; ?>
-                        
-                        <? if (!empty($bannerCollection)): ?>
+
+                            <? if (!empty($bannerCollection)): ?>
                             <ul class="banners">
-                                <? foreach ($bannerCollection as $banner): ?>
+    <? foreach ($bannerCollection as $banner): ?>
                                     <li>
-                                        <a href="<?=$banner['link']; ?>" target="_blank">
+                                        <a href="<?= $banner['link']; ?>" target="_blank">
                                             <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . $banner['image_name']; ?>" />
                                         </a>
                                     </li>
-                                <? endforeach; ?>
+                            <? endforeach; ?>
                             </ul>
-                        <? endif; ?>
+<? endif; ?>
                     </div>
 
                     <!-- This is a content that will be included on page inside of this layout -->
-                    <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-                        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+<? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+    include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
 
 
                 </div>
@@ -149,24 +151,24 @@
                 <ul class="footerLinks">
                     <li class="first"><a href="#"><?= $_t['footer.home.link']; ?></a>
                         <ul>
-                            
-                            <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'o-nama';?>"><?= $_t['footer.aboutus.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'press'.DS.'o-magazinu';?>"><?= $_t['footer.press.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'oglasavanje'.DS.'cenovnik-i-formati';?>"><?= $_t['footer.adv.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'preuzimanje';?>"><?= $_t['footer.download.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'kontakt';?>"><?= $_t['footer.contact.link']; ?></a></li>
+
+                            <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'o-nama'; ?>"><?= $_t['footer.aboutus.link']; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'press' . DS . 'o-magazinu'; ?>"><?= $_t['footer.press.link']; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'oglasavanje' . DS . 'cenovnik-i-formati'; ?>"><?= $_t['footer.adv.link']; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'preuzimanje'; ?>"><?= $_t['footer.download.link']; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'kontakt'; ?>"><?= $_t['footer.contact.link']; ?></a></li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li><a href="<?=DS.$params['lang'].DS.'aktuelno';?>"><?= $_t['footer.actual.link']; ?></a>
-                            <li><a href="<?=DS.$params['lang'].DS.'magazin'.DS.'broj-u-prodaji'.DS.'sadrzaj';?>"><?= $_t['footer.onsale.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'online';?>"><?= $_t['footer.contests.link']; ?></a></li>
-                            <li><a href="<?=DS.$params['lang'].DS.'nagradne-igre'.DS.'dobitnici';?>"><?= $_t['footer.winners.link']; ?></a></li>
-                            
+                            <li><a href="<?= DS . $params['lang'] . DS . 'aktuelno'; ?>"><?= $_t['footer.actual.link']; ?></a>
+                                <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'broj-u-prodaji' . DS . 'sadrzaj'; ?>"><?= $_t['footer.onsale.link']; ?></a></li>
+                                <li><a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'online'; ?>"><?= $_t['footer.contests.link']; ?></a></li>
+                                <li><a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'dobitnici'; ?>"><?= $_t['footer.winners.link']; ?></a></li>
+
                         </ul>
                     </li>
-                    <li>
+                    <li class="last">
                         <ul>
                             <li>Email: office@putovanjazadvoje.rs</li>
                             <li>Tel:</li>

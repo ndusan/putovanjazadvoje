@@ -22,9 +22,9 @@
                 <? if (!empty($wDataCollection)): ?>
                     <h2><?= $_t['page.download-wallpapers.title']; ?></h2>
                     <ul class="magazines dloads">
-                        <?$countMagazine=0;?>
+                        <?$countDloads=0;?>
                         <? foreach ($wDataCollection as $w): ?>
-                            <li <? if($countMagazine++ >= 3){ echo 'class="last"'; $countMagazine=0;} ?>>
+                            <li <? if($countDloads++ >= 2){ echo 'class="last"'; $countDloads=0;} ?>>
                                 <img src="<?= PUBLIC_UPLOAD_PATH . 'download' . DS . $w['image_name']; ?>" />
                                 <span>
                                     <? foreach ($w['images'] as $wd): ?>
