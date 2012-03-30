@@ -136,7 +136,7 @@ class CmsContestController extends Controller
                 $this->uploadImage($newImageName, $params['image'], 'contest');
                 
                 //Create thumb
-                $this->createThumbImage($newImageName, 'contest', 100, 100);
+                $this->createThumbImageAccordingToWidth($newImageName, 'contest', 230);
             }
             
             return $id;
