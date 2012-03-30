@@ -9,8 +9,8 @@
         <? if(!empty($params['id'])):?>
         <? if($contest['init']['type']=='online'):?>
         <li><a href="#fragment-2">Conditions</a></li>
-        <? endif;?>
         <li><a href="#fragment-3">Description</a></li>
+        <? endif;?>
         <li><a href="#fragment-4">Prizes</a></li>
         <? endif; ?>
     </ul>
@@ -22,8 +22,8 @@
     <!-- SHOWING ONLY IN EDIT MODE -->
         <? if($contest['init']['type']=='online'):?>
         <? include_once '_conditionsView.php';?>
-        <? endif;?>
         <? include_once '_descriptionView.php';?>
+        <? endif;?>
         <? include_once '_prizesView.php';?>
     <? endif; ?>
 </div>
