@@ -171,7 +171,7 @@ ul.footerLinks li ul {padding:20px 0 0;}
 ul.orderSelect {overflow:hidden;}
 ul.orderSelect li {float:left; padding:10px 20px 10px 0;}
 ul.orderSelect li span {padding:0 5px;}
-ul.orderSelect input[type=checkbox] {vertical-align:sub;}
+ul.orderSelect input[type=checkbox] {}
 
 ul.magazines {overflow:hidden;}
 ul.magazines li {float:left; padding:10px 0; margin:0 18px 0 0; position:relative;}
