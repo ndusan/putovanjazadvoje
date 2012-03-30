@@ -46,6 +46,7 @@ class CmsAdsController extends Controller
                         
                         $info = $this->uploadFile($newFileName, $file, 'ads');
                         $info['alias'] = $params['alias'][$k];
+                        
                         $this->db->updateFileInfo($newFileName, $info);
                     }
                 }
