@@ -23,22 +23,22 @@
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery.lightbox-0.5.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('app', ASSETS_JS_PATH); ?>
-<?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
+        <?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
         <?= $html->assetsCss('jquery.lightbox-0.5', ASSETS_CSS_PATH); ?>
 
         <!-- Load all custom js -->
-<?= $html->js('app', JS_PATH); ?>
+        <?= $html->js('app', JS_PATH); ?>
         <?= $html->allCustomJs(JS_PATH . 'default' . DS); ?>
 
         <!-- Load all custom css -->
-<?= $html->css('default', CSS_PATH); ?>
+        <?= $html->css('default', CSS_PATH); ?>
         <link href='http://fonts.googleapis.com/css?family=Francois+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>" style="<?= (!empty($bgd['background_color']) ? 'background:' . $bgd['background_color'] : ''); ?> <?= (!empty($bgd['image_name']) ? 'url(' . DS . 'public' . DS . 'uploads' . DS . 'background' . DS . $bgd['image_name'] . ')' : ''); ?> scroll no-repeat 50% 0;">
         <? if (!empty($bgd['link'])): ?>
             <a href="<?= $bgd['link']; ?>" target="_blank" class="bgL"></a>
             <a href="<?= $bgd['link']; ?>" target="_blank" class="bgR"></a>
-<? endif; ?>
+        <? endif; ?>
         <div class="wrapper">
             <div class="header">
                 <ul class="topNav">
@@ -55,14 +55,14 @@
                 </a>
                 <? if (!empty($header)): ?>
                     <!--header -->
-    <? if (!empty($header['link'])): ?>
+                    <? if (!empty($header['link'])): ?>
                         <a href="<?= $header['link']; ?>" class="topBanner" target="_blank">
                             <img src="<?= PUBLIC_UPLOAD_PATH . 'header' . DS . $header['image_name']; ?>" title="<?= $header['title']; ?>" alt="<?= $header['title']; ?>"/>
                         </a>
                     <? else: ?>
                         <img src="<?= PUBLIC_UPLOAD_PATH . 'header' . DS . $header['image_name']; ?>" title="<?= $header['title']; ?>" alt="<?= $header['title']; ?>"/>
-    <? endif; ?>
-<? endif; ?>
+                    <? endif; ?>
+                <? endif; ?>
                 <ul class="topInfo">
                     <li class="first">
                         <h1><?= $magazine['number']; ?></h1>
@@ -70,11 +70,11 @@
                     </li>
                     <? if (!empty($magazine['header_image_name'])): ?>
                         <li><img src="<?= PUBLIC_UPLOAD_PATH . 'magazine' . DS . $magazine['header_image_name']; ?>" /></li>
-<? endif; ?>
+                    <? endif; ?>
                 </ul>
             </div>
             <div class="main">
-<? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
+                <? include_once VIEW_PATH . 'home' . DS . '_mainNavigation.php'; ?>
                 <div class="content">
                     <div class="sideContent">
                         <div class="sideBox">
@@ -85,57 +85,58 @@
                                 </form>
                             </div>
                         </div>
-<? if (!empty($onlineCollection)): ?>
+                        <? if (!empty($onlineCollection)): ?>
                             <!--ONLINE START -->
                             <div class="sideBox">
                                 <div class="title">
-                                <?= $_t['sidebar.onlinecontest.title']; ?>
+                                    <?= $_t['sidebar.onlinecontest.title']; ?>
                                 </div>
-    <? foreach ($onlineCollection as $online): ?>
+                                <? foreach ($onlineCollection as $online): ?>
                                     <div class="context custom">
                                         <a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'online'; ?>">
                                             <img src="<?= PUBLIC_UPLOAD_PATH . 'sponsors' . DS . 'thumb-' . $online['image_name']; ?>" alt="<?= $online['name']; ?>" title="<?= $online['name']; ?>"/>
                                         </a>
                                     </div>
-                            <? endforeach; ?>
+                                <? endforeach; ?>
                             </div>
                             <!-- ONLINE END-->
                         <? endif; ?>
 
-<? if (!empty($offlineCollection)): ?>
+                        <? if (!empty($offlineCollection)): ?>
                             <!--OFFLINE START -->
                             <div class="sideBox">
                                 <div class="title">
-                                <?= $_t['sidebar.contest.title']; ?>
+                                    <?= $_t['sidebar.contest.title']; ?>
                                 </div>
-    <? foreach ($offlineCollection as $offline): ?>
+                                <? foreach ($offlineCollection as $offline): ?>
                                     <div class="context custom">
+                                        <h2><?= $offline['name']; ?></h2>
                                         <a href="<?= DS . $params['lang'] . DS . 'nagradne-igre' . DS . 'offline?id=' . $offline['id']; ?>">
                                             <img src="<?= PUBLIC_UPLOAD_PATH . 'contest' . DS . 'thumb-' . $offline['image_name']; ?>" alt="<?= $offline['name']; ?>" title="<?= $offline['name']; ?>"/>
                                         </a>
-                                    <?= $offline['name']; ?>
+
                                     </div>
-                            <? endforeach; ?>
+                                <? endforeach; ?>
                             </div>
                             <!--OFFLINE END-->
                         <? endif; ?>
 
-                            <? if (!empty($bannerCollection)): ?>
+                        <? if (!empty($bannerCollection)): ?>
                             <ul class="banners">
-    <? foreach ($bannerCollection as $banner): ?>
+                                <? foreach ($bannerCollection as $banner): ?>
                                     <li>
                                         <a href="<?= $banner['link']; ?>" target="_blank">
                                             <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'banners' . DS . $banner['image_name']; ?>" />
                                         </a>
                                     </li>
-                            <? endforeach; ?>
+                                <? endforeach; ?>
                             </ul>
-<? endif; ?>
+                        <? endif; ?>
                     </div>
 
                     <!-- This is a content that will be included on page inside of this layout -->
-<? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-    include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+                    <? if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+                        include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
 
 
                 </div>
