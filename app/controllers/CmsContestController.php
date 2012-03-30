@@ -316,7 +316,7 @@ class CmsContestController extends Controller
                     $oldThumbImageName = 'thumb-'.$oldImageName;
                     $this->deleteImage($oldThumbImageName, 'sponsors');
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'sponsors', 100, 100);
+                    $this->createThumbImage($newImageName, 'sponsors', 230, 230);
                 }
                 $this->redirect ('cms'.DS.'sponsors', 'success');
             }
