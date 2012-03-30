@@ -36,9 +36,12 @@
                     <? endforeach; ?>
                 </tbody> 
             </table> 
-            <table>
+            <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
+                        <td>
+                            <span title="Image that appears below title" class="jtooltip">Optional image:</span>
+                        </td>
                         <td>
                             <? if (!empty($prizesCollection['winner_image_name'])): ?>
                                 <div class="jPrizeImage">

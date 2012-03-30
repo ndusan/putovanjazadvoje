@@ -127,6 +127,7 @@ ul.intro {padding:0 0 20px; border-bottom:solid 1px #EEE; overflow:hidden;}
 ul.intro li {float:left; width:310px; padding:50px 10px 0 10px;}
 ul.intro li img {float:left;}
 ul.intro li .txt {margin:0 0 0 105px;}
+ul.intro li .txt a {padding:5px 0 0; display:inline-block;}
 
 ul.news {padding:20px 0; border-bottom:solid 1px #EEE; overflow:hidden;}
 ul.news li {float:left; width:200px; padding:0 0 0 10px; margin:0 15px 0 0; position:relative;}
