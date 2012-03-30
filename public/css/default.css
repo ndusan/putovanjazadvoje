@@ -89,6 +89,7 @@ ul.lang li a.active {background-color:#f5f5f5; color:#288fd7;}
 .sideBox .title {padding:10px 20px; background-color:#FFF; font-family: 'Francois One', sans-serif; font-size:15px;}
 .sideBox .context {background-color:#FFF; padding:20px; position:relative;}
 .sideBox .context.custom {min-height:50px; background-image:url(../images/sideCustom.jpg); background-repeat:no-repeat; background-position:0 0;}
+.sideBox .context h2 {padding:0 0 5px; margin:-10px 0 0;}
 
 .sideBox .context input[type=text] {font-family:'Arial',sans-serif; width:192px; font-size:14px; padding:6px 28px 6px 6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .sideBox .context input[type=text]:focus {background-color:#FFF; }
