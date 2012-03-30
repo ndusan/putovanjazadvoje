@@ -30,6 +30,7 @@ p {padding:0;}
 .fr {float:right;}
 
 .warning {border-color:#b85252 !important;}
+.prize {padding:0 0 0 40px; line-height:40px; background:transparent url(../images/prize.png) scroll no-repeat 0 50%;}
 
 a[href$='.pdf'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/pdfIcon.png) no-repeat 0 50%;}
 a[href$='.doc'], a[href$='.docx'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/wordIcon.png) no-repeat 0 50%;}
@@ -89,6 +90,7 @@ ul.lang li a.active {background-color:#f5f5f5; color:#288fd7;}
 .sideBox .title {padding:10px 20px; background-color:#FFF; font-family: 'Francois One', sans-serif; font-size:15px;}
 .sideBox .context {background-color:#FFF; padding:20px; position:relative;}
 .sideBox .context.custom {min-height:50px; background-image:url(../images/sideCustom.jpg); background-repeat:no-repeat; background-position:0 0;}
+.sideBox .context h2 {padding:0 0 5px; margin:-10px 0 0;}
 
 .sideBox .context input[type=text] {font-family:'Arial',sans-serif; width:192px; font-size:14px; padding:6px 28px 6px 6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .sideBox .context input[type=text]:focus {background-color:#FFF; }
@@ -126,6 +128,7 @@ ul.intro {padding:0 0 20px; border-bottom:solid 1px #EEE; overflow:hidden;}
 ul.intro li {float:left; width:310px; padding:50px 10px 0 10px;}
 ul.intro li img {float:left;}
 ul.intro li .txt {margin:0 0 0 105px;}
+ul.intro li .txt a {padding:5px 0 0; display:inline-block;}
 
 ul.news {padding:20px 0; border-bottom:solid 1px #EEE; overflow:hidden;}
 ul.news li {float:left; width:200px; padding:0 0 0 10px; margin:0 15px 0 0; position:relative;}
@@ -209,7 +212,7 @@ ul.games > li a {position:absolute; bottom:10px; right:10px; line-height:50px; f
 ul.games > li a:hover {background-position:100% 0;}
 ul.games > li .text {padding:10px 100px 10px 0;}
 
-ul.winners {overflow:hidden;}
+ul.winners {overflow:hidden; border-top:solid 1px #41a8f0;}
 ul.winners li {padding:20px 0; border-bottom:solid 1px #41a8f0;}
 
 .bgL {position:fixed; top:0; right:50%; width:50%; height:100%; margin:0 490px 0 0;}
