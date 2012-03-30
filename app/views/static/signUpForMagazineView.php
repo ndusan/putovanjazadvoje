@@ -85,10 +85,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label><?= $_t['orderform.phone.label']; ?><span>*</span></label>
+                                    <label><?= $_t['orderform.phone.label']; ?></label>
                                 </td>
                                 <td>
-                                    <input type="text" name="collection[telephone]" class="jr" value="" /><span class="req"><?= $_t['orderform.required.label']; ?></span>
+                                    <input type="text" name="collection[telephone]" value="" /><span class="req"><?= $_t['orderform.required.label']; ?></span>
                                 </td>
                             </tr>
                             <tr>
