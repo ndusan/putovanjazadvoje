@@ -10,6 +10,7 @@ class Controller {
     protected $_template;
     protected $db;
     public $renderHTML = 1;
+    protected $imagine;
 
     /**
      * Constructor
@@ -287,9 +288,8 @@ class Controller {
                $new_height = $currHeight / ($currWidth / $thumb_width);
             }
             
-            $imagine = new \Imagine\Gd\Imagine();
-            
-            $image = $imagine->open(UPLOAD_PATH . $folder . DS . $imageName);
+            $this->setImagine();
+            $image = $this->imagine->open(UPLOAD_PATH . $folder . DS . $imageName);
             $thumbnail = $image->thumbnail(new Imagine\Image\Box($new_width, $new_height));
             $thumbnail->save(UPLOAD_PATH . $folder . DS . 'thumb-'. $imageName);
             
@@ -298,8 +298,35 @@ class Controller {
 
             return false;
         }
+    }
+    
+    protected function createThumbImageAccordingToWidth($imageName, $folder, $thumb_width)
+    {
+        //Create structure if doesn't exist
+        $this->createFolder(UPLOAD_PATH . $folder);
         
-        
+        if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
+            //Calculate heigth
+            list($cWidth, $cHeight) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            if (!isset($cWidth) || $cWidth <= 0) return false;
+            
+            $newHeight = $cHeight*($thumb_width/$cWidth);
+            
+            //Open original image
+            $this->setImagine();
+            $originalImage = $this->imagine->open(UPLOAD_PATH . $folder . DS . $imageName);
+
+            //Resize only if required new width or height are smaller then required
+            if ($cWidth>$thumb_width || $cHeight>$newHeight) {
+                $originalImage->resize(new \Imagine\Image\Box($thumb_width, $newHeight))
+                             ->save(UPLOAD_PATH . $folder . DS . 'thumb-'. $imageName);
+            } else {
+                $originalImage->save(UPLOAD_PATH . $folder . DS . 'thumb-'. $imageName);
+            }
+
+            return true;
+        }
     }
 
     public function sendEmail($to, $subject, $message, $from, array $array=array(), array $files=array()) {
@@ -425,6 +452,14 @@ class Controller {
         $this->set('bannerCollection', $this->db->getBannerCollection($params));
     }
     
-
+    public function setImagine()
+    {
+        if ( IMAGINE == 'Imagick') {
+            $this->imagine = new \Imagine\Imagick\Imagine();
+        } else {
+            $this->imagine = new \Imagine\Gd\Imagine();
+        }
+        
+    }
 
 }

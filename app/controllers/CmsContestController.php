@@ -289,7 +289,7 @@ class CmsContestController extends Controller
                     $this->uploadImage($newImageName, $params['image'], 'sponsors');
                     
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'sponsors', 100, 100);
+                    $this->createThumbImageAccordingToWidth($newImageName, 'sponsors', 230);
                 }
                 $this->redirect ('cms'.DS.'sponsors', 'success');
             }else{
@@ -316,7 +316,7 @@ class CmsContestController extends Controller
                     $oldThumbImageName = 'thumb-'.$oldImageName;
                     $this->deleteImage($oldThumbImageName, 'sponsors');
                     //Create thumb
-                    $this->createThumbImage($newImageName, 'sponsors', 230, 230);
+                    $this->createThumbImageAccordingToWidth($newImageName, 'sponsors', 230);
                 }
                 $this->redirect ('cms'.DS.'sponsors', 'success');
             }
