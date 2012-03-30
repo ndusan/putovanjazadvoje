@@ -30,6 +30,7 @@ p {padding:0;}
 .fr {float:right;}
 
 .warning {border-color:#b85252 !important;}
+.prize {padding:0 0 0 40px; line-height:40px; background:transparent url(../images/prize.png) scroll no-repeat 0 50%;}
 
 a[href$='.pdf'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/pdfIcon.png) no-repeat 0 50%;}
 a[href$='.doc'], a[href$='.docx'] {line-height:20px; padding:10px 0 10px 25px; background:transparent url(../images/wordIcon.png) no-repeat 0 50%;}
@@ -211,7 +212,7 @@ ul.games > li a {position:absolute; bottom:10px; right:10px; line-height:50px; f
 ul.games > li a:hover {background-position:100% 0;}
 ul.games > li .text {padding:10px 100px 10px 0;}
 
-ul.winners {overflow:hidden;}
+ul.winners {overflow:hidden; border-top:solid 1px #41a8f0;}
 ul.winners li {padding:20px 0; border-bottom:solid 1px #41a8f0;}
 
 .bgL {position:fixed; top:0; right:50%; width:50%; height:100%; margin:0 490px 0 0;}
