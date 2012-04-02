@@ -92,7 +92,7 @@ ul.lang li a.active {background-color:#f5f5f5; color:#288fd7;}
 .sideBox .context.custom {min-height:50px; background-image:url(../images/sideCustom.jpg); background-repeat:no-repeat; background-position:0 0;}
 .sideBox .context h2 {padding:0 0 5px; margin:-10px 0 0;}
 
-.sideBox .context input[type=text] {font-family:'Arial',sans-serif; width:192px; font-size:14px; padding:6px 28px 6px 6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.sideBox .context input[type=text] {font-family:'Arial',sans-serif; width:192px; font-size:14px; padding:6px 28px 6px 6px; border:solid 1px #DDD; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .sideBox .context input[type=text]:focus {background-color:#FFF; }
 .sideBox .context input[type=submit] {position:absolute; top:20px; right:23px; width:28px; height:0; padding:28px 0 0; background-image:url(../images/searchBut_bg.png); background-color:transparent; border:none;}
 .sideBox .context input[type=submit]:hover {background-position:0 -28px; cursor:pointer;}
@@ -158,15 +158,16 @@ ul.footerLinks li ul {padding:20px 0 0;}
 .forms thead th {padding:5px; text-align:left;}
 .forms tbody td {padding:5px; border-bottom:solid 1px #f5f5f5;}
 .forms tfoot td {padding:10px 5px;}
-.forms label {font-family:'Arial',sans-serif; display:block; font-size:14px; color:#333;}
+.forms label {font-family:'Arial',sans-serif; display:block; font-size:14px; color:#333; line-height:30px;}
 .forms label span {color:#b85252;}
-.forms input[type=text] {font-family:'Arial',sans-serif; width:200px; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms label img {padding:0 0 0 4px;}
+.forms input[type=text] {font-family:'Arial',sans-serif; width:200px; font-size:14px; padding:6px; border:solid 1px #DDD; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .forms input[type=text]:focus {background-color:#FFF; }
 .forms input[type=submit] {font-family:'Arial',sans-serif; padding:10px 20px 10px 35px; border-radius:2px; font-size:14px; color:#FFF; font-weight:bold; border:none; background:transparent url(../images/butOk_bg.png) scroll no-repeat 0 -5px;}
 .forms input[type=submit]:hover {background-position:0 -55px; cursor:pointer;}
-.forms select {font-family:'Arial',sans-serif; width:214px; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms select {font-family:'Arial',sans-serif; width:214px; font-size:14px; padding:6px; border:solid 1px #DDD; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .forms select:focus {background-color:#FFF; }
-.forms textarea {font-family:'Arial',sans-serif; width:200px; vertical-align:middle; font-size:14px; padding:6px; border:solid 1px #EEE; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
+.forms textarea {font-family:'Arial',sans-serif; width:200px; vertical-align:middle; font-size:14px; padding:6px; border:solid 1px #DDD; background-color:#FEFEFE; color:#555; box-shadow:0 0 2px #EEE inset;}
 .forms textarea:focus {background-color:#FFF; }
 .forms .req {padding:0 10px; color:#b85252; display: none;}
 .forms .small {color:#999;}
