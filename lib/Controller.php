@@ -354,19 +354,20 @@ class Controller {
             if(!empty($array)){
                 foreach ($message as $key => $val) {
                     $messageHtml.= '<tr>';
-                    $messageHtml.= '<th>' . $array[$key] . '</th>';
-                        if(!empty($key) && is_array($key)){
-                            $messageHtml.= '<td>';
-                            foreach ($val as $p){
-                                $messageHtml.= $p . '<br/>';
-                            }
-                            $messageHtml.= '</td>';
-                        }elseif(is_array($val)){
-                            $messageHtml.= '<td>' . print_r($val,true) . '</td>';
-                        }else{
-                            $messageHtml.= '<td>' . $val . '</td>';
+                    if (is_array($val)) {
+                        $messageHtml.= '<th>Data list</th>'; 
+                        $messageHtml.= '<td>' . print_r($val,true) . '</td>';
+                    } elseif (!empty($key) && is_array($key)) {
+                       $messageHtml.= '<th>' . $array[$key] . '</th>'; 
+                       $messageHtml.= '<td>';
+                        foreach ($val as $p){
+                            $messageHtml.= $p . '<br/>';
                         }
-                        
+                        $messageHtml.= '</td>';
+                    } else {
+                        $messageHtml.= '<th>' . $array[$key] . '</th>'; 
+                        $messageHtml.= '<td>' . $val . '</td>';
+                    }  
                     $messageHtml.= '</tr>';
                 }
             }
