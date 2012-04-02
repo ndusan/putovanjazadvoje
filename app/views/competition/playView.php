@@ -27,7 +27,7 @@
 <script type="text/javascript">
     App.Competition = App.Competition || {};
     //This needs to be translated
-    App.Competition.completed = 'Congratulations! <a href="<?= DS . $params['lang']; ?>">Click here to go on homepage.</a>';
+    App.Competition.completed = '<?= $_t['game.congrat.label']; ?>! <a href="<?= DS . $params['lang']; ?>"> <?= $_t['game.gotohomepage.link']; ?></a>';
     App.Competition.data = <?=json_encode(array('url'=>DS.$params['lang'].DS.'nagradne-igre'.DS.'online'.DS.$play['game']['id'].DS.'play',
                                                 'contest'=>$play['game']['id'],
                                                 'tocken'=>$params['tocken'],
