@@ -1,5 +1,5 @@
 <div class="breadcrumb">
-    <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?= $_t['breadcrumb.actualedition.link']; ?> / <?= $_t['breadcrumb.topic.link']; ?>
+    <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.magazine.link'];?> / <?= $_t['breadcrumb.actualedition.link']; ?> / <?= $_t['breadcrumb.topic.link']; ?>
 </div>
 <? if (!empty($magazineCollection)): ?>
 
