@@ -66,7 +66,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td id="anti-spam"></td>
+                                <td><label><?=$_t['rewrite.number.label'];?><span>*</span><span id="anti-spam"</span></label></td>
                                 <td>
                                     <input type="text" name="anti-spam" id="form_spam" class="jr" value="" /><span class="req"><?=$_t['orderform.required.label'];?></span>
                                 </td>
