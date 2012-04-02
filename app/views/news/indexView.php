@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.actual.link'];?> 
+                <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?=$_t['breadcrumb.actual.link'];?> 
             </div>
             <? if(!empty($currentNews)):?>
             <!--select news -->

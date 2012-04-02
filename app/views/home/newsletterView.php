@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#"><?= $_t['breadcrumb.home.link']; ?></a> / Newsletter
+                <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / Newsletter
             </div>
 
             <? if (!empty($sent)): ?>

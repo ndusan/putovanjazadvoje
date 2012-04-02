@@ -2,7 +2,7 @@
     <div class="contentBox">
         <div class="context">
             <div class="breadcrumb">
-                <a href="#"><?= $_t['breadcrumb.home.link']; ?></a> / <?= $_t['breadcrumb.magazine.link']; ?> / <?= $_t['breadcrumb.orderprev.link']; ?>
+                <a href="<?=DS.$params['lang'];?>"><?=$_t['breadcrumb.home.link'];?></a> / <?= $_t['breadcrumb.magazine.link']; ?> / <?= $_t['breadcrumb.orderprev.link']; ?>
             </div>
             <div class="wys">
                 <h1><?= $_t['page.orderprev.title']; ?></h1>
