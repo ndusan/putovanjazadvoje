@@ -75,7 +75,7 @@
                                 <td colspan="2" align="center">
                                     <input type="hidden" name="condition[magazine]" value="<?=$conditionCollection['magazine_id'];?>"/>
                                     <input type="hidden" name="condition[contest]" value="<?=$conditionCollection['id'];?>"/>
-                                    <input type="submit" name="submit" value="Play" disabled="disabled" id="jSubmit"/>
+                                    <input type="submit" name="submit" value="<?=$_t['contest.play'];?>" disabled="disabled" id="jSubmit"/>
                                 </td>
                             </tr>
                         </tfoot>
