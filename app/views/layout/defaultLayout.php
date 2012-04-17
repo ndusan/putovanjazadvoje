@@ -151,7 +151,9 @@
                     Copyright © putovanjazadvoje.rs 2011.
                 </div>
                 <ul class="footerLinks">
+
                     <li class="first"><a href="<?= DS . $params['lang'];?>"><?= $_t['footer.home.link']; ?></a>
+
                         <ul>
 
                             <li><a href="<?= DS . $params['lang'] . DS . 'magazin' . DS . 'o-nama'; ?>"><?= $_t['footer.aboutus.link']; ?></a></li>
