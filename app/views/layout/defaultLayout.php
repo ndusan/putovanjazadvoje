@@ -174,7 +174,7 @@
                     </li>
                     <li class="last">
                         <ul>
-                            <li>Email: office@putovanjazadvoje.rs</li>
+                            <li>Email: info@putovanjazadvoje.rs</li>
                             <li>Tel: +381 11 4140 965</li>
                             <li><a href="http://www.facebook.com/pages/Putovanja-za-dvojers/126685817416482" target="_blank">Facebook </a></li>
                             <li><a href="https://twitter.com/#!/putovanjars" target="_blank">Twitter</a></li>
