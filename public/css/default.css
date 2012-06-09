@@ -209,8 +209,8 @@ ul.sidebarLinks li.blue a:hover {background-position:100% 0px;}
 ul.games {overflow:hidden; padding:30px 0 0;}
 ul.games > li {padding:40px 0 0; margin:0 0 30px; border-bottom:solid 1px #9aca46; position:relative}
 ul.games > li h2 {position:absolute; top:-10px; left:0; color:#FFF; background:transparent url(../images/bubble.png) scroll no-repeat 50% 0; line-height:50px; padding:0 30px 10px;}
-ul.games > li a {position:absolute; bottom:10px; right:10px; line-height:50px; font-family:'Francois One', sans-serif; text-align:center; display:block; padding:0 20px; color:#FFF; background-image:url(../images/links_bg.png);}
-ul.games > li a:hover {background-position:100% 0;}
+ul.games > li > a {position:absolute; bottom:10px; right:10px; line-height:50px; font-family:'Francois One', sans-serif; text-align:center; display:block; padding:0 20px; color:#FFF; background-image:url(../images/links_bg.png);}
+ul.games > li > a:hover {background-position:100% 0;}
 ul.games > li .text {padding:10px 100px 10px 0;}
 
 ul.winners {overflow:hidden; border-top:solid 1px #41a8f0;}
