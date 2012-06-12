@@ -55,6 +55,14 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <label><?= $_t['ocontactform.city.label']; ?><span>*</span></label>
+                                </td>
+                                <td>
+                                    <input type="text" name="condition[city]" class="jr" value="" /><span class="req"><?= $_t['orderform.required.label']; ?></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
                                     <label><?= $_t['game.conditions']; ?><span>*</span></label>
                                 </td>
                                 <td>
