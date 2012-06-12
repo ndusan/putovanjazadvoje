@@ -47,13 +47,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label><?= $_t['orderform.address.label']; ?>, <?= $_t['contactform.city.label']; ?><span>*</span></label>
+                                    <label><?= $_t['orderform.address.label']; ?><span>*</span></label>
                                 </td>
                                 <td>
                                     <input type="text" name="condition[address]" class="jr" value="" /><span class="req"><?= $_t['orderform.required.label']; ?></span>
                                 </td>
                             </tr>
-                            
                             <tr>
                                 <td>
                                     <label><?= $_t['game.conditions']; ?><span>*</span></label>
